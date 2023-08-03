@@ -9,7 +9,7 @@ class ClienteModel extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'CLIENTES';
     protected $primaryKey       = 'PK';
-    protected $useAutoIncrement = false;
+    protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;

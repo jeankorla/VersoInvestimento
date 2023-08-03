@@ -136,7 +136,7 @@
 <body>
 <h1 class="text-center fs-4">Mentoria Viver de Renda</h1>
 <h1 class="text-center fs-4">Tenha um processo estruturado de crescimento financeiro e patrimonial feito sob medida para você saber exatamente o que fazer, como fazer e qual resultado esperar.</h1>
-    <form id="signUpForm" action="#!">
+    <form id="signUpForm" method="POST" action="<?= base_url('Home/salvar') ?>">
         <!-- start step indicators -->
         <div class="form-header d-flex mb-4">
             <span class="stepIndicator">Cadastro</span>
@@ -156,13 +156,13 @@
             </div>
 
             <div class="mb-3">
-                <label for="NOME">Nome Completo:</label>
-                <input type="text" oninput="this.className = ''" name="NOME" id="NOME">
+                <label for="NOME_COMPLETO">Nome Completo:</label>
+                <input type="text" oninput="this.className = ''" name="NOME_COMPLETO" id="NOME_COMPLETO">
             </div>
 
             <div class="mb-3">
-                <label for="NASCIMENTO">Data de nascimento:</label>
-                <input type="date" placeholder="" oninput="this.className = ''" name="NASCIMENTO" id="NASCIMENTO">
+                <label for="DATA_NASCIMENTO">Data de nascimento:</label>
+                <input type="date" placeholder="" oninput="this.className = ''" name="DATA_NASCIMENTO" id="DATA_NASCIMENTO">
             </div>
 
              <div class="mb-3">
@@ -171,8 +171,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="PROFISSAO_EXERC">Como exerce a sua profissão?</label>
-                <select id="PROFISSAO_EXERC" name="PROFISSAO_EXERC" class="form-control">
+                <label for="PROFISSAO_TIPO">Como exerce a sua profissão?</label>
+                <select id="PROFISSAO_TIPO" name="PROFISSAO_TIPO" class="form-control">
                     <option value="">Selecione</option>
                     <option value="Assalariado (carteira assinada)">Assalariado (carteira assinada)</option>
                     <option value="Assalariado (como PJ)">Assalariado (como PJ)</option>
@@ -182,8 +182,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="CIVIL">Estado Civil:</label>
-                <select id="CIVIL" name="CIVIL" class="form-control">
+                <label for="ESTADO_CIVIL">Estado Civil:</label>
+                <select id="ESTADO_CIVIL" name="ESTADO_CIVIL" class="form-control">
                     <option value="">Selecione</option>
                     <option value="Casado">Casado(a)</option>
                     <option value="Solteiro">Solteiro(a)</option>
@@ -194,8 +194,8 @@
             </div>
 
              <div class="mb-3">
-                <label for="CIVIL_SIM">Se casado(a), qual é o regime?</label>
-                <select id="CIVIL_SIM" name="CIVIL_SIM" class="form-control">
+                <label for="ESTADO_CIVIL_DETALHE">Se casado(a), qual é o regime?</label>
+                <select id="ESTADO_CIVIL_DETALHE" name="ESTADO_CIVIL_DETALHE" class="form-control">
                     <option value="">Selecione</option>
                     <option value="Casado">Casado(a)</option>
                     <option value="Solteiro">Solteiro(a)</option>
@@ -206,44 +206,44 @@
             </div>
 
           <div class="mb-3">
-            <label for="RENDA">Renda mensal líquida (já descontado o imposto de renda):</label>
-            <input type="number" placeholder="Insira sua Renda" oninput="formatCurrency()" name="RENDA" id="RENDA">
+            <label for="RENDA_MENSAL_LIQUIDA">Renda mensal líquida (já descontado o imposto de renda):</label>
+            <input type="number" placeholder="Insira sua Renda" oninput="formatCurrency()" name="RENDA_MENSAL_LIQUIDA" id="RENDA_MENSAL_LIQUIDA">
             <p id="formattedCurrencyRENDA"></p>
             </div>
 
             <div class="mb-3">
-            <label for="INSS">Contribui para o INSS? Se sim, informar o valor:</label>
-            <input type="number" placeholder="Informe o Valor" oninput="formatCurrency()" name="INSS" id="INSS">
+            <label for="INSS_CONTRIBUICAO">Contribui para o INSS? Se sim, informar o valor:</label>
+            <input type="number" placeholder="Informe o Valor" oninput="formatCurrency()" name="INSS_CONTRIBUICAO" id="INSS_CONTRIBUICAO">
             <p id="formattedCurrencyINSS"></p>
             </div>
 
             <div class="mb-3">
-                <label for="APOSENT">Idade pretendida para aposentadoria:</label>
-                <input type="number" oninput="this.className = ''" name="APOSENT" id="APOSENT">
+                <label for="APOSENTADORIA_IDADE">Idade pretendida para aposentadoria:</label>
+                <input type="number" oninput="this.className = ''" name="APOSENTADORIA_IDADE" id="APOSENTADORIA_IDADE">
             </div>
 
             <div class="mb-3">
-            <label for="APOSENT_RENDA">Renda mensal pretendida na aposentadoria:</label>
-            <input type="number" placeholder="Informe o Valor" oninput="formatCurrency()" name="APOSENT_RENDA" id="APOSENT_RENDA">
+            <label for="APOSENTADORIA_RENDA_MENSAL">Renda mensal pretendida na aposentadoria:</label>
+            <input type="number" placeholder="Informe o Valor" oninput="formatCurrency()" name="APOSENTADORIA_RENDA_MENSAL" id="APOSENTADORIA_RENDA_MENSAL">
             <p id="formattedCurrencyAPOSENT_RENDA"></p>
             </div>
 
             <br>
             <div class="mb-3">
             <p>Além da aposentadoria, você possui algum outro objetivo/sonho que requer uma meta de acúmulo financeiro? Se sim, informar o horizonte de tempo e o valor requerido para essas realizações.</p>
-            <label for="SONHO_DATA">Quanto tempo?</label>
-            <input type="date" oninput="this.className = ''" name="SONHO_DATA" id="SONHO_DATA">
-            <label for="SONHO_RENDA">Valor requerido?</label>
-            <input type="number" placeholder="Informe o Valor" oninput="formatCurrency()" name="SONHO_RENDA" id="SONHO_RENDA">
+            <label for="SONHO_ANOS_RESTANTES">Quanto tempo?</label>
+            <input type="date" oninput="this.className = ''" name="SONHO_ANOS_RESTANTES" id="SONHO_ANOS_RESTANTES">
+            <label for="SONHO_SALDO">Valor requerido?</label>
+            <input type="number" placeholder="Informe o Valor" oninput="formatCurrency()" name="SONHO_SALDO" id="SONHO_SALDO">
             <p id="formattedCurrencySONHO_RENDA"></p>            
             </div>
 
             <div class="mb-3">
-                <label for="SEG_VIDA">Possui cobertura de seguro de vida?</label>
-                <select id="SEG_VIDA" name="SEG_VIDA" class="form-control">
+                <label for="SEGURO_VIDA">Possui cobertura de seguro de vida?</label>
+                <select id="SEGURO_VIDA" name="SEGURO_VIDA" class="form-control">
                     <option value="">Selecione</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
                 </select>
             </div>
 
@@ -320,6 +320,8 @@
     </form>
 </body>
 </html>
+
+
 
 <script>
     var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -426,3 +428,4 @@
     console.log(values);
 }
 </script>
+
