@@ -299,7 +299,6 @@
                 <option value="NAO">Não</option>
                 <option value="SIM">Sim</option>
             </select>
-
             </div>
 
             <div class="mb-3" id="APLICACAOT">
@@ -764,6 +763,8 @@
 
 </html>
 
+
+
 <script>
     var currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab); // Display the current tab   
@@ -968,4 +969,5 @@
     });
 });
 
+  
 </script>
