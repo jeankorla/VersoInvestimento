@@ -11,7 +11,7 @@ class Home extends BaseController
 
     public function __construct()
     {
-        $ClienteModel = new ClienteModel();
+        $this->ClienteModel = new ClienteModel();
     }
 
     public function index()
@@ -40,7 +40,7 @@ class Home extends BaseController
 
         $this->ClienteModel->insert($data);
 
-        return redirect()->to('/sucesso');
+        return redirect()->to('/home');
 
     }
 }
