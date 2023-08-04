@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ClienteModel;
 
-class Home extends BaseController
+class Formulario extends BaseController
 {
     private $ClienteModel;
 
@@ -15,7 +15,7 @@ class Home extends BaseController
 
     public function index()
     {
-        return view('index.php');
+        return view('/2.0/index.php');
     }
 
     public function salvar()
@@ -40,7 +40,7 @@ class Home extends BaseController
 
         $this->ClienteModel->insert($data);
 
-        return redirect()->to('/home');
+        return redirect()->to('/formulario');
 
     }
 }
