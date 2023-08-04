@@ -111,6 +111,23 @@
             background-color: #f3f3f3;
         }
 
+        .IDADE{
+            position: relative;
+
+        }
+
+        .IDADE::after{
+            content: "anos";
+            position: absolute;
+            top: 0;
+            right: 340px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: gray;
+        }
+
+
         #signUpForm .form-header .stepIndicator.active::after {
             background-color: #a7ede8;
         }
@@ -454,8 +471,8 @@
             <!----------------------------------------------------------->
 
             <div class="mb-3">
-                <label for="INSS_PARCELA">Valor parcela INSS</label>
-                <input type="text" name=INSS_PARCELA id="INSS_PARCELA" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="INSS">Valor parcela INSS</label>
+                <input type="text" name=INSS id="INSS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
@@ -486,23 +503,23 @@
 
             </div>
 
-            <div class="mb-3" id="ALUGUEL-CAR">
-                <label for="ALUGUEL-CAR">Valor do Aluguel dos veículos</label>
-                <input type="text" id="ALUGUEL-CAR" name="ALUGUEL-CAR" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="ALUGUEL_VEICULO">
+                <label for="ALUGUEL_VEICULO">Valor do Aluguel dos veículos</label>
+                <input type="text" id="ALUGUEL_VEICULO" name="ALUGUEL_VEICULO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!---------------------------------------------------------------------->
 
             <div class="mb-3">
-                <label for="SEG-VEI">Mensalidade do seguro dos veículos</label>
-                <input type="text" id="SEG-VEI" name="SEG-VEI" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="SEGURO_VEICULO">Mensalidade do seguro dos veículos</label>
+                <input type="text" id="SEGURO_VEICULO" name="SEGURO_VEICULO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
 
-                <label for="LIFE-OP">Tem seguro de vida ?</label>
-                <select name="LIFE-OP" id="LIFE-OP" class="form-control required">
+                <label for="SEGURO_VIDA_OP">Tem seguro de vida ?</label>
+                <select name="SEGURO_VIDA_OP" id="SEGURO_VIDA_OP" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -528,29 +545,29 @@
 
             </div>
 
-            <div class="mb-3" id="CONDO-V">
-                <label for="CONDO-V">Mensalidade do Condominio</label>
-                <input type="text" id="CONDO-V" name="CONDO_V" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="MENSALIDADE_CONDOMINIO">
+                <label for="MENSALIDADE_CONDOMINIO">Mensalidade do Condominio</label>
+                <input type="text" id="MENSALIDADE_CONDOMINIO" name="CONDO_V" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!---------------------------------------------------------------------->
 
             <div class="mb-3">
-                <label for="SINDICATO">Contribuição Sindical</label>
-                <input type="text" id="SINDICATO" name="SINDICATO" oninput="handleCurrencyInput(this)"
+                <label for="MENSALIDADE_SINDICATO">Contribuição Sindical</label>
+                <input type="text" id="MENSALIDADE_SINDICATO" name="MENSALIDADE_SINDICATO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="ESCOLA-MENSAL">
-                <label for="ESCOLA-MENSAL">Mensalidade Escolar</label>
-                <input type="text" id="ESCOLA-MENSAL" name="ESCOLA-MENSAL" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="MENSALIDADE_ESCOLA">
+                <label for="MENSALIDADE_ESCOLA">Mensalidade Escolar</label>
+                <input type="text" id="MENSALIDADE_ESCOLA" name="MENSALIDADE_ESCOLA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="ESCOLA-UNI">
-                <label for="ESCOLA-UNI">Mensalidade Universidade</label>
-                <input type="text" id="ESCOLA-UNI" name="ESCOLA-UNI" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="MENSALIDADE_UNIVERSIDADE">
+                <label for="MENSALIDADE_UNIVERSIDADE">Mensalidade Universidade</label>
+                <input type="text" id="MENSALIDADE_UNIVERSIDADE" name="MENSALIDADE_UNIVERSIDADE" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -566,9 +583,9 @@
 
             </div>
 
-            <div class="mb-3" id="CLUBE-V">
-                <label for="CLUBE-V">Mensalidade do Clube</label>
-                <input type="text" id="CLUBE-V" name="CLUBE-V" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="MENSALIDADE_CLUBE">
+                <label for="MENSALIDADE_CLUBE">Mensalidade do Clube</label>
+                <input type="text" id="MENSALIDADE_CLUBE" name="MENSALIDADE_CLUBE" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -593,8 +610,8 @@
             <p class="text-center mb-4">Bens</p>
 
             <div class="mb-3">
-                <label for="IMOVEL">Imoveis residenciais - Valor de Mercado</label>
-                <input type="text" id="IMOVEL" name="IMOVEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="VALOR_MERCADO_IMOVEL">Imoveis residenciais - Valor de Mercado</label>
+                <input type="text" id="VALOR_MERCADO_IMOVEL" name="VALOR_MERCADO_IMOVEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
@@ -609,28 +626,28 @@
 
                 </div>
 
-                <div class="mb-3" id="CASA-VERA">
-                <label for="CASA-VERA">Imovéis de veraneio - Valor de mercado</label>
-                <input type="text" id="CASA-VERA" name="CASA-VERA" oninput="handleCurrencyInput(this)"
+                <div class="mb-3" id="VALOR_MERCADO_IMOVEL_VERAO">
+                <label for="VALOR_MERCADO_IMOVEL_VERAO">Imovéis de veraneio - Valor de mercado</label>
+                <input type="text" id="VALOR_MERCADO_IMOVEL_VERAO" name="VALOR_MERCADO_IMOVEL_VERAO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 </div>
 
-                <div class="mb-3" id="CASA-ALU">
-                <label for="CASA-ALU">Imovéis alugados - Valor de mercado</label>
-                <input type="text" id="CASA-ALU" name="CASA-ALU" oninput="handleCurrencyInput(this)"
+                <div class="mb-3" id="VALOR_MERCADO_IMOVEL_ALUGADO">
+                <label for="VALOR_MERCADO_IMOVEL_ALUGADO">Imovéis alugados - Valor de mercado</label>
+                <input type="text" id="VALOR_MERCADO_IMOVEL_ALUGADO" name="VALOR_MERCADO_IMOVEL_ALUGADO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 </div>
 
                              
                 <div class="mb-3">
-                    <label for="VALOR-CAR">Veiculos - Valor de mercado</label>
-                    <input type="text" id="VALOR-CAR" name="VALOR-CAR" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                    <label for="VALOR_MERCADO_VEICULOS">Veiculos - Valor de mercado</label>
+                    <input type="text" id="VALOR_MERCADO_VEICULOS" name="VALOR_MERCADO_VEICULOS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
                 </div>
 
                 
                 <div class="mb-3">
-                    <label for="EMPRESAS">Empresas- Valor de mercado</label>
-                    <input type="text" id="EMPRESA" name="EMPRESAS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                    <label for="VALOR_MERCADO_EMPRESAS">Empresas - Valor de mercado</label>
+                    <input type="text" id="EMPRESA" name="VALOR_MERCADO_EMPRESAS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
                 </div>
             
             </div>
@@ -646,9 +663,9 @@
 
             <div class="mb-3">
 
-                <label for="SEG_VIDA">Possui cobertura de seguro de vida?</label>
+                <label for="SEGURO_VIDA_OPCAO">Possui cobertura de seguro de vida?</label>
 
-                <select id="SEG_VIDA" name="SEG_VIDA" class="form-control required">
+                <select id="SEGURO_VIDA_OPCAO" name="SEGURO_VIDA_OPCAO" class="form-control required">
 
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
@@ -657,43 +674,42 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="SEG_VIDA_SIM">
-                <label for="SEG_VIDA_SIM">Anexar apólice de seguro</label><br>
-                <input type="file" id="SEG_VIDA_SIM" name="SEG_VIDA_SIM">
+            <div class="mb-3" id="SEGURO_VIDA_APOLICE">
+                <label for="SEGURO_VIDA_APOLICE">Anexar apólice de seguro</label><br>
+                <input type="file" id="SEGURO_VIDA_APOLICE" name="SEGURO_VIDA_APOLICE">
             </div>
 
             <div class="mb-3">
-                <label for="INSS">Contribui para o INSS? Se sim, informar o valor:</label>
-                <input type="number" placeholder="Informe o Valor" oninput="handleCurrencyInput()" name="INSS" id="INSS">
-                <p id="formattedCurrencyINSS"></p>
+                <label for="INSS_CONTRIBUICAO">Contribui para o INSS? Se sim, informar o valor:</label>
+                <input type="text" placeholder="Informe o Valor" oninput="handleCurrencyInput(this)" name="INSS_CONTRIBUICAO" id="INSS_CONTRIBUICAO" placeholder="R$ 0,00">                
             </div>
 
             <div class="mb-3">
-                <label for="PL-PREV">Anexar extrato planos da previdência</label><br>
-                <input type="file" id="PL-PREV" name="PL-PREV">
+                <label for="EXTRATO_PLANO_PREVIDENCIA">Anexar extrato planos da previdência</label><br>
+                <input type="file" id="EXTRATO_PLANO_PREVIDENCIA" name="EXTRATO_PLANO_PREVIDENCIA">
             </div>
 
             <div class="mb-3">
-                <label for="PRE-OP">Possui previdência privada ?</label>
-                <select name="PRE-OP" id="PRE-OP" class="form-control required">
+                <label for="PREVIDENCIA_PRIVADA_OPCAO">Possui previdência privada ?</label>
+                <select name="PREVIDENCIA_PRIVADA_OPCAO" id="PREVIDENCIA_PRIVADA_OPCAO" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
             </div>
 
-            <div class="mb-3" id="PREV-VALOR">
-                <label for="PREV-VALOR">Valor do Montante</label>
-                <input type="text" name="PREVA-VALOR" oninput="hanldeCurrencyInput()" >
+            <div class="mb-3" id="PREVIDENCIA_PRIVADA_PARCELA">
+                <label for="PREVIDENCIA_PRIVADA_PARCELA">Previdencia privada - Valor da Parcela</label>
+                <input type="text" name="PREVA-VALOR" oninput="hanldeCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="MONT-VALOR">
-                <label for="MONT-VALOR">Montante acumulado</label>
-                <input type="text" name="MONT-VALOR" oninput="handleCurrencyInput()">
+            <div class="mb-3" id="PREVIDENCIA_PRIVADA_MONTANTE">
+                <label for="PREVIDENCIA_PRIVADA_MONTANTE">Montante acumulado</label>
+                <input type="text" name="PREVIDENCIA_PRIVADA_MONTANTE" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
                 <label for="FGTS">Valor do fundo de garantia</label>
-                <input type="text" name="FGTS" id="FGTS" oninput="handleCurrencyInput()">
+                <input type="text" name="FGTS" id="FGTS" oninput="handleCurrencyInput(this)" placeholder="0,00">
             </div>
 
 
@@ -709,8 +725,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="APOSENTADORIA_IDADE">Idade pretendida para aposentadoria:</label>
-                <input type="number" oninput="this.className = ''" name="APOSENTADORIA_IDADE" id="APOSENTADORIA_IDADE">
+                <label for="APOSENT">Idade pretendida para aposentadoria:</label>
+                <input type="number" oninput="this.className = ''" name="APOSENT" id="APOSENT">
             </div>
 
             <br>
@@ -761,25 +777,28 @@
             });
         }
 
-        setupLinkedField("#APLICACAO-OP", "#APLICACAO_FINANCEIRA_TOTAL", "SIM");
-        setupLinkedField("#APLICACAO-OP", "#APLICACAO_SIM", "SIM");
+        setupLinkedField("#APLICACAO-OP", "#APLICACAOT", "SIM")
+        setupLinkedField("#APLICACAO-OP", "#APLICACAO_SIM", "SIM")
+        setupLinkedField("#FILHOS","#ESCOLA-MENSAL", "SIM");
+        setupLinkedField("#FILHOS", "#ESCOLA-UNI", "SIM");
+        setupLinkedField("#FILHOS", "#FILHOS-QNT", "SIM");
         setupLinkedField("#PRE-OP", "#PREV-VALOR","SIM");
         setupLinkedField("#PRE-OP", "#MONT-VALOR","SIM");
         setupLinkedField("#SEG_VIDA", "#SEG_VIDA_SIM", "SIM");
-        setupLinkedField("#LIFE-OP", "#SEGURO_VIDA", "SIM");
+        setupLinkedField("#LIFE-OP", "#LIFE-VALOR", "SIM");
         setupLinkedField("#CASA-VOP", "#CASA-ALU", "ALU","SIM");
         setupLinkedField("#CASA-VOP", "#CASA-VERA", "VERA","SIM");
         setupLinkedField("#CLUBE-OP", "#CLUBE-V", "SIM");
         setupLinkedField("#CONDO-OP", "#CONDO-V", "SIM");
         setupLinkedField("#ALUCAR-OP", "#ALUGUEL-CAR", "SIM");
-        setupLinkedField("#PLANO-OP", "#PLANO_SAUDE_PARCELA", "SIM");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_PARCONTA_CELA", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_DEVEDOR", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_PARCONTA_CELA", "CARRO", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULOS_DEVEDOR", "CARRO", "AMBOS");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_PARCONTA_CELA", "SIM");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMO_DEVEDOR", "SIM");
-        setupLinkedField("#CIVIL", "#ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
+        setupLinkedField("#PLANO-OP", "#PLANO-SAUDE", "SIM");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-CASA", "CASA", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-CASA-RES", "CASA", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-VEI", "CARRO", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-VEI-RES", "CARRO", "AMBOS");
+        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS", "SIM");
+        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMO-SALDO", "SIM");
+        setupLinkedField("#CIVIL", "#CIVIL_SIM", "Casado", "Uniao Estável");
         setupLinkedField("#ALUGUEL-OP", "#ALUGUEL", "SIM");
 
         // Chame setupLinkedField para outros pares de campos conforme necessário
@@ -852,9 +871,6 @@
             }
         }
 
-        document.getElementsByClassName("stepIndicator")[currentTab].className += " finish";
-
-        
         if (valid) {
             document.getElementsByClassName("stepIndicator")[currentTab].className += " finish";
         } else {

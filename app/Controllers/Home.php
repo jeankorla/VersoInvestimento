@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ClienteModel;
+use CodeIgniter\Controller;
 
 class Home extends BaseController
 {
@@ -22,7 +23,6 @@ class Home extends BaseController
     {
 
         $data = [
-            'EMAIL'                       => $this->request->getPost('EMAIL'),
             'NOME_COMPLETO'               => $this->request->getPost('NOME_COMPLETO'),
             'DATA_NASCIMENTO'             => $this->request->getPost('DATA_NASCIMENTO'),
             'PROFISSAO'                   => $this->request->getPost('PROFISSAO'),
