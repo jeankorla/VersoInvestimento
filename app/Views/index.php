@@ -280,8 +280,8 @@
 
             <div class="mb-3" id="APLICACAOT">
 
-                    <label for="APLICACAOT">Aplicações Financeiras - Valor TOTAL</label>
-                    <input type="text" id="APLICACAOT" class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>
+                    <label for="APLICACAO_FINANCEIRA_TOTAL">Aplicações Financeiras - Valor TOTAL</label>
+                    <input type="text" id="APLICACAO_FINANCEIRA_TOTAL" class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>
 
             </div>
 
@@ -289,7 +289,7 @@
 
                 <label for="APLICACAO_SIM">Aplicações Financeiras - Anexar extrato das aplicações</label><br>
                 <input type="file" id="APLICACAO_SIM" name="APLICACAO_SIM"/>      
-
+                                     <!-- anexo arruma depois -->
             </div>
 
         </div>
@@ -300,20 +300,20 @@
             <p class="text-center mb-4">Despesas</p>
 
             <div class="mb-3">
-                <label for="LUZ">Conta de luz - Inserir média mensal</label>
-                <input type="text" class="required" id="LUZ" name="LUZ" oninput="handleCurrencyInput(this)"
+                <label for="CONTA_LUZ">Conta de luz - Inserir média mensal</label>
+                <input type="text" class="required" id="CONTA_LUZ" name="CONTA_LUZ" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="AGUA">Conta de água - Inserir média mensal</label>
-                <input type="text" class="required" id="AGUA" name="AGUA" oninput="handleCurrencyInput(this)"
+                <label for="CONTA_AGUA">Conta de água - Inserir média mensal</label>
+                <input type="text" class="required" id="CONTA_AGUA" name="CONTA_AGUA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="GAS">Conta de gás - Inserir média mensal</label>
-                <input type="text" class="required" id="GAS" name="GAS" oninput="handleCurrencyInput(this)"
+                <label for="CONTA_GAS">Conta de gás - Inserir média mensal</label>
+                <input type="text" class="required" id="CONTA_GAS" name="CONTA_GAS" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -349,27 +349,27 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="FINA-CASA">
-                <label for="FINA-CASA">Financiamento Residencial - Parcela</label>
-                <input type="text" id="FINA-CASA" name="FINA-CASA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="FINANCIAMENTO_CASA_PARCELA">
+                <label for="FINANCIAMENTO_CASA_PARCELA">Financiamento Residencial - Parcela</label>
+                <input type="text" id="FINANCIAMENTO_CASA_PARCELA" name="FINANCIAMENTO_CASA_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINA-CASA-RES">
-                <label for="FINA-CASA-RES">Financiamento Residencial - Saldo devedor</label>
-                <input type="text" id="FINA-CASA-RES" name="FINA-CASA-RES" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="FINANCIAMENTO_CASA_DEVEDOR">
+                <label for="FINANCIAMENTO_CASA_DEVEDOR">Financiamento Residencial - Saldo devedor</label>
+                <input type="text" id="FINANCIAMENTO_CASA_DEVEDOR" name="FINANCIAMENTO_CASA_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINA-VEI">
-                <label for="FINA-VEI">Financiamento Veiculos - Parcela</label>
-                <input type="text" id="FINA-CASA" name="FINA-CASA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="FINANCIAMENTO_VEICULO_PARCELA">
+                <label for="FINANCIAMENTO_VEICULO_PARCELA">Financiamento Veiculos - Parcela</label>
+                <input type="text" id="FINANCIAMENTO_VEICULO_PARCELA" name="FINANCIAMENTO_VEICULO_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINA-VEI-RES">
-                <label for="FINA-VEI-RES">Financiamento Residencial - Saldo devedor</label>
-                <input type="text" id="FINA-VEI-RES" name="FINA-VEI-RES" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="FINANCIAMENTO_VEICULOS_DEVEDOR">
+                <label for="FINANCIAMENTO_VEICULOS_DEVEDOR">Financiamento Residencial - Saldo devedor</label>
+                <input type="text" id="FINANCIAMENTO_VEICULOS_DEVEDOR" name="FINANCIAMENTO_VEICULOS_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -397,23 +397,23 @@
 
             </div>
 
-            <div class="mb-3" id="EMPRESTIMOS">
-                <label for="EMPRESTIMOS">Emprestimos parcela</label>
-                <input type="text" id="EMPRESTIMOS" name="EMPRESTIMOS" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="EMPRESTIMOS_PARCELA">
+                <label for="EMPRESTIMOS_PARCELA">Emprestimos parcela</label>
+                <input type="text" id="EMPRESTIMOS_PARCELA" name="EMPRESTIMOS_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="EMPRESTIMO-SALDO">
-                <label for="EMPRESTIMO-SALDO">EMPRESTIMO - Saldo devedor</label>
-                <input type="text" id="EMPRESTIMO-SALDO" name="EMPRESTIMO-SALDO" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="EMPRESTIMO_DEVEDOR">
+                <label for="EMPRESTIMO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
+                <input type="text" id="EMPRESTIMO_DEVEDOR" name="EMPRESTIMO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!-------------------------------->
 
             <div class="mb-3">
-                <label for="TVNET">Valor da conta de internet + televisão</label>
-                <input type="text" id="TVNET" name="TVNET" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
+                <label for="CONTA_NET_TV">Valor da conta de internet + televisão</label>
+                <input type="text" id="CONTA_NET_TV" name="CONTA_NET_TV" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     class="required">
             </div>
 
@@ -761,7 +761,7 @@
             });
         }
 
-        setupLinkedField("#APLICACAO-OP", "#APLICACAOT", "SIM");
+        setupLinkedField("#APLICACAO-OP", "#APLICACAO_FINANCEIRA_TOTAL", "SIM");
         setupLinkedField("#APLICACAO-OP", "#APLICACAO_SIM", "SIM");
         setupLinkedField("#PRE-OP", "#PREV-VALOR","SIM");
         setupLinkedField("#PRE-OP", "#MONT-VALOR","SIM");
@@ -773,12 +773,12 @@
         setupLinkedField("#CONDO-OP", "#CONDO-V", "SIM");
         setupLinkedField("#ALUCAR-OP", "#ALUGUEL-CAR", "SIM");
         setupLinkedField("#PLANO-OP", "#PLANO-SAUDE", "SIM");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-CASA", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-CASA-RES", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-VEI", "CARRO", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-VEI-RES", "CARRO", "AMBOS");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS", "SIM");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMO-SALDO", "SIM");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_PARCELA", "CASA", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_DEVEDOR", "CASA", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_PARCELA", "CARRO", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULOS_DEVEDOR", "CARRO", "AMBOS");
+        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_PARCELA", "SIM");
+        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMO_DEVEDOR", "SIM");
         setupLinkedField("#CIVIL", "#ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
         setupLinkedField("#ALUGUEL-OP", "#ALUGUEL", "SIM");
 
