@@ -349,9 +349,9 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_CASA_PARCELA">
-                <label for="FINANCIAMENTO_CASA_PARCELA">Financiamento Residencial - Parcela</label>
-                <input type="text" id="FINANCIAMENTO_CASA_PARCELA" name="FINANCIAMENTO_CASA_PARCELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="FINANCIAMENTO_CASA_PARCONTA_CELA">
+                <label for="FINANCIAMENTO_CASA_PARCONTA_CELA">Financiamento Residencial - Parcela</label>
+                <input type="text" id="FINANCIAMENTO_CASA_PARCONTA_CELA" name="FINANCIAMENTO_CASA_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -361,9 +361,9 @@
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_VEICULO_PARCELA">
-                <label for="FINANCIAMENTO_VEICULO_PARCELA">Financiamento Veiculos - Parcela</label>
-                <input type="text" id="FINANCIAMENTO_VEICULO_PARCELA" name="FINANCIAMENTO_VEICULO_PARCELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="FINANCIAMENTO_VEICULO_PARCONTA_CELA">
+                <label for="FINANCIAMENTO_VEICULO_PARCONTA_CELA">Financiamento Veiculos - Parcela</label>
+                <input type="text" id="FINANCIAMENTO_VEICULO_PARCONTA_CELA" name="FINANCIAMENTO_VEICULO_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -397,9 +397,9 @@
 
             </div>
 
-            <div class="mb-3" id="EMPRESTIMOS_PARCELA">
-                <label for="EMPRESTIMOS_PARCELA">Emprestimos parcela</label>
-                <input type="text" id="EMPRESTIMOS_PARCELA" name="EMPRESTIMOS_PARCELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="EMPRESTIMOS_PARCONTA_CELA">
+                <label for="EMPRESTIMOS_PARCONTA_CELA">Emprestimos parcela</label>
+                <input type="text" id="EMPRESTIMOS_PARCONTA_CELA" name="EMPRESTIMOS_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -418,19 +418,19 @@
             </div>
 
             <div class="mb-3">
-                <label for="CEL">Conta de celular</label>
-                <input type="text" id="CEL" name="CEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="CONTA_CEL">Conta de celular</label>
+                <input type="text" id="CONTA_CEL" name="CONTA_CEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="MERCADO">Média dos gastos em supermercados</label>
-                <input type="text" id="MERCADO" name="MERCADO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
+                <label for="CONTA_MERCADO">Média dos gastos em supermercados</label>
+                <input type="text" id="CONTA_MERCADO" name="CONTA_MERCADO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     class="required">
             </div>
 
             <div class="mb-3">
-                <label for="MEDICA">Gastos com medicamentos</label>
-                <input type="text" id="MEDICA" name="MEDICA" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="CONTA_MEDICAMENTOS">Gastos com medicamentos</label>
+                <input type="text" id="CONTA_MEDICAMENTOS" name="CONTA_MEDICAMENTOS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <!---------------- PLANO DE SAUDE -------------------------->
@@ -445,33 +445,33 @@
 
             </div>
 
-            <div class="mb-3" id="PLANO-SAUDE">
-                <label for="PLANO-SAUDE">Plano de saúde - Parcela</label>
-                <input type="text" id="PLANO-SAUDE" name="PLANO-SAUDE" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="PLANO_SAUDE_PARCELA">
+                <label for="PLANO_SAUDE_PARCELA">Plano de saúde - Parcela</label>
+                <input type="text" id="PLANO_SAUDE_PARCELA" name="PLANO_SAUDE_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!----------------------------------------------------------->
 
             <div class="mb-3">
-                <label for="INSS_CONTRIBUICAO">Valor parcela INSS</label>
-                <input type="text" name=INSS_CONTRIBUICAO id="INSS_CONTRIBUICAO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="INSS_PARCELA">Valor parcela INSS</label>
+                <input type="text" name=INSS_PARCELA id="INSS_PARCELA" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="LAZER">Gastos com lazer</label>
-                <input type="text" id="LAZER" name="LAZER" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
+                <label for="GASTOS_LAZER">Gastos com lazer</label>
+                <input type="text" id="GASTOS_LAZER" name="GASTOS_LAZER" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     class="required">
             </div>
 
             <div class="mb-3">
-                <label for="COMB">Gasto com combustivél</label>
-                <input type="text" id="COMB" name="COMB" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="GASTOS_COMBUSTIVEL">Gasto com combustivél</label>
+                <input type="text" id="GASTOS_COMBUSTIVEL" name="GASTOS_COMBUSTIVEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="CARTAO">Gastos com cartao de crédito - Fatura</label>
-                <input type="text" id="CARTAO" name="CARTAO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="GASTOS_CARTAO">Gastos com cartao de crédito - Fatura</label>
+                <input type="text" id="GASTOS_CARTAO" name="GASTOS_CARTAO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
 
@@ -772,12 +772,12 @@
         setupLinkedField("#CLUBE-OP", "#CLUBE-V", "SIM");
         setupLinkedField("#CONDO-OP", "#CONDO-V", "SIM");
         setupLinkedField("#ALUCAR-OP", "#ALUGUEL-CAR", "SIM");
-        setupLinkedField("#PLANO-OP", "#PLANO-SAUDE", "SIM");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_PARCELA", "CASA", "AMBOS");
+        setupLinkedField("#PLANO-OP", "#PLANO_SAUDE_PARCELA", "SIM");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_PARCONTA_CELA", "CASA", "AMBOS");
         setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_DEVEDOR", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_PARCELA", "CARRO", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_PARCONTA_CELA", "CARRO", "AMBOS");
         setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULOS_DEVEDOR", "CARRO", "AMBOS");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_PARCELA", "SIM");
+        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_PARCONTA_CELA", "SIM");
         setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMO_DEVEDOR", "SIM");
         setupLinkedField("#CIVIL", "#ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
         setupLinkedField("#ALUGUEL-OP", "#ALUGUEL", "SIM");
