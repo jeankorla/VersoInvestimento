@@ -2,16 +2,19 @@
 
 namespace App\Controllers;
 
-use App\Models\ClienteModel;
+use App\Models\ClienteDespesaPersonalizadaModel;
+use App\Models\ClienteFormularioModel;
 use CodeIgniter\Controller;
 
 class Home extends BaseController
 {
-    private $ClienteModel;
+    private $ClienteFormularioModel;
+    private $ClienteDespesaPersonalizadaModel;
 
     public function __construct()
     {
-        $this->ClienteModel = new ClienteModel();
+        $this->ClienteFormularioModel = new ClienteFormularioModel();
+        $this->ClienteDespesaPersonalizadaModel = new ClienteDespesaPersonalizadaModel();
     }
 
     public function index()
@@ -22,7 +25,7 @@ class Home extends BaseController
     public function salvar()
     {
 
-        $data = [
+        $Registros_ClienteFormularioModel = [
             'SOBRE_EMAIL'                                      => $this->request->getPost('SOBRE_EMAIL'),
             'SOBRE_NOME_COMPLETO'                              => $this->request->getPost('SOBRE_NOME_COMPLETO'),
             'SOBRE_DATA_NASCIMENTO'                            => $this->request->getPost('SOBRE_DATA_NASCIMENTO'),
@@ -83,7 +86,33 @@ class Home extends BaseController
             'FORMULARIO_DATA_CRIACAO'                          => $this->request->getPost('FORMULARIO_DATA_CRIACAO')
         ];
 
-        $this->ClienteModel->insert($data);
+        $this->ClienteFormularioModel->insert($Registros_ClienteFormularioModel);
+
+
+        // DESPESAS PERSONALIZADAS --- INICIO
+        $Registros_ClienteDespesaPersonalizadaModel = [];
+        $FK = $this->ClienteFormularioModel->insertID();
+        $Quantidade_Despesas = intval($this->request->getPost('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS'));
+
+        if ($Quantidade_Despesas > 0)
+        {
+            for ($x = 1; $x <= $Quantidade_Despesas; $x++)
+            {
+                $Registros_ClienteDespesaPersonalizadaModel['CLIENTE_FORMULARIO_FK'] = $FK;
+                
+                $Registros_ClienteDespesaPersonalizadaModel['DESCRICAO']             = $this->request->getPost('DESPESA_PERSONALIZADA_DESCRICAO_' . $x);
+                $Registros_ClienteDespesaPersonalizadaModel['VALOR']                 = $this->request->getPost('DESPESA_PERSONALIZADA_VALOR_' . $x);
+                
+                $this->ClienteDespesaPersonalizadaModel->insert($Registros_ClienteDespesaPersonalizadaModel);
+
+                $Registros_ClienteDespesaPersonalizadaModel = [];
+            }
+        }
+        // DESPESAS PERSONALIZADAS --- FIM
+
+
+        dd($Registros_ClienteFormularioModel, $Registros_ClienteDespesaPersonalizadaModel);
+
 
         return redirect()->to('/');
 

@@ -209,7 +209,7 @@
             <span class="stepIndicator">Receitas</span>
             <span class="stepIndicator">Despesas</span>
             <span class="stepIndicator">Bens</span>
-            <span class="stepIndicator">Proteção</span>
+            <span class="stepIndicator">Proteções</span>
             <span class='stepIndicator'>Objetivos</span>
         </div>
         <!-- end step indicators -->
@@ -749,6 +749,9 @@
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
         </div>
         <!-- end previous / next buttons -->
+
+        <!-- INPUTS CONTADORES -->
+        <input type="hidden" id="DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS" name="DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS">
     </form>
 </body>
 
@@ -935,9 +938,14 @@
     var customExpensesContainer = document.getElementById("customExpenses");
     var addExpenseButton = document.getElementById("addExpense");
 
-    var expenseIndex = 1;
+    var expenseIndex = 0;
 
     addExpenseButton.addEventListener("click", function () {
+
+        expenseIndex++;
+
+        document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
+
         var expenseDiv = document.createElement("div");
         expenseDiv.classList.add("mb-3");
 
@@ -945,7 +953,7 @@
         nameLabel.textContent = "Nome do Gasto " + expenseIndex;
         var nameInput = document.createElement("input");
         nameInput.type = "text";
-        nameInput.name = "EXPENSE_" + expenseIndex + "_NAME";
+        nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
         expenseDiv.appendChild(nameLabel);
         expenseDiv.appendChild(nameInput);
 
@@ -953,13 +961,11 @@
         valueLabel.textContent = "Valor do Gasto " + expenseIndex;
         var valueInput = document.createElement("input");
         valueInput.type = "number";
-        valueInput.name = "EXPENSE_" + expenseIndex + "_VALUE";
+        valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
         expenseDiv.appendChild(valueLabel);
         expenseDiv.appendChild(valueInput);
 
         customExpensesContainer.appendChild(expenseDiv);
-
-        expenseIndex++;
     });
 });
 
