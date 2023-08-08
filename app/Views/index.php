@@ -154,7 +154,8 @@
         }
 
         #signUpForm input.invalid {
-            border: 3px solid red;
+            border: 2px solid;
+            color: #fd4444; 
         }
 
         #signUpForm .step {
@@ -189,7 +190,8 @@
         }
 
         .invalid {
-            border: 3px solid red;
+            border: 2px solid;
+            color: #fd4444; 
         }
     </style>
 
@@ -222,10 +224,10 @@
                 <input type="email" placeholder="Inserir seu E-mail" oninput="this.className = ''" name="EMAIL"
                     id="EMAIL" class="required">
             </div>
-
+            
             <div class="mb-3">
                 <label for="NOME_COMPLETO">Nome Completo:</label>
-                <input class="required" type="text" oninput="this.className = ''" name="NOME_COMPLETO" id="NOME_COMPLETO">
+                <input class="required" type="text" oninput="removeNumbers(this)" placeholder="Seu nome" name="NOME_COMPLETO" id="NOME_COMPLETO" required>
             </div>
 
             <div class="mb-3">
@@ -235,7 +237,7 @@
 
             <div class="mb-3">
                 <label for="PROFISSAO">Profissão:</label>
-                <input class="required" type="text" placeholder="Sua Profissão" oninput="this.className = ''" name="PROFISSAO"
+                <input class="required" type="text" oninput="removeNumbers(this)" placeholder="Sua Profissão" oninput="this.className = ''" name="PROFISSAO"
                     id="PROFISSAO">
             </div>
 
@@ -366,9 +368,9 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_CASA_PARCONTA_CELA">
+            <div class="mb-3" id="FINANCIAMENTO_CASA_PARCELA">
                 <label for="FINANCIAMENTO_CASA_PARCONTA_CELA">Financiamento Residencial - Parcela</label>
-                <input type="text" id="FINANCIAMENTO_CASA_PARCONTA_CELA" name="FINANCIAMENTO_CASA_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
+                <input type="text" id="FINANCIAMENTO_CASA_PARCELA" name="FINANCIAMENTO_CASA_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -378,9 +380,9 @@
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_VEICULO_PARCONTA_CELA">
-                <label for="FINANCIAMENTO_VEICULO_PARCONTA_CELA">Financiamento Veiculos - Parcela</label>
-                <input type="text" id="FINANCIAMENTO_VEICULO_PARCONTA_CELA" name="FINANCIAMENTO_VEICULO_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="FINANCIAMENTO_VEICULO_PARCELA">
+                <label for="FINANCIAMENTO_VEICULO_PARCELA">Financiamento Veiculos - Parcela</label>
+                <input type="text" id="FINANCIAMENTO_VEICULO_PARCELA" name="FINANCIAMENTO_VEICULO_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -414,15 +416,15 @@
 
             </div>
 
-            <div class="mb-3" id="EMPRESTIMOS_PARCONTA_CELA">
-                <label for="EMPRESTIMOS_PARCONTA_CELA">Emprestimos parcela</label>
-                <input type="text" id="EMPRESTIMOS_PARCONTA_CELA" name="EMPRESTIMOS_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="EMPRESTIMOS_PARCELA">
+                <label for="EMPRESTIMOS_PARCELA">Emprestimos parcela</label>
+                <input type="text" id="EMPRESTIMOS_PARCELA" name="EMPRESTIMOS_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="EMPRESTIMO_DEVEDOR">
-                <label for="EMPRESTIMO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
-                <input type="text" id="EMPRESTIMO_DEVEDOR" name="EMPRESTIMO_DEVEDOR" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="EMPRESTIMOS_DEVEDOR">
+                <label for="EMPRESTIMOS_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
+                <input type="text" id="EMPRESTIMOS_DEVEDOR" name="EMPRESTIMOS_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -592,7 +594,7 @@
             <!---------------------------------------------------------------------->
 
 
-            <p class="mb-3">Gastos Personalizados</p>
+            <p class="mb-4">Gastos Personalizados</p>
             <div class="mb-3">
                 <button id="addExpense" class="btn btn-light">Adicionar Gasto Personalizado</button>
             </div>
@@ -660,19 +662,6 @@
         <div class="step">
 
             <p class="text-center mb-4">Proteção</p>
-
-            <div class="mb-3">
-
-                <label for="SEGURO_VIDA_OPCAO">Possui cobertura de seguro de vida?</label>
-
-                <select id="SEGURO_VIDA_OPCAO" name="SEGURO_VIDA_OPCAO" class="form-control required">
-
-                    <option value="">Selecione</option>
-                    <option value="SIM">Sim</option>
-                    <option value="NAO">Não</option>
-
-                </select>
-            </div>
 
             <div class="mb-3" id="SEGURO_VIDA_APOLICE">
                 <label for="SEGURO_VIDA_APOLICE">Anexar apólice de seguro</label><br>
@@ -757,6 +746,11 @@
 
 
 <script>
+
+function removeNumbers(input) {
+        input.value = input.value.replace(/[^A-Za-z\s]/g, ''); // Remove números
+    }
+
     var currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab); // Display the current tab   
 
@@ -777,28 +771,28 @@
             });
         }
 
-        setupLinkedField("#APLICACAO-OP", "#APLICACAOT", "SIM")
-        setupLinkedField("#APLICACAO-OP", "#APLICACAO_SIM", "SIM")
-        setupLinkedField("#FILHOS","#ESCOLA-MENSAL", "SIM");
-        setupLinkedField("#FILHOS", "#ESCOLA-UNI", "SIM");
-        setupLinkedField("#FILHOS", "#FILHOS-QNT", "SIM");
-        setupLinkedField("#PRE-OP", "#PREV-VALOR","SIM");
-        setupLinkedField("#PRE-OP", "#MONT-VALOR","SIM");
-        setupLinkedField("#SEG_VIDA", "#SEG_VIDA_SIM", "SIM");
-        setupLinkedField("#LIFE-OP", "#LIFE-VALOR", "SIM");
-        setupLinkedField("#CASA-VOP", "#CASA-ALU", "ALU","SIM");
-        setupLinkedField("#CASA-VOP", "#CASA-VERA", "VERA","SIM");
-        setupLinkedField("#CLUBE-OP", "#CLUBE-V", "SIM");
-        setupLinkedField("#CONDO-OP", "#CONDO-V", "SIM");
-        setupLinkedField("#ALUCAR-OP", "#ALUGUEL-CAR", "SIM");
-        setupLinkedField("#PLANO-OP", "#PLANO-SAUDE", "SIM");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-CASA", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-CASA-RES", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-VEI", "CARRO", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINA-VEI-RES", "CARRO", "AMBOS");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS", "SIM");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMO-SALDO", "SIM");
-        setupLinkedField("#CIVIL", "#CIVIL_SIM", "Casado", "Uniao Estável");
+        setupLinkedField("#APLICACAO-OP", "#APLICACAO_FINANCEIRA_TOTAL", "SIM");
+        setupLinkedField("#APLICACAO-OP", "#APLICACAO_SIM", "SIM"); //ARQUIVO
+        // setupLinkedField("#FILHOS","#MENSALIDADE_ESCOLA", "SIM");    FILHOS SE PRECISAR !!!
+        // setupLinkedField("#FILHOS", "#MENSALIDADE_UNIVERSIDADE", "SIM");
+        // setupLinkedField("#FILHOS", "#FILHOS-QNT", "SIM");
+        setupLinkedField("#PREVIDENCIA_PRIVADA_OPCAO", "#PREVIDENCIA_PRIVADA_PARCELA","SIM");
+        setupLinkedField("#PREVIDENCIA_PRIVADA_OPCAO", "#PREVIDENCIA_PRIVADA_MONTADE","SIM");
+        setupLinkedField("#SEGURO_VIDA_OP", "#SEGURO_VIDA", "SIM");
+        setupLinkedField("#SEGURO_VIDA_OP", "#SEGURO_VIDA_APOLICE", "SIM"); // ARQUIVO
+        setupLinkedField("#CASA-VOP", "#VALOR_MERCADO_IMOVEL_VERAO", "ALU","SIM");
+        setupLinkedField("#CASA-VOP", "#VALOR_MERCADO_IMOVEL_ALUGADO", "VERA","SIM");
+        setupLinkedField("#CLUBE-OP", "#MENSALIDADE_CLUBE", "SIM");
+        setupLinkedField("#CONDO-OP", "#MENSALIDADE_CONDOMINIO", "SIM");
+        setupLinkedField("#ALUCAR-OP", "#ALUGUEL_VEICULO", "SIM");
+        setupLinkedField("#PLANO-OP", "#PLANO_SAUDE_PARCELA", "SIM");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_PARCELA", "CASA", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_DEVEDOR", "CASA", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_PARCELA", "CARRO", "AMBOS");
+        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_DEVEDOR", "CARRO", "AMBOS");
+        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_PARCELA_", "SIM");
+        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_DEVEDOR", "SIM");
+        setupLinkedField("#ESTADO_CIVIL", "#ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
         setupLinkedField("#ALUGUEL-OP", "#ALUGUEL", "SIM");
 
         // Chame setupLinkedField para outros pares de campos conforme necessário
@@ -837,7 +831,7 @@
         // This function will figure out which tab to display
         var x = document.getElementsByClassName("step");
         // Exit the function if any field in the current tab is invalid:
-        //if (n == 1 && !validateForm()) return false;
+        if (n == 1 && !validateForm()) return false;
         // Hide the current tab:
         x[currentTab].style.display = "none";
         // Increase or decrease the current tab by 1:
@@ -875,8 +869,7 @@
             document.getElementsByClassName("stepIndicator")[currentTab].className += " finish";
         } else {
             alert("Campo obrigatório vazio!");
-        }
-        
+        }        
 
         return valid;
     }
@@ -893,6 +886,17 @@
         }
     }
 
+    function formatCurrencyValue(value) {
+        var formattedValue = new Intl.NumberFormat("pt-br", {
+            style: "currency",
+            currency: "BRL",
+            minimumFractionDigits: 2,
+        }).format(value / 100); // Dividir por 100 para ajustar para centavos
+
+        return formattedValue;
+    }
+
+
     function handleCurrencyInput(input) {
         var value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
         var numericValue = parseFloat(value);
@@ -905,31 +909,7 @@
         }
     }
 
-    function formatCurrencyValue(value) {
-        var formattedValue = new Intl.NumberFormat("pt-br", {
-            style: "currency",
-            currency: "BRL",
-            minimumFractionDigits: 2,
-        }).format(value / 100); // Dividir por 100 para ajustar para centavos
-
-        return formattedValue;
-    }
-
-    function convertToNumber(textValue) {
-        // Remove caracteres não numéricos e substitui vírgulas por pontos para transformar em número
-        return parseFloat(textValue.replace(/[^\d,]/g, "").replace(",", "."));
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var luzInput = document.getElementById("LUZ");
-
-        luzInput.addEventListener("change", function () {
-            var numericValue = convertToNumber(luzInput.value);
-            console.log("Valor numérico: " + numericValue);
-        });
-    });
-
-    //ADICIONAR OPÇÔES DE GASTOS
+    //ADICIONAR OPÇÔES DE GASTOS  -- REPASSAR
 
     document.addEventListener("DOMContentLoaded", function () {
     var customExpensesContainer = document.getElementById("customExpenses");
@@ -962,6 +942,5 @@
         expenseIndex++;
     });
 });
-
   
 </script>
