@@ -297,14 +297,14 @@
 
             <div class="mb-3">
 
-            <label for="APLICACAO-OP">Possui alguma aplicação ?</label>
+            <label for="SOBRE_APLICACAO_OPCAO">Possui alguma aplicação ?</label>
             <select id="APLICACAO-OP" class="form-control required">
                 <option value="NAO">Não</option>
                 <option value="SIM">Sim</option>
             </select>
             </div>
 
-            <div class="mb-3" id="APLICACAOT">
+            <div class="mb-3" id="RECEITA_APLICACOES_VALOR_TOTAL">
                 <label for="RECEITA_APLICACOES_VALOR_TOTAL">Aplicações Financeiras - Valor TOTAL</label>
                 <input type="text" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL" class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>
             </div>
@@ -344,8 +344,8 @@
             <!--- Linkados ALUGUEL--->
             <div class="mb-3">
 
-                <label for="ALUGUEL-OP">Possui contrato de aluguel?</label>
-                <select name="ALUGEL-OP" id="ALUGUEL-OP" class="form-control required">
+                <label for="DESPESA_ALUGUEL_OPCAO">Possui contrato de aluguel?</label>
+                <select name="DESPESA_ALUGUEL_OPCAO" id="DESPESA_ALUGUEL_OPCAO" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
                     <option value="NAO">Não</option>
@@ -353,7 +353,7 @@
 
             </div>
 
-            <div class="mb-3" id="DESPESA_ALUGUEL-DIV">
+            <div class="mb-3" id="DESPESA_ALUGUEL">
                 <label for="DESPESA_ALUGUEL">Aluguel</label>
                 <input type="text" id="DESPESA_ALUGUEL" name="DESPESA_ALUGUEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     required>
@@ -379,13 +379,13 @@
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV">
+            <div class="mb-3" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">
                 <label for="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">Financiamento Residencial - Saldo devedor</label>
                 <input type="text" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA-DIV">
+            <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA">
                 <label for="DESPESA_FINANCIAMENTO_VEICULO_PARCELA">Financiamento Veiculos - Parcela</label>
                 <input type="text" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA" name="DESPESA_FINANCIAMENTO_VEICULO_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
@@ -412,7 +412,7 @@
             <!--- Linkados EMPRESTIMO--->
             <div class="mb-3">
 
-                <label for="EMPRESTIMO-OP">Possui contrato de Emprestimo ?</label>
+                <label for="DESPESA_EMPRESTIMO_OPCAO">Possui contrato de Emprestimo ?</label>
                 <select name="EMPRESTIMO-OP" id="EMPRESTIMO-OP" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
@@ -421,13 +421,13 @@
 
             </div>
 
-            <div class="mb-3" id="DESPESA_EMPRESTIMO_PARCELA-DIV">
+            <div class="mb-3" id="DESPESA_EMPRESTIMO_PARCELA">
                 <label for="DESPESA_EMPRESTIMO_PARCELA">Emprestimos parcela</label>
                 <input type="text" id="DESPESA_EMPRESTIMO_PARCELA" name="DESPESA_EMPRESTIMO_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR-DIV">
+            <div class="mb-3" id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR">
                 <label for="DESPESA_EMPRESTIMO_SALDO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
                 <input type="text" id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR" name="DESPESA_EMPRESTIMO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
@@ -460,8 +460,8 @@
             <!---------------- PLANO DE SAUDE -------------------------->
             <div class="mb-3">
 
-                <label for="PLANO-OP">Possui plano de saude ?</label>
-                <select name="PLANO-OP" id="PLANO-OP" class="form-control required">
+                <label for="DESPESA_PLANO_OPCAO">Possui plano de saude ?</label>
+                <select name="DESPESA_PLANO_OPCAO" id="DESPESA_PLANO_OPCAO" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
                     <option value="NAO">Não</option>
@@ -469,7 +469,7 @@
 
             </div>
 
-            <div class="mb-3" id="DESPESA_PLANO_SAUDE_MENSAL-DIV">
+            <div class="mb-3" id="DESPESA_PLANO_SAUDE_MENSAL">
                 <label for="DESPESA_PLANO_SAUDE_MENSAL">Plano de saúde - Parcela</label>
                 <input type="text" id="DESPESA_PLANO_SAUDE_MENSAL" name="DESPESA_PLANO_SAUDE_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
@@ -510,7 +510,7 @@
 
             </div>
 
-            <div class="mb-3" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE-DIV">
+            <div class="mb-3" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE">
                 <label for="DESPESA_VEICULO_ALUGADO_MENSALIDADE">Valor do Aluguel dos veículos</label>
                 <input type="text" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE" name="DESPESA_VEICULO_ALUGADO_MENSALIDADE" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
@@ -525,15 +525,15 @@
 
             <div class="mb-3">
 
-                <label for="SEGURO_VIDA_OP">Tem seguro de vida ?</label>
-                <select name="SEGURO_VIDA_OP" id="SEGURO_VIDA_OP" class="form-control required">
+                <label for="DESPESA_SEGURO_VIDA_OPCAO">Tem seguro de vida ?</label>
+                <select name="DESPESA_SEGURO_VIDA_OPCAO" id="DESPESA_SEGURO_VIDA_OPCAO" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
 
                 </div>
 
-                <div class="mb-3" id="DESPESA_SEGURO_VIDA_MENSAL-DIV">
+                <div class="mb-3" id="DESPESA_SEGURO_VIDA_MENSAL">
                 <label for="DESPESA_SEGURO_VIDA_MENSAL">Mensalidade do seguro de vida</label>
                 <input type="text" id="DESPESA_SEGURO_VIDA_MENSAL" name="DESPESA_SEGURO_VIDA_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
@@ -544,15 +544,15 @@
 
             <div class="mb-3">
 
-                <label for="CONDO-OP">Mora em Condominio ?</label>
-                <select name="CONDO-OP" id="CONDO-OP" class="form-control required">
+                <label for="DESPESA_CONDOMINIO_OPCAO">Mora em Condominio ?</label>
+                <select name="DESPESA_CONDOMINIO_OPCAO" id="DESPESA_CONDOMINIO_OPCAO" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
 
             </div>
 
-            <div class="mb-3" id="DESPESA_CONDOMINIO_MENSAL-DIV">
+            <div class="mb-3" id="DESPESA_CONDOMINIO_MENSAL">
                 <label for="DESPESA_CONDOMINIO_MENSAL">Mensalidade do Condominio</label>
                 <input type="text" id="DESPESA_CONDOMINIO_MENSAL" name="DESPESA_CONDOMINIO_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
@@ -582,15 +582,15 @@
 
             <div class="mb-3">
 
-                <label for="CLUBE-OP">Freequenta algum clube?</label>
-                <select name="CLUBE-OP" id="CLUBE-OP" class="form-control required">
+                <label for="DESPESA_CLUBE_OPCAO">Freequenta algum clube?</label>
+                <select name="DESPESA_CLUBE-OPCAO" id="DESPESA_CLUBE_OPCAO" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
 
             </div>
 
-            <div class="mb-3" id="DESPESA_CLUBE_MENSALIDADE-DIV">
+            <div class="mb-3" id="DESPESA_CLUBE_MENSALIDADE">
                 <label for="DESPESA_CLUBE_MENSALIDADE">Mensalidade do Clube</label>
                 <input type="text" id="DESPESA_CLUBE_MENSALIDADE" name="DESPESA_CLUBE_MENSALIDADE" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
@@ -623,7 +623,7 @@
 
             <div class="mb-3">
 
-                <label for="CASA-VOP">Possui casa de veraneio ou alugadas ?</label>
+                <label for="BENS_IMOVEIS_ALUGADOS_VERANEIO">Possui casa de veraneio ou alugadas ?</label>
                 <select name="CASA-VOP" id="CASA-VOP" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="VERA">Veraneio</option>
@@ -633,15 +633,15 @@
 
                 </div>
 
-                <div class="mb-3" id="VALOR_MERCADO_IMOVEL_VERAO">
-                <label for="VALOR_MERCADO_IMOVEL_VERAO">Imovéis de veraneio - Valor de mercado</label>
-                <input type="text" id="VALOR_MERCADO_IMOVEL_VERAO" name="VALOR_MERCADO_IMOVEL_VERAO" oninput="handleCurrencyInput(this)"
+                <div class="mb-3" id="BENS_VALOR_MERCADO_IMOVEL_VERAO">
+                <label for="BENS_VALOR_MERCADO_IMOVEL_VERAO">Imovéis de veraneio - Valor de mercado</label>
+                <input type="text" id="BENS_VALOR_MERCADO_IMOVEL_VERAO" name="BENS_VALOR_MERCADO_IMOVEL_VERAO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 </div>
 
-                <div class="mb-3" id="VALOR_MERCADO_IMOVEL_ALUGADO">
-                <label for="VALOR_MERCADO_IMOVEL_ALUGADO">Imovéis alugados - Valor de mercado</label>
-                <input type="text" id="VALOR_MERCADO_IMOVEL_ALUGADO" name="VALOR_MERCADO_IMOVEL_ALUGADO" oninput="handleCurrencyInput(this)"
+                <div class="mb-3" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO">
+                <label for="BENS_VALOR_MERCADO_IMOVEL_ALUGADO">Imovéis alugados - Valor de mercado</label>
+                <input type="text" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" name="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 </div>
 
@@ -692,8 +692,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="PREVIDENCIA_PRIVADA_OPCAO">Possui previdência privada ?</label>
-                <select name="PREVIDENCIA_PRIVADA_OPCAO" id="PREVIDENCIA_PRIVADA_OPCAO" class="form-control required">
+                <label for="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO">Possui previdência privada ?</label>
+                <select name="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO" id="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -787,29 +787,30 @@ function removeNumbers(input) {
             });
         }
 
-        setupLinkedField("#APLICACAO-OP", "#APLICACAO_FINANCEIRA_TOTAL", "SIM");
-        setupLinkedField("#APLICACAO-OP", "#APLICACAO_SIM", "SIM"); //ARQUIVO
+        //FILTRO DE CONDIÇOES ------------------------------------------------
+        setupLinkedField("#SOBRE_ESTADO_CIVIL", "#SOBRE_ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
         // setupLinkedField("#FILHOS","#MENSALIDADE_ESCOLA", "SIM");    FILHOS SE PRECISAR !!!
         // setupLinkedField("#FILHOS", "#MENSALIDADE_UNIVERSIDADE", "SIM");
         // setupLinkedField("#FILHOS", "#FILHOS-QNT", "SIM");
-        setupLinkedField("#PREVIDENCIA_PRIVADA_OPCAO", "#PREVIDENCIA_PRIVADA_PARCELA","SIM");
-        setupLinkedField("#PREVIDENCIA_PRIVADA_OPCAO", "#PREVIDENCIA_PRIVADA_MONTADE","SIM");
-        setupLinkedField("#SEGURO_VIDA_OP", "#SEGURO_VIDA", "SIM");
-        setupLinkedField("#SEGURO_VIDA_OP", "#SEGURO_VIDA_APOLICE", "SIM"); // ARQUIVO
-        setupLinkedField("#CASA-VOP", "#VALOR_MERCADO_IMOVEL_VERAO", "ALU","SIM");
-        setupLinkedField("#CASA-VOP", "#VALOR_MERCADO_IMOVEL_ALUGADO", "VERA","SIM");
-        setupLinkedField("#CLUBE-OP", "#MENSALIDADE_CLUBE", "SIM");
-        setupLinkedField("#CONDO-OP", "#MENSALIDADE_CONDOMINIO", "SIM");
-        setupLinkedField("#ALUCAR-OP", "#ALUGUEL_VEICULO", "SIM");
-        setupLinkedField("#PLANO-OP", "#PLANO_SAUDE_PARCELA", "SIM");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_PARCELA", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_DEVEDOR", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_PARCELA", "CARRO", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_DEVEDOR", "CARRO", "AMBOS");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_PARCELA_", "SIM");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_DEVEDOR", "SIM");
-        setupLinkedField("#ESTADO_CIVIL", "#ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
-        setupLinkedField("#ALUGUEL-OP", "#ALUGUEL", "SIM");
+        setupLinkedField("#SOBRE_APLICACAO_OPCAO", "#RECEITA_APLICACOES_VALOR_TOTAL", "SIM");
+        setupLinkedField("#SOBRE_APLICACAO-OPCAO", "#RECEITA_APLICACOES_ARQUIVO", "SIM"); //ARQUIVO
+        setupLinkedField("#DESPESA_ALUGUEL_OPCAO", "#DESPESA_ALUGUEL", "SIM");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA", "CASA", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR", "CASA", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_VEICULO_PARCELA", "CARRO", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR", "CARRO", "AMBOS");
+        setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO", "#DESPESA_EMPRESTIMO_PARCELA", "SIM");
+        setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO", "#DESPESA_EMPRESTIMOS_SALDO_DEVEDOR", "SIM");
+        setupLinkedField("#DESPESA_PLANO_OPCAO", "#DESPESA_PLANO_SAUDE_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_ALUGUEL_CARROS", "#DESPESA_VEICULO_ALUGADO_MENSALIDADE", "SIM");
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAP", "#DESPESA_SEGURO_VIDA_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#SEGURO_VIDA_APOLICE", "SIM"); // ARQUIVO
+        setupLinkedField("#DESPESA_CONDOMINIO_OPCAO", "#DESPESA_CONDOMINIO_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_CLUBE_OPCAO", "#DESPESA_CLUBE_MENSALIDADE", "SIM");
+        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_VERAO", "ALU","SIM");
+        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_ALUGADO", "VERA","SIM");
+        setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_MENSAL","SIM");
+        setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO","SIM");
 
         // Chame setupLinkedField para outros pares de campos conforme necessário
     });
