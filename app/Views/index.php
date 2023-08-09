@@ -120,6 +120,7 @@
             content: "anos";
             position: absolute;
             top: 0;
+            transform: translateY(16%);
             right: 340px;
             height: 100%;
             display: flex;
@@ -226,7 +227,7 @@
                 <input
                     type="email"
                     placeholder="Inserir seu E-mail"
-                    oninput="this.className = ''"
+                    oninput="removeNumbers(this)"
                     name="SOBRE_EMAIL"
                     id="SOBRE_EMAIL"
                     class="required"
@@ -235,7 +236,7 @@
             
             <div class="mb-3">
                 <label for="SOBRE_NOME_COMPLETO">Nome Completo:</label>
-                <input class="required" type="text" oninput="this.className = ''" name="SOBRE_NOME_COMPLETO" id="SOBRE_NOME_COMPLETO">
+                <input class="required" type="text" oninput="removeNumbers(this)" name="SOBRE_NOME_COMPLETO" id="SOBRE_NOME_COMPLETO">
             </div>
 
             <div class="mb-3">
@@ -245,7 +246,7 @@
 
             <div class="mb-3">
                 <label for="SOBRE_PROFISSAO">Profissão:</label>
-                <input class="required" type="text" placeholder="Sua Profissão" oninput="this.className = ''" name="SOBRE_PROFISSAO" id="SOBRE_PROFISSAO">
+                <input class="required" type="text" placeholder="Sua Profissão" oninput="removeNumbers(this)" name="SOBRE_PROFISSAO" id="SOBRE_PROFISSAO">
             </div>
 
             <div class="mb-3">
@@ -271,7 +272,7 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="SOBRE_ESTADO_CIVIL_DETALHE-DIV">
+            <div class="mb-3" id="SOBRE_ESTADO_CIVIL_DETALHE">
                 <label for="SOBRE_ESTADO_CIVIL_DETALHE">Qual o regime?</label>
                 <select id="SOBRE_ESTADO_CIVIL_DETALHE" name="SOBRE_ESTADO_CIVIL_DETALHE" class="form-control">
                     <option value="">Selecione</option>
@@ -309,7 +310,7 @@
                 <input type="text" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL" class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>
             </div>
 
-            <div class="mb-3" id="RECEITA_APLICACOES_ARQUIVO-DIV">
+            <div class="mb-3" id="RECEITA_APLICACOES_ARQUIVO">
 
                 <label for="RECEITA_APLICACOES_ARQUIVO">Aplicações Financeiras - Anexar extrato das aplicações</label><br>
                 <input type="file" id="RECEITA_APLICACOES_ARQUIVO" name="RECEITA_APLICACOES_ARQUIVO"/>      
@@ -346,9 +347,9 @@
 
                 <label for="DESPESA_ALUGUEL_OPCAO">Possui contrato de aluguel?</label>
                 <select name="DESPESA_ALUGUEL_OPCAO" id="DESPESA_ALUGUEL_OPCAO" class="form-control required">
-                    <option value="">Selecione</option>
-                    <option value="SIM">Sim</option>
                     <option value="NAO">Não</option>
+                    <option value="SIM">Sim</option>
+
                 </select>
 
             </div>
@@ -414,9 +415,9 @@
 
                 <label for="DESPESA_EMPRESTIMO_OPCAO">Possui contrato de Emprestimo ?</label>
                 <select name="EMPRESTIMO-OP" id="EMPRESTIMO-OP" class="form-control required">
-                    <option value="">Selecione</option>
-                    <option value="SIM">Sim</option>
                     <option value="NAO">Não</option>
+                    <option value="SIM">Sim</option>
+
                 </select>
 
             </div>
@@ -462,9 +463,9 @@
 
                 <label for="DESPESA_PLANO_OPCAO">Possui plano de saude ?</label>
                 <select name="DESPESA_PLANO_OPCAO" id="DESPESA_PLANO_OPCAO" class="form-control required">
-                    <option value="">Selecione</option>
-                    <option value="SIM">Sim</option>
                     <option value="NAO">Não</option>
+                    <option value="SIM">Sim</option>
+
                 </select>
 
             </div>
@@ -668,20 +669,7 @@
 
             <p class="text-center mb-4">Proteção</p>
 
-            <div class="mb-3">
-
-                <label for="SEGURO_VIDA_OPCAO">Possui cobertura de seguro de vida?</label>
-
-                <select id="SEGURO_VIDA_OPCAO" name="SEGURO_VIDA_OPCAO" class="form-control required">
-
-                    <option value="">Selecione</option>
-                    <option value="SIM">Sim</option>
-                    <option value="NAO">Não</option>
-
-                </select>
-            </div>
-
-            <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
+            <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO">
                 <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
                 <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
             </div>
@@ -699,12 +687,12 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL-DIV">
+            <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL">
                 <label for="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL">Previdencia privada - Valor da Parcela</label>
                 <input type="text" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" oninput="hanldeCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO-DIV">
+            <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO">
                 <label for="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO">Montante acumulado</label>
                 <input type="text" id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO" name="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
@@ -723,12 +711,12 @@
             <p class="text-center mb-4"> Objetivos</p>
             <div class="mb-3">
                 <label for="OBJETIVO_RENDA_MENSAL">Renda mensal pretendida na aposentadoria:</label>
-                <input type="number" placeholder="R$ 0,00" oninput="handleCurrencyInput()" name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL">
+                <input type="text" placeholder="R$ 0,00" oninput="handleCurrencyInput(this)" name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL">
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 IDADE">
                 <label for="OBJETIVO_IDADE_PRETENDIDA">Idade pretendida para aposentadoria:</label>
-                <input type="number" oninput="this.className = ''" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA">
+                <input type="number" oninput="this.className = maxIdade(this)" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA" maxlength="2">
             </div>
 
             <br>
@@ -738,7 +726,7 @@
                 <label for="OBJETIVO_ANO_REALIZACAO">Quanto tempo?</label>
                 <input type="date" oninput="this.className = ''" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO">
                 <label for="OBJETIVO_VALOR">Valor requerido?</label>
-                <input type="number" placeholder="R$ 0,00" oninput="handleCurrencyInput()" name="OBJETIVO_VALOR" id="OBJETIVO_VALOR">
+                <input type="text" placeholder="R$ 0,00" oninput="handleCurrencyInput(this)" name="OBJETIVO_VALOR" id="OBJETIVO_VALOR">
             </div>
 
 
@@ -803,14 +791,15 @@ function removeNumbers(input) {
         setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO", "#DESPESA_EMPRESTIMOS_SALDO_DEVEDOR", "SIM");
         setupLinkedField("#DESPESA_PLANO_OPCAO", "#DESPESA_PLANO_SAUDE_MENSAL", "SIM");
         setupLinkedField("#DESPESA_ALUGUEL_CARROS", "#DESPESA_VEICULO_ALUGADO_MENSALIDADE", "SIM");
-        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAP", "#DESPESA_SEGURO_VIDA_MENSAL", "SIM");
-        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#SEGURO_VIDA_APOLICE", "SIM"); // ARQUIVO
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#DESPESA_SEGURO_VIDA_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#PROTECAO_APOLICE_SEGURO_ARQUIVO", "SIM"); // ARQUIVO
         setupLinkedField("#DESPESA_CONDOMINIO_OPCAO", "#DESPESA_CONDOMINIO_MENSAL", "SIM");
         setupLinkedField("#DESPESA_CLUBE_OPCAO", "#DESPESA_CLUBE_MENSALIDADE", "SIM");
         setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_VERAO", "ALU","SIM");
         setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_ALUGADO", "VERA","SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_MENSAL","SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO","SIM");
+        
 
         // Chame setupLinkedField para outros pares de campos conforme necessário
     });
@@ -857,6 +846,7 @@ function removeNumbers(input) {
         if (currentTab >= x.length) {
             // ... the form gets submitted:
             document.getElementById("signUpForm").submit();
+
             return false;
         }
         // Otherwise, display the correct tab:
@@ -891,6 +881,11 @@ function removeNumbers(input) {
         return valid;
     }
     
+    function maxIdade(input) {
+        if (input.value.length > 2) {
+            input.value = input.value.slice(0, 2);
+        }
+    }
 
     function validateCurrency(input) {
         var value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
@@ -952,7 +947,7 @@ function removeNumbers(input) {
         expenseDiv.appendChild(nameInput);
 
         var valueLabel = document.createElement("label");
-        valueLabel.textContent = "Valor do Gasto " + expenseIndex;
+        valueLabel.textContent = "Valor do Gasto " + expenseIndex;p
         var valueInput = document.createElement("input");
         valueInput.type = "number";
         valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
