@@ -2,13 +2,13 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentoria</title>
 
     <!-- bootstrap css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -111,6 +111,23 @@
             background-color: #f3f3f3;
         }
 
+        .IDADE{
+            position: relative;
+
+        }
+
+        .IDADE::after{
+            content: "anos";
+            position: absolute;
+            top: 0;
+            right: 340px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: gray;
+        }
+
+
         #signUpForm .form-header .stepIndicator.active::after {
             background-color: #a7ede8;
         }
@@ -137,7 +154,8 @@
         }
 
         #signUpForm input.invalid {
-            border: 3px solid red;
+            border: 2px solid;
+            color: #fd4444; 
         }
 
         #signUpForm .step {
@@ -172,59 +190,67 @@
         }
 
         .invalid {
-            border: 3px solid red;
+            border: 2px solid;
+            color: #fd4444; 
         }
     </style>
-
 
 </head>
 
 <body>
+
     <h1 class="text-center fs-4">Mentoria Viver de Renda</h1>
-    <h1 class="text-center fs-4">Tenha um processo estruturado de crescimento financeiro e patrimonial feito sob medida
-        para você saber exatamente o que fazer, como fazer e qual resultado esperar.</h1>
+    <h1 class="text-center fs-4">Tenha um processo estruturado de crescimento financeiro e patrimonial feito sob medida para você saber exatamente o que fazer, como fazer e qual resultado esperar.</h1>
 
 
     <form id="signUpForm" method="POST" action="<?= base_url('home/salvar') ?>">
+
         <!-- start step indicators -->
         <div class="form-header d-flex mb-4">
             <span class="stepIndicator">Sobre</span>
             <span class="stepIndicator">Receitas</span>
             <span class="stepIndicator">Despesas</span>
             <span class="stepIndicator">Bens</span>
-            <span class="stepIndicator">Proteção</span>
+            <span class="stepIndicator">Proteções</span>
             <span class='stepIndicator'>Objetivos</span>
         </div>
         <!-- end step indicators -->
 
         <!-- step one -->
         <div class="step">
+
             <p class="text-center mb-4">Cadastro!</p>
+
             <div class="mb-3">
-                <label for="EMAIL">E-mail:</label>
-                <input type="email" placeholder="Inserir seu E-mail" oninput="this.className = ''" name="EMAIL"
-                    id="EMAIL" class="required">
+                <label for="SOBRE_EMAIL">E-mail:</label>
+                <input
+                    type="email"
+                    placeholder="Inserir seu E-mail"
+                    oninput="this.className = ''"
+                    name="SOBRE_EMAIL"
+                    id="SOBRE_EMAIL"
+                    class="required"
+                >
+            </div>
+            
+            <div class="mb-3">
+                <label for="SOBRE_NOME_COMPLETO">Nome Completo:</label>
+                <input class="required" type="text" oninput="this.className = ''" name="SOBRE_NOME_COMPLETO" id="SOBRE_NOME_COMPLETO">
             </div>
 
             <div class="mb-3">
-                <label for="NOME_COMPLETO">Nome Completo:</label>
-                <input class="required" type="text" oninput="this.className = ''" name="NOME_COMPLETO" id="NOME_COMPLETO">
+                <label for="SOBRE_DATA_NASCIMENTO">Data de nascimento:</label>
+                <input class="required" type="date" placeholder="" oninput="this.className = ''" name="SOBRE_DATA_NASCIMENTO" id="SOBRE_DATA_NASCIMENTO">
             </div>
 
             <div class="mb-3">
-                <label for="DATA_NASCIMENTO">Data de nascimento:</label>
-                <input class="required" type="date" placeholder="" oninput="this.className = ''" name="DATA_NASCIMENTO" id="DATA_NASCIMENTO">
+                <label for="SOBRE_PROFISSAO">Profissão:</label>
+                <input class="required" type="text" placeholder="Sua Profissão" oninput="this.className = ''" name="SOBRE_PROFISSAO" id="SOBRE_PROFISSAO">
             </div>
 
             <div class="mb-3">
-                <label for="PROFISSAO">Profissão:</label>
-                <input class="required" type="text" placeholder="Sua Profissão" oninput="this.className = ''" name="PROFISSAO"
-                    id="PROFISSAO">
-            </div>
-
-            <div class="mb-3">
-                <label for="PROFISSAO_TIPO">Como exerce a sua profissão?</label>
-                <select id="PROFISSAO_TIPO" name="PROFISSAO_TIPO" class="form-control required">
+                <label for="SOBRE_PROFISSAO_TIPO">Como exerce a sua profissão?</label>
+                <select id="SOBRE_PROFISSAO_TIPO" name="SOBRE_PROFISSAO_TIPO" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="Assalariado (carteira assinada)">Assalariado (carteira assinada)</option>
                     <option value="Assalariado (como PJ)">Assalariado (como PJ)</option>
@@ -234,8 +260,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="ESTADO_CIVIL">Estado Civil:</label>
-                <select id="ESTADO_CIVIL" name="ESTADO_CIVIL" class="form-control required">
+                <label for="SOBRE_ESTADO_CIVIL">Estado Civil:</label>
+                <select id="SOBRE_ESTADO_CIVIL" name="SOBRE_ESTADO_CIVIL" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="Casado">Casado(a)</option>
                     <option value="Solteiro">Solteiro(a)</option>
@@ -245,9 +271,9 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="ESTADO_CIVIL_DETALHE">
-                <label for="ESTADO_CIVIL_DETALHE">Qual o regime?</label>
-                <select id="ESTADO_CIVIL_DETALHE" name="ESTADO_CIVIL_DETALHE" class="form-control">
+            <div class="mb-3" id="SOBRE_ESTADO_CIVIL_DETALHE-DIV">
+                <label for="SOBRE_ESTADO_CIVIL_DETALHE">Qual o regime?</label>
+                <select id="SOBRE_ESTADO_CIVIL_DETALHE" name="SOBRE_ESTADO_CIVIL_DETALHE" class="form-control">
                     <option value="">Selecione</option>
                     <option value="Comunhão de bens">Comunhão de bens</option>
                     <option value="Separação total de bens">Separação total de bens</option>
@@ -264,31 +290,29 @@
 
             <div class="mb-3">
 
-                <label for="RENDA_MENSAL_LIQUIDA">Renda mensal líquida (já descontado o imposto de renda):</label>
-                <input type="text" id="RENDA_MENSAL_LIQUIDA" class="currency-input required" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>                
+                <label for="RECEITA_RENDA_MENSAL_LIQUIDA">Renda mensal líquida (já descontado o imposto de renda):</label>
+                <input type="text" name="RECEITA_RENDA_MENSAL_LIQUIDA" id="RECEITA_RENDA_MENSAL_LIQUIDA" class="currency-input required" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>                
 
             </div>
 
             <div class="mb-3">
 
-            <label for="APLICACAO-OP">Possui alguma aplicação ?</label>
-            <select name="APLICACAO-OP" id="APLICACAO-OP" class="form-control required">
+            <label for="SOBRE_APLICACAO_OPCAO">Possui alguma aplicação ?</label>
+            <select id="APLICACAO-OP" class="form-control required">
                 <option value="NAO">Não</option>
                 <option value="SIM">Sim</option>
             </select>
             </div>
 
-            <div class="mb-3" id="APLICACAOT">
-
-                    <label for="APLICACAO_FINANCEIRA_TOTAL">Aplicações Financeiras - Valor TOTAL</label>
-                    <input type="text" id="APLICACAO_FINANCEIRA_TOTAL" class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>
-
+            <div class="mb-3" id="RECEITA_APLICACOES_VALOR_TOTAL">
+                <label for="RECEITA_APLICACOES_VALOR_TOTAL">Aplicações Financeiras - Valor TOTAL</label>
+                <input type="text" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL" class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"/>
             </div>
 
-            <div class="mb-3" id="APLICACAO_SIM">
+            <div class="mb-3" id="RECEITA_APLICACOES_ARQUIVO-DIV">
 
-                <label for="APLICACAO_SIM">Aplicações Financeiras - Anexar extrato das aplicações</label><br>
-                <input type="file" id="APLICACAO_SIM" name="APLICACAO_SIM"/>      
+                <label for="RECEITA_APLICACOES_ARQUIVO">Aplicações Financeiras - Anexar extrato das aplicações</label><br>
+                <input type="file" id="RECEITA_APLICACOES_ARQUIVO" name="RECEITA_APLICACOES_ARQUIVO"/>      
                                      <!-- anexo arruma depois -->
             </div>
 
@@ -300,28 +324,28 @@
             <p class="text-center mb-4">Despesas</p>
 
             <div class="mb-3">
-                <label for="CONTA_LUZ">Conta de luz - Inserir média mensal</label>
-                <input type="text" class="required" id="CONTA_LUZ" name="CONTA_LUZ" oninput="handleCurrencyInput(this)"
+                <label for="DESPESA_LUZ_MEDIA_MENSAL">Conta de luz - Inserir média mensal</label>
+                <input type="text" class="required" id="DESPESA_LUZ_MEDIA_MENSAL" name="DESPESA_LUZ_MEDIA_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="CONTA_AGUA">Conta de água - Inserir média mensal</label>
-                <input type="text" class="required" id="CONTA_AGUA" name="CONTA_AGUA" oninput="handleCurrencyInput(this)"
+                <label for="DESPESA_AGUA_MEDIA_MENSAL">Conta de água - Inserir média mensal</label>
+                <input type="text" class="required" id="DESPESA_AGUA_MEDIA_MENSAL" name="DESPESA_AGUA_MEDIA_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="CONTA_GAS">Conta de gás - Inserir média mensal</label>
-                <input type="text" class="required" id="CONTA_GAS" name="CONTA_GAS" oninput="handleCurrencyInput(this)"
+                <label for="DESPESA_GAS_MEDIA_MENSAL">Conta de gás - Inserir média mensal</label>
+                <input type="text" class="required" id="DESPESA_GAS_MEDIA_MENSAL" name="DESPESA_GAS_MEDIA_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!--- Linkados ALUGUEL--->
             <div class="mb-3">
 
-                <label for="ALUGUEL-OP">Possui contrato de aluguel ?</label>
-                <select name="ALUGEL-OP" id="ALUGUEL-OP" class="form-control required">
+                <label for="DESPESA_ALUGUEL_OPCAO">Possui contrato de aluguel?</label>
+                <select name="DESPESA_ALUGUEL_OPCAO" id="DESPESA_ALUGUEL_OPCAO" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
                     <option value="NAO">Não</option>
@@ -329,9 +353,9 @@
 
             </div>
 
-            <div class="mb-3" id="ALUGUEL">
-                <label for="ALUGUEL">Aluguel</label>
-                <input type="text" id="ALUGUEL" name="ALUGUEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
+            <div class="mb-3" id="DESPESA_ALUGUEL">
+                <label for="DESPESA_ALUGUEL">Aluguel</label>
+                <input type="text" id="DESPESA_ALUGUEL" name="DESPESA_ALUGUEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     required>
             </div>
 
@@ -340,8 +364,8 @@
             <!----------- FINANCIAMENTO -------------->
 
             <div class="mb-3">
-                <label for="FINANCIAMENTO-OP">Possui algum financiamento ?</label>
-                <select name="FINANCIAMENTO-OP" id="FINANCIAMENTO-OP" class="form-control required">
+                <label for="DESPESA_FINANCIAMENTO_TIPO">Possui algum financiamento ?</label>
+                <select name="DESPESA_FINANCIAMENTO_TIPO" id="DESPESA_FINANCIAMENTO_TIPO" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="CASA">Casa ou apto</option>
                     <option value="CARRO">Veículo</option>
@@ -349,46 +373,46 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_CASA_PARCONTA_CELA">
-                <label for="FINANCIAMENTO_CASA_PARCONTA_CELA">Financiamento Residencial - Parcela</label>
-                <input type="text" id="FINANCIAMENTO_CASA_PARCONTA_CELA" name="FINANCIAMENTO_CASA_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA">
+                <label for="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA">Financiamento Residencial - Parcela</label>
+                <input type="text" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_CASA_DEVEDOR">
-                <label for="FINANCIAMENTO_CASA_DEVEDOR">Financiamento Residencial - Saldo devedor</label>
-                <input type="text" id="FINANCIAMENTO_CASA_DEVEDOR" name="FINANCIAMENTO_CASA_DEVEDOR" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">
+                <label for="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">Financiamento Residencial - Saldo devedor</label>
+                <input type="text" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_VEICULO_PARCONTA_CELA">
-                <label for="FINANCIAMENTO_VEICULO_PARCONTA_CELA">Financiamento Veiculos - Parcela</label>
-                <input type="text" id="FINANCIAMENTO_VEICULO_PARCONTA_CELA" name="FINANCIAMENTO_VEICULO_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA">
+                <label for="DESPESA_FINANCIAMENTO_VEICULO_PARCELA">Financiamento Veiculos - Parcela</label>
+                <input type="text" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA" name="DESPESA_FINANCIAMENTO_VEICULO_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="FINANCIAMENTO_VEICULOS_DEVEDOR">
-                <label for="FINANCIAMENTO_VEICULOS_DEVEDOR">Financiamento Residencial - Saldo devedor</label>
-                <input type="text" id="FINANCIAMENTO_VEICULOS_DEVEDOR" name="FINANCIAMENTO_VEICULOS_DEVEDOR" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">
+                <label for="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento Residencial - Saldo devedor</label>
+                <input type="text" id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" name="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!------------------------------------->
 
             <div class="mb-3">
-                <label for="IPTU">IPTU</label>
-                <input type="text" id="IPTU" name="IPTU" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_IPTU">IPTU</label>
+                <input type="text" id="DESPESA_IPTU" name="DESPESA_IPTU" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="IPVA">IPVA - Valot total</label>
-                <input type="text" id="IPVA" name="IPVA" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_IPVA">IPVA - Valot total</label>
+                <input type="text" id="DESPESA_IPVA" name="DESPESA_IPVA" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <!--- Linkados EMPRESTIMO--->
             <div class="mb-3">
 
-                <label for="EMPRESTIMO-OP">Possui contrato de Emprestimo ?</label>
+                <label for="DESPESA_EMPRESTIMO_OPCAO">Possui contrato de Emprestimo ?</label>
                 <select name="EMPRESTIMO-OP" id="EMPRESTIMO-OP" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
@@ -397,47 +421,47 @@
 
             </div>
 
-            <div class="mb-3" id="EMPRESTIMOS_PARCONTA_CELA">
-                <label for="EMPRESTIMOS_PARCONTA_CELA">Emprestimos parcela</label>
-                <input type="text" id="EMPRESTIMOS_PARCONTA_CELA" name="EMPRESTIMOS_PARCONTA_CELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_EMPRESTIMO_PARCELA">
+                <label for="DESPESA_EMPRESTIMO_PARCELA">Emprestimos parcela</label>
+                <input type="text" id="DESPESA_EMPRESTIMO_PARCELA" name="DESPESA_EMPRESTIMO_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="EMPRESTIMO_DEVEDOR">
-                <label for="EMPRESTIMO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
-                <input type="text" id="EMPRESTIMO_DEVEDOR" name="EMPRESTIMO_DEVEDOR" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR">
+                <label for="DESPESA_EMPRESTIMO_SALDO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
+                <input type="text" id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR" name="DESPESA_EMPRESTIMO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!-------------------------------->
 
             <div class="mb-3">
-                <label for="CONTA_NET_TV">Valor da conta de internet + televisão</label>
-                <input type="text" id="CONTA_NET_TV" name="CONTA_NET_TV" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
+                <label for="DESPESA_INTERNET_TELEVISAO">Valor da conta de internet + televisão</label>
+                <input type="text" id="DESPESA_INTERNET_TELEVISAO" name="DESPESA_INTERNET_TELEVISAO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     class="required">
             </div>
 
             <div class="mb-3">
-                <label for="CONTA_CEL">Conta de celular</label>
-                <input type="text" id="CONTA_CEL" name="CONTA_CEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_CELULAR">Conta de celular</label>
+                <input type="text" id="DESPESA_CELULAR" name="DESPESA_CELULAR" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="CONTA_MERCADO">Média dos gastos em supermercados</label>
-                <input type="text" id="CONTA_MERCADO" name="CONTA_MERCADO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
+                <label for="DESPESA_MEDIA_MERCADO">Média dos gastos em supermercados</label>
+                <input type="text" id="DESPESA_MEDIA_MERCADO" name="DESPESA_MEDIA_MERCADO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     class="required">
             </div>
 
             <div class="mb-3">
-                <label for="CONTA_MEDICAMENTOS">Gastos com medicamentos</label>
-                <input type="text" id="CONTA_MEDICAMENTOS" name="CONTA_MEDICAMENTOS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_MEDICAMENTOS">Gastos com medicamentos</label>
+                <input type="text" id="DESPESA_MEDICAMENTOS" name="DESPESA_MEDICAMENTOS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <!---------------- PLANO DE SAUDE -------------------------->
             <div class="mb-3">
 
-                <label for="PLANO-OP">Possui plano de saude ?</label>
-                <select name="PLANO-OP" id="PLANO-OP" class="form-control required">
+                <label for="DESPESA_PLANO_OPCAO">Possui plano de saude ?</label>
+                <select name="DESPESA_PLANO_OPCAO" id="DESPESA_PLANO_OPCAO" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
                     <option value="NAO">Não</option>
@@ -445,33 +469,33 @@
 
             </div>
 
-            <div class="mb-3" id="PLANO_SAUDE_PARCELA">
-                <label for="PLANO_SAUDE_PARCELA">Plano de saúde - Parcela</label>
-                <input type="text" id="PLANO_SAUDE_PARCELA" name="PLANO_SAUDE_PARCELA" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_PLANO_SAUDE_MENSAL">
+                <label for="DESPESA_PLANO_SAUDE_MENSAL">Plano de saúde - Parcela</label>
+                <input type="text" id="DESPESA_PLANO_SAUDE_MENSAL" name="DESPESA_PLANO_SAUDE_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!----------------------------------------------------------->
 
             <div class="mb-3">
-                <label for="INSS_PARCELA">Valor parcela INSS</label>
-                <input type="text" name=INSS_PARCELA id="INSS_PARCELA" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_INSS">Valor parcela INSS</label>
+                <input type="text" name=DESPESA_INSS id="DESPESA_INSS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="GASTOS_LAZER">Gastos com lazer</label>
-                <input type="text" id="GASTOS_LAZER" name="GASTOS_LAZER" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
+                <label for="DESPESA_LAZER">Gastos com lazer</label>
+                <input type="text" id="DESPESA_LAZER" name="DESPESA_LAZER" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00"
                     class="required">
             </div>
 
             <div class="mb-3">
-                <label for="GASTOS_COMBUSTIVEL">Gasto com combustivél</label>
-                <input type="text" id="GASTOS_COMBUSTIVEL" name="GASTOS_COMBUSTIVEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_COMBUSTIVEL">Gasto com combustivél</label>
+                <input type="text" id="DESPESA_COMBUSTIVEL" name="DESPESA_COMBUSTIVEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="GASTOS_CARTAO">Gastos com cartao de crédito - Fatura</label>
-                <input type="text" id="GASTOS_CARTAO" name="GASTOS_CARTAO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_CARTAO_FATURA">Gastos com cartao de crédito - Fatura</label>
+                <input type="text" id="DESPESA_CARTAO_FATURA" name="DESPESA_CARTAO_FATURA" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
 
@@ -486,32 +510,32 @@
 
             </div>
 
-            <div class="mb-3" id="ALUGUEL-CAR">
-                <label for="ALUGUEL-CAR">Valor do Aluguel dos veículos</label>
-                <input type="text" id="ALUGUEL-CAR" name="ALUGUEL-CAR" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE">
+                <label for="DESPESA_VEICULO_ALUGADO_MENSALIDADE">Valor do Aluguel dos veículos</label>
+                <input type="text" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE" name="DESPESA_VEICULO_ALUGADO_MENSALIDADE" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!---------------------------------------------------------------------->
 
             <div class="mb-3">
-                <label for="SEG-VEI">Mensalidade do seguro dos veículos</label>
-                <input type="text" id="SEG-VEI" name="SEG-VEI" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="DESPESA_VEICULO_ALUGADO_SEGURO">Mensalidade do seguro dos veículos</label>
+                <input type="text" id="DESPESA_VEICULO_ALUGADO_SEGURO" name="DESPESA_VEICULO_ALUGADO_SEGURO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
 
-                <label for="LIFE-OP">Tem seguro de vida ?</label>
-                <select name="LIFE-OP" id="LIFE-OP" class="form-control required">
+                <label for="DESPESA_SEGURO_VIDA_OPCAO">Tem seguro de vida ?</label>
+                <select name="DESPESA_SEGURO_VIDA_OPCAO" id="DESPESA_SEGURO_VIDA_OPCAO" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
 
                 </div>
 
-                <div class="mb-3" id="SEGURO_VIDA">
-                <label for="SEGURO_VIDA">Mensalidade do seguro de vida</label>
-                <input type="text" id="SEGURO_VIDA" name="SEGURO_VIDA" oninput="handleCurrencyInput(this)"
+                <div class="mb-3" id="DESPESA_SEGURO_VIDA_MENSAL">
+                <label for="DESPESA_SEGURO_VIDA_MENSAL">Mensalidade do seguro de vida</label>
+                <input type="text" id="DESPESA_SEGURO_VIDA_MENSAL" name="DESPESA_SEGURO_VIDA_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 </div>
 
@@ -520,37 +544,37 @@
 
             <div class="mb-3">
 
-                <label for="CONDO-OP">Mora em Condominio ?</label>
-                <select name="CONDO-OP" id="CONDO-OP" class="form-control required">
+                <label for="DESPESA_CONDOMINIO_OPCAO">Mora em Condominio ?</label>
+                <select name="DESPESA_CONDOMINIO_OPCAO" id="DESPESA_CONDOMINIO_OPCAO" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
 
             </div>
 
-            <div class="mb-3" id="CONDO-V">
-                <label for="CONDO-V">Mensalidade do Condominio</label>
-                <input type="text" id="CONDO-V" name="CONDO_V" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_CONDOMINIO_MENSAL">
+                <label for="DESPESA_CONDOMINIO_MENSAL">Mensalidade do Condominio</label>
+                <input type="text" id="DESPESA_CONDOMINIO_MENSAL" name="DESPESA_CONDOMINIO_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!---------------------------------------------------------------------->
 
             <div class="mb-3">
-                <label for="SINDICATO">Contribuição Sindical</label>
-                <input type="text" id="SINDICATO" name="SINDICATO" oninput="handleCurrencyInput(this)"
+                <label for="DESPESA_CONTRIBUICAO_SINDICAL">Contribuição Sindical</label>
+                <input type="text" id="DESPESA_CONTRIBUICAO_SINDICAL" name="DESPESA_CONTRIBUICAO_SINDICAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="ESCOLA-MENSAL">
-                <label for="ESCOLA-MENSAL">Mensalidade Escolar</label>
-                <input type="text" id="ESCOLA-MENSAL" name="ESCOLA-MENSAL" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_ESCOLA_MENSAL-DIV">
+                <label for="DESPESA_ESCOLA_MENSAL">Mensalidade Escolar</label>
+                <input type="text" id="DESPESA_ESCOLA_MENSAL" name="DESPESA_ESCOLA_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="ESCOLA-UNI">
-                <label for="ESCOLA-UNI">Mensalidade Universidade</label>
-                <input type="text" id="ESCOLA-UNI" name="ESCOLA-UNI" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_UNIVERSIDADE_MENSAL-DIV">
+                <label for="DESPESA_UNIVERSIDADE_MENSAL">Mensalidade Universidade</label>
+                <input type="text" id="DESPESA_UNIVERSIDADE_MENSAL" name="DESPESA_UNIVERSIDADE_MENSAL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
@@ -558,24 +582,24 @@
 
             <div class="mb-3">
 
-                <label for="CLUBE-OP">Freequenta algum clube?</label>
-                <select name="CLUBE-OP" id="CLUBE-OP" class="form-control required">
+                <label for="DESPESA_CLUBE_OPCAO">Freequenta algum clube?</label>
+                <select name="DESPESA_CLUBE-OPCAO" id="DESPESA_CLUBE_OPCAO" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
 
             </div>
 
-            <div class="mb-3" id="CLUBE-V">
-                <label for="CLUBE-V">Mensalidade do Clube</label>
-                <input type="text" id="CLUBE-V" name="CLUBE-V" oninput="handleCurrencyInput(this)"
+            <div class="mb-3" id="DESPESA_CLUBE_MENSALIDADE">
+                <label for="DESPESA_CLUBE_MENSALIDADE">Mensalidade do Clube</label>
+                <input type="text" id="DESPESA_CLUBE_MENSALIDADE" name="DESPESA_CLUBE_MENSALIDADE" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             </div>
 
             <!---------------------------------------------------------------------->
 
 
-            <p class="mb-3">Gastos Personalizados</p>
+            <p class="mb-4">Gastos Personalizados</p>
             <div class="mb-3">
                 <button id="addExpense" class="btn btn-light">Adicionar Gasto Personalizado</button>
             </div>
@@ -593,13 +617,13 @@
             <p class="text-center mb-4">Bens</p>
 
             <div class="mb-3">
-                <label for="IMOVEL">Imoveis residenciais - Valor de Mercado</label>
-                <input type="text" id="IMOVEL" name="IMOVEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                <label for="VALOR_MERCADO_IMOVEL">Imoveis residenciais - Valor de Mercado</label>
+                <input type="text" id="VALOR_MERCADO_IMOVEL" name="VALOR_MERCADO_IMOVEL" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
 
-                <label for="CASA-VOP">Possui casa de veraneio ou alugadas ?</label>
+                <label for="BENS_IMOVEIS_ALUGADOS_VERANEIO">Possui casa de veraneio ou alugadas ?</label>
                 <select name="CASA-VOP" id="CASA-VOP" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="VERA">Veraneio</option>
@@ -609,28 +633,28 @@
 
                 </div>
 
-                <div class="mb-3" id="CASA-VERA">
-                <label for="CASA-VERA">Imovéis de veraneio - Valor de mercado</label>
-                <input type="text" id="CASA-VERA" name="CASA-VERA" oninput="handleCurrencyInput(this)"
+                <div class="mb-3" id="BENS_VALOR_MERCADO_IMOVEL_VERAO">
+                <label for="BENS_VALOR_MERCADO_IMOVEL_VERAO">Imovéis de veraneio - Valor de mercado</label>
+                <input type="text" id="BENS_VALOR_MERCADO_IMOVEL_VERAO" name="BENS_VALOR_MERCADO_IMOVEL_VERAO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 </div>
 
-                <div class="mb-3" id="CASA-ALU">
-                <label for="CASA-ALU">Imovéis alugados - Valor de mercado</label>
-                <input type="text" id="CASA-ALU" name="CASA-ALU" oninput="handleCurrencyInput(this)"
+                <div class="mb-3" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO">
+                <label for="BENS_VALOR_MERCADO_IMOVEL_ALUGADO">Imovéis alugados - Valor de mercado</label>
+                <input type="text" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" name="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 </div>
 
                              
                 <div class="mb-3">
-                    <label for="VALOR-CAR">Veiculos - Valor de mercado</label>
-                    <input type="text" id="VALOR-CAR" name="VALOR-CAR" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                    <label for="VALOR_MERCADO_VEICULOS">Veiculos - Valor de mercado</label>
+                    <input type="text" id="VALOR_MERCADO_VEICULOS" name="VALOR_MERCADO_VEICULOS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
                 </div>
 
                 
                 <div class="mb-3">
-                    <label for="EMPRESAS">Empresas- Valor de mercado</label>
-                    <input type="text" id="EMPRESA" name="EMPRESAS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+                    <label for="VALOR_MERCADO_EMPRESAS">Empresas - Valor de mercado</label>
+                    <input type="text" id="EMPRESA" name="VALOR_MERCADO_EMPRESAS" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
                 </div>
             
             </div>
@@ -646,9 +670,9 @@
 
             <div class="mb-3">
 
-                <label for="SEG_VIDA">Possui cobertura de seguro de vida?</label>
+                <label for="SEGURO_VIDA_OPCAO">Possui cobertura de seguro de vida?</label>
 
-                <select id="SEG_VIDA" name="SEG_VIDA" class="form-control required">
+                <select id="SEGURO_VIDA_OPCAO" name="SEGURO_VIDA_OPCAO" class="form-control required">
 
                     <option value="">Selecione</option>
                     <option value="SIM">Sim</option>
@@ -657,43 +681,37 @@
                 </select>
             </div>
 
-            <div class="mb-3" id="SEG_VIDA_SIM">
-                <label for="SEG_VIDA_SIM">Anexar apólice de seguro</label><br>
-                <input type="file" id="SEG_VIDA_SIM" name="SEG_VIDA_SIM">
+            <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
+                <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
+                <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
             </div>
 
             <div class="mb-3">
-                <label for="INSS">Contribui para o INSS? Se sim, informar o valor:</label>
-                <input type="number" placeholder="Informe o Valor" oninput="handleCurrencyInput()" name="INSS" id="INSS">
-                <p id="formattedCurrencyINSS"></p>
+                <label for="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">Anexar extrato planos da previdência</label><br>
+                <input type="file" id="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO" name="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">
             </div>
 
             <div class="mb-3">
-                <label for="PL-PREV">Anexar extrato planos da previdência</label><br>
-                <input type="file" id="PL-PREV" name="PL-PREV">
-            </div>
-
-            <div class="mb-3">
-                <label for="PRE-OP">Possui previdência privada ?</label>
-                <select name="PRE-OP" id="PRE-OP" class="form-control required">
+                <label for="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO">Possui previdência privada ?</label>
+                <select name="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO" id="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
             </div>
 
-            <div class="mb-3" id="PREV-VALOR">
-                <label for="PREV-VALOR">Valor do Montante</label>
-                <input type="text" name="PREVA-VALOR" oninput="hanldeCurrencyInput()" >
+            <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL-DIV">
+                <label for="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL">Previdencia privada - Valor da Parcela</label>
+                <input type="text" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" oninput="hanldeCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
-            <div class="mb-3" id="MONT-VALOR">
-                <label for="MONT-VALOR">Montante acumulado</label>
-                <input type="text" name="MONT-VALOR" oninput="handleCurrencyInput()">
+            <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO-DIV">
+                <label for="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO">Montante acumulado</label>
+                <input type="text" id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO" name="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             </div>
 
             <div class="mb-3">
-                <label for="FGTS">Valor do fundo de garantia</label>
-                <input type="text" name="FGTS" id="FGTS" oninput="handleCurrencyInput()">
+                <label for="PROTECAO_FUNDO_GARANTIA_VALOR">Valor do fundo de garantia</label>
+                <input type="text" name="PROTECAO_FUNDO_GARANTIA_VALOR" id="PROTECAO_FUNDO_GARANTIA_VALOR" oninput="handleCurrencyInput(this)" placeholder="0,00">
             </div>
 
 
@@ -704,23 +722,23 @@
         <div class="step">
             <p class="text-center mb-4"> Objetivos</p>
             <div class="mb-3">
-                <label for="APOSENTADORIA_RENDA_MENSAL">Renda mensal pretendida na aposentadoria:</label>
-                <input type="number" placeholder="R$ 0,00" oninput="handleCurrencyInput()" name="APOSENTADORIA_RENDA_MENSAL" id="APOSENTADORIA_RENDA_MENSAL">
+                <label for="OBJETIVO_RENDA_MENSAL">Renda mensal pretendida na aposentadoria:</label>
+                <input type="number" placeholder="R$ 0,00" oninput="handleCurrencyInput()" name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL">
             </div>
 
             <div class="mb-3">
-                <label for="APOSENTADORIA_IDADE">Idade pretendida para aposentadoria:</label>
-                <input type="number" oninput="this.className = ''" name="APOSENTADORIA_IDADE" id="APOSENTADORIA_IDADE">
+                <label for="OBJETIVO_IDADE_PRETENDIDA">Idade pretendida para aposentadoria:</label>
+                <input type="number" oninput="this.className = ''" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA">
             </div>
 
             <br>
             <div class="mb-3">
                 <p>Além da aposentadoria, você possui algum outro objetivo/sonho que requer uma meta de acúmulo
                     financeiro? Se sim, informar o horizonte de tempo e o valor requerido para essas realizações.</p>
-                <label for="SONHO_ANOS_RESTANTES">Quanto tempo?</label>
-                <input type="date" oninput="this.className = ''" name="SONHO_ANOS_RESTANTES" id="SONHO_ANOS_RESTANTES">
-                <label for="SONHO_SALDO">Valor requerido?</label>
-                <input type="number" placeholder="R$ 0,00" oninput="handleCurrencyInput()" name="SONHO_SALDO" id="SONHO_SALDO">
+                <label for="OBJETIVO_ANO_REALIZACAO">Quanto tempo?</label>
+                <input type="date" oninput="this.className = ''" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO">
+                <label for="OBJETIVO_VALOR">Valor requerido?</label>
+                <input type="number" placeholder="R$ 0,00" oninput="handleCurrencyInput()" name="OBJETIVO_VALOR" id="OBJETIVO_VALOR">
             </div>
 
 
@@ -733,6 +751,9 @@
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
         </div>
         <!-- end previous / next buttons -->
+
+        <!-- INPUTS CONTADORES -->
+        <input type="hidden" id="DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS" name="DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS">
     </form>
 </body>
 
@@ -741,6 +762,11 @@
 
 
 <script>
+
+function removeNumbers(input) {
+        input.value = input.value.replace(/[^A-Za-z\s]/g, ''); // Remove números
+    }
+
     var currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab); // Display the current tab   
 
@@ -761,26 +787,30 @@
             });
         }
 
-        setupLinkedField("#APLICACAO-OP", "#APLICACAO_FINANCEIRA_TOTAL", "SIM");
-        setupLinkedField("#APLICACAO-OP", "#APLICACAO_SIM", "SIM");
-        setupLinkedField("#PRE-OP", "#PREV-VALOR","SIM");
-        setupLinkedField("#PRE-OP", "#MONT-VALOR","SIM");
-        setupLinkedField("#SEG_VIDA", "#SEG_VIDA_SIM", "SIM");
-        setupLinkedField("#LIFE-OP", "#SEGURO_VIDA", "SIM");
-        setupLinkedField("#CASA-VOP", "#CASA-ALU", "ALU","SIM");
-        setupLinkedField("#CASA-VOP", "#CASA-VERA", "VERA","SIM");
-        setupLinkedField("#CLUBE-OP", "#CLUBE-V", "SIM");
-        setupLinkedField("#CONDO-OP", "#CONDO-V", "SIM");
-        setupLinkedField("#ALUCAR-OP", "#ALUGUEL-CAR", "SIM");
-        setupLinkedField("#PLANO-OP", "#PLANO_SAUDE_PARCELA", "SIM");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_PARCONTA_CELA", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_CASA_DEVEDOR", "CASA", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULO_PARCONTA_CELA", "CARRO", "AMBOS");
-        setupLinkedField("#FINANCIAMENTO-OP", "#FINANCIAMENTO_VEICULOS_DEVEDOR", "CARRO", "AMBOS");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMOS_PARCONTA_CELA", "SIM");
-        setupLinkedField("#EMPRESTIMO-OP", "#EMPRESTIMO_DEVEDOR", "SIM");
-        setupLinkedField("#CIVIL", "#ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
-        setupLinkedField("#ALUGUEL-OP", "#ALUGUEL", "SIM");
+        //FILTRO DE CONDIÇOES ------------------------------------------------
+        setupLinkedField("#SOBRE_ESTADO_CIVIL", "#SOBRE_ESTADO_CIVIL_DETALHE", "Casado", "Uniao Estável");
+        // setupLinkedField("#FILHOS","#MENSALIDADE_ESCOLA", "SIM");    FILHOS SE PRECISAR !!!
+        // setupLinkedField("#FILHOS", "#MENSALIDADE_UNIVERSIDADE", "SIM");
+        // setupLinkedField("#FILHOS", "#FILHOS-QNT", "SIM");
+        setupLinkedField("#SOBRE_APLICACAO_OPCAO", "#RECEITA_APLICACOES_VALOR_TOTAL", "SIM");
+        setupLinkedField("#SOBRE_APLICACAO-OPCAO", "#RECEITA_APLICACOES_ARQUIVO", "SIM"); //ARQUIVO
+        setupLinkedField("#DESPESA_ALUGUEL_OPCAO", "#DESPESA_ALUGUEL", "SIM");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA", "CASA", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR", "CASA", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_VEICULO_PARCELA", "CARRO", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO-OPCAO", "#DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR", "CARRO", "AMBOS");
+        setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO", "#DESPESA_EMPRESTIMO_PARCELA", "SIM");
+        setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO", "#DESPESA_EMPRESTIMOS_SALDO_DEVEDOR", "SIM");
+        setupLinkedField("#DESPESA_PLANO_OPCAO", "#DESPESA_PLANO_SAUDE_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_ALUGUEL_CARROS", "#DESPESA_VEICULO_ALUGADO_MENSALIDADE", "SIM");
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAP", "#DESPESA_SEGURO_VIDA_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#SEGURO_VIDA_APOLICE", "SIM"); // ARQUIVO
+        setupLinkedField("#DESPESA_CONDOMINIO_OPCAO", "#DESPESA_CONDOMINIO_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_CLUBE_OPCAO", "#DESPESA_CLUBE_MENSALIDADE", "SIM");
+        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_VERAO", "ALU","SIM");
+        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_ALUGADO", "VERA","SIM");
+        setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_MENSAL","SIM");
+        setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO","SIM");
 
         // Chame setupLinkedField para outros pares de campos conforme necessário
     });
@@ -818,7 +848,7 @@
         // This function will figure out which tab to display
         var x = document.getElementsByClassName("step");
         // Exit the function if any field in the current tab is invalid:
-        //if (n == 1 && !validateForm()) return false;
+        if (n == 1 && !validateForm()) return false;
         // Hide the current tab:
         x[currentTab].style.display = "none";
         // Increase or decrease the current tab by 1:
@@ -852,15 +882,11 @@
             }
         }
 
-        document.getElementsByClassName("stepIndicator")[currentTab].className += " finish";
-
-        
         if (valid) {
             document.getElementsByClassName("stepIndicator")[currentTab].className += " finish";
         } else {
             alert("Campo obrigatório vazio!");
-        }
-        
+        }        
 
         return valid;
     }
@@ -877,6 +903,17 @@
         }
     }
 
+    function formatCurrencyValue(value) {
+        var formattedValue = new Intl.NumberFormat("pt-br", {
+            style: "currency",
+            currency: "BRL",
+            minimumFractionDigits: 2,
+        }).format(value / 100); // Dividir por 100 para ajustar para centavos
+
+        return formattedValue;
+    }
+
+
     function handleCurrencyInput(input) {
         var value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
         var numericValue = parseFloat(value);
@@ -889,39 +926,20 @@
         }
     }
 
-    function formatCurrencyValue(value) {
-        var formattedValue = new Intl.NumberFormat("pt-br", {
-            style: "currency",
-            currency: "BRL",
-            minimumFractionDigits: 2,
-        }).format(value / 100); // Dividir por 100 para ajustar para centavos
-
-        return formattedValue;
-    }
-
-    function convertToNumber(textValue) {
-        // Remove caracteres não numéricos e substitui vírgulas por pontos para transformar em número
-        return parseFloat(textValue.replace(/[^\d,]/g, "").replace(",", "."));
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var luzInput = document.getElementById("LUZ");
-
-        luzInput.addEventListener("change", function () {
-            var numericValue = convertToNumber(luzInput.value);
-            console.log("Valor numérico: " + numericValue);
-        });
-    });
-
-    //ADICIONAR OPÇÔES DE GASTOS
+    //ADICIONAR OPÇÔES DE GASTOS  -- REPASSAR
 
     document.addEventListener("DOMContentLoaded", function () {
     var customExpensesContainer = document.getElementById("customExpenses");
     var addExpenseButton = document.getElementById("addExpense");
 
-    var expenseIndex = 1;
+    var expenseIndex = 0;
 
     addExpenseButton.addEventListener("click", function () {
+
+        expenseIndex++;
+
+        document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
+
         var expenseDiv = document.createElement("div");
         expenseDiv.classList.add("mb-3");
 
@@ -929,7 +947,7 @@
         nameLabel.textContent = "Nome do Gasto " + expenseIndex;
         var nameInput = document.createElement("input");
         nameInput.type = "text";
-        nameInput.name = "EXPENSE_" + expenseIndex + "_NAME";
+        nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
         expenseDiv.appendChild(nameLabel);
         expenseDiv.appendChild(nameInput);
 
@@ -937,15 +955,12 @@
         valueLabel.textContent = "Valor do Gasto " + expenseIndex;
         var valueInput = document.createElement("input");
         valueInput.type = "number";
-        valueInput.name = "EXPENSE_" + expenseIndex + "_VALUE";
+        valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
         expenseDiv.appendChild(valueLabel);
         expenseDiv.appendChild(valueInput);
 
         customExpensesContainer.appendChild(expenseDiv);
-
-        expenseIndex++;
     });
 });
-
   
 </script>

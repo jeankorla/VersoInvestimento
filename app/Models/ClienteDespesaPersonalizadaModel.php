@@ -4,29 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ClienteModel extends Model
+class ClienteDespesaPersonalizadaModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'CLIENTES';
+    protected $table            = 'CLIENTES_DEPESAS_PERSONALIZADAS';
     protected $primaryKey       = 'PK';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'NOME_COMPLETO',
-        'DATA_NASCIMENTO',
-        'PROFISSAO',
-        'PROFISSAO_TIPO',
-        'ESTADO_CIVIL',
-        'ESTADO_CIVIL_DETALHE',
-        'RENDA_MENSAL_LIQUIDA',
-        'INSS_CONTRIBUICAO',
-        'APOSENTADORIA_IDADE',
-        'APOSENTADORIA_RENDA_MENSAL',
-        'SONHO_ANOS_RESTANTES',
-        'SONHO_SALDO',
-        'SEGURO_VIDA'
+        'CLIENTE_FORMULARIO_FK',
+        'CATEGORIA',
+        'DESCRICAO',
+        'VALOR'
     ];
 
     // Dates
