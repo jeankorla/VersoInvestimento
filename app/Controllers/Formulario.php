@@ -40,7 +40,7 @@ class Formulario extends BaseController
 
         $this->ClienteModel->insert($data);
 
-        return redirect()->to('/formulario');
+        return view('Views/success.php');
 
     }
 }
