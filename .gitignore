@@ -83,8 +83,8 @@ phpunit
 #-------------------------
 # Composer
 #-------------------------
-vendor/
-composer.lock
+
+
 
 #-------------------------
 # IDE / Development Files
@@ -126,3 +126,4 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+/public
