@@ -120,6 +120,7 @@
             content: "anos";
             position: absolute;
             top: 0;
+            transform: translateY(16%);
             right: 340px;
             height: 100%;
             display: flex;
@@ -220,7 +221,6 @@
         <div class="step">
 
             <p class="text-center mb-4">Cadastro!</p>
-
 
             <div class="mb-3">
                 <label for="SOBRE_EMAIL">E-mail:</label>
@@ -669,19 +669,6 @@
 
             <p class="text-center mb-4">Proteção</p>
 
-            <div class="mb-3">
-
-                <label for="SEGURO_VIDA_OPCAO">Possui cobertura de seguro de vida?</label>
-
-                <select id="SEGURO_VIDA_OPCAO" name="SEGURO_VIDA_OPCAO" class="form-control required">
-
-                    <option value="">Selecione</option>
-                    <option value="SIM">Sim</option>
-                    <option value="NAO">Não</option>
-
-                </select>
-            </div>
-
             <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO">
                 <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
                 <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
@@ -727,9 +714,9 @@
                 <input type="text" placeholder="R$ 0,00" oninput="handleCurrencyInput(this)" name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL">
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 IDADE">
                 <label for="OBJETIVO_IDADE_PRETENDIDA">Idade pretendida para aposentadoria:</label>
-                <input type="text" oninput="this.className = ''" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA">
+                <input type="number" oninput="this.className = maxIdade(this)" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA" maxlength="2">
             </div>
 
             <br>
@@ -804,18 +791,19 @@ function removeNumbers(input) {
         setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO", "#DESPESA_EMPRESTIMOS_SALDO_DEVEDOR", "SIM");
         setupLinkedField("#DESPESA_PLANO_OPCAO", "#DESPESA_PLANO_SAUDE_MENSAL", "SIM");
         setupLinkedField("#DESPESA_ALUGUEL_CARROS", "#DESPESA_VEICULO_ALUGADO_MENSALIDADE", "SIM");
-        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAP", "#DESPESA_SEGURO_VIDA_MENSAL", "SIM");
-        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#SEGURO_VIDA_APOLICE", "SIM"); // ARQUIVO
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#DESPESA_SEGURO_VIDA_MENSAL", "SIM");
+        setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO", "#PROTECAO_APOLICE_SEGURO_ARQUIVO", "SIM"); // ARQUIVO
         setupLinkedField("#DESPESA_CONDOMINIO_OPCAO", "#DESPESA_CONDOMINIO_MENSAL", "SIM");
         setupLinkedField("#DESPESA_CLUBE_OPCAO", "#DESPESA_CLUBE_MENSALIDADE", "SIM");
         setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_VERAO", "ALU","SIM");
         setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO", "#BENS_VALOR_MERCADO_IMOVEL_ALUGADO", "VERA","SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_MENSAL","SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO", "#PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO","SIM");
+        
 
         // Chame setupLinkedField para outros pares de campos conforme necessário
     });
-    
+
     function fixStepIndicator(n) {
         // This function removes the "active" class of all steps...
         var i, x = document.getElementsByClassName("stepIndicator");
@@ -832,7 +820,7 @@ function removeNumbers(input) {
         x[n].style.display = "block";
         //... and fix the Previous/Next buttons:
         if (n == 0) {
-            document.getElementById("prevBtn").style.display = "none";submit
+            document.getElementById("prevBtn").style.display = "none";
         } else {
             document.getElementById("prevBtn").style.display = "inline";
         }
@@ -893,6 +881,11 @@ function removeNumbers(input) {
         return valid;
     }
     
+    function maxIdade(input) {
+        if (input.value.length > 2) {
+            input.value = input.value.slice(0, 2);
+        }
+    }
 
     function validateCurrency(input) {
         var value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
