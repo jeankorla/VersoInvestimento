@@ -17,6 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
         h1{
@@ -48,7 +49,7 @@
         }
 
         #signUpForm {
-            max-width: 500px;
+            max-width: 800px;
             background-color: #ffffff;
             margin: 40px auto;
             padding: 40px;
@@ -200,10 +201,53 @@
 
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
+  <div class="container-fluid d-flex justify-content-between">
+    <!-- Logo -->
+    <div>
+      <a class="navbar-brand" href="/home">InvestPlanner</a>
+    </div>
+
+    <!-- Menu Items -->
+    <div>
+      <div class="navbar-collapse justify-content-center " id="navbarNavAltMarkup">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div>
+      <div class="d-flex">
+        <a href="#" class="text-decoration-none text-dark m-1">
+          <i class="fas fa-map-marker-alt"></i>
+        </a>
+        <a href="#" class="text-decoration-none text-dark m-1">
+          <i class="fas fa-phone"></i>
+        </a>
+        <a href="#" class="text-decoration-none text-dark m-1">
+         <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+    <div class="card">
+        <div class="card-body mt-5">
     <h1 class="text-center fs-4">Mentoria Viver de Renda</h1>
     <h1 class="text-center fs-4">Tenha um processo estruturado de crescimento financeiro e patrimonial feito sob medida para você saber exatamente o que fazer, como fazer e qual resultado esperar.</h1>
-
-
+        </div>
+        </div>
     <form id="signUpForm" method="POST" action="<?= base_url('home/salvar') ?>">
 
         <!-- start step indicators -->

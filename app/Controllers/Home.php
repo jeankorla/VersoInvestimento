@@ -111,10 +111,10 @@ class Home extends BaseController
         // DESPESAS PERSONALIZADAS --- FIM
 
 
-        dd($Registros_ClienteFormularioModel, $Registros_ClienteDespesaPersonalizadaModel);
+        //dd($Registros_ClienteFormularioModel, $Registros_ClienteDespesaPersonalizadaModel);
 
 
-        return redirect()->to('/');
+        return view('success.php');
 
     }
 }

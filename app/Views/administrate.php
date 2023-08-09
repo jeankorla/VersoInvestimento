@@ -7,21 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
-  <title>Navbar</title>
+  <title>Admin</title>
 </head>
-<style>
-    h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 8vh;
-    color: green;
-    }
-    h2 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        font-size: 4vh;
-    }
-</style>
 
 <body style="background-color: #eeee;">
 
@@ -70,11 +57,36 @@
   <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
   <div class="card" style="border-radius: 2vh; width: 100%;">
     <div class="card-body m-lg-5 text-center">
-       <h1>Cadastro realizado</h1>
-       <h1>Com Sucesso!</h1>
-
-       <h4 class="mt-5">Seu cadastro foi enviado para nossos especialistas e logo
-         você receberá um retorno do nosso projeto personalizado para suas necessidades.</h4>
+       <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
     </div>
   </div>
 </div>
