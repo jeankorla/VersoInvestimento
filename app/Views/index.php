@@ -675,8 +675,8 @@
                     placeholder="R$ 0,00">
                 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" 
-                    id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">                
+                <input type="hidden" name="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN" 
+                    id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN">                
             
             </div>
 
@@ -690,8 +690,8 @@
                     placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_IPTU" 
-                    id="DESPESA_IPTU">
+                <input type="hidden" name="DESPESA_IPTU_HIDDEN" 
+                    id="DESPESA_IPTU_HIDDEN">
             
             </div>
 
@@ -703,7 +703,8 @@
                     placeholder="R$ 0,00">
             
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_IPVA" id="DESPESA_IPVA">
+                <input type="hidden" name="DESPESA_IPVA_HIDDEN" 
+                    id="DESPESA_IPVA_HIDDEN">
 
             </div>
 
@@ -910,7 +911,7 @@
 
                 <!-- input hidden -->
                 <input type="hidden" name="DESPESA_VEICULO_ALUGADO_SEGURO_HIDDEN" 
-                    id="DESPESA_VEICULO_ALUGADO_HIDDEN">
+                    id="DESPESA_VEICULO_ALUGADO_SEGURO_HIDDEN">
             
             </div>
 
@@ -1127,12 +1128,12 @@
                 
                 <label for="BENS_VALOR_MERCADO_EMPRESAS">Empresas - Valor de mercado</label>
                 
-                <input type="text" id="EMPRESA" name="VALOR_MERCADO_EMPRESAS" oninput="handleCurrencyInput(this)"
+                <input type="text" id="BENS_VALOR_MERCADO_EMPRESAS" name="BENS_VALOR_MERCADO_EMPRESAS" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
             
                 <!-- input hidden -->
-                <input type="hidden" name="VALOR_MERCADO_EMPRESAS" 
-                    id="VALOR_MERCADO_EMPRESAS">
+                <input type="hidden" name="BENS_VALOR_MERCADO_EMPRESAS_HIDDEN" 
+                    id="BENS_VALOR_MERCADO_EMPRESAS_HIDDEN">
             
             </div>
 
@@ -1211,8 +1212,8 @@
                     oninput="handleCurrencyInput(this)" placeholder="0,00">
             
                 <!-- input hidden -->
-                <input type="hidden" name="PROTECAO_FUNDO_GARANTIA_VALOR" 
-                    id="PROTECAO_FUNDO_GARANTIA_VALOR">
+                <input type="hidden" name="PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN" 
+                    id="PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN">
         
             </div>
 
@@ -1323,9 +1324,6 @@ function inputHidden(inText) {
         });
     }
 
-
-
-
     //INPUT HIDDEN
     inputHidden("RECEITA_RENDA_MENSAL_LIQUIDA");
     inputHidden("RECEITA_APLICACOES_VALOR_TOTAL");
@@ -1346,13 +1344,13 @@ function inputHidden(inText) {
     inputHidden("DESPESA_MEDICAMENTOS");
     inputHidden("DESPESA_PLANO_SAUDE_MENSAL");
     inputHidden("DESPESA_INSS");
-    inputHidden("DEPESA_LAZER");
+    inputHidden("DESPESA_LAZER");
     inputHidden("DESPESA_COMBUSTIVEL");
     inputHidden("DESPESA_CARTAO_FATURA");
-    inputHidden("DESPESA_VEICULO_ALUGADO");
+    inputHidden("DESPESA_VEICULO_ALUGADO_SEGURO");
     inputHidden("DESPESA_SEGURO_VIDA_MENSAL");
     inputHidden("DESPESA_CONDOMINIO_MENSAL");
-    inputHidden("DESPESA_CONTRUICAO_SINDICAL");
+    inputHidden("DESPESA_CONTRIBUICAO_SINDICAL");
     inputHidden("DESPESA_ESCOLA_MENSAL");
     inputHidden("DESPESA_UNIVERSIDADE_MENSAL");
     inputHidden("DESPESA_CLUBE_MENSALIDADE");
@@ -1368,9 +1366,6 @@ function inputHidden(inText) {
     inputHidden("OBJETIVO_ANO_REALIZACAO");
     inputHidden("OBJETIVO_VALOR");
     
-
-
-
 
     /////////////
 
