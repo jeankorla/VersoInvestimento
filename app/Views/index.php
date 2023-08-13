@@ -239,7 +239,7 @@
         }
 
         /* Telas 320 :.: */
-        @media (max-width: 320px) {
+        @media (max-width: 424px) {
             .stepIndicator {
                 white-space: normal;
                 text-align: center;
@@ -249,11 +249,108 @@
                 /* espaço */
                 font-size: 0.8em;
             }
+            .navbar .navbar-toggler {
+                margin-left: 35px;
+
+            }
+        
+            .IDADE{
+                position: relative;
+            }
+
+            .IDADE::after {
+            content: "anos";
+            position: absolute;
+            top: 0;
+            transform: translateY(16%);
+            right: 300px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: gray;
+            }
+
+
+
+        }
+        @media (max-width: 376px) {
+            .stepIndicator {
+                white-space: normal;
+                text-align: center;
+                width: 100%;
+                /* ocupar toda a largura ! */
+                margin-bottom: 10px;
+                /* espaço */
+                font-size: 0.8em;
+            }
+            .navbar .navbar-toggler {
+                margin-right: 70px;
+
+            }
+        
+            .IDADE{
+                position: relative;
+            }
+
+            .IDADE::after {
+            content: "anos";
+            position: absolute;
+            top: 0;
+            transform: translateY(16%);
+            right: 60px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: gray;
+            }
+
+
 
         }
 
+        @media (max-width: 399px) {
+            .navbar-brand{
+                display: flex;
+                margin: 0;
+                font-size: 1.0em;
+            }
+            .stepIndicator {
+                white-space: normal;
+                text-align: center;
+                width: 100%;
+                /* ocupar toda a largura ! */
+                margin-bottom: 5px;
+                /* espaço */
+                font-size: 0.8em;
+            }
+            .navbar .navbar-toggler {
+                margin-right: auto;
+
+            }
+        
+            .IDADE{
+                position: relative;
+            }
+
+            .IDADE::after {
+            content: "anos";
+            position: absolute;
+            top: 0;
+            transform: translateY(18%);
+            right: 275px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: gray;
+            }
+
+
+
+        }
+
+
         /* Telas 480px */
-        @media (max-width: 480px) and (min-width:321px) {
+        @media (max-width: 480px) and (min-width:425px) {
 
             .stepIndicator {
                 white-space: normal;
@@ -269,6 +366,22 @@
                 margin-left: 35px;
 
             }
+
+            .IDADE{
+                position: relative;
+            }
+
+            .IDADE::after {
+            content: "anos";
+            position: absolute;
+            top: 0;
+            transform: translateY(16%);
+            right: 313px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: gray;
+        }
 
 
 
@@ -667,7 +780,7 @@
             </div>
             <!-- DIVIDA -->
             <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV">
-                <label for="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento Residencial - Saldo
+                <label for="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento veiculo - Saldo
                     devedor</label>
                 
                 <input type="text" id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
@@ -729,7 +842,8 @@
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_EMPRESTIMO_PARCELA_HIDDEN">
+                <input type="hidden" name="DESPESA_EMPRESTIMO_PARCELA_HIDDEN" 
+                    id="DESPESA_EMPRESTIMO_PARCELA_HIDDEN">
 
             </div>
             <!-- DIVIDA -->
@@ -780,7 +894,11 @@
                 <input type="text" id="DESPESA_MEDIA_MERCADO" name="DESPESA_MEDIA_MERCADO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" class="required">
             
-            </div>
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_MEDIA_MERCADO_HIDDEN" 
+                    id="DESPESA_MEDIA_MERCADO_HIDDEN">
+            
+                </div>
 
             <div class="mb-3">
                 
@@ -904,14 +1022,14 @@
 
             <div class="mb-3">
                 
-                <label for="DESPESA_VEICULO_ALUGADO_SEGURO">Mensalidade do seguro dos veículos</label>
+                <label for="DESPESA_VEICULO_ALUGADO">Mensalidade do seguro dos veículos</label>
                 
-                <input type="text" id="DESPESA_VEICULO_ALUGADO_SEGURO" name="DESPESA_VEICULO_ALUGADO_SEGURO"
+                <input type="text" id="DESPESA_VEICULO_ALUGADO" name="DESPESA_VEICULO_ALUGADO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_VEICULO_ALUGADO_SEGURO_HIDDEN" 
-                    id="DESPESA_VEICULO_ALUGADO_SEGURO_HIDDEN">
+                <input type="hidden" name="DESPESA_VEICULO_ALUGADO_HIDDEN" 
+                    id="DESPESA_VEICULO_ALUGADO_HIDDEN">
             
             </div>
 
@@ -989,6 +1107,11 @@
                 
                 <input type="text" id="DESPESA_ESCOLA_MENSAL" name="DESPESA_ESCOLA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+            
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_ESCOLA_MENSAL_HIDDEN" 
+                    id="DESPESA_ESCOLA_MENSAL_HIDDEN">
+            
             </div>
 
             <div class="mb-3" id="DESPESA_UNIVERSIDADE_MENSAL-DIV">
@@ -1182,7 +1305,7 @@
                 <label for="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL">Previdencia privada - Valor da Parcela</label>
                 
                 <input type="text" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL"
-                    oninput="hanldeCurrencyInput(this)" placeholder="R$ 0,00">
+                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
             
                 <!-- input hidden -->
                 <input type="hidden" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL_HIDDEN" 
@@ -1259,10 +1382,6 @@
                 <label for="OBJETIVO_ANO_REALIZACAO">Quanto tempo?</label>
                 <input type="date" oninput="this.className = ''" name="OBJETIVO_ANO_REALIZACAO"
                     id="OBJETIVO_ANO_REALIZACAO">
-                
-                <!-- input hidden -->
-                <input type="hidden" name="OBJETIVO_ANO_REALIZACAO_HIDDEN" 
-                    id="OBJETIVO_ANO_REALIZACAO_HIDDEN">
             
                 <label for="OBJETIVO_VALOR">Valor requerido?</label>
                 <input type="text" placeholder="R$ 0,00" oninput="handleCurrencyInput(this)" name="OBJETIVO_VALOR"
@@ -1303,7 +1422,7 @@
 function inputHidden(inText) {
     const inHidden2 = inText + "_HIDDEN";
         
-        console.log(inHidden2);
+        // console.log(inHidden2);
         
         document.querySelector(`#${inText}`).addEventListener('change', (event) => {
             const formattedValue = event.target.value; 
@@ -1316,11 +1435,11 @@ function inputHidden(inText) {
             
             const numericValue = parseFloat(valueWithDot); 
             
-            document.querySelector(`#${inHidden2}`).value = numericValue;
-            console.log(numericValue);
+            // document.querySelector(`#${inHidden2}`).value = numericValue;
+            // console.log(numericValue);
             
-            const hiddenElement = document.querySelector(`#${inHidden2}`);
-            console.log(typeof hiddenElement.value);
+            // const hiddenElement = document.querySelector(`#${inHidden2}`);
+            // console.log(typeof hiddenElement.value);
         });
     }
 
@@ -1341,13 +1460,15 @@ function inputHidden(inText) {
     inputHidden("DESPESA_EMPRESTIMO_SALDO_DEVEDOR");
     inputHidden("DESPESA_INTERNET_TELEVISAO");
     inputHidden("DESPESA_CELULAR");
+    inputHidden("DESPESA_MEDIA_MERCADO");
     inputHidden("DESPESA_MEDICAMENTOS");
     inputHidden("DESPESA_PLANO_SAUDE_MENSAL");
     inputHidden("DESPESA_INSS");
     inputHidden("DESPESA_LAZER");
     inputHidden("DESPESA_COMBUSTIVEL");
     inputHidden("DESPESA_CARTAO_FATURA");
-    inputHidden("DESPESA_VEICULO_ALUGADO_SEGURO");
+    inputHidden("DESPESA_VEICULO_ALUGADO_MENSALIDADE");
+    inputHidden("DESPESA_VEICULO_ALUGADO")
     inputHidden("DESPESA_SEGURO_VIDA_MENSAL");
     inputHidden("DESPESA_CONDOMINIO_MENSAL");
     inputHidden("DESPESA_CONTRIBUICAO_SINDICAL");
@@ -1362,8 +1483,7 @@ function inputHidden(inText) {
     inputHidden("PROTECAO_PREVIDENCIA_PRIVADA_MENSAL");
     inputHidden("PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO");
     inputHidden("PROTECAO_FUNDO_GARANTIA_VALOR");
-    inputHidden("OBJETIVO_RENDA_MENSAL");
-    inputHidden("OBJETIVO_ANO_REALIZACAO");
+    inputHidden("OBJETIVO_RENDA_MENSAL");  
     inputHidden("OBJETIVO_VALOR");
     
 
@@ -1418,8 +1538,6 @@ function inputHidden(inText) {
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV", "#PROTECAO_PREVIDENCIA_PRIVADA_MENSAL-DIV", "SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV", "#PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO-DIV", "SIM");
 
-
-        // Chame setupLinkedField para outros pares de campos conforme necessário
     });
 
     function fixStepIndicator(n) {
@@ -1542,38 +1660,40 @@ function inputHidden(inText) {
     //ADICIONAR OPÇÔES DE GASTOS  -- REPASSAR
 
     document.addEventListener("DOMContentLoaded", function () {
-        var customExpensesContainer = document.getElementById("customExpenses");
-        var addExpenseButton = document.getElementById("addExpense");
+    var customExpensesContainer = document.getElementById("customExpenses");
+    var addExpenseButton = document.getElementById("addExpense");
 
-        var expenseIndex = 0;
+    var expenseIndex = 0;
 
-        addExpenseButton.addEventListener("click", function () {
+    addExpenseButton.addEventListener("click", function (event) {
+        event.preventDefault(); // pq ??
 
-            expenseIndex++;
+        expenseIndex++;
 
-            document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
+        document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
 
-            var expenseDiv = document.createElement("div");
-            expenseDiv.classList.add("mb-3");
+        var expenseDiv = document.createElement("div");
+        expenseDiv.classList.add("mb-3");
 
-            var nameLabel = document.createElement("label");
-            nameLabel.textContent = "Nome do Gasto " + expenseIndex;
-            var nameInput = document.createElement("input");
-            nameInput.type = "text";
-            nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
-            expenseDiv.appendChild(nameLabel);
-            expenseDiv.appendChild(nameInput);
+        var nameLabel = document.createElement("label");
+        nameLabel.textContent = "Nome do Gasto " + expenseIndex;
+        var nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
+        expenseDiv.appendChild(nameLabel);
+        expenseDiv.appendChild(nameInput);
 
-            var valueLabel = document.createElement("label");
-            valueLabel.textContent = "Valor do Gasto " + expenseIndex; p
-            var valueInput = document.createElement("input");
-            valueInput.type = "number";
-            valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
-            expenseDiv.appendChild(valueLabel);
-            expenseDiv.appendChild(valueInput);
+        var valueLabel = document.createElement("label");
+        valueLabel.textContent = "Valor do Gasto " + expenseIndex;
+        var valueInput = document.createElement("input");
+        valueInput.type = "number";
+        valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
+        expenseDiv.appendChild(valueLabel);
+        expenseDiv.appendChild(valueInput);
 
-            customExpensesContainer.appendChild(expenseDiv);
-        });
+        customExpensesContainer.appendChild(expenseDiv);
+
     });
+});
 
 </script>

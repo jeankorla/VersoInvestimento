@@ -61,7 +61,7 @@ class Home extends BaseController
             'DESPESA_COMBUSTIVEL_HIDDEN'                                => $this->request->getPost('DESPESA_COMBUSTIVEL'),
             'DESPESA_CARTAO_FATURA_HIDDEN'                              => $this->request->getPost('DESPESA_CARTAO_FATURA'),
             'DESPESA_VEICULO_ALUGADO_MENSALIDADE_HIDDEN'                => $this->request->getPost('DESPESA_VEICULO_ALUGADO_MENSALIDADE'),
-            'DESPESA_VEICULO_ALUGADO_SEGURO_HIDDEN'                     => $this->request->getPost('DESPESA_VEICULO_ALUGADO_SEGURO'),
+            'DESPESA_VEICULO_SEGURO_HIDDEN'                             => $this->request->getPost('DESPESA_VEICULO_ALUGADO_SEGURO'),
             'DESPESA_SEGURO_VIDA_MENSAL_HIDDEN'                         => $this->request->getPost('DESPESA_SEGURO_VIDA_MENSAL'),
             'DESPESA_CONDOMINIO_MENSAL_HIDDEN'                          => $this->request->getPost('DESPESA_CONDOMINIO_MENSAL'),
             'DESPESA_CONTRIBUICAO_SINDICAL_HIDDEN'                      => $this->request->getPost('DESPESA_CONTRIBUICAO_SINDICAL'),
@@ -80,7 +80,7 @@ class Home extends BaseController
 
             'OBJETIVO_RENDA_MENSAL_HIDDEN'                              => $this->request->getPost('OBJETIVO_RENDA_MENSAL'),
             'OBJETIVO_IDADE_PRETENDIDA_HIDDEN'                          => $this->request->getPost('OBJETIVO_IDADE_PRETENDIDA'),
-            'OBJETIVO_ANO_REALIZACAO_HIDDEN'                            => $this->request->getPost('OBJETIVO_ANO_REALIZACAO'),
+            'OBJETIVO_ANO_REALIZACAO'                                   => $this->request->getPost('OBJETIVO_ANO_REALIZACAO'),
             'OBJETIVO_VALOR_HIDDEN'                                     => $this->request->getPost('OBJETIVO_VALOR'),
 
             'FORMULARIO_DATA_CRIACAO'                                   => $this->request->getPost('FORMULARIO_DATA_CRIACAO')
