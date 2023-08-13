@@ -32,18 +32,27 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             /* Sombreamento */
         }
+        .logo-invest{
+            width: 40px;
+
+        }
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #e3e3e3;
-
-
+            background-color: #000000;
+            opacity: 1;
+            background-image:  linear-gradient(30deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136), linear-gradient(150deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136), 
+                linear-gradient(30deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136), linear-gradient(150deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136),
+                 linear-gradient(60deg, #5d513677 25%, transparent 25.5%, transparent 75%, #5d513677 75%, #5d513677), linear-gradient(60deg, #5d513677 25%, transparent 25.5%, transparent 75%, #5d513677 75%, #5d513677);
+            background-size: 24px 42px;
+            background-position: 0 0, 0 0, 12px 21px, 12px 21px, 0 0, 12px 21px;
         }
 
         .radio-option {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+
         }
 
         .radio-option input {
@@ -77,7 +86,7 @@
 
         #signUpForm .form-header .stepIndicator.finish {
             font-weight: 600;
-            color: #009688;
+            color: #bfa96c;
         }
 
         #signUpForm .form-header .stepIndicator::before {
@@ -89,18 +98,18 @@
             z-index: 9;
             width: 20px;
             height: 20px;
-            background-color: #d5efed;
+            background-color: #c2b596;
             border-radius: 50%;
-            border: 3px solid #ecf5f4;
+            border: 3px solid #c2b596;
         }
 
         #signUpForm .form-header .stepIndicator.active::before {
-            background-color: #a7ede8;
-            border: 3px solid #d5f9f6;
+            background-color: #5d5136;
+            border: 3px solid #5d5136;
         }
 
         #signUpForm .form-header .stepIndicator.finish::before {
-            background-color: #009688;
+            background-color: #bfa96c;
             border: 3px solid #b7e1dd;
         }
 
@@ -111,9 +120,30 @@
             bottom: 8px;
             width: 100%;
             height: 3px;
-            background-color: #f3f3f3;
+            background-color: #f0e3bd;
+        }
+        .nav-item {
+            margin-right: 20px;
         }
 
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #bfa96c;
+            font-weight: bold; 
+            box-shadow: 0px 1px 0px 0px #bfa96c; 
+
+        }
+        .navbar-brand:hover {
+            color: #bfa96c;
+            font-size: 150%;
+            box-shadow: 0px 1px 0px 0px #bfa96c; 
+            font-weight: bold;
+            
+        }
+        .navbar-brand {
+            transition: font-size 0.3s;
+            
+        }
+                    
         .IDADE {
             position: relative;
 
@@ -133,11 +163,11 @@
 
 
         #signUpForm .form-header .stepIndicator.active::after {
-            background-color: #a7ede8;
+            background-color: #bfa96c;
         }
 
         #signUpForm .form-header .stepIndicator.finish::after {
-            background-color: #009688;
+            background-color: #bfa96c;
         }
 
         #signUpForm .form-header .stepIndicator:last-child:after {
@@ -153,7 +183,7 @@
         }
 
         #signUpForm input:focus {
-            border: 1px solid #009688;
+            border: 1px solid #bfa96c;
             outline: 0;
         }
 
@@ -172,8 +202,8 @@
         }
 
         #signUpForm .form-footer button {
-            background-color: #009688;
-            border: 1px solid #009688 !important;
+            background-color: #bfa96c;
+            border: 1px solid #bfa96c !important;
             color: #ffffff;
             border: none;
             padding: 13px 30px;
@@ -190,7 +220,7 @@
 
         #signUpForm .form-footer #prevBtn {
             background-color: #fff;
-            color: #009688;
+            color: #bfa96c;
         }
 
         .invalid {
@@ -408,6 +438,7 @@
             <!-- Logo -->
             <div>
                 
+                <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
                 <a class="navbar-brand" href="/home">InvestPlanner</a>
             
             </div>
@@ -423,7 +454,7 @@
                 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav mx-auto">
                         
                         <li class="nav-item">
                             
@@ -446,9 +477,8 @@
                     </ul>
                 
                 </div>
-            
+                        
             </nav>
-
 
             <!-- Social Media Icons -->
             <div>
