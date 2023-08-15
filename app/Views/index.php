@@ -10,6 +10,7 @@
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -19,6 +20,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+
 
     <style>
         h1 {
@@ -37,15 +40,55 @@
 
         }
 
+        html {
+            height:100%;
+        }
+
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #000000;
-            opacity: 1;
-            background-image:  linear-gradient(30deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136), linear-gradient(150deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136), 
-                linear-gradient(30deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136), linear-gradient(150deg, #5d5136 12%, transparent 12.5%, transparent 87%, #5d5136 87.5%, #5d5136),
-                 linear-gradient(60deg, #5d513677 25%, transparent 25.5%, transparent 75%, #5d513677 75%, #5d513677), linear-gradient(60deg, #5d513677 25%, transparent 25.5%, transparent 75%, #5d513677 75%, #5d513677);
-            background-size: 24px 42px;
-            background-position: 0 0, 0 0, 12px 21px, 12px 21px, 0 0, 12px 21px;
+            margin:0;
+        }
+
+        .bg {
+            animation:slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(-60deg, #bfa96c 50%, #5d5136 50%);
+            bottom:0;
+            left:-50%;
+            opacity:.5;
+            position:fixed;
+            right:-50%;
+            top:0;
+            z-index:-1;
+        }
+
+        .bg2 {
+            animation-direction:alternate-reverse;
+            animation-duration:4s;
+        }
+
+        .bg3 {
+            animation-duration:5s;
+        }
+
+        .content {
+            background-color:rgba(255,255,255,.8);
+            border-radius:.25em;
+            box-shadow:0 0 .25em rgba(0,0,0,.25);
+            box-sizing:border-box;
+            left:50%;
+            padding:10vmin;
+            position:fixed;
+            text-align:center;
+            top:50%;
+            transform:translate(-50%, -50%);
+        }
+
+        @keyframes slide {
+            0% {
+                transform:translateX(-25%);
+            }
+            100% {
+                transform:translateX(25%);
+            }
         }
 
         .radio-option {
@@ -124,24 +167,15 @@
         }
         .nav-item {
             margin-right: 20px;
+            transition: font-size 0.3s;            
         }
 
         .navbar-nav .nav-item .nav-link:hover {
             color: #bfa96c;
             font-weight: bold; 
             box-shadow: 0px 1px 0px 0px #bfa96c; 
+            font-size: 102%;
 
-        }
-        .navbar-brand:hover {
-            color: #bfa96c;
-            font-size: 150%;
-            box-shadow: 0px 1px 0px 0px #bfa96c; 
-            font-weight: bold;
-            
-        }
-        .navbar-brand {
-            transition: font-size 0.3s;
-            
         }
                     
         .IDADE {
@@ -280,8 +314,12 @@
                 font-size: 0.8em;
             }
             .navbar .navbar-toggler {
-                margin-left: 35px;
+                margin-left: 100px;
 
+            }
+
+            .logo-invest {
+                display: none;
             }
         
             .IDADE{
@@ -334,7 +372,9 @@
             color: gray;
             }
 
-
+            .logo-invest{
+                display: none;
+            }
 
         }
 
@@ -420,7 +460,7 @@
 
         @media (min-width:750px) and (max-width:1000px) {
             .navbar .navbar-toggler {
-                margin-left: 450px;
+                margin-left: 400px;
 
             }
 
@@ -432,85 +472,66 @@
 
 <body>
 
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
-        
+
         <div class="container-fluid d-flex justify-content-between">
             <!-- Logo -->
             <div>
-                
+
                 <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
-                <a class="navbar-brand" href="/home">InvestPlanner</a>
-            
+                <a class="navbar-brand">InvestPlanner</a>
+
             </div>
 
-            <!-- Menu Items -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    
-                    <ul class="navbar-nav mx-auto">
-                        
-                        <li class="nav-item">
-                            
-                            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                        
-                        </li>
-                        
-                        <li class="nav-item">
-                            
-                            <a class="nav-link" href="#">Serviços</a>
-                        
-                        </li>
-                        
-                        <li class="nav-item">
-                            
-                            <a class="nav-link" href="#">Blog</a>
-                        
-                        </li>
-                    
-                    </ul>
-                
-                </div>
-                        
-            </nav>
+            <!-- Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <!-- Social Media Icons -->
             <div>
-                
+
                 <div class="d-flex">
 
                     <a href="#" class="text-decoration-none text-dark m-1">
-                        
                         <i class="fas fa-map-marker-alt"></i>
-                    
                     </a>
-                    
+
                     <a href="#" class="text-decoration-none text-dark m-1">
-                        
                         <i class="fas fa-phone"></i>
-                    
                     </a>
-                    
+
                     <a href="#" class="text-decoration-none text-dark m-1">
-                        
                         <i class="fas fa-envelope"></i>
-                    
                     </a>
-                
+
                 </div>
-            
+
             </div>
 
         </div>
-    
-    </nav>
-    
+
+        <!-- Collapsible Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+            </ul>
+        </div>
+
+</nav>
+
     <div class="card">
         
         <div class="card-body mt-5">
@@ -780,18 +801,18 @@
             
                 </div>
             <!-- DIVIDA -->
-            <div class="mb-3" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV">
+            <div class="mb-3" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV">
                 
-                <label for="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">Financiamento Residencial - Saldo
+                <label for="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">Financiamento Residencial - Saldo
                     devedor</label>
                 
-                <input type="text" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR"
-                    name="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
+                <input type="text" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR"
+                    name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
              
                     <!-- hidden input -->
-                <input type="hidden" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN" 
-                    id="DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN">
+                <input type="hidden" name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN" 
+                    id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN">
             
                 </div>
 
@@ -809,17 +830,17 @@
 
             </div>
             <!-- DIVIDA -->
-            <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV">
-                <label for="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento veiculo - Saldo
+            <div class="mb-3" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV">
+                <label for="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento veiculo - Saldo
                     devedor</label>
                 
-                <input type="text" id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
-                    name="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
+                <input type="text" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
+                    name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
                 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN" 
-                    id="DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN">                
+                <input type="hidden" name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN" 
+                    id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN">                
             
             </div>
 
@@ -877,15 +898,15 @@
 
             </div>
             <!-- DIVIDA -->
-            <div class="mb-3" id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR-DIV">
-                <label for="DESPESA_EMPRESTIMO_SALDO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
+            <div class="mb-3" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR-DIV">
+                <label for="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
                 
-                <input type="text" id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR" name="DESPESA_EMPRESTIMO_SALDO_DEVEDOR"
+                <input type="text" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
                 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN" 
-                    id="DESPESA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN">
+                <input type="hidden" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN" 
+                    id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN">
             
             </div>
 
@@ -1019,6 +1040,19 @@
                 <!-- input hidden -->
                 <input type="hidden" name="DESPESA_CARTAO_FATURA_HIDDEN" 
                     id="DESPESA_CARTAO_FATURA_HIDDEN">
+            
+            </div>
+
+            <div class="mb-3">
+                
+                <label for="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR">Gastos com cartao de crédito - Saldo Devedor</label>
+                
+                <input type="text" id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR"
+                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN" 
+                    id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN">
             
             </div>
 
@@ -1481,13 +1515,13 @@ function inputHidden(inText) {
     inputHidden("DESPESA_GAS_MEDIA_MENSAL");
     inputHidden("DESPESA_ALUGUEL");
     inputHidden("DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA");
-    inputHidden("DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR");
+    inputHidden("DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR");
     inputHidden("DESPESA_FINANCIAMENTO_VEICULO_PARCELA");
-    inputHidden("DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR");
+    inputHidden("DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR");
     inputHidden("DESPESA_IPTU");
     inputHidden("DESPESA_IPVA");
     inputHidden("DESPESA_EMPRESTIMO_PARCELA");
-    inputHidden("DESPESA_EMPRESTIMO_SALDO_DEVEDOR");
+    inputHidden("DIVIDA_EMPRESTIMO_SALDO_DEVEDOR");
     inputHidden("DESPESA_INTERNET_TELEVISAO");
     inputHidden("DESPESA_CELULAR");
     inputHidden("DESPESA_MEDIA_MERCADO");
@@ -1497,6 +1531,7 @@ function inputHidden(inText) {
     inputHidden("DESPESA_LAZER");
     inputHidden("DESPESA_COMBUSTIVEL");
     inputHidden("DESPESA_CARTAO_FATURA");
+    inputHidden("DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR");
     inputHidden("DESPESA_VEICULO_ALUGADO_MENSALIDADE");
     inputHidden("DESPESA_VEICULO_ALUGADO")
     inputHidden("DESPESA_SEGURO_VIDA_MENSAL");
@@ -1552,11 +1587,11 @@ function inputHidden(inText) {
         setupLinkedField("#RECEITA_APLICACAO_OPCAO-DIV", "#RECEITA_APLICACOES_ARQUIVO-DIV", "SIM"); //ARQUIVO
         setupLinkedField("#DESPESA_ALUGUEL_OPCAO-DIV", "#DESPESA_ALUGUEL-DIV", "SIM");
         setupLinkedField("#DESPESA_FINANCIAMENTO_TIPO-DIV", "#DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA-DIV", "CASA", "AMBOS");
-        setupLinkedField("#DESPESA_FINANCIAMENTO_TIPO-DIV", "#DESPESA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV", "CASA", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO_TIPO-DIV", "#DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV", "CASA", "AMBOS");
         setupLinkedField("#DESPESA_FINANCIAMENTO_TIPO-DIV", "#DESPESA_FINANCIAMENTO_VEICULO_PARCELA-DIV", "CARRO", "AMBOS");
-        setupLinkedField("#DESPESA_FINANCIAMENTO_TIPO-DIV", "#DESPESA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV", "CARRO", "AMBOS");
+        setupLinkedField("#DESPESA_FINANCIAMENTO_TIPO-DIV", "#DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV", "CARRO", "AMBOS");
         setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO-DIV", "#DESPESA_EMPRESTIMO_PARCELA-DIV", "SIM");
-        setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO-DIV", "#DESPESA_EMPRESTIMO_SALDO_DEVEDOR-DIV", "SIM");
+        setupLinkedField("#DESPESA_EMPRESTIMO_OPCAO-DIV", "#DIVIDA_EMPRESTIMO_SALDO_DEVEDOR-DIV", "SIM");
         setupLinkedField("#DESPESA_PLANO_OPCAO-DIV", "#DESPESA_PLANO_SAUDE_MENSAL-DIV", "SIM");
         setupLinkedField("#DESPESA_ALUGUEL_CARROS-DIV", "#DESPESA_VEICULO_ALUGADO_MENSALIDADE-DIV", "SIM");
         setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO-DIV", "#DESPESA_SEGURO_VIDA_MENSAL-DIV", "SIM");
