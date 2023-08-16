@@ -54,39 +54,43 @@
   </div>
 </nav>
 
-  <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
+<div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
   <div class="card" style="border-radius: 2vh; width: 100%;">
     <div class="card-body m-lg-5 text-center">
-       <table class="table table-striped table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+      
+      <div class="table-responsive"> <!-- Adicione esta div -->
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Data</th>
+              <th>INDICE_POUPANCA</th>
+              <th>INDICE_LIQUIDEZ_CORRENTE</th>
+              <th>INDICE_ENDIVIDAMENTO</th>
+              <th>INDICE_COBERTURA</th>
+              <th>PATRIMONIO_LIQUIDO</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($data as $item): ?>
+            <tr>
+              <td><?= $item['PK'] ?></td>
+              <td><?= $item['SOBRE_NOME_COMPLETO'] ?></td>
+              <td><?= $item['DATA'] ?></td>
+              <td><?= $item['INDICE_POUPANCA'] ?></td>
+              <td><?= $item['INDICE_LIQUIDEZ_CORRENTE'] ?></td>
+              <td><?= $item['INDICE_ENDIVIDAMENTO'] ?></td>
+              <td><?= $item['INDICE_COBERTURA'] ?></td>
+              <td><?= $item['PATRIMONIO_LIQUIDO'] ?></td>
+              <td><a href="/login/gerar/<?= $item['PK'] ?>" class="btn btn-primary">Ver Relatório</a></td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div> <!-- Fim da div .table-responsive -->
+
     </div>
   </div>
 </div>

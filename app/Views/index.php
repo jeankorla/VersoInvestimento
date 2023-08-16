@@ -1525,11 +1525,11 @@ function inputHidden(inText) {
             
             const numericValue = parseFloat(valueWithDot); 
             
-            // document.querySelector(`#${inHidden2}`).value = numericValue;
-            // console.log(numericValue);
+            document.querySelector(`#${inHidden2}`).value = numericValue;
+            console.log(numericValue);
             
-            // const hiddenElement = document.querySelector(`#${inHidden2}`);
-            // console.log(typeof hiddenElement.value);
+            const hiddenElement = document.querySelector(`#${inHidden2}`);
+            console.log(typeof hiddenElement.value);
         });
     }
 
