@@ -55,15 +55,16 @@ class Login extends BaseController
          // Fazendo a mesclagem. Exemplo simplificado:
         $data = [];
         foreach ($formularios as $formulario) {
-    foreach ($resultados as $resultado) {
+        foreach ($resultados as $resultado) {
        if ($formulario['PK'] == $resultado['CLIENTE_FORMULARIO_FK']) {
             $mergedData = array_merge($resultado, $formulario);
             $mergedData['PK'] = $formulario['PK']; // Garantindo que o 'PK' é o de CLIENTES_FORMULARIO
             $data[] = $mergedData;
         }
     }
+    
 }
-        
+        //dd($data);
         echo view('administrate.php', ['data' => $data]);
         
     }
