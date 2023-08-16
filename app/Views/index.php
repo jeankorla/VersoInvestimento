@@ -15,6 +15,8 @@
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -24,9 +26,22 @@
 
 
     <style>
+
         h1 {
-            font-size: 10em;
-            font-weight: 800;
+            font-size: 7em;
+            font-weight: 600; /* Usando um peso um pouco mais leve */
+            font-family: 'Cormorant Garamond', serif; /* Usando a nova fonte */
+            text-align: left;
+            margin: 0;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+
+
+        h4 {
+            font-size: 5em;
+            font-weight: 500;
             font-family: 'Roboto Slab', serif;
             text-align: left;
             margin: 0;
@@ -34,10 +49,16 @@
             padding-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             /* Sombreamento */
+        
         }
+
         .logo-invest{
             width: 40px;
 
+        }
+
+        .card-body{
+            margin-bottom: 50px;
         }
 
         html {
@@ -62,11 +83,11 @@
 
         .bg2 {
             animation-direction:alternate-reverse;
-            animation-duration:4s;
+            animation-duration:5s;
         }
 
         .bg3 {
-            animation-duration:5s;
+            animation-duration: 6s;
         }
 
         .content {
@@ -341,8 +362,11 @@
 
 
         }
+
         @media (max-width: 376px) {
+
             .stepIndicator {
+
                 white-space: normal;
                 text-align: center;
                 width: 100%;
@@ -350,7 +374,9 @@
                 margin-bottom: 10px;
                 /* espaço */
                 font-size: 0.8em;
+
             }
+
             .navbar .navbar-toggler {
                 margin-right: 70px;
 
@@ -516,7 +542,7 @@
         </div>
 
         <!-- Collapsible Navbar Content -->
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" href="/home">Home</a>
@@ -536,9 +562,9 @@
         
         <div class="card-body mt-5">
             
-            <h1 class="text-center fs-4">Mentoria Viver de Renda</h1>
-            <h1 class="text-center fs-4">Tenha um processo estruturado de crescimento financeiro e patrimonial feito sob
-                medida para você saber exatamente o que fazer, como fazer e qual resultado esperar.</h1>
+            <!-- <h1 class="text-center">Mentoria Viver de Renda</h1>
+            <h4 class="text-center fs-4">Tenha um processo estruturado de crescimento financeiro e patrimonial feito sob
+                medida para você saber exatamente o que fazer, como fazer e qual resultado esperar.</h4> -->
         
         </div>
     
