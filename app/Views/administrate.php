@@ -7,51 +7,87 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
+
+  
+
+  <!-- css -->
+  <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
+
   <title>Admin</title>
 </head>
 
 <body style="background-color: #eeee;">
-
+    
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
-  <div class="container-fluid d-flex justify-content-between">
+
+<div class="container-fluid d-flex justify-content-between">
     <!-- Logo -->
     <div>
-      <a class="navbar-brand" href="/home">InvestPlanner</a>
+
+        <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
+        <a class="navbar-brand">InvestPlanner</a>
+
     </div>
 
-    <!-- Menu Items -->
-    <div>
-      <div class="navbar-collapse justify-content-center " id="navbarNavAltMarkup">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
-          </li>
+    <!-- Menu Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+            <!-- Collapsible Navbar Content -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+        
+        <ul class="navbar-nav">
+            
+            <li class="nav-item">
+                
+                <a class="nav-link active" href="/home">Home</a>
+            
+            </li>
+            
+            <li class="nav-item">
+                
+                <a class="nav-link" href="/login">Login</a>
+            
+            </li>
+            
+            <li class="nav-item">
+                
+                <a class="nav-link" href="#">Blog</a>
+            
+            </li>
+        
         </ul>
-      </div>
+    
     </div>
 
     <!-- Social Media Icons -->
     <div>
-      <div class="d-flex">
-        <a href="#" class="text-decoration-none text-dark m-1">
-          <i class="fas fa-map-marker-alt"></i>
-        </a>
-        <a href="#" class="text-decoration-none text-dark m-1">
-          <i class="fas fa-phone"></i>
-        </a>
-        <a href="#" class="text-decoration-none text-dark m-1">
-         <i class="fas fa-envelope"></i>
-        </a>
-      </div>
+
+        <div class="d-flex">
+
+            <a href="#" class="text-decoration-none text-dark m-1">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+
+            <a href="#" class="text-decoration-none text-dark m-1">
+                <i class="fas fa-phone"></i>
+            </a>
+
+            <a href="#" class="text-decoration-none text-dark m-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+
     </div>
 
-  </div>
+</div>
+
+
 </nav>
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
@@ -76,6 +112,7 @@
           <tbody>
             <?php foreach ($data as $item): ?>
             <tr>
+
               <td><?= $item['PK'] ?></td>
               <td><?= $item['SOBRE_NOME_COMPLETO'] ?></td>
               <td><?= $item['DATA'] ?></td>
@@ -84,7 +121,10 @@
               <td><?= $item['INDICE_ENDIVIDAMENTO'] ?></td>
               <td><?= $item['INDICE_COBERTURA'] ?></td>
               <td><?= $item['PATRIMONIO_LIQUIDO'] ?></td>
-              <td><a href="/login/gerar/<?= $item['PK'] ?>" class="btn btn-primary">Ver Relatório</a></td>
+              <td><a href="/login/gerar/<?= $item['PK'] ?>" class="btn btn-primary">Relatório</a></td>
+              <td><a href="<?= base_url('Login/edit/' . $item['PK']) ?>" class="btn btn-warning">Editar</a></td>
+
+
             </tr>
             <?php endforeach; ?>
           </tbody>

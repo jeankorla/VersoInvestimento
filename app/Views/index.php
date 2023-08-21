@@ -23,476 +23,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
 
-
-    <style>
-
-        h1 {
-            font-size: 7em;
-            font-weight: 600; /* Usando um peso um pouco mais leve */
-            font-family: 'Cormorant Garamond', serif; /* Usando a nova fonte */
-            text-align: left;
-            margin: 0;
-            padding-top: 20px;
-            padding-bottom: 10px;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-        }
-
-
-        h4 {
-            font-size: 5em;
-            font-weight: 500;
-            font-family: 'Roboto Slab', serif;
-            text-align: left;
-            margin: 0;
-            padding-top: 20px;
-            padding-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            /* Sombreamento */
-        
-        }
-
-        .logo-invest{
-            width: 40px;
-
-        }
-
-        .card-body{
-            margin-bottom: 50px;
-        }
-
-        html {
-            height:100%;
-        }
-
-        body {
-            margin:0;
-        }
-
-        .bg {
-            animation:slide 3s ease-in-out infinite alternate;
-            background-image: linear-gradient(-60deg, #bfa96c 50%, #5d5136 50%);
-            bottom:0;
-            left:-50%;
-            opacity:.5;
-            position:fixed;
-            right:-50%;
-            top:0;
-            z-index:-1;
-        }
-
-        .bg2 {
-            animation-direction:alternate-reverse;
-            animation-duration:5s;
-        }
-
-        .bg3 {
-            animation-duration: 6s;
-        }
-
-        .content {
-            background-color:rgba(255,255,255,.8);
-            border-radius:.25em;
-            box-shadow:0 0 .25em rgba(0,0,0,.25);
-            box-sizing:border-box;
-            left:50%;
-            padding:10vmin;
-            position:fixed;
-            text-align:center;
-            top:50%;
-            transform:translate(-50%, -50%);
-        }
-
-        @keyframes slide {
-            0% {
-                transform:translateX(-25%);
-            }
-            100% {
-                transform:translateX(25%);
-            }
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-
-        }
-
-        .radio-option input {
-            margin-right: 5px;
-        }
-
-        #signUpForm {
-            max-width: 800px;
-            background-color: #ffffff;
-            margin: 40px auto;
-            padding: 40px;
-            box-shadow: 0px 6px 18px rgb(0 0 0 / 9%);
-            border-radius: 12px;
-        }
-
-        #signUpForm .form-header {
-            gap: 5px;
-            text-align: center;
-            font-size: .9em;
-        }
-
-        #signUpForm .form-header .stepIndicator {
-            position: relative;
-            flex: 1;
-            padding-bottom: 30px;
-        }
-
-        #signUpForm .form-header .stepIndicator.active {
-            font-weight: 600;
-        }
-
-        #signUpForm .form-header .stepIndicator.finish {
-            font-weight: 600;
-            color: #bfa96c;
-        }
-
-        #signUpForm .form-header .stepIndicator::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            z-index: 9;
-            width: 20px;
-            height: 20px;
-            background-color: #c2b596;
-            border-radius: 50%;
-            border: 3px solid #c2b596;
-        }
-
-        #signUpForm .form-header .stepIndicator.active::before {
-            background-color: #5d5136;
-            border: 3px solid #5d5136;
-        }
-
-        #signUpForm .form-header .stepIndicator.finish::before {
-            background-color: #bfa96c;
-            border: 3px solid #b7e1dd;
-        }
-
-        #signUpForm .form-header .stepIndicator::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 8px;
-            width: 100%;
-            height: 3px;
-            background-color: #f0e3bd;
-        }
-        .nav-item {
-            margin-right: 20px;
-            transition: font-size 0.3s;            
-        }
-
-        .navbar-nav .nav-item .nav-link:hover {
-            color: #bfa96c;
-            font-weight: bold; 
-            box-shadow: 0px 1px 0px 0px #bfa96c; 
-            font-size: 102%;
-
-        }
-                    
-        .IDADE {
-            position: relative;
-
-        }
-
-        .IDADE::after {
-            content: "anos";
-            position: absolute;
-            top: 0;
-            transform: translateY(16%);
-            right: 630px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            color: gray;
-        }
-
-
-        #signUpForm .form-header .stepIndicator.active::after {
-            background-color: #bfa96c;
-        }
-
-        #signUpForm .form-header .stepIndicator.finish::after {
-            background-color: #bfa96c;
-        }
-
-        #signUpForm .form-header .stepIndicator:last-child:after {
-            display: none;
-        }
-
-        #signUpForm input {
-            padding: 15px 20px;
-            width: 100%;
-            font-size: 1em;
-            border: 1px solid #e3e3e3;
-            border-radius: 5px;
-        }
-
-        #signUpForm input:focus {
-            border: 1px solid #bfa96c;
-            outline: 0;
-        }
-
-        #signUpForm input.invalid {
-            border: 2px solid;
-            color: #fd4444;
-        }
-
-        #signUpForm .step {
-            display: none;
-        }
-
-        #signUpForm .form-footer {
-            overflow: auto;
-            gap: 20px;
-        }
-
-        #signUpForm .form-footer button {
-            background-color: #bfa96c;
-            border: 1px solid #bfa96c !important;
-            color: #ffffff;
-            border: none;
-            padding: 13px 30px;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 5px;
-            flex: 1;
-            margin-top: 5px;
-        }
-
-        #signUpForm .form-footer button:hover {
-            opacity: 0.8;
-        }
-
-        #signUpForm .form-footer #prevBtn {
-            background-color: #fff;
-            color: #bfa96c;
-        }
-
-        .invalid {
-            border: 2px solid;
-            color: #fd4444;
-        }
-
-        /* Telas 768px */
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 6em;
-                padding-top: 10px;
-                padding-bottom: 5px;
-            }
-
-            #signUpForm {
-                padding: 20px;
-                margin: 20px auto;
-            }
-
-            #signUpForm input {
-                padding: 10px 15px;
-                font-size: 0.8em;
-            }
-
-            .radio-option input {
-                margin-right: 3px;
-            }
-
-            #signUpForm .form-footer button {
-                padding: 10px 20px;
-            }
-        }
-
-        /* Telas 280px */
-        @media (max-width:280px) {
-            .stepIndicator {
-                white-space: normal;
-                text-align: center;
-                width: 100%;
-                margin-bottom: 5px;
-                font-size: 0.7em;
-            }
-
-        }
-
-        /* Telas 320 :.: */
-        @media (max-width: 424px) {
-            .stepIndicator {
-                white-space: normal;
-                text-align: center;
-                width: 100%;
-                /* ocupar toda a largura ! */
-                margin-bottom: 5px;
-                /* espaço */
-                font-size: 0.8em;
-            }
-            .navbar .navbar-toggler {
-                margin-left: 100px;
-
-            }
-
-            .logo-invest {
-                display: none;
-            }
-        
-            .IDADE{
-                position: relative;
-            }
-
-            .IDADE::after {
-            content: "anos";
-            position: absolute;
-            top: 0;
-            transform: translateY(16%);
-            right: 300px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            color: gray;
-            }
-
-
-
-        }
-
-        @media (max-width: 376px) {
-
-            .stepIndicator {
-
-                white-space: normal;
-                text-align: center;
-                width: 100%;
-                /* ocupar toda a largura ! */
-                margin-bottom: 10px;
-                /* espaço */
-                font-size: 0.8em;
-
-            }
-
-            .navbar .navbar-toggler {
-                margin-right: 70px;
-
-            }
-        
-            .IDADE{
-                position: relative;
-            }
-
-            .IDADE::after {
-            content: "anos";
-            position: absolute;
-            top: 0;
-            transform: translateY(16%);
-            right: 60px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            color: gray;
-            }
-
-            .logo-invest{
-                display: none;
-            }
-
-        }
-
-        @media (max-width: 399px) {
-            .navbar-brand{
-                display: flex;
-                margin: 0;
-                font-size: 1.0em;
-            }
-            .stepIndicator {
-                white-space: normal;
-                text-align: center;
-                width: 100%;
-                /* ocupar toda a largura ! */
-                margin-bottom: 5px;
-                /* espaço */
-                font-size: 0.8em;
-            }
-            .navbar .navbar-toggler {
-                margin-right: auto;
-
-            }
-        
-            .IDADE{
-                position: relative;
-            }
-
-            .IDADE::after {
-            content: "anos";
-            position: absolute;
-            top: 0;
-            transform: translateY(18%);
-            right: 275px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            color: gray;
-            }
-
-
-
-        }
-
-
-        /* Telas 480px */
-        @media (max-width: 480px) and (min-width:425px) {
-
-            .stepIndicator {
-                white-space: normal;
-                text-align: center;
-                width: 100%;
-                /* ocupar toda a largura ! */
-                margin-bottom: 5px;
-                /* espaço */
-                font-size: 0.8em;
-            }
-
-            .navbar .navbar-toggler {
-                margin-left: 35px;
-
-            }
-
-            .IDADE{
-                position: relative;
-            }
-
-            .IDADE::after {
-            content: "anos";
-            position: absolute;
-            top: 0;
-            transform: translateY(16%);
-            right: 313px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            color: gray;
-        }
-
-
-
-        }
-
-
-        @media (min-width:750px) and (max-width:1000px) {
-            .navbar .navbar-toggler {
-                margin-left: 400px;
-
-            }
-
-
-        }
-    </style>
 
 </head>
 
@@ -518,6 +51,33 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+                    <!-- Collapsible Navbar Content -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                
+                <ul class="navbar-nav">
+                    
+                    <li class="nav-item">
+                        
+                        <a class="nav-link active" href="/home">Home</a>
+                    
+                    </li>
+                    
+                    <li class="nav-item">
+                        
+                        <a class="nav-link" href="/login">Login</a>
+                    
+                    </li>
+                    
+                    <li class="nav-item">
+                        
+                        <a class="nav-link" href="#">Blog</a>
+                    
+                    </li>
+                
+                </ul>
+            
+            </div>
+
             <!-- Social Media Icons -->
             <div>
 
@@ -541,20 +101,6 @@
 
         </div>
 
-        <!-- Collapsible Navbar Content -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
-                </li>
-            </ul>
-        </div>
 
 </nav>
 
@@ -1112,14 +658,14 @@
 
             <div class="mb-3">
                 
-                <label for="DESPESA_VEICULO_ALUGADO">Mensalidade do seguro dos veículos</label>
+                <label for="DESPESA_VEICULO_SEGURO">Mensalidade do seguro dos veículos</label>
                 
-                <input type="text" id="DESPESA_VEICULO_ALUGADO" name="DESPESA_VEICULO_ALUGADO"
+                <input type="text" id="DESPESA_VEICULO_SEGURO" name="DESPESA_VEICULO_SEGURO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_VEICULO_ALUGADO_HIDDEN" 
-                    id="DESPESA_VEICULO_ALUGADO_HIDDEN">
+                <input type="hidden" name="DESPESA_VEICULO_SEGURO_HIDDEN" 
+                    id="DESPESA_VEICULO_SEGURO_HIDDEN">
             
             </div>
 
@@ -1559,7 +1105,7 @@ function inputHidden(inText) {
     inputHidden("DESPESA_CARTAO_FATURA");
     inputHidden("DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR");
     inputHidden("DESPESA_VEICULO_ALUGADO_MENSALIDADE");
-    inputHidden("DESPESA_VEICULO_ALUGADO")
+    inputHidden("DESPESA_VEICULO_SEGURO")
     inputHidden("DESPESA_SEGURO_VIDA_MENSAL");
     inputHidden("DESPESA_CONDOMINIO_MENSAL");
     inputHidden("DESPESA_CONTRIBUICAO_SINDICAL");
