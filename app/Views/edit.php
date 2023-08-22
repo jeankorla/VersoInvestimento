@@ -32,9 +32,9 @@
 
 <body>
 
-    <div class="bg"></div>
+    <!-- <div class="bg"></div>
     <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
+    <div class="bg bg3"></div> -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
 
@@ -494,19 +494,26 @@
 
 
         <!-- não sei como fazer isso ainda -->
-        <?php foreach ($despesas as $despesa): ?>
+        <?php foreach ($despesas as $index => $despesa): ?>
+            
             <div class="mb-3">
 
-            <label><?php echo $despesa['DESCRICAO'] ?></label>
-            <input type="text" name="DESPESA[<?= $despesa['PK']; ?>]" value="<?php echo $despesa['VALOR']; ?>">
-            
+                <label><?php echo $despesa['DESCRICAO'] ?></label>
+
+                <input type="text" name="DESPESA[<?= $despesa['PK']; ?>]" value="<?php echo $despesa['VALOR']; ?>">
+
+                <input type="hidden" name="CATEGORIA[<?= $despesa['PK']; ?>]" class="categoriaInput" value="DESPESA">
+
                 <div class="form-check form-switch isolated-switch">
 
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                    <input class="form-check-input switchInput" type="checkbox" style="border-radius: 20px; width: 65px; height: 10px;">
+
+                    <label class="switchLabel" style="margin-top: 7px; margin-left: 10px; text-decoration: underline;">DESPESA</label>
 
                 </div>
 
             </div>
+
         <?php endforeach; ?>
 
         <button type="submit" name="update_button" class="btn btn-warning" style="margin-top: 30px"
@@ -518,3 +525,23 @@
 
 
 </body>
+
+<script>
+    const switchInputs = document.querySelectorAll('.switchInput');
+    const switchLabels = document.querySelectorAll('.switchLabel');
+    const categoriaInputs = document.querySelectorAll('input[name^="CATEGORIA"]');
+
+    switchInputs.forEach((switchInput, index) => {
+        const categoriaInput = categoriaInputs[index];
+
+        switchInput.addEventListener('change', function() {
+            if (this.checked) {
+                switchLabels[index].textContent = 'DIVIDA';
+                categoriaInput.value = 'DIVIDA';
+            } else {
+                switchLabels[index].textContent = 'DESPESA';
+                categoriaInput.value = 'DESPESA';
+            }
+        });
+    });
+</script>

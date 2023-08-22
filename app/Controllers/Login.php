@@ -208,6 +208,8 @@ class Login extends BaseController
 
         $clienteDespesas = new ClienteDespesaPersonalizadaModel();
         $despesasData = $this->request->getVar('DESPESA');
+        $despesasAdicionaisCategoria = $this->request->getVar('DESPESA_ADICIONAL_CATEGORIA');
+
         
         if (is_array($despesasData) || is_object($despesasData)) {
             foreach ($despesasData as $despesaId => $valor) {
@@ -217,6 +219,10 @@ class Login extends BaseController
                 $updated = $clienteDespesas->update($despesaId, $data);
                 
                 // echo "Nova despesa (ID: $despesaId) atualizada para: $valor<br>";
+
+                $categoria = $this->request->getVar("CATEGORIA[$despesaId]");
+                $categoriaData = ['CATEGORIA' => $categoria];
+                $clienteDespesas->update($despesaId, $categoriaData);
 
                 if (!$updated) {
                     // Se houver erro, exiba a mensagem de erro
@@ -229,4 +235,15 @@ class Login extends BaseController
             return redirect()->to('Login/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
         }
     }
+
+
+
+
+
+
+
+
+
+
+    
 }

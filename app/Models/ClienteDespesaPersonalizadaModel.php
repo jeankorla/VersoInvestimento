@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ClienteDespesaPersonalizadaModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'CLIENTES_DEPESAS_PERSONALIZADAS';
+    protected $table            = 'CLIENTES_DESPESAS_PERSONALIZADAS';
     protected $primaryKey       = 'PK';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
