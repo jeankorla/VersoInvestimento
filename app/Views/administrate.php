@@ -18,9 +18,9 @@
 
 <body style="background-color: #eeee;">
     
-  <div class="bg"></div>
+  <!-- <div class="bg"></div>
   <div class="bg bg2"></div>
-  <div class="bg bg3"></div>
+  <div class="bg bg3"></div> -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
 
 <div class="container-fluid d-flex justify-content-between">
@@ -46,13 +46,8 @@
                 
                 <a class="nav-link active" href="/home">Home</a>
             
-            </li>
-            
-            <li class="nav-item">
-                
-                <a class="nav-link" href="/login">Login</a>
-            
-            </li>
+            </li>            
+
             
             <li class="nav-item">
                 
@@ -95,7 +90,7 @@
     <div class="card-body m-lg-5 text-center">
       
       <div class="table-responsive"> <!-- Adicione esta div -->
-        <table class="table table-striped table-dark">
+        <table class="table table-striped ">
           <thead>
             <tr>
               <th>ID</th>
@@ -106,33 +101,41 @@
               <th>INDICE_ENDIVIDAMENTO</th>
               <th>INDICE_COBERTURA</th>
               <th>PATRIMONIO_LIQUIDO</th>
-              <th>Ações</th>
+              <th style="text-align: center;">Ações</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($data as $item): ?>
-            <tr>
+              <tr>
 
-              <td><?= $item['PK'] ?></td>
-              <td><?= $item['SOBRE_NOME_COMPLETO'] ?></td>
-              <td><?= $item['DATA'] ?></td>
-              <td><?= $item['INDICE_POUPANCA'] ?></td>
-              <td><?= $item['INDICE_LIQUIDEZ_CORRENTE'] ?></td>
-              <td><?= $item['INDICE_ENDIVIDAMENTO'] ?></td>
-              <td><?= $item['INDICE_COBERTURA'] ?></td>
-              <td><?= $item['PATRIMONIO_LIQUIDO'] ?></td>
-              <td><a href="/login/gerar/<?= $item['PK'] ?>" class="btn btn-primary">Relatório</a></td>
-              <td><a href="<?= base_url('Login/edit/' . $item['PK']) ?>" class="btn btn-warning">Editar</a></td>
+                <td><?= $item->PK ?></td>
+                <td><?= $item->SOBRE_NOME_COMPLETO ?></td>
+                <td><?= $item->DATA ?></td>
+                <td><?= $item->INDICE_POUPANCA ?></td>
+                <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
+                <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
+                <td><?= $item->INDICE_COBERTURA ?></td>
+                <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
+                <td>
+                  <div style="display: flex; gap: 10px">
+                    <a href="/login/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
+                    <a href="<?= base_url('Login/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
+                  </div>
+                </td>
 
-
-            </tr>
+              </tr>
             <?php endforeach; ?>
+
           </tbody>
+
         </table>
+
       </div> <!-- Fim da div .table-responsive -->
 
     </div>
+
   </div>
+
 </div>
 
 

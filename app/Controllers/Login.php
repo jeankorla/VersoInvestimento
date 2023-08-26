@@ -6,8 +6,6 @@ use App\Models\UsuarioModel;
 use App\Models\ClienteDespesaPersonalizadaModel;
 use App\Models\ClienteFormularioModel;
 use App\Models\ClienteResultadoModel;
-use CodeIgniter\Controller;
-
 
 class Login extends BaseController
 {   
@@ -38,6 +36,7 @@ class Login extends BaseController
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
         }
     }
+
      public function admin()
     {
         // Verifica se o usuário está autenticado
@@ -46,30 +45,33 @@ class Login extends BaseController
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
         }
 
-        $clienteFormulario = new ClienteFormularioModel();
-        $clienteResultado = new ClienteResultadoModel();
-
-        $formularios = $clienteFormulario->findAll();
-        $resultados = $clienteResultado->findAll();
-
-         // Fazendo a mesclagem. Exemplo simplificado:
-        $data = [];
-        foreach ($formularios as $formulario) {
-        foreach ($resultados as $resultado) {
-       if ($formulario['PK'] == $resultado['CLIENTE_FORMULARIO_FK']) {
-            $mergedData = array_merge($resultado, $formulario);
-            $mergedData['PK'] = $formulario['PK']; // Garantindo que o 'PK' é o de CLIENTES_FORMULARIO
-            $data[] = $mergedData;
-        }
-    }
-    
-}
-        //dd($data);
-        echo view('administrate.php', ['data' => $data]);
         
+        //dd($data);
+        $data = $this->mergeData();
+
+        echo view('administrate.php', ['data' => $data]);
+    
     }
 
-      public function gerar($pk = null)
+    private function mergeData(){
+
+        $db = \Config\Database::connect();
+
+        // db build -- 
+        $builder = $db -> table('CLIENTES_FORMULARIO');
+        //select da table
+        $builder->select('*');
+        //join das duas table
+        $builder->join('CLIENTES_RESULTADOS', 'CLIENTES_FORMULARIO.PK = CLIENTES_RESULTADOS.PK');
+        // qauery recebendo a data'
+        $query = $builder->get();
+
+        return $query->getResult();
+
+
+    }
+
+    public function gerar($pk = null)
     {
         if (!$pk) {
             return redirect()->back()->with('error', 'ID inválido.');
@@ -91,28 +93,6 @@ class Login extends BaseController
         return view('relatorio_view.php', ['data' => $data]);
     }
 
-    private function mergeData()
-    {
-        $clienteFormulario = new ClienteFormularioModel();
-        $clienteResultado = new ClienteResultadoModel();
-
-        $formularios = $clienteFormulario->findAll();
-        $resultados = $clienteResultado->findAll();
-
-        $data = [];
-        foreach ($formularios as $formulario) {
-            foreach ($resultados as $resultado) {
-                if ($formulario['PK'] == $resultado['CLIENTE_FORMULARIO_FK']) {
-                    $mergedData = array_merge($resultado, $formulario);
-                    $mergedData['PK'] = $formulario['PK'];
-                    $data[] = $mergedData;
-                }
-            }
-        }
-
-        return $data;
-    }
-
     public function edit($pk = null)
     {
         if (!$pk) {
@@ -122,7 +102,7 @@ class Login extends BaseController
         $clienteFormulario = new ClienteFormularioModel();
         $clienteDespesas = new ClienteDespesaPersonalizadaModel();
     
-        $formulario = $clienteFormulario->find($pk); // Use "find" para obter um único registro
+        $formulario = $clienteFormulario->find($pk); 
         $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
     
         if (!$formulario) {
@@ -131,14 +111,13 @@ class Login extends BaseController
     
         return view('edit.php', ['formulario' => $formulario, 'despesas' => $despesas]);
     }
-
     public function update($pk = null)
     {
         if (!$pk) {
+
             return redirect()->back()->with('error', 'ID inválido.');
         }
-    
-        
+
         $formData = [
 
             'SOBRE_EMAIL' => $this->request->getPost('SOBRE_EMAIL'),
@@ -200,20 +179,17 @@ class Login extends BaseController
     
         $clienteFormulario = new ClienteFormularioModel();
     
-        // Atualizar os dados do formulário
+        // Atualizar os dados do formulário ...
         $clienteFormulario->update($pk, $formData);
     
-        // Atualizar as despesas
-        $despesaIds = $this->request->getPost('DESPESA_ID'); // Se você tiver um campo oculto com IDs de despesas      
-
+        // Atualizar as despesas      
         $clienteDespesas = new ClienteDespesaPersonalizadaModel();
         $despesasData = $this->request->getVar('DESPESA');
-        $despesasAdicionaisCategoria = $this->request->getVar('DESPESA_ADICIONAL_CATEGORIA');
 
         
         if (is_array($despesasData) || is_object($despesasData)) {
             foreach ($despesasData as $despesaId => $valor) {
-                $data = ['VALOR' => $valor]; // Substitua 'VALOR' pelo nome da coluna que você quer atualizar
+                $data = ['VALOR' => $valor]; 
                 
                 // Atualize a despesa
                 $updated = $clienteDespesas->update($despesaId, $data);
@@ -225,7 +201,7 @@ class Login extends BaseController
                 $clienteDespesas->update($despesaId, $categoriaData);
 
                 if (!$updated) {
-                    // Se houver erro, exiba a mensagem de erro
+                    // caso erro
                     $errorMessage = $clienteDespesas->error();
                     return redirect()->to('Login/admin')->with('error', 'Erro ao atualizar despesas: ' . $errorMessage);
                 }
@@ -235,15 +211,5 @@ class Login extends BaseController
             return redirect()->to('Login/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
         }
     }
-
-
-
-
-
-
-
-
-
-
     
 }

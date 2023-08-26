@@ -30,10 +30,10 @@
 </head>
 
 <body>
-
+<!-- 
     <div class="bg"></div>
     <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
+    <div class="bg bg3"></div> -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
 
