@@ -18,125 +18,126 @@
 
 <body style="background-color: #eeee;">
     
-  <!-- <div class="bg"></div>
+  <div class="bg"></div>
   <div class="bg bg2"></div>
-  <div class="bg bg3"></div> -->
+  <div class="bg bg3"></div>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
 
-<div class="container-fluid d-flex justify-content-between">
-    <!-- Logo -->
-    <div>
+  <div class="container-fluid d-flex justify-content-between">
+      <!-- Logo -->
+      <div>
 
-        <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
-        <a class="navbar-brand">InvestPlanner</a>
+          <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
+          <a class="navbar-brand">InvestPlanner</a>
 
-    </div>
+      </div>
 
-    <!-- Menu Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+      <!-- Menu Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <!-- Collapsible Navbar Content -->
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-        
-        <ul class="navbar-nav">
-            
-            <li class="nav-item">
-                
-                <a class="nav-link active" href="/home">Home</a>
-            
-            </li>            
+              <!-- Collapsible Navbar Content -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+          
+          <ul class="navbar-nav">
+              
+              <li class="nav-item">
+                  
+                  <a class="nav-link active" href="/home">Home</a>
+              
+              </li>            
 
-            
-            <li class="nav-item">
-                
-                <a class="nav-link" href="#">Blog</a>
-            
-            </li>
-        
-        </ul>
-    
-    </div>
-
-    <!-- Social Media Icons -->
-    <div>
-
-        <div class="d-flex">
-
-            <a href="#" class="text-decoration-none text-dark m-1">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-
-            <a href="#" class="text-decoration-none text-dark m-1">
-                <i class="fas fa-phone"></i>
-            </a>
-
-            <a href="#" class="text-decoration-none text-dark m-1">
-                <i class="fas fa-envelope"></i>
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</nav>
-
-<div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
-  <div class="card" style="border-radius: 2vh; width: 100%;">
-    <div class="card-body m-lg-5 text-center">
+              
+              <li class="nav-item">
+                  
+                  <a class="nav-link" href="https://investplanner.org">Site</a>
+              
+              </li>
+          
+          </ul>
       
-      <div class="table-responsive"> <!-- Adicione esta div -->
-        <table class="table table-striped ">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Data</th>
-              <th>INDICE_POUPANCA</th>
-              <th>INDICE_LIQUIDEZ_CORRENTE</th>
-              <th>INDICE_ENDIVIDAMENTO</th>
-              <th>INDICE_COBERTURA</th>
-              <th>PATRIMONIO_LIQUIDO</th>
-              <th style="text-align: center;">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($data as $item): ?>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div>
+
+          <div class="d-flex">
+
+              <a href="#" class="text-decoration-none text-dark m-1">
+                  <i class="fas fa-map-marker-alt"></i>
+              </a>
+
+              <a href="#" class="text-decoration-none text-dark m-1">
+                  <i class="fas fa-phone"></i>
+              </a>
+
+              <a href="#" class="text-decoration-none text-dark m-1">
+                  <i class="fas fa-envelope"></i>
+              </a>
+
+          </div>
+
+      </div>
+
+  </div>
+
+
+  </nav>
+
+  <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
+    <div class="card" style="border-radius: 2vh; width: 100%;">
+      <div class="card-body m-lg-5 text-center">
+        
+        <div class="table-responsive"> <!-- Adicione esta div -->
+          <table class="table table-striped ">
+            <thead>
               <tr>
-
-                <td><?= $item->PK ?></td>
-                <td><?= $item->SOBRE_NOME_COMPLETO ?></td>
-                <td><?= $item->DATA ?></td>
-                <td><?= $item->INDICE_POUPANCA ?></td>
-                <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
-                <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
-                <td><?= $item->INDICE_COBERTURA ?></td>
-                <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
-                <td>
-                  <div style="display: flex; gap: 10px">
-                    <a href="/login/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
-                    <a href="<?= base_url('Login/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
-                  </div>
-                </td>
-
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>INDICE_POUPANCA</th>
+                <th>INDICE_LIQUIDEZ_CORRENTE</th>
+                <th>INDICE_ENDIVIDAMENTO</th>
+                <th>INDICE_COBERTURA</th>
+                <th>PATRIMONIO_LIQUIDO</th>
+                <th style="text-align: center;">Ações</th>
               </tr>
-            <?php endforeach; ?>
+            </thead>
+            <tbody>
+              <?php foreach ($data as $item): ?>
+                <tr>
 
-          </tbody>
+                  <td><?= $item->PK ?></td>
+                  <td><?= $item->SOBRE_NOME ?></td>
+                  <td><?= $item->DATA ?></td>
+                  <td><?= $item->INDICE_POUPANCA ?></td>
+                  <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
+                  <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
+                  <td><?= $item->INDICE_COBERTURA ?></td>
+                  <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
+                  <td>
+                    <div style="display: flex; gap: 10px">
+                      <a href="/login/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
+                      <a href="<?= base_url('Login/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
+                    </div>
+                  </td>
 
-        </table>
+                </tr>
+              <?php endforeach; ?>
 
-      </div> <!-- Fim da div .table-responsive -->
+            </tbody>
+
+          </table>
+
+        </div> <!-- Fim da div .table-responsive -->
+
+      </div>
 
     </div>
 
   </div>
-
-</div>
 
 
 
