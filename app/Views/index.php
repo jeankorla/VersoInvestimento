@@ -147,10 +147,19 @@
 
             <div class="mb-3">
                 
-                <label for="SOBRE_NOME_COMPLETO">Nome Completo:</label>
+                <label for="SOBRE_NOME">Nome:</label>
                 
-                <input class="required" type="text" oninput="removeNumbers(this)" name="SOBRE_NOME_COMPLETO"
-                    id="SOBRE_NOME_COMPLETO">
+                <input class="required" type="text" oninput="removeNumbers(this)" name="SOBRE_NOME"
+                    id="SOBRE_NOME">
+            
+            </div>
+
+            <div class="mb-3">
+                
+                <label for="SOBRE_NOME_SOBRENOME">Sobrenome:</label>
+                
+                <input class="required" type="text" oninput="removeNumbers(this)" name="SOBRE_NOME_SOBRENOME"
+                    id="SOBRE_NOME_SOBRENOME">
             
             </div>
 

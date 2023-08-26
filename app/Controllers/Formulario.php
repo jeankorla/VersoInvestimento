@@ -24,7 +24,7 @@ class Home extends BaseController
 
         $data = [
             'SOBRE_EMAIL'                                      => $this->request->getPost('SOBRE_EMAIL'),
-            'SOBRE_NOME'                                       => $this->request->getPost('SOBRE_NOME_COMPLETO'),
+            'SOBRE_NOME_COMPLETO'                              => $this->request->getPost('SOBRE_NOME_COMPLETO'),
             'SOBRE_DATA_NASCIMENTO'                            => $this->request->getPost('SOBRE_DATA_NASCIMENTO'),
             'SOBRE_PROFISSAO'                                  => $this->request->getPost('SOBRE_PROFISSAO'),
             'SOBRE_PROFISSAO_TIPO'                             => $this->request->getPost('SOBRE_PROFISSAO_TIPO'),

@@ -124,8 +124,8 @@
         <div class="mb-3">
 
             <label>Nome Completo: </label>
-            <input type="text" name="SOBRE_NOME" id="SOBRE_NOME"
-                value="<?php echo $formulario['SOBRE_NOME']; ?>">
+            <input type="text" name="SOBRE_NOME_COMPLETO" id="SOBRE_NOME_COMPLETO"
+                value="<?php echo $formulario['SOBRE_NOME_COMPLETO']; ?>">
 
         </div>
 

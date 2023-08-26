@@ -86,43 +86,43 @@
 
   </nav>
 
-  <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
-    <div class="card" style="border-radius: 2vh; width: 100%;">
-      <div class="card-body m-lg-5 text-center">
-        
-        <div class="table-responsive"> <!-- Adicione esta div -->
-          <table class="table table-striped ">
-            <thead>
+<div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">
+  <div class="card" style="border-radius: 2vh; width: 100%;">
+    <div class="card-body m-lg-5 text-center">
+      
+      <div class="table-responsive"> <!-- Adicione esta div -->
+        <table class="table table-striped ">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Data</th>
+              <th>INDICE_POUPANCA</th>
+              <th>INDICE_LIQUIDEZ_CORRENTE</th>
+              <th>INDICE_ENDIVIDAMENTO</th>
+              <th>INDICE_COBERTURA</th>
+              <th>PATRIMONIO_LIQUIDO</th>
+              <th style="text-align: center;">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($data as $item): ?>
               <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Data</th>
-                <th>INDICE_POUPANCA</th>
-                <th>INDICE_LIQUIDEZ_CORRENTE</th>
-                <th>INDICE_ENDIVIDAMENTO</th>
-                <th>INDICE_COBERTURA</th>
-                <th>PATRIMONIO_LIQUIDO</th>
-                <th style="text-align: center;">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($data as $item): ?>
-                <tr>
 
-                  <td><?= $item->PK ?></td>
-                  <td><?= $item->SOBRE_NOME ?></td>
-                  <td><?= $item->DATA ?></td>
-                  <td><?= $item->INDICE_POUPANCA ?></td>
-                  <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
-                  <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
-                  <td><?= $item->INDICE_COBERTURA ?></td>
-                  <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
-                  <td>
-                    <div style="display: flex; gap: 10px">
-                      <a href="/login/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
-                      <a href="<?= base_url('Login/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
-                    </div>
-                  </td>
+                <td><?= $item->PK ?></td>
+                <td><?= $item->SOBRE_NOME_COMPLETO ?></td>
+                <td><?= $item->DATA ?></td>
+                <td><?= $item->INDICE_POUPANCA ?></td>
+                <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
+                <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
+                <td><?= $item->INDICE_COBERTURA ?></td>
+                <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
+                <td>
+                  <div style="display: flex; gap: 10px">
+                    <a href="/login/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
+                    <a href="<?= base_url('Login/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
+                  </div>
+                </td>
 
                 </tr>
               <?php endforeach; ?>

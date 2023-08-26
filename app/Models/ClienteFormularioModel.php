@@ -16,7 +16,8 @@ class ClienteFormularioModel extends Model
     protected $allowedFields    = [
 
         'SOBRE_EMAIL',
-        'SOBRE_NOME_COMPLETO',
+        'SOBRE_NOME',
+        'SOBRE_NOME_SOBRENOME',
         'SOBRE_DATA_NASCIMENTO',
         'SOBRE_PROFISSAO',
         'SOBRE_PROFISSAO_TIPO',
