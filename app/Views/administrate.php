@@ -93,35 +93,38 @@
         <table class="table table-striped ">
           <thead>
             <tr>
+              <th style="text-align: center;">Ações</th>
               <th>ID</th>
               <th>Nome</th>
+              <th>SOBRENOME</th>
               <th>Data</th>
               <th>INDICE_POUPANCA</th>
               <th>INDICE_LIQUIDEZ_CORRENTE</th>
               <th>INDICE_ENDIVIDAMENTO</th>
               <th>INDICE_COBERTURA</th>
               <th>PATRIMONIO_LIQUIDO</th>
-              <th style="text-align: center;">Ações</th>
+              
             </tr>
           </thead>
           <tbody>
             <?php foreach ($data as $item): ?>
               <tr>
-
-                <td><?= $item->PK ?></td>
-                <td><?= $item->SOBRE_NOME_COMPLETO ?></td>
-                <td><?= $item->DATA ?></td>
-                <td><?= $item->INDICE_POUPANCA ?></td>
-                <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
-                <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
-                <td><?= $item->INDICE_COBERTURA ?></td>
-                <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
                 <td>
                   <div style="display: flex; gap: 10px">
                     <a href="/login/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
                     <a href="<?= base_url('Login/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
                   </div>
                 </td>
+                <td><?= $item->PK ?></td>
+                <td><?= $item->SOBRE_NOME ?></td>
+                <td><?= $item->SOBRE_NOME_SOBRENOME ?></td>
+                <td><?= $item->DATA ?></td>
+                <td><?= $item->INDICE_POUPANCA ?></td>
+                <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
+                <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
+                <td><?= $item->INDICE_COBERTURA ?></td>
+                <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
+                
 
               </tr>
             <?php endforeach; ?>

@@ -121,7 +121,8 @@ class Login extends BaseController
         $formData = [
 
             'SOBRE_EMAIL' => $this->request->getPost('SOBRE_EMAIL'),
-            'SOBRE_NOME_COMPLETO' => $this->request->getPost('SOBRE_NOME_COMPLETO'),
+            'SOBRE_NOME'                                       => $this->request->getPost('SOBRE_NOME'),
+            'SOBRE_NOME_SOBRENOME'                             => $this->request->getPost('SOBRE_NOME_SOBRENOME'),
             'SOBRE_PROFISSAO' => $this->request->getPost('SOBRE_PROFISSAO'),
 
             'RECEITA_RENDA_MENSAL_LIQUIDA' => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA'),
