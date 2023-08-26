@@ -110,7 +110,7 @@
               <tr>
 
                 <td><?= $item->PK ?></td>
-                <td><?= $item->SOBRE_NOME_COMPLETO ?></td>
+                <td><?= $item->SOBRE_NOME ?></td>
                 <td><?= $item->DATA ?></td>
                 <td><?= $item->INDICE_POUPANCA ?></td>
                 <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
