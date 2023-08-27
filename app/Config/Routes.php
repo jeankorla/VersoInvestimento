@@ -33,7 +33,6 @@ $routes->get('/', 'Home::index');
 $routes->post('Login/update/(:num)', 'Login::update/$1');
 
 
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing

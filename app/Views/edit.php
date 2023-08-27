@@ -24,6 +24,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
 
     </div>
 
@@ -87,7 +88,7 @@
 
                 <div class="d-flex">
 
-                    <a href="#" class="text-decoration-none text-dark m-1">
+                    <a href="https://goo.gl/maps/R4RHVQHFGCc3LwdC7" class="text-decoration-none text-dark m-1">
                         <i class="fas fa-map-marker-alt"></i>
                     </a>
 

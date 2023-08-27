@@ -7,6 +7,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
+
+  <!---- ---->
+  <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
+  
+
   <title>Navbar</title>
 </head>
 <style>
@@ -14,57 +19,135 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 8vh;
-    color: green;
+    color: #5d5136;
     }
     h2 {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         font-size: 4vh;
     }
+
+    
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #bfa96c 50%, #5d5136 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+    animation-duration: 5s;
+}
+
+.bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:6s;
+}
+
+.bg3 {
+    animation-duration: 7s;
+}
+
+.content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
+
+@keyframes slide {
+    0% {
+        transform:translateX(-25%);
+    }
+    100% {
+        transform:translateX(25%);
+    }
+}
+
+
 </style>
 
 <body style="background-color: #eeee;">
 
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
-  <div class="container-fluid d-flex justify-content-between">
+
+<div class="container-fluid d-flex justify-content-between">
     <!-- Logo -->
     <div>
-      <a class="navbar-brand" href="/home">InvestPlanner</a>
+
+        <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
+        <a class="navbar-brand">InvestPlanner</a>
+
     </div>
 
-    <!-- Menu Items -->
-    <div>
-      <div class="navbar-collapse justify-content-center " id="navbarNavAltMarkup">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
-          </li>
+    <!-- Menu Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+            <!-- Collapsible Navbar Content -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+        
+        <ul class="navbar-nav">
+            
+            <li class="nav-item">
+                
+                <a class="nav-link active" href="/home">Home</a>
+            
+            </li>
+            
+            <li class="nav-item">
+                
+                <a class="nav-link" href="/login">Login</a>
+            
+            </li>
+            
+            <li class="nav-item">
+                
+                <a class="nav-link" href="https://investplanner.org">Site</a>
+            
+            </li>
+        
         </ul>
-      </div>
+    
     </div>
 
     <!-- Social Media Icons -->
     <div>
-      <div class="d-flex">
-        <a href="#" class="text-decoration-none text-dark m-1">
-          <i class="fas fa-map-marker-alt"></i>
-        </a>
-        <a href="#" class="text-decoration-none text-dark m-1">
-          <i class="fas fa-phone"></i>
-        </a>
-        <a href="#" class="text-decoration-none text-dark m-1">
-         <i class="fas fa-envelope"></i>
-        </a>
-      </div>
+
+        <div class="d-flex">
+
+            <a href="#" class="text-decoration-none text-dark m-1">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+
+            <a href="#" class="text-decoration-none text-dark m-1">
+                <i class="fas fa-phone"></i>
+            </a>
+
+            <a href="#" class="text-decoration-none text-dark m-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+
     </div>
 
-  </div>
+</div>
+
+
 </nav>
 
   <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-n5">

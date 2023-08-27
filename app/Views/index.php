@@ -25,6 +25,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
 
 
 </head>

@@ -120,60 +120,60 @@ class Login extends BaseController
 
         $formData = [
 
-            'SOBRE_EMAIL' => $this->request->getPost('SOBRE_EMAIL'),
-            'SOBRE_NOME'  => $this->request->getPost('SOBRE_NOME'),
-            'SOBRE_NOME_SOBRENOME' => $this->request->getPost('SOBRE_NOME_SOBRENOME'),
-            'SOBRE_PROFISSAO' => $this->request->getPost('SOBRE_PROFISSAO'),
+            'SOBRE_EMAIL'                                       => $this->request->getPost('SOBRE_EMAIL'),
+            'SOBRE_NOME'                                        => $this->request->getPost('SOBRE_NOME'),
+            'SOBRE_NOME_SOBRENOME'                              => $this->request->getPost('SOBRE_NOME_SOBRENOME'),
+            'SOBRE_PROFISSAO'                                   => $this->request->getPost('SOBRE_PROFISSAO'),
 
-            'RECEITA_RENDA_MENSAL_LIQUIDA' => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA'),
-            'RECEITA_APLICACOES_VALOR_TOTAL' => $this->request->getPost('RECEITA_APLICACOES_VALOR_TOTAL'),
+            'RECEITA_RENDA_MENSAL_LIQUIDA'                      => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA'),
+            'RECEITA_APLICACOES_VALOR_TOTAL'                    => $this->request->getPost('RECEITA_APLICACOES_VALOR_TOTAL'),
 
-            'DESPESA_LUZ_MEDIA_MENSAL' => $this->request->getPost('DESPESA_LUZ_MEDIA_MENSAL'),
-            'DESPESA_AGUA_MEDIA_MENSAL' => $this->request->getPost('DESPESA_AGUA_MEDIA_MENSAL'),
-            'DESPESA_GAS_MEDIA_MENSAL' => $this->request->getPost('DESPESA_GAS_MEDIA_MENSAL'),
-            'DESPESA_ALUGUEL' => $this->request->getPost('DESPESA_ALUGUEL'),
-            'DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA' => $this->request->getPost('DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA'),            
-            'DESPESA_FINANCIAMENTO_VEICULO_PARCELA' => $this->request->getPost('DESPESA_FINANCIAMENTO_VEICULO_PARCELA'), 
-            'DESPESA_IPTU' => $this->request->getPost('DESPESA_IPTU'),
-            'DESPESA_IPVA' => $this->request->getPost('DESPESA_IPVA'),
-            'DESPESA_EMPRESTIMO_PARCELA' => $this->request->getPost('DESPESA_EMPRESTIMO_PARCELA'),
-            'DESPESA_INTERNET_TELEVISAO' => $this->request->getPost('DESPESA_INTERNET_TELEVISAO'),
-            'DESPESA_CELULAR' => $this->request->getPost('DESPESA_CELULAR'),
-            'DESPESA_MEDIA_MERCADO' => $this->request->getPost('DESPESA_MEDIA_MERCADO'),
-            'DESPESA_MEDICAMENTOS' => $this->request->getPost('DESPESA_MEDICAMENTOS'),
-            'DESPESA_PLANO_SAUDE_MENSAL' => $this->request->getPost('DESPESA_PLANO_SAUDE_MENSAL'),
-            'DESPESA_INSS' => $this->request->getPost('DESPESA_INSS'),
-            'DESPESA_LAZER' => $this->request->getPost('DESPESA_LAZER'),
-            'DESPESA_COMBUSTIVEL' => $this->request->getPost('DESPESA_COMBUSTIVEL'),
-            'DESPESA_CARTAO_FATURA' => $this->request->getPost('DESPESA_CARTAO_FATURA'),
-            'DESPESA_VEICULO_ALUGADO_MENSALIDADE' => $this->request->getPost('DESPESA_VEICULO_ALUGADO_MENSALIDADE'),
-            'DESPESA_VEICULO_SEGURO' => $this->request->getPost('DESPESA_VEICULO_SEGURO'),
-            'DESPESA_SEGURO_VIDA_MENSAL' => $this->request->getPost('DESPESA_SEGURO_VIDA_MENSAL'),
-            'DESPESA_CONDOMINIO_MENSAL' => $this->request->getPost('DESPESA_CONDOMINIO_MENSAL'),
-            'DESPESA_CONTRIBUICAO_SINDICAL' => $this->request->getPost('DESPESA_CONTRIBUICAO_SINDICAL'),
-            'DESPESA_ESCOLA_MENSAL' => $this->request->getPost('DESPESA_ESCOLA_MENSAL'),
-            'DESPESA_UNIVERSIDADE_MENSAL' => $this->request->getPost('DESPESA_UNIVERSIDADE_MENSAL'),
-            'DESPESA_CLUBE_MENSALIDADE' => $this->request->getPost('DESPESA_CLUBE_MENSALIDADE'),
+            'DESPESA_LUZ_MEDIA_MENSAL'                          => $this->request->getPost('DESPESA_LUZ_MEDIA_MENSAL'),
+            'DESPESA_AGUA_MEDIA_MENSAL'                         => $this->request->getPost('DESPESA_AGUA_MEDIA_MENSAL'),
+            'DESPESA_GAS_MEDIA_MENSAL'                          => $this->request->getPost('DESPESA_GAS_MEDIA_MENSAL'),
+            'DESPESA_ALUGUEL'                                   => $this->request->getPost('DESPESA_ALUGUEL'),
+            'DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA'         => $this->request->getPost('DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA'),            
+            'DESPESA_FINANCIAMENTO_VEICULO_PARCELA'             => $this->request->getPost('DESPESA_FINANCIAMENTO_VEICULO_PARCELA'), 
+            'DESPESA_IPTU'                                      => $this->request->getPost('DESPESA_IPTU'),
+            'DESPESA_IPVA'                                      => $this->request->getPost('DESPESA_IPVA'),
+            'DESPESA_EMPRESTIMO_PARCELA'                        => $this->request->getPost('DESPESA_EMPRESTIMO_PARCELA'),
+            'DESPESA_INTERNET_TELEVISAO'                        => $this->request->getPost('DESPESA_INTERNET_TELEVISAO'),
+            'DESPESA_CELULAR'                                   => $this->request->getPost('DESPESA_CELULAR'),
+            'DESPESA_MEDIA_MERCADO'                             => $this->request->getPost('DESPESA_MEDIA_MERCADO'),
+            'DESPESA_MEDICAMENTOS'                              => $this->request->getPost('DESPESA_MEDICAMENTOS'),
+            'DESPESA_PLANO_SAUDE_MENSAL'                        => $this->request->getPost('DESPESA_PLANO_SAUDE_MENSAL'),
+            'DESPESA_INSS'                                      => $this->request->getPost('DESPESA_INSS'),
+            'DESPESA_LAZER'                                     => $this->request->getPost('DESPESA_LAZER'),
+            'DESPESA_COMBUSTIVEL'                               => $this->request->getPost('DESPESA_COMBUSTIVEL'),
+            'DESPESA_CARTAO_FATURA'                             => $this->request->getPost('DESPESA_CARTAO_FATURA'),
+            'DESPESA_VEICULO_ALUGADO_MENSALIDADE'               => $this->request->getPost('DESPESA_VEICULO_ALUGADO_MENSALIDADE'),
+            'DESPESA_VEICULO_SEGURO'                            => $this->request->getPost('DESPESA_VEICULO_SEGURO'),
+            'DESPESA_SEGURO_VIDA_MENSAL'                        => $this->request->getPost('DESPESA_SEGURO_VIDA_MENSAL'),
+            'DESPESA_CONDOMINIO_MENSAL'                         => $this->request->getPost('DESPESA_CONDOMINIO_MENSAL'),
+            'DESPESA_CONTRIBUICAO_SINDICAL'                     => $this->request->getPost('DESPESA_CONTRIBUICAO_SINDICAL'),
+            'DESPESA_ESCOLA_MENSAL'                             => $this->request->getPost('DESPESA_ESCOLA_MENSAL'),
+            'DESPESA_UNIVERSIDADE_MENSAL'                       => $this->request->getPost('DESPESA_UNIVERSIDADE_MENSAL'),
+            'DESPESA_CLUBE_MENSALIDADE'                         => $this->request->getPost('DESPESA_CLUBE_MENSALIDADE'),
 
-            'DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR' => $this->request->getPost('DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR'),
-            'DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR' => $this->request->getPost('DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR'), 
-            'DIVIDA_EMPRESTIMO_SALDO_DEVEDOR' => $this->request->getPost('DIVIDA_EMPRESTIMO_SALDO_DEVEDOR'),
-            'DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR' => $this->request->getPost('DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR'),            
+            'DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR'    => $this->request->getPost('DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR'),
+            'DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR'        => $this->request->getPost('DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR'), 
+            'DIVIDA_EMPRESTIMO_SALDO_DEVEDOR'                   => $this->request->getPost('DIVIDA_EMPRESTIMO_SALDO_DEVEDOR'),
+            'DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR'                => $this->request->getPost('DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR'),            
 
-            'BENS_VALOR_MERCADO_IMOVEL' => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL'),
-            'BENS_VALOR_MERCADO_IMOVEL_ALUGADO' => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL_ALUGADO'),
-            'BENS_VALOR_MERCADO_IMOVEL_VERAO' => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL_VERAO'),
-            'BENS_VALOR_MERCADO_VEICULOS' => $this->request->getPost('BENS_VALOR_MERCADO_VEICULOS'),
-            'BENS_VALOR_MERCADO_EMPRESAS' => $this->request->getPost('BENS_VALOR_MERCADO_EMPRESAS'),
+            'BENS_VALOR_MERCADO_IMOVEL'                         => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL'),
+            'BENS_VALOR_MERCADO_IMOVEL_ALUGADO'                 => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL_ALUGADO'),
+            'BENS_VALOR_MERCADO_IMOVEL_VERAO'                   => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL_VERAO'),
+            'BENS_VALOR_MERCADO_VEICULOS'                       => $this->request->getPost('BENS_VALOR_MERCADO_VEICULOS'),
+            'BENS_VALOR_MERCADO_EMPRESAS'                       => $this->request->getPost('BENS_VALOR_MERCADO_EMPRESAS'),
 
-            'PROTECAO_PREVIDENCIA_PRIVADA_MENSAL' => $this->request->getPost('PROTECAO_PREVIDENCIA_PRIVADA_MENSAL'),
-            'PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO' => $this->request->getPost('PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO'),
-            'PROTECAO_FUNDO_GARANTIA_VALOR' => $this->request->getPost('PROTECAO_FUNDO_GARANTIA_VALOR'),
+            'PROTECAO_PREVIDENCIA_PRIVADA_MENSAL'               => $this->request->getPost('PROTECAO_PREVIDENCIA_PRIVADA_MENSAL'),
+            'PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO'      => $this->request->getPost('PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO'),
+            'PROTECAO_FUNDO_GARANTIA_VALOR'                     => $this->request->getPost('PROTECAO_FUNDO_GARANTIA_VALOR'),
 
-            'OBJETIVO_RENDA_MENSAL' => $this->request->getPost('OBJETIVO_RENDA_MENSAL'),
-            'OBJETIVO_IDADE_PRETENDIDA' => $this->request->getPost('OBJETIVO_IDADE_PRETENDIDA'),
-            'OBJETIVO_ANO_REALIZACAO' => $this->request->getPost('OBJETIVO_ANO_REALIZACAO'),
-            'OBJETIVO_VALOR' => $this->request->getPost('OBJETIVO_VALOR'),
+            'OBJETIVO_RENDA_MENSAL'                             => $this->request->getPost('OBJETIVO_RENDA_MENSAL'),
+            'OBJETIVO_IDADE_PRETENDIDA'                         => $this->request->getPost('OBJETIVO_IDADE_PRETENDIDA'),
+            'OBJETIVO_ANO_REALIZACAO'                           => $this->request->getPost('OBJETIVO_ANO_REALIZACAO'),
+            'OBJETIVO_VALOR'                                    => $this->request->getPost('OBJETIVO_VALOR'),
              
             
         ];
@@ -198,18 +198,25 @@ class Login extends BaseController
                 // echo "Nova despesa (ID: $despesaId) atualizada para: $valor<br>";
 
                 $categoria = $this->request->getVar("CATEGORIA[$despesaId]");
+
                 $categoriaData = ['CATEGORIA' => $categoria];
+
                 $clienteDespesas->update($despesaId, $categoriaData);
 
                 if (!$updated) {
                     // caso erro
                     $errorMessage = $clienteDespesas->error();
+
                     return redirect()->to('Login/admin')->with('error', 'Erro ao atualizar despesas: ' . $errorMessage);
                 }
             }
+
             return redirect()->to('Login/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
+
         } else {
+
             return redirect()->to('Login/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
+            
         }
     }
     

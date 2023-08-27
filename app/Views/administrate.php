@@ -12,6 +12,7 @@
 
   <!-- css -->
   <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
 
   <title>Admin</title>
 </head>
@@ -65,11 +66,11 @@
 
           <div class="d-flex">
 
-              <a href="#" class="text-decoration-none text-dark m-1">
+              <a href="https://goo.gl/maps/R4RHVQHFGCc3LwdC7" class="text-decoration-none text-dark m-1">
                   <i class="fas fa-map-marker-alt"></i>
               </a>
 
-              <a href="#" class="text-decoration-none text-dark m-1">
+              <a href="https://goo.gl/maps/R4RHVQHFGCc3LwdC7" class="text-decoration-none text-dark m-1">
                   <i class="fas fa-phone"></i>
               </a>
 
