@@ -68,7 +68,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/autenticacao">Login</a>
 
                     </li>
 
@@ -111,7 +111,7 @@
 
     <!-- forms Edição -->
 
-    <form id="signUpForm" method="post" action="<?php echo base_url('Login/update/' . $formulario['PK']); ?>">
+    <form id="signUpForm" method="post" action="<?php echo base_url('autenticacao/update/' . $formulario['PK']); ?>">
 
         </div>
 

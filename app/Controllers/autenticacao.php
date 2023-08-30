@@ -7,7 +7,7 @@ use App\Models\ClienteDespesaPersonalizadaModel;
 use App\Models\ClienteFormularioModel;
 use App\Models\ClienteResultadoModel;
 
-class Login extends BaseController
+class autenticacao extends BaseController
 {   
      public function index()
     {   
@@ -30,7 +30,7 @@ class Login extends BaseController
             // Limpa todas as outras variáveis de sessão
             session()->remove(['otherSessionVariable1', 'otherSessionVariable2']);
             // Redireciona para a tela "index"
-            return redirect()->to('Login/admin');
+            return redirect()->to('autenticacao/admin');
         } else {
             // Caso o login falhe, redireciona de volta para a tela de login
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
@@ -207,15 +207,15 @@ class Login extends BaseController
                     // caso erro
                     $errorMessage = $clienteDespesas->error();
 
-                    return redirect()->to('Login/admin')->with('error', 'Erro ao atualizar despesas: ' . $errorMessage);
+                    return redirect()->to('autenticacao/admin')->with('error', 'Erro ao atualizar despesas: ' . $errorMessage);
                 }
             }
 
-            return redirect()->to('Login/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
+            return redirect()->to('autenticacao/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
 
         } else {
 
-            return redirect()->to('Login/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
+            return redirect()->to('autenticacao/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
             
         }
     }

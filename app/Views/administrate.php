@@ -120,8 +120,8 @@
                 <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
                 <td>
                   <div style="display: flex; gap: 10px">
-                    <a href="/login/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
-                    <a href="<?= base_url('Login/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
+                    <a href="/autenticacao/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
+                    <a href="<?= base_url('autenticacao/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
                   </div>
                 </td>
 
