@@ -93,7 +93,7 @@ class ClienteFormularioModel extends Model
 
     // Validation
     protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationMessages   = [];   
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
