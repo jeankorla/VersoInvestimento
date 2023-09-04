@@ -96,28 +96,20 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th style="text-align: center;">Ações</th>
               <th>Nome</th>
               <th>Data</th>
               <th>INDICE_POUPANCA</th>
               <th>INDICE_LIQUIDEZ_CORRENTE</th>
               <th>INDICE_ENDIVIDAMENTO</th>
               <th>INDICE_COBERTURA</th>
-              <th>PATRIMONIO_LIQUIDO</th>
-              <th style="text-align: center;">Ações</th>
+              <th>PATRIMONIO_LIQUIDO</th>              
             </tr>
           </thead>
           <tbody>
             <?php foreach ($data as $item): ?>
               <tr>
-
                 <td><?= $item->PK ?></td>
-                <td><?= $item->SOBRE_NOME ?></td>
-                <td><?= $item->DATA ?></td>
-                <td><?= $item->INDICE_POUPANCA ?></td>
-                <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
-                <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
-                <td><?= $item->INDICE_COBERTURA ?></td>
-                <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
                 <td>
                   <div style="display: flex; gap: 10px">
                     <a href="/autenticacao/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
@@ -125,6 +117,13 @@
                   </div>
                 </td>
 
+                <td><?= $item->SOBRE_NOME ?></td>
+                <td><?= $item->DATA ?></td>
+                <td><?= $item->INDICE_POUPANCA ?></td>
+                <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
+                <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
+                <td><?= $item->INDICE_COBERTURA ?></td>
+                <td><?= $item->PATRIMONIO_LIQUIDO ?></td>
                 </tr>
               <?php endforeach; ?>
 
