@@ -7,7 +7,7 @@ use App\Models\ClienteDespesaPersonalizadaModel;
 use App\Models\ClienteFormularioModel;
 use App\Models\ClienteResultadoModel;
 
-class autenticacao extends BaseController
+class Autenticacao extends BaseController
 {   
      public function index()
     {   
