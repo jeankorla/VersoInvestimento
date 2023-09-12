@@ -149,7 +149,7 @@ body {
     position: absolute;
     top: 0;
     transform: translateY(16%);
-    right: 60px;
+    right: 1px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -191,7 +191,7 @@ body {
     position: absolute;
     top: 0;
     transform: translateY(18%);
-    right: 275px;
+    right: 200px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -247,6 +247,25 @@ body {
         margin-left: 400px;
 
     }
+
+@media (min-width:1001px){
+    .IDADE{
+        position: relative;
+    }
+
+    .IDADE::after {
+    content: "anos";
+    position: absolute;
+    top: 0;
+    transform: translateY(16%);
+    right: 330px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: gray;
+    }
+
+}
 
 
 }

@@ -10,7 +10,9 @@
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -22,7 +24,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
@@ -31,7 +33,7 @@
 </head>
 
 <body>
-
+    
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
@@ -48,35 +50,36 @@
             </div>
 
             <!-- Menu Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-                    <!-- Collapsible Navbar Content -->
+            <!-- Collapsible Navbar Content -->
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-                
+
                 <ul class="navbar-nav">
-                    
+
                     <li class="nav-item">
-                        
+
                         <a class="nav-link active" href="/home">Home</a>
-                    
+
                     </li>
-                    
+
                     <li class="nav-item">
-                        
+
                         <a class="nav-link" href="/autenticacao">Login</a>
-                    
+
                     </li>
-                    
+
                     <li class="nav-item">
-                        
+
                         <a class="nav-link" href="https://investplanner.org">Site</a>
-                    
+
                     </li>
-                
+
                 </ul>
-            
+
             </div>
 
             <!-- Social Media Icons -->
@@ -103,32 +106,32 @@
         </div>
 
 
-</nav>
+    </nav>
 
     <div class="card">
-        
+
         <div class="card-body mt-5">
-            
+
             <!-- <h1 class="text-center">Mentoria Viver de Renda</h1>
             <h4 class="text-center fs-4">Tenha um processo estruturado de crescimento financeiro e patrimonial feito sob
                 medida para você saber exatamente o que fazer, como fazer e qual resultado esperar.</h4> -->
-        
+
         </div>
-    
+
     </div>
-    
+
     <form id="signUpForm" method="POST" action="<?= base_url('home/salvar') ?>">
 
         <!-- start step indicators -->
         <div class="form-header d-flex mb-4">
-            
+
             <span class="stepIndicator">Sobre</span>
             <span class="stepIndicator">Receitas</span>
             <span class="stepIndicator">Despesas</span>
             <span class="stepIndicator">Bens</span>
             <span class="stepIndicator">Proteções</span>
             <span class="stepIndicator">Objetivos</span>
-        
+
         </div>
         <!-- end step indicators -->
 
@@ -138,54 +141,54 @@
             <p class="text-center mb-4">Cadastro!</p>
 
             <div class="mb-3">
-                
+
                 <label for="SOBRE_EMAIL">E-mail:</label>
-                
-                <input type="email" placeholder="Inserir seu E-mail" oninput="''" name="SOBRE_EMAIL"
-                    id="SOBRE_EMAIL" class="required">
-            
-        </div>
+
+                <input type="email" placeholder="Inserir seu E-mail" oninput="''" name="SOBRE_EMAIL" id="SOBRE_EMAIL"
+                    class="required">
+
+            </div>
 
             <div class="mb-3">
-                
+
                 <label for="SOBRE_NOME">Nome:</label>
-                
-                <input class="required" type="text" oninput="removeNumbers(this)" name="SOBRE_NOME"
-                    id="SOBRE_NOME">
-            
+
+                <input class="required" type="text" oninput="removeNumbers(this)" 
+                    name="SOBRE_NOME" id="SOBRE_NOME" placeholder="nome">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="SOBRE_NOME_SOBRENOME">Sobrenome:</label>
-                
+
                 <input class="required" type="text" oninput="removeNumbers(this)" name="SOBRE_NOME_SOBRENOME"
-                    id="SOBRE_NOME_SOBRENOME">
-            
+                    id="SOBRE_NOME_SOBRENOME" placeholder="sobrenome">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="SOBRE_DATA_NASCIMENTO">Data de nascimento:</label>
-                
+
                 <input class="required" type="date" placeholder="" oninput="this.className = ''"
                     name="SOBRE_DATA_NASCIMENTO" id="SOBRE_DATA_NASCIMENTO">
-            
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="SOBRE_PROFISSAO">Profissão:</label>
-                
+
                 <input class="required" type="text" placeholder="Sua Profissão" oninput="removeNumbers(this)"
                     name="SOBRE_PROFISSAO" id="SOBRE_PROFISSAO">
-            
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="SOBRE_PROFISSAO_TIPO">Como exerce a sua profissão?</label>
-                
+
                 <select id="SOBRE_PROFISSAO_TIPO" name="SOBRE_PROFISSAO_TIPO" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="Assalariado (carteira assinada)">Assalariado (carteira assinada)</option>
@@ -193,13 +196,13 @@
                     <option value="Profissional Liberal (autônomo)">Profissional Liberal (autônomo)</option>
                     <option value="Empresario">Empresário</option>
                 </select>
-            
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="SOBRE_ESTADO_CIVIL">Estado Civil:</label>
-                
+
                 <select id="SOBRE_ESTADO_CIVIL-DIV" name="SOBRE_ESTADO_CIVIL" class="form-control required">
                     <option value="">Selecione</option>
                     <option value="Casado">Casado(a)</option>
@@ -208,20 +211,21 @@
                     <option value="Viúvo">Viúvo(a)</option>
                     <option value="Uniao Estável">União Estável</option>
                 </select>
-            
+
             </div>
 
             <div class="mb-3" id="SOBRE_ESTADO_CIVIL_DETALHE-DIV">
-                
+
                 <label for="SOBRE_ESTADO_CIVIL_DETALHE">Qual o regime?</label>
-                
+
                 <select id="SOBRE_ESTADO_CIVIL_DETALHE" name="SOBRE_ESTADO_CIVIL_DETALHE" class="form-control">
                     <option value="">Selecione</option>
-                    <option value="Comunhão de bens">Comunhão de bens</option>
+                    <option value="Comunhão de bens">Comunhão de total de bens</option>
+                    <option value="Comunhão parcial de bens">Comunhão parcial de bens</option>
                     <option value="Separação total de bens">Separação total de bens</option>
                     <option value="Participação final nos aquestos">Participação final nos aquestos</option>
                 </select>
-            
+
             </div>
 
         </div>
@@ -235,12 +239,12 @@
 
                 <label for="RECEITA_RENDA_MENSAL_LIQUIDA">Renda mensal líquida (já descontado o imposto de
                     renda):</label>
-                
+
                 <input type="text" name="RECEITA_RENDA_MENSAL_LIQUIDA" id="RECEITA_RENDA_MENSAL_LIQUIDA"
                     class="currency-input required" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
-                
+
                 <!-- hidden input -->
-                <input type="hidden" name="RECEITA_RENDA_MENSAL_LIQUIDA_HIDDEN" 
+                <input type="hidden" name="RECEITA_RENDA_MENSAL_LIQUIDA_HIDDEN"
                     id="RECEITA_RENDA_MENSAL_LIQUIDA_HIDDEN" />
 
             </div>
@@ -248,23 +252,23 @@
             <div class="mb-3">
 
                 <label for="RECEITA_APLICACAO_OPCAO">Possui alguma aplicação ?</label>
-                
+
                 <select id="RECEITA_APLICACAO_OPCAO-DIV" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
-            
+
             </div>
 
             <div class="mb-3" id="RECEITA_APLICACOES_VALOR_TOTAL-DIV">
-                
+
                 <label for="RECEITA_APLICACOES_VALOR_TOTAL">Aplicações Financeiras - Valor TOTAL</label>
-                
+
                 <input type="text" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL"
                     class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
-            
+
                 <!-- hidden input -->
-                <input type="hidden" name="RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN" 
+                <input type="hidden" name="RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN"
                     id="RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN" />
 
             </div>
@@ -273,12 +277,12 @@
 
                 <label for="RECEITA_APLICACOES_ARQUIVO">Aplicações Financeiras - Anexar extrato das
                     aplicações</label><br>
-                
-                    <input type="file" id="RECEITA_APLICACOES_ARQUIVO" name="RECEITA_APLICACOES_ARQUIVO" />
-                
-                    <!-- anexo arruma depois -->
-            
-                </div>
+
+                <input type="file" id="RECEITA_APLICACOES_ARQUIVO" name="RECEITA_APLICACOES_ARQUIVO" />
+
+                <!-- anexo arruma depois -->
+
+            </div>
 
         </div>
 
@@ -288,49 +292,46 @@
             <p class="text-center mb-4">Despesas</p>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_LUZ_MEDIA_MENSAL">Conta de luz - Inserir média mensal</label>
-                
+
                 <input type="text" class="required" id="DESPESA_LUZ_MEDIA_MENSAL" name="DESPESA_LUZ_MEDIA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-                
+
                 <!-- hidden input -->
-                <input type="hidden" name="DESPESA_LUZ_MEDIA_MENSAL_HIDDEN" 
-                    id="DESPESA_LUZ_MEDIA_MENSAL_HIDDEN">
-           
+                <input type="hidden" name="DESPESA_LUZ_MEDIA_MENSAL_HIDDEN" id="DESPESA_LUZ_MEDIA_MENSAL_HIDDEN">
+
             </div>
 
             <div class="mb-3">
 
                 <label for="DESPESA_AGUA_MEDIA_MENSAL">Conta de água - Inserir média mensal</label>
-                
+
                 <input type="text" class="required" id="DESPESA_AGUA_MEDIA_MENSAL" name="DESPESA_AGUA_MEDIA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-                
+
                 <!-- hidden input -->
-                <input type="hidden" name="DESPESA_AGUA_MEDIA_MENSAL_HIDDEN" 
-                    id="DESPESA_AGUA_MEDIA_MENSAL_HIDDEN">
-            
-                </div>
+                <input type="hidden" name="DESPESA_AGUA_MEDIA_MENSAL_HIDDEN" id="DESPESA_AGUA_MEDIA_MENSAL_HIDDEN">
+
+            </div>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_GAS_MEDIA_MENSAL">Conta de gás - Inserir média mensal</label>
-                
+
                 <input type="text" class="required" id="DESPESA_GAS_MEDIA_MENSAL" name="DESPESA_GAS_MEDIA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-                
+
                 <!-- hidden input -->
-                <input type="hidden" name="DESPESA_GAS_MEDIA_MENSAL_HIDDEN" 
-                    id="DESPESA_GAS_MEDIA_MENSAL_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_GAS_MEDIA_MENSAL_HIDDEN" id="DESPESA_GAS_MEDIA_MENSAL_HIDDEN">
+
             </div>
 
             <!--- Linkados ALUGUEL--->
             <div class="mb-3">
 
                 <label for="DESPESA_ALUGUEL_OPCAO">Possui contrato de aluguel?</label>
-                
+
                 <select name="DESPESA_ALUGUEL_OPCAO" id="DESPESA_ALUGUEL_OPCAO-DIV" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
@@ -340,16 +341,15 @@
             </div>
 
             <div class="mb-3" id="DESPESA_ALUGUEL-DIV">
-                
-                <label for="DESPESA_ALUGUEL">Aluguel</label>
-                
+
+                <label for="DESPESA_ALUGUEL">Valor do aluguel</label>
+
                 <input type="text" id="DESPESA_ALUGUEL" name="DESPESA_ALUGUEL" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00" required>
-                
-                    <!-- hidden input -->
-                <input type="hidden" name="DESPESA_ALUGUEL_HIDDEN" 
-                    id="DESPESA_ALUGUEL_HIDDEN">
-            
+
+                <!-- hidden input -->
+                <input type="hidden" name="DESPESA_ALUGUEL_HIDDEN" id="DESPESA_ALUGUEL_HIDDEN">
+
             </div>
 
             <!---------------------------------------->
@@ -357,57 +357,58 @@
             <!----------- FINANCIAMENTO -------------->
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_FINANCIAMENTO_TIPO">Possui algum financiamento ?</label>
-                
-                <select name="DESPESA_FINANCIAMENTO_TIPO" id="DESPESA_FINANCIAMENTO_TIPO-DIV" class="form-control required">
+
+                <select name="DESPESA_FINANCIAMENTO_TIPO" id="DESPESA_FINANCIAMENTO_TIPO-DIV"
+                    class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="CASA">Casa ou apto</option>
                     <option value="CARRO">Veículo</option>
                     <option value="AMBOS">Ambos</option>
                 </select>
-            
+
             </div>
 
             <div class="mb-3" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA-DIV">
-                
+
                 <label for="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA">Financiamento Residencial - Parcela</label>
-                
+
                 <input type="text" id="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA"
                     name="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-                
+
                 <!-- hidden input -->
-                <input type="hidden" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA_HIDDEN" 
+                <input type="hidden" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA_HIDDEN"
                     id="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA_HIDDEN">
-            
-                </div>
+
+            </div>
             <!-- DIVIDA -->
             <div class="mb-3" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV">
-                
+
                 <label for="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">Financiamento Residencial - Saldo
                     devedor</label>
-                
+
                 <input type="text" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR"
                     name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-             
-                    <!-- hidden input -->
-                <input type="hidden" name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN" 
+
+                <!-- hidden input -->
+                <input type="hidden" name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN"
                     id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN">
-            
-                </div>
+
+            </div>
 
             <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA-DIV">
-                
+
                 <label for="DESPESA_FINANCIAMENTO_VEICULO_PARCELA">Financiamento Veiculos - Parcela</label>
-                
+
                 <input type="text" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA"
                     name="DESPESA_FINANCIAMENTO_VEICULO_PARCELA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-                
+
                 <!-- hidden input -->
-                <input type="hidden" name="DESPESA_FINANCIAMENTO_VEICULO_PARCELA_HIDDEN" 
+                <input type="hidden" name="DESPESA_FINANCIAMENTO_VEICULO_PARCELA_HIDDEN"
                     id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA_HIDDEN">
 
             </div>
@@ -415,51 +416,49 @@
             <div class="mb-3" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV">
                 <label for="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento veiculo - Saldo
                     devedor</label>
-                
+
                 <input type="text" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
                     name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-                
+
                 <!-- input hidden -->
-                <input type="hidden" name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN" 
-                    id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN">                
-            
+                <input type="hidden" name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN"
+                    id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN">
+
             </div>
 
             <!------------------------------------->
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_IPTU">IPTU</label>
-                
+
                 <input type="text" id="DESPESA_IPTU" name="DESPESA_IPTU" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_IPTU_HIDDEN" 
-                    id="DESPESA_IPTU_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_IPTU_HIDDEN" id="DESPESA_IPTU_HIDDEN">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_IPVA">IPVA - Valot total</label>
-                
+
                 <input type="text" id="DESPESA_IPVA" name="DESPESA_IPVA" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_IPVA_HIDDEN" 
-                    id="DESPESA_IPVA_HIDDEN">
+                <input type="hidden" name="DESPESA_IPVA_HIDDEN" id="DESPESA_IPVA_HIDDEN">
 
             </div>
 
             <!--- Linkados EMPRESTIMO--->
             <div class="mb-3">
 
-                
+
                 <label for="DESPESA_EMPRESTIMO_OPCAO">Possui contrato de Emprestimo ?</label>
-                
+
                 <select name="DESPESA_EMPRESTIMO_OPCAO" id="DESPESA_EMPRESTIMO_OPCAO-DIV" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
@@ -468,81 +467,76 @@
             </div>
 
             <div class="mb-3" id="DESPESA_EMPRESTIMO_PARCELA-DIV">
-                
+
                 <label for="DESPESA_EMPRESTIMO_PARCELA">Emprestimos parcela</label>
-                
+
                 <input type="text" id="DESPESA_EMPRESTIMO_PARCELA" name="DESPESA_EMPRESTIMO_PARCELA"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_EMPRESTIMO_PARCELA_HIDDEN" 
-                    id="DESPESA_EMPRESTIMO_PARCELA_HIDDEN">
+                <input type="hidden" name="DESPESA_EMPRESTIMO_PARCELA_HIDDEN" id="DESPESA_EMPRESTIMO_PARCELA_HIDDEN">
 
             </div>
             <!-- DIVIDA -->
             <div class="mb-3" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR-DIV">
                 <label for="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
-                
+
                 <input type="text" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-                
+
                 <!-- input hidden -->
-                <input type="hidden" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN" 
+                <input type="hidden" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN"
                     id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN">
-            
+
             </div>
 
             <!-------------------------------->
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_INTERNET_TELEVISAO">Valor da conta de internet + televisão</label>
-                
+
                 <input type="text" id="DESPESA_INTERNET_TELEVISAO" name="DESPESA_INTERNET_TELEVISAO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" class="required">
-                
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_INTERNET_TELEVISAO_HIDDEN" 
-                    id="DESPESA_INTERNET_TELEVISAO_HIDDEN">
+                <input type="hidden" name="DESPESA_INTERNET_TELEVISAO_HIDDEN" id="DESPESA_INTERNET_TELEVISAO_HIDDEN">
 
             </div>
 
             <div class="mb-3">
 
                 <label for="DESPESA_CELULAR">Conta de celular</label>
-                
+
                 <input type="text" id="DESPESA_CELULAR" name="DESPESA_CELULAR" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-            
-               <!-- input hidden -->
-                <input type="hidden" name="DESPESA_CELULAR_HIDDEN" 
-                    id="DESPESA_CELULAR_HIDDEN">
-            
+
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_CELULAR_HIDDEN" id="DESPESA_CELULAR_HIDDEN">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_MEDIA_MERCADO">Média dos gastos em supermercados</label>
-                
+
                 <input type="text" id="DESPESA_MEDIA_MERCADO" name="DESPESA_MEDIA_MERCADO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" class="required">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_MEDIA_MERCADO_HIDDEN" 
-                    id="DESPESA_MEDIA_MERCADO_HIDDEN">
-            
-                </div>
+                <input type="hidden" name="DESPESA_MEDIA_MERCADO_HIDDEN" id="DESPESA_MEDIA_MERCADO_HIDDEN">
+
+            </div>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_MEDICAMENTOS">Gastos com medicamentos</label>
-                
+
                 <input type="text" id="DESPESA_MEDICAMENTOS" name="DESPESA_MEDICAMENTOS"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_MEDICAMENTOS_HIDDEN" 
-                    id="DESPESA_MEDICAMENTOS_HIDDEN">
+                <input type="hidden" name="DESPESA_MEDICAMENTOS_HIDDEN" id="DESPESA_MEDICAMENTOS_HIDDEN">
 
             </div>
 
@@ -550,7 +544,7 @@
             <div class="mb-3">
 
                 <label for="DESPESA_PLANO_OPCAO">Possui plano de saude ?</label>
-                
+
                 <select name="DESPESA_PLANO_OPCAO" id="DESPESA_PLANO_OPCAO-DIV" class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
@@ -559,15 +553,14 @@
             </div>
 
             <div class="mb-3" id="DESPESA_PLANO_SAUDE_MENSAL-DIV">
-                
+
                 <label for="DESPESA_PLANO_SAUDE_MENSAL">Plano de saúde - Parcela</label>
-                
+
                 <input type="text" id="DESPESA_PLANO_SAUDE_MENSAL" name="DESPESA_PLANO_SAUDE_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
-                <!-- input hidden -->   
-                <input type="hidden" name="DESPESA_PLANO_SAUDE_MENSAL_HIDDEN" 
-                    id="DESPESA_PLANO_SAUDE_MENSAL_HIDDEN">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_PLANO_SAUDE_MENSAL_HIDDEN" id="DESPESA_PLANO_SAUDE_MENSAL_HIDDEN">
 
             </div>
 
@@ -576,66 +569,62 @@
             <div class="mb-3">
 
                 <label for="DESPESA_INSS">Valor parcela INSS</label>
-                
+
                 <input type="text" name=DESPESA_INSS id="DESPESA_INSS" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_INSS_HIDDEN" 
-                    id="DESPESA_INSS_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_INSS_HIDDEN" id="DESPESA_INSS_HIDDEN">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_LAZER">Gastos com lazer</label>
-                
+
                 <input type="text" id="DESPESA_LAZER" name="DESPESA_LAZER" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00" class="required">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_LAZER_HIDDEN" 
-                    id="DESPESA_LAZER_HIDDEN">
-                
+                <input type="hidden" name="DESPESA_LAZER_HIDDEN" id="DESPESA_LAZER_HIDDEN">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_COMBUSTIVEL">Gasto com combustivél</label>
-                
+
                 <input type="text" id="DESPESA_COMBUSTIVEL" name="DESPESA_COMBUSTIVEL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
-               <!-- input hidden -->
-               <input type="hidden" name="DESPESA_COMBUSTIVEL_HIDDEN" 
-                    id="DESPESA_COMBUSTIVEL_HIDDEN">            
-            
+
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_COMBUSTIVEL_HIDDEN" id="DESPESA_COMBUSTIVEL_HIDDEN">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_CARTAO_FATURA">Gastos com cartao de crédito - Fatura</label>
-                
+
                 <input type="text" id="DESPESA_CARTAO_FATURA" name="DESPESA_CARTAO_FATURA"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_CARTAO_FATURA_HIDDEN" 
-                    id="DESPESA_CARTAO_FATURA_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_CARTAO_FATURA_HIDDEN" id="DESPESA_CARTAO_FATURA_HIDDEN">
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR">Gastos com cartao de crédito - Saldo Devedor</label>
-                
+
                 <input type="text" id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN" 
+                <input type="hidden" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN"
                     id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN">
-            
+
             </div>
 
 
@@ -643,7 +632,7 @@
             <div class="mb-3">
 
                 <label for="DESPESA_ALUGUEL_CARROS">Usa veículos alugados ?</label>
-                
+
                 <select name="DESPESA_ALUGUEL_CARROS" id="DESPESA_ALUGUEL_CARROS-DIV" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
@@ -652,56 +641,55 @@
             </div>
 
             <div class="mb-3" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE-DIV">
-                
+
                 <label for="DESPESA_VEICULO_ALUGADO_MENSALIDADE">Valor do Aluguel dos veículos</label>
-                
+
                 <input type="text" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE" name="DESPESA_VEICULO_ALUGADO_MENSALIDADE"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_VEICULO_ALUGADO_MENSALIDADE_HIDDEN" 
+                <input type="hidden" name="DESPESA_VEICULO_ALUGADO_MENSALIDADE_HIDDEN"
                     id="DESPESA_VEICULO_ALUGADO_MENSALIDADE_HIDDEN">
-            
+
             </div>
 
             <!---------------------------------------------------------------------->
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_VEICULO_SEGURO">Mensalidade do seguro dos veículos</label>
-                
+
                 <input type="text" id="DESPESA_VEICULO_SEGURO" name="DESPESA_VEICULO_SEGURO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_VEICULO_SEGURO_HIDDEN" 
-                    id="DESPESA_VEICULO_SEGURO_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_VEICULO_SEGURO_HIDDEN" id="DESPESA_VEICULO_SEGURO_HIDDEN">
+
             </div>
 
             <div class="mb-3">
 
-                
-            <label for="DESPESA_SEGURO_VIDA_OPCAO">Tem seguro de vida ?</label>
-                
-            <select name="DESPESA_SEGURO_VIDA_OPCAO" id="DESPESA_SEGURO_VIDA_OPCAO-DIV" class="form-control required">
-                <option value="Não">Não</option>
-                <option value="SIM">Sim</option>
-            </select>
+
+                <label for="DESPESA_SEGURO_VIDA_OPCAO">Tem seguro de vida ?</label>
+
+                <select name="DESPESA_SEGURO_VIDA_OPCAO" id="DESPESA_SEGURO_VIDA_OPCAO-DIV"
+                    class="form-control required">
+                    <option value="Não">Não</option>
+                    <option value="SIM">Sim</option>
+                </select>
 
             </div>
 
-            
+
             <div class="mb-3" id="DESPESA_SEGURO_VIDA_MENSAL-DIV">
-                
+
                 <label for="DESPESA_SEGURO_VIDA_MENSAL">Mensalidade do seguro de vida</label>
-                
+
                 <input type="text" id="DESPESA_SEGURO_VIDA_MENSAL" name="DESPESA_SEGURO_VIDA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_SEGURO_VIDA_MENSAL_HIDDEN" 
-                    id="DESPESA_SEGURO_VIDA_MENSAL_HIDDEN">
+                <input type="hidden" name="DESPESA_SEGURO_VIDA_MENSAL_HIDDEN" id="DESPESA_SEGURO_VIDA_MENSAL_HIDDEN">
 
             </div>
 
@@ -711,7 +699,7 @@
             <div class="mb-3">
 
                 <label for="DESPESA_CONDOMINIO_OPCAO">Mora em Condominio ?</label>
-                
+
                 <select name="DESPESA_CONDOMINIO_OPCAO" id="DESPESA_CONDOMINIO_OPCAO-DIV" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
@@ -720,57 +708,54 @@
             </div>
 
             <div class="mb-3" id="DESPESA_CONDOMINIO_MENSAL-DIV">
-                
+
                 <label for="DESPESA_CONDOMINIO_MENSAL">Mensalidade do Condominio</label>
-                
+
                 <input type="text" id="DESPESA_CONDOMINIO_MENSAL" name="DESPESA_CONDOMINIO_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_CONDOMINIO_MENSAL_HIDDEN" 
-                    id="DESPESA_CONDOMINIO_MENSAL_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_CONDOMINIO_MENSAL_HIDDEN" id="DESPESA_CONDOMINIO_MENSAL_HIDDEN">
+
             </div>
 
             <!---------------------------------------------------------------------->
 
             <div class="mb-3">
-                
+
                 <label for="DESPESA_CONTRIBUICAO_SINDICAL">Contribuição Sindical</label>
-                
+
                 <input type="text" id="DESPESA_CONTRIBUICAO_SINDICAL" name="DESPESA_CONTRIBUICAO_SINDICAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_CONTRIBUICAO_SINDICAL_HIDDEN" 
+                <input type="hidden" name="DESPESA_CONTRIBUICAO_SINDICAL_HIDDEN"
                     id="DESPESA_CONTRIBUICAO_SINDICAL_HIDDEN">
-            
+
             </div>
 
             <div class="mb-3" id="DESPESA_ESCOLA_MENSAL-DIV">
-                
+
                 <label for="DESPESA_ESCOLA_MENSAL">Mensalidade Escolar</label>
-                
+
                 <input type="text" id="DESPESA_ESCOLA_MENSAL" name="DESPESA_ESCOLA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_ESCOLA_MENSAL_HIDDEN" 
-                    id="DESPESA_ESCOLA_MENSAL_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_ESCOLA_MENSAL_HIDDEN" id="DESPESA_ESCOLA_MENSAL_HIDDEN">
+
             </div>
 
             <div class="mb-3" id="DESPESA_UNIVERSIDADE_MENSAL-DIV">
-                
+
                 <label for="DESPESA_UNIVERSIDADE_MENSAL">Mensalidade Universidade</label>
-                
+
                 <input type="text" id="DESPESA_UNIVERSIDADE_MENSAL" name="DESPESA_UNIVERSIDADE_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_UNIVERSIDADE_MENSAL_HIDDEN" 
-                    id="DESPESA_UNIVERSIDADE_MENSAL_HIDDEN">            
-            
+                <input type="hidden" name="DESPESA_UNIVERSIDADE_MENSAL_HIDDEN" id="DESPESA_UNIVERSIDADE_MENSAL_HIDDEN">
+
             </div>
 
             <!--------------------------------Clube-------------------------------------->
@@ -778,7 +763,7 @@
             <div class="mb-3">
 
                 <label for="DESPESA_CLUBE_OPCAO">Freequenta algum clube?</label>
-                
+
                 <select name="DESPESA_CLUBE_OPCAO" id="DESPESA_CLUBE_OPCAO-DIV" class="form-control required">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
@@ -787,33 +772,32 @@
             </div>
 
             <div class="mb-3" id="DESPESA_CLUBE_MENSALIDADE-DIV">
-                
+
                 <label for="DESPESA_CLUBE_MENSALIDADE">Mensalidade do Clube</label>
-                
+
                 <input type="text" id="DESPESA_CLUBE_MENSALIDADE" name="DESPESA_CLUBE_MENSALIDADE"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_CLUBE_MENSALIDADE_HIDDEN" 
-                    id="DESPESA_CLUBE_MENSALIDADE_HIDDEN">
-            
+                <input type="hidden" name="DESPESA_CLUBE_MENSALIDADE_HIDDEN" id="DESPESA_CLUBE_MENSALIDADE_HIDDEN">
+
             </div>
 
             <!---------------------------------------------------------------------->
 
 
             <p class="mb-4">Gastos Personalizados</p>
-            
+
             <div class="mb-3">
-                
+
                 <button id="addExpense" class="btn btn-light">Adicionar Gasto Personalizado</button>
-            
+
             </div>
-            
+
             <div id="customExpenses">
-                
+
                 <!-- Aqui é onde os campos de gastos personalizados serão adicionados dinamicamente -->
-            
+
             </div>
 
         </div>
@@ -823,27 +807,27 @@
 
         <!-- BENS -->
         <div class="step">
-            
+
             <p class="text-center mb-4">Bens</p>
 
             <div class="mb-3">
-                
+
                 <label for="BENS_VALOR_MERCADO_IMOVEL">Imoveis residenciais - Valor de Mercado</label>
-                
+
                 <input type="text" id="BENS_VALOR_MERCADO_IMOVEL" name="BENS_VALOR_MERCADO_IMOVEL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
-               <!-- input hidden -->
-               <input type="hidden" name="BENS_VALOR_MERCADO_IMOVEL_HIDDEN" 
-                    id="BENS_VALOR_MERCADO_IMOVEL_HIDDEN">            
-            
+
+                <!-- input hidden -->
+                <input type="hidden" name="BENS_VALOR_MERCADO_IMOVEL_HIDDEN" id="BENS_VALOR_MERCADO_IMOVEL_HIDDEN">
+
             </div>
 
             <div class="mb-3">
 
                 <label for="BENS_IMOVEIS_ALUGADOS_VERANEIO">Possui casa de veraneio ou alugadas ?</label>
-                
-                <select name="BENS_IMOVEIS_ALUGADOS_VERANEIO" id="BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV" class="form-control required">
+
+                <select name="BENS_IMOVEIS_ALUGADOS_VERANEIO" id="BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV"
+                    class="form-control required">
                     <option value="Não">Não</option>
                     <option value="VERA">Veraneio</option>
                     <option value="ALU">Alugadas</option>
@@ -853,57 +837,55 @@
             </div>
 
             <div class="mb-3" id="BENS_VALOR_MERCADO_IMOVEL_VERAO-DIV">
-                
+
                 <label for="BENS_VALOR_MERCADO_IMOVEL_VERAO">Imovéis de veraneio - Valor de mercado</label>
-                
+
                 <input type="text" id="BENS_VALOR_MERCADO_IMOVEL_VERAO" name="BENS_VALOR_MERCADO_IMOVEL_VERAO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-           
+
                 <!-- input hidden -->
-                <input type="hidden" name="BENS_VALOR_MERCADO_IMOVEL_VERAO_HIDDEN" 
+                <input type="hidden" name="BENS_VALOR_MERCADO_IMOVEL_VERAO_HIDDEN"
                     id="BENS_VALOR_MERCADO_IMOVEL_VERAO_HIDDEN">
-           
-             </div>
+
+            </div>
 
             <div class="mb-3" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO-DIV">
-                
+
                 <label for="BENS_VALOR_MERCADO_IMOVEL_ALUGADO">Imovéis alugados - Valor de mercado</label>
-                
+
                 <input type="text" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" name="BENS_VALOR_MERCADO_IMOVEL_ALUGADO"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="BENS_VALOR_MERCADO_IMOVEL_ALUGADO_HIDDEN" 
+                <input type="hidden" name="BENS_VALOR_MERCADO_IMOVEL_ALUGADO_HIDDEN"
                     id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO_HIDDEN">
-            
+
             </div>
 
 
             <div class="mb-3">
-                
+
                 <label for="BENS_VALOR_MERCADO_VEICULOS">Veiculos - Valor de mercado</label>
-                
+
                 <input type="text" id="BENS_VALOR_MERCADO_VEICULOS" name="BENS_VALOR_MERCADO_VEICULOS"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
-               <!-- input hidden -->
-                <input type="hidden" name="BENS_VALOR_MERCADO_VEICULOS_HIDDEN" 
-                    id="BENS_VALOR_MERCADO_VEICULOS_HIDDEN">
-                   
+
+                <!-- input hidden -->
+                <input type="hidden" name="BENS_VALOR_MERCADO_VEICULOS_HIDDEN" id="BENS_VALOR_MERCADO_VEICULOS_HIDDEN">
+
             </div>
 
 
             <div class="mb-3">
-                
+
                 <label for="BENS_VALOR_MERCADO_EMPRESAS">Empresas - Valor de mercado</label>
-                
-                <input type="text" id="BENS_VALOR_MERCADO_EMPRESAS" name="BENS_VALOR_MERCADO_EMPRESAS" oninput="handleCurrencyInput(this)"
-                    placeholder="R$ 0,00">
-            
+
+                <input type="text" id="BENS_VALOR_MERCADO_EMPRESAS" name="BENS_VALOR_MERCADO_EMPRESAS"
+                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+
                 <!-- input hidden -->
-                <input type="hidden" name="BENS_VALOR_MERCADO_EMPRESAS_HIDDEN" 
-                    id="BENS_VALOR_MERCADO_EMPRESAS_HIDDEN">
-            
+                <input type="hidden" name="BENS_VALOR_MERCADO_EMPRESAS_HIDDEN" id="BENS_VALOR_MERCADO_EMPRESAS_HIDDEN">
+
             </div>
 
         </div>
@@ -918,72 +900,72 @@
             <p class="text-center mb-4">Proteção</p>
 
             <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
-                
+
                 <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
-                
+
                 <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
-            
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">Anexar extrato planos da previdência</label><br>
-                
+
                 <input type="file" id="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO"
                     name="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">
-            
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO">Possui previdência privada ?</label>
-                
+
                 <select name="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO" id="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV"
                     class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
-            
+
             </div>
 
             <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL-DIV">
-                
+
                 <label for="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL">Previdencia privada - Valor da Parcela</label>
-                
+
                 <input type="text" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL_HIDDEN" 
+                <input type="hidden" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL_HIDDEN"
                     id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL_HIDDEN">
-            
+
             </div>
 
             <div class="mb-3" id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO-DIV">
-                
+
                 <label for="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO">Montante acumulado</label>
-                
+
                 <input type="text" id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO"
                     name="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO" oninput="handleCurrencyInput(this)"
                     placeholder="R$ 0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO_HIDDEN" 
+                <input type="hidden" name="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO_HIDDEN"
                     id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO_HIDDEN">
-            
+
             </div>
 
             <div class="mb-3">
-                
+
                 <label for="PROTECAO_FUNDO_GARANTIA_VALOR">Valor do fundo de garantia</label>
-                
+
                 <input type="text" name="PROTECAO_FUNDO_GARANTIA_VALOR" id="PROTECAO_FUNDO_GARANTIA_VALOR"
                     oninput="handleCurrencyInput(this)" placeholder="0,00">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN" 
+                <input type="hidden" name="PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN"
                     id="PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN">
-        
+
             </div>
 
 
@@ -992,64 +974,69 @@
 
         <!---- OBJETIVOS ---->
         <div class="step">
-            
+
             <p class="text-center mb-4"> Objetivos</p>
-            
+
             <div class="mb-3">
-                
+
                 <label for="OBJETIVO_RENDA_MENSAL">Renda mensal pretendida na aposentadoria:</label>
-                
+
                 <input type="text" placeholder="R$ 0,00" oninput="handleCurrencyInput(this)"
                     name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL">
-            
+
                 <!-- input hidden -->
-                <input type="hidden" name="OJETIVO_RENDA_MENSAL_HIDDEN" 
-                    id="OBJETIVO_RENDA_MENSAL_HIDDEN">
+                <input type="hidden" name="OJETIVO_RENDA_MENSAL_HIDDEN" id="OBJETIVO_RENDA_MENSAL_HIDDEN">
 
             </div>
 
             <div class="mb-3 IDADE">
-                
+
                 <label for="OBJETIVO_IDADE_PRETENDIDA">Idade pretendida para aposentadoria:</label>
-                
+
                 <input type="number" oninput="this.className = maxIdade(this)" name="OBJETIVO_IDADE_PRETENDIDA"
                     id="OBJETIVO_IDADE_PRETENDIDA" maxlength="2">
-            
-            
-            
+
             </div>
 
-            <br>
             <div class="mb-3">
-                
+
                 <p>Além da aposentadoria, você possui algum outro objetivo/sonho que requer uma meta de acúmulo
-                    financeiro? Se sim, informar o horizonte de tempo e o valor requerido para essas realizações.</p>
-                
-                <label for="OBJETIVO_ANO_REALIZACAO">Quanto tempo?</label>
-                <input type="date" oninput="this.className = ''" name="OBJETIVO_ANO_REALIZACAO"
+                    financeiro?</p>
+
+                <select name="OBJETIVO_ANO_REALIZACAO_OP" id="OBJETIVO_ANO_REALIZACAO_OP" class="form-control required">
+                    <option value="Não">Não</option>
+                    <option value="SIM">Sim</option>
+                </select>
+
+            </div>
+
+            <div id="OBJETIVO_ANO_REALIZACAO_DIV" class="mb-3">
+
+                <label for="OBJETIVO_ANO_REALIZACAO">Ano de realização: </label>
+                <input type="number" oninput="this.className = ''" name="OBJETIVO_ANO_REALIZACAO"
                     id="OBJETIVO_ANO_REALIZACAO">
-            
-                <label for="OBJETIVO_VALOR">Valor requerido?</label>
+            </div>
+
+            <div id="OBJETIVO_VALOR_DIV" class="mb-3">
+
+                <label for="OBJETIVO_VALOR">Valor requerido:</label>
                 <input type="text" placeholder="R$ 0,00" oninput="handleCurrencyInput(this)" name="OBJETIVO_VALOR"
                     id="OBJETIVO_VALOR">
 
                 <!-- input hidden -->
-                <input type="hidden" name="OBJETIVO_VALOR_HIDDEN" 
-                    id="OBJETIVO_VALOR_HIDDEN">
+                <input type="hidden" name="OBJETIVO_VALOR_HIDDEN" id="OBJETIVO_VALOR_HIDDEN">
 
             </div>
 
-
         </div>
-
 
         <!-- start previous / next buttons -->
         <div class="form-footer d-flex">
-            
+
             <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-            
+
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-        
+
         </div>
         <!-- end previous / next buttons -->
 
@@ -1065,25 +1052,25 @@
 
 <script>
 
-function inputHidden(inText) {
-    const inHidden2 = inText + "_HIDDEN";
-        
+    function inputHidden(inText) {
+        const inHidden2 = inText + "_HIDDEN";
+
         // console.log(inHidden2);
-        
+
         document.querySelector(`#${inText}`).addEventListener('change', (event) => {
-            const formattedValue = event.target.value; 
-            
-            
+            const formattedValue = event.target.value;
+
+
             const cleanedValue = formattedValue.replace(/[^\d,]/g, '');
-            
-            
+
+
             const valueWithDot = cleanedValue.replace(',', '.');
-            
-            const numericValue = parseFloat(valueWithDot); 
-            
+
+            const numericValue = parseFloat(valueWithDot);
+
             document.querySelector(`#${inHidden2}`).value = numericValue;
             console.log(numericValue);
-            
+
             const hiddenElement = document.querySelector(`#${inHidden2}`);
             console.log(typeof hiddenElement.value);
         });
@@ -1130,9 +1117,9 @@ function inputHidden(inText) {
     inputHidden("PROTECAO_PREVIDENCIA_PRIVADA_MENSAL");
     inputHidden("PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO");
     inputHidden("PROTECAO_FUNDO_GARANTIA_VALOR");
-    inputHidden("OBJETIVO_RENDA_MENSAL");  
+    inputHidden("OBJETIVO_RENDA_MENSAL");
     inputHidden("OBJETIVO_VALOR");
-    
+
 
     /////////////
 
@@ -1184,6 +1171,8 @@ function inputHidden(inText) {
         setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV", "#BENS_VALOR_MERCADO_IMOVEL_ALUGADO-DIV", "VERA", "SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV", "#PROTECAO_PREVIDENCIA_PRIVADA_MENSAL-DIV", "SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV", "#PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO-DIV", "SIM");
+        setupLinkedField('#OBJETIVO_ANO_REALIZACAO_OP', '#OBJETIVO_ANO_REALIZACAO_DIV', 'SIM');
+        setupLinkedField('#OBJETIVO_ANO_REALIZACAO_OP', '#OBJETIVO_VALOR_DIV', 'SIM');
 
     });
 
@@ -1307,40 +1296,40 @@ function inputHidden(inText) {
     //ADICIONAR OPÇÔES DE GASTOS  -- REPASSAR
 
     document.addEventListener("DOMContentLoaded", function () {
-    var customExpensesContainer = document.getElementById("customExpenses");
-    var addExpenseButton = document.getElementById("addExpense");
+        var customExpensesContainer = document.getElementById("customExpenses");
+        var addExpenseButton = document.getElementById("addExpense");
 
-    var expenseIndex = 0;
+        var expenseIndex = 0;
 
-    addExpenseButton.addEventListener("click", function (event) {
-        event.preventDefault(); // pq ??
+        addExpenseButton.addEventListener("click", function (event) {
+            event.preventDefault(); // pq ??
 
-        expenseIndex++;
+            expenseIndex++;
 
-        document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
+            document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
 
-        var expenseDiv = document.createElement("div");
-        expenseDiv.classList.add("mb-3");
+            var expenseDiv = document.createElement("div");
+            expenseDiv.classList.add("mb-3");
 
-        var nameLabel = document.createElement("label");
-        nameLabel.textContent = "Nome do Gasto " + expenseIndex;
-        var nameInput = document.createElement("input");
-        nameInput.type = "text";
-        nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
-        expenseDiv.appendChild(nameLabel);
-        expenseDiv.appendChild(nameInput);
+            var nameLabel = document.createElement("label");
+            nameLabel.textContent = "Nome do Gasto " + expenseIndex;
+            var nameInput = document.createElement("input");
+            nameInput.type = "text";
+            nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
+            expenseDiv.appendChild(nameLabel);
+            expenseDiv.appendChild(nameInput);
 
-        var valueLabel = document.createElement("label");
-        valueLabel.textContent = "Valor do Gasto " + expenseIndex;
-        var valueInput = document.createElement("input");
-        valueInput.type = "number";
-        valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
-        expenseDiv.appendChild(valueLabel);
-        expenseDiv.appendChild(valueInput);
+            var valueLabel = document.createElement("label");
+            valueLabel.textContent = "Valor do Gasto " + expenseIndex;
+            var valueInput = document.createElement("input");
+            valueInput.type = "number";
+            valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
+            expenseDiv.appendChild(valueLabel);
+            expenseDiv.appendChild(valueInput);
 
-        customExpensesContainer.appendChild(expenseDiv);
+            customExpensesContainer.appendChild(expenseDiv);
 
+        });
     });
-});
 
 </script>

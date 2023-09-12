@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
 
   
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- css -->
   <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
@@ -92,6 +93,12 @@
     <div class="card-body m-lg-5 text-center">
       
       <div class="table-responsive"> <!-- Adicione esta div -->
+
+      <div class="mb-3">
+        <label for="pesquisa" class="form-label">Pesquisar:</label>
+        <input type="text" id="pesquisa" class="form-control" placeholder="Digite sua pesquisa...">
+      </div>
+
         <table class="table table-striped ">
           <thead>
             <tr>
@@ -118,7 +125,7 @@
                 </td>
 
                 <td><?= $item->SOBRE_NOME ?></td>
-                <td><?= $item->DATA ?></td>
+                <td><?= date('d/m/Y', strtotime($item->DATA)) ?></td>
                 <td><?= $item->INDICE_POUPANCA ?></td>
                 <td><?= $item->INDICE_LIQUIDEZ_CORRENTE ?></td>
                 <td><?= $item->INDICE_ENDIVIDAMENTO ?></td>
@@ -139,8 +146,22 @@
 
   </div>
 
-
-
-
 </body>
 </html>
+
+<script>
+  //função de pesquisa 
+  $(document).ready(function () {
+    $('#pesquisa').on('keyup', function () {
+      const searchText = $(this).val().toLowerCase();
+      $('tbody tr').each(function () {
+        const cellText = $(this).text().toLowerCase();
+        if (cellText.indexOf(searchText) === -1) {
+          $(this).hide();
+        } else {
+          $(this).show();
+        }
+      });
+    });
+  });
+</script>
