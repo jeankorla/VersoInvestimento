@@ -219,5 +219,30 @@ class autenticacao extends BaseController
             
         }
     }
+
+    public function excluir($pk = null){
+        
+        if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+
+        $clienteFormulario = new ClienteFormularioModel();
+        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
+
+        // VERIFICACAO SE O FORMS EXISTE
+        $formulario = $clienteFormulario->find($pk);
+
+        if (!$formulario) {
+            return redirect()->back()->with('error', 'Formulário não encontrado.');
+        }
+
+        // DELETAR DESPESA
+        $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->delete();
+
+        // EXCLUIR FORM
+        $clienteFormulario->delete($pk);
+
+        return redirect()->to('autenticacao/admin')->with('success', 'Formulário excluído com sucesso.');
+    }
     
 }

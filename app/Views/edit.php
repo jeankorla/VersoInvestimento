@@ -124,7 +124,7 @@
 
         <div class="mb-3">
 
-            <label>Nome Completo: </label>
+            <label>Nome: </label>
             <input type="text" name="SOBRE_NOME" id="SOBRE_NOME"
                 value="<?php echo $formulario['SOBRE_NOME']; ?>">
 
@@ -132,7 +132,7 @@
 
         <div class="mb-3">
 
-            <label>Nome Completo: </label>
+            <label>Sobrenome: </label>
             <input type="text" name="SOBRE_NOME_SOBRENOME" id="SOBRE_NOME_SOBRENOME"
                 value="<?php echo $formulario['SOBRE_NOME_SOBRENOME']; ?>">
 
@@ -487,8 +487,8 @@
 
         <div class="mb-3">
 
-            <label>QUANTO TEMPO ? (Realizacao objetivo)</label>
-            <input type="date" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO"
+            <label>Ano de realização:</label>
+            <input type="number" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO"
                 value="<?php echo $formulario['OBJETIVO_ANO_REALIZACAO']; ?>">
 
         </div>
@@ -504,25 +504,27 @@
 
         <!-- não sei como fazer isso ainda -->
         <?php foreach ($despesas as $index => $despesa): ?>
-            
-            <div class="mb-3">
 
-                <label><?php echo $despesa['DESCRICAO'] ?></label>
+            <?php if ($despesa['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
 
-                <input type="text" name="DESPESA[<?= $despesa['PK']; ?>]" value="<?php echo $despesa['VALOR']; ?>">
+                <div class="mb-3">
 
-                <input type="hidden" name="CATEGORIA[<?= $despesa['PK']; ?>]" class="categoriaInput" value="DESPESA">
+                    <label><?php echo $despesa['DESCRICAO'] ?></label>
 
-                <div class="form-check form-switch isolated-switch">
+                    <input type="text" name="DESPESA[<?= $despesa['PK']; ?>]" value="<?php echo $despesa['VALOR']; ?>">
 
-                    <input class="form-check-input switchInput" type="checkbox" style="border-radius: 20px; width: 65px; height: 10px;">
+                    <input type="hidden" name="CATEGORIA[<?= $despesa['PK']; ?>]" class="categoriaInput" value="DESPESA">
 
-                    <label class="switchLabel" style="margin-top: 7px; margin-left: 10px; text-decoration: underline;">DESPESA</label>
+                    <div class="form-check form-switch isolated-switch">
+
+                        <input class="form-check-input switchInput" type="checkbox" style="border-radius: 20px; width: 65px; height: 10px;">
+
+                        <label class="switchLabel" style="margin-top: 7px; margin-left: 10px; text-decoration: underline;">DESPESA</label>
+
+                    </div>
 
                 </div>
-
-            </div>
-
+            <?php endif; ?>
         <?php endforeach; ?>
 
         <button type="submit" name="update_button" class="btn btn-warning" style="margin-top: 30px"

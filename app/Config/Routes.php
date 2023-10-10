@@ -31,6 +31,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->post('autenticacao/update/(:num)', 'autenticacao::update/$1');
+$routes->get('/suc', 'Home::suc');
 
 
 /*

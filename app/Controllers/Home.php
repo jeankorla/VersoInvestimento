@@ -121,4 +121,9 @@ class Home extends BaseController
 
     }
 
+    public function suc(){
+
+        echo view('success.php');
+    }
+
 }

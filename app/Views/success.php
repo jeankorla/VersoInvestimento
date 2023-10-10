@@ -157,7 +157,9 @@
        <h1>Com Sucesso!</h1>
 
        <h4 class="mt-5">Seu cadastro foi enviado para nossos especialistas e logo
-         você receberá um retorno do nosso projeto personalizado para suas necessidades.</h4>
+         você receberá um retorno do nosso projeto personalizado para suas necessidades.        
+        </h4>
+        <h5 style="text-decoration: underline;">Caso necessário nossos especialistas entraram em contato para solicitar informações adicionais!</h5>
     </div>
   </div>
 </div>
