@@ -1,62 +1,38 @@
-# CodeIgniter 4 Application Starter
+# Sistema Café com Renda para Verso Investimentos
 
-## What is CodeIgniter?
+Desenvolvemos um sistema robusto para a Verso Investimentos, uma empresa certificada pela XP Investimentos. Este sistema visa otimizar e automatizar o projeto "Café com Renda", que foca em prestar consultoria para indivíduos com objetivos financeiros definidos.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Tecnologias Utilizadas
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- **Backend**: CodeIgniter 4
+- **Banco de Dados**: MySQL com phpMyAdmin
+- **Frontend**:
+  - JavaScript puro
+  - Bootstrap
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Características Principais
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+### Automação com Triggers no MySQL
 
-## Installation & updates
+Com o auxílio de triggers no MySQL, o sistema automaticamente processa os dados inseridos pelos clientes através de um formulário. Esses dados são utilizados para gerar relatórios elegantes e personalizados que oferecem insights valiosos sobre a situação financeira e objetivos do cliente.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### Gestão de Relatórios e Leads
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+Os administradores têm acesso a ferramentas para:
 
-## Setup
+- Controlar e gerir leads
+- Visualizar, filtrar e analisar relatórios gerados
+- Realizar operações CRUD para gerenciar informações dos clientes
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### Design e Experiência do Usuário (UX)
 
-## Important Change with index.php
+O sistema foi projetado com foco na experiência do usuário. Utilizando CSS avançado e animações personalizadas, garantimos uma interface intuitiva, atrativa e responsiva.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Conclusão e Parcerias
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+O sucesso deste projeto culminou na formação de uma parceria sólida com a Verso Investimentos e a XP Investimentos. Estamos orgulhosos de ter contribuído para a otimização de um processo tão crucial e esperamos continuar a fornecer soluções inovadoras no futuro.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## Agradecimentos
 
-## Repository Management
+Gostaria de expressar minha sincera gratidão ao meu colega e companheiro de trabalho, RodrigoTemporim. Seu empenho, dedicação e expertise foram cruciais para o sucesso deste projeto.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
