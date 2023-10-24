@@ -16,6 +16,7 @@
   <!-- <link rel="stylesheet" href="style/responsividade.css"> -->
 
   <title>Admin</title>
+  <link rel="stylesheet" href="style/responsividade.css">
 </head>
 
 <body style="background-color: #eeee;">
