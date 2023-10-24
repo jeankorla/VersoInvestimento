@@ -134,7 +134,7 @@
 
             <label>Sobrenome: </label>
             <input type="text" name="SOBRE_NOME_SOBRENOME" id="SOBRE_NOME_SOBRENOME"
-                value="<?php echo $formulario['SOBRE_NOME_SOBRENOME']; ?>">
+                value="<?php echo $formulario['SOBRE_NOME_SOBRENOME']; ?> ">
 
         </div>
 
@@ -146,62 +146,82 @@
 
         </div>
 
+        <div class="mb-3">
+
+            <label>Data de nascimento:</label>
+            <input type="date" name="SOBRE_DATA_NASCIMENTO" id="SOBRE_DATA_NASCIMENTO"
+                value="<?php echo $formulario['SOBRE_DATA_NASCIMENTO']; ?>"
+                placeholder="<?php echo date('Y-m-d'); ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Profissão</label>
+            <input type="text" name="SOBRE_ESTADO_CIVIL_DETALHE" id="SOBRE_ESTADO_CIVIL_DETALHE"
+                value="<?php echo $formulario['SOBRE_ESTADO_CIVIL_DETALHE']?>">
+
+        </div>
+
         <!-- RECEITAS -->
 
         <div class="mb-3">
 
-            <label>Renda Mensal Liquida: </label>            
-            <input type="number" oninput="formatCurrency(this)" name="RECEITA_RENDA_MENSAL_LIQUIDA" id="RECEITA_RENDA_MENSAL_LIQUIDA" step="0.01" 
+            <label>Renda mensal líquida (já descontado o imposto de
+                    renda):</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_RENDA_MENSAL_LIQUIDA" id="RECEITA_RENDA_MENSAL_LIQUIDA" step="0.01" 
                 value="<?php echo $formulario['RECEITA_RENDA_MENSAL_LIQUIDA']; ?>">           
 
         </div>
 
         <div class="mb-3">
             
-            <label>Aplicações Valor Total: </label>
-            <input type="number" oninput="formatCurrency(this)" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL" step="0.01"
+            <label>Aplicações Financeiras - Valor TOTAL </label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL" step="0.01"
                 value="<?php echo $formulario['RECEITA_APLICACOES_VALOR_TOTAL']; ?>">
 
         </div>
+
+        <!--     NECESSARIO FAZER O UPLOADO DOS ARQUIVOS DE MANEIRA CORRETA       ->
 
         <!-- DESPESAS -->
 
         <div class="mb-3">
              
-            <label>Despesa luz // Media mensal: </label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_LUZ_MEDIA_MENSAL" id="DESPESA_LUZ_MEDIA_MENSAL" step="0.01"
+            <label>Conta de luz - Inserir média mensal </label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_LUZ_MEDIA_MENSAL" id="DESPESA_LUZ_MEDIA_MENSAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_LUZ_MEDIA_MENSAL']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa agua // Media mensal: </label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_AGUA_MEDIA_MENSAL" id="DESPESA_AGUA_MEDIA_MENSAL" step="0.01"
+            <label>Conta de água - Inserir média mensal </label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_AGUA_MEDIA_MENSAL" id="DESPESA_AGUA_MEDIA_MENSAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_AGUA_MEDIA_MENSAL']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa gas // Media mensal:</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_GAS_MEDIA_MENSAL" id="DESPESA_GAS_MEDIA_MENSAL" step="0.01"
+            <label>Conta de gás - Inserir média mensal</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_GAS_MEDIA_MENSAL" id="DESPESA_GAS_MEDIA_MENSAL" step="0.01"
                 value="<?php echo $formulario["DESPESA_GAS_MEDIA_MENSAL"]; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa aluguel</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_ALUGUEL" id="DESPESA_ALUGUEL" step="0.01"
+            <label>Valor do aluguel</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_ALUGUEL" id="DESPESA_ALUGUEL" step="0.01"
                 value="<?php echo $formulario['DESPESA_ALUGUEL']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesas financiamento residencial - Parcela</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA"
+            <label>Financiamento Residencial - Parcela</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA"
                 id="DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA" step="0.01"
                 value="<?php echo $formulario['DESPESA_FINANCIAMENTO_RESIDENCIAL_PARCELA']; ?>">
 
@@ -209,8 +229,8 @@
 
         <div class="mb-3">
 
-            <label>Despesa financimaneto residencial - Saldo Devedor</label>
-            <input type="number" oninput="formatCurrency(this)" name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR"
+            <label>Financiamento Residencial - Saldo devedor</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR"
                 id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" step="0.01"
                 value="<?php echo $formulario['DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR']; ?>">
 
@@ -218,16 +238,16 @@
 
         <div class="mb-3">
 
-            <label>Despesa financiamento veiculo - Parcela</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_FINANCIAMENTO_VEICULO_PARCELA" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA"
+            <label>Financiamento Veiculos - Parcela</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_FINANCIAMENTO_VEICULO_PARCELA" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA"
                 step="0.01" value="<?php echo $formulario['DESPESA_FINANCIAMENTO_VEICULO_PARCELA']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa financiamento veiculo - Saldo devedor</label>
-            <input type="number" oninput="formatCurrency(this)" name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
+            <label>Financiamento veiculo - Saldo devedor</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
                 id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" step="0.01"
                 value="<?php echo $formulario['DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR']; ?>">
 
@@ -236,71 +256,71 @@
         <div class="mb-3">
 
             <label>IPTU</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_IPTU" id="DESPESA_IPTU" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_IPTU" id="DESPESA_IPTU" step="0.01"
                 value="<?php echo $formulario['DESPESA_IPTU']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>IPVA</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_IPVA" id="DESPESA_IPVA" step="DESPESA_IPVA"
+            <label>IPVA - Valot total</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_IPVA" id="DESPESA_IPVA" step="DESPESA_IPVA"
                 value="<?php echo $formulario['DESPESA_IPVA']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Emprestimo parcela</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_EMPRESTIMO_PARCELA" id="DESPESA_EMPRESTIMO_PARCELA" step="0.01"
+            <label>Emprestimos parcela</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_EMPRESTIMO_PARCELA" id="DESPESA_EMPRESTIMO_PARCELA" step="0.01"
                 value="<?php echo $formulario['DESPESA_EMPRESTIMO_PARCELA']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Emprestimo Saldo Devedor</label>
-            <input type="number" oninput="formatCurrency(this)" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" step="0.01"
+            <label>EMPRESTIMO - Saldo devedor</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" step="0.01"
                 value="<?php echo $formulario['DIVIDA_EMPRESTIMO_SALDO_DEVEDOR']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Valor conta de internet/televisao</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_INTERNET_TELEVISAO" id="DESPESA_INTERNET_TELEVISAO" step="0.01"
+            <label>Valor da conta de internet + televisão</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_INTERNET_TELEVISAO" id="DESPESA_INTERNET_TELEVISAO" step="0.01"
                 value="<?php echo $formulario['DESPESA_INTERNET_TELEVISAO']; ?>">
 
         </div>
         
         <div class="mb-3">
 
-            <label>Despesa celular</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_CELULAR" id="DESPESA_CELULAR" step="0.01"
+            <label>Conta de celular</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_CELULAR" id="DESPESA_CELULAR" step="0.01"
                 value="<?php echo $formulario['DESPESA_CELULAR']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa media mercado</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_MEDIA_MERCADO" id="DESPESA_MEDIA_MERCADO" step="0.01"
+            <label>Média dos gastos em supermercados</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_MEDIA_MERCADO" id="DESPESA_MEDIA_MERCADO" step="0.01"
                 value="<?php echo $formulario['DESPESA_MEDIA_MERCADO']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa medicamentos</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_MEDICAMENTOS" id="DESPESA_MEDICAMENTOS" step="0.01"
+            <label>Gastos com medicamentos</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_MEDICAMENTOS" id="DESPESA_MEDICAMENTOS" step="0.01"
                 value="<?php echo $formulario['DESPESA_MEDICAMENTOS']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa plano saude</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_PLANO_SAUDE_MENSAL" id="DESPESA_PLANO_SAUDE_MENSAL" step="0.01"
+            <label>Plano de saúde - Parcela</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_PLANO_SAUDE_MENSAL" id="DESPESA_PLANO_SAUDE_MENSAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_PLANO_SAUDE_MENSAL']; ?>">
 
         </div>
@@ -308,55 +328,55 @@
         <div class="mb-3">
 
             <label>Valor parcela INSS</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_INSS" id="DESPESA_INSS" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_INSS" id="DESPESA_INSS" step="0.01"
                 value="<?php echo $formulario['DESPESA_INSS']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Despesa Lazer</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_LAZER" id="DESPESA_LAZER" step="0.01"
+            <label>Gastos com lazer</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_LAZER" id="DESPESA_LAZER" step="0.01"
                 value="<?php echo $formulario['DESPESA_LAZER']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Gastos com gasolina</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_COMBUSTIVEL" id="DESPESA_COMBUSTIVEL" step="0.01"
+            <label>Gasto com combustivél</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_COMBUSTIVEL" id="DESPESA_COMBUSTIVEL" step="0.01"
                 value="<?php echo $formulario['DESPESA_COMBUSTIVEL']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Gastos com cartao - fatura</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_CARTAO_FATURA" id="DESPESA_CARTAO_FATURA" step="0.01"
+            <label>Gastos com cartao de crédito - Fatura</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_CARTAO_FATURA" id="DESPESA_CARTAO_FATURA" step="0.01"
                 value="<?php echo $formulario['DESPESA_CARTAO_FATURA']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label> Gastos com cartao - Saldo devedor</label>
-            <input type="number" oninput="formatCurrency(this)" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR" id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR"
+            <label>Gastos com cartao de crédito - Saldo Devedor</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR" id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR"
                 step="0.01" value="<?php echo $formulario['DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Valor aluguel de veiculos</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_VEICULO_ALUGADO_MENSALIDADE" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE"
+            <label>Valor do Aluguel dos veículos</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_VEICULO_ALUGADO_MENSALIDADE" id="DESPESA_VEICULO_ALUGADO_MENSALIDADE"
                 step="0.01" value="<?php echo $formulario['DESPESA_VEICULO_ALUGADO_MENSALIDADE']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Mensalidade do seguro de veiculos</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_VEICULO_SEGURO" id="DESPESA_VEICULO_SEGURO" step="0.01"
+            <label>Mensalidade do seguro dos veículos</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_VEICULO_SEGURO" id="DESPESA_VEICULO_SEGURO" step="0.01"
                 value="<?php echo $formulario['DESPESA_VEICULO_SEGURO']; ?>">
 
         </div>
@@ -364,7 +384,7 @@
         <div class="mb-3">
 
             <label>Mensalidade do seguro de vida</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_SEGURO_VIDA_MENSAL" id="DESPESA_SEGURO_VIDA_MENSAL" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_SEGURO_VIDA_MENSAL" id="DESPESA_SEGURO_VIDA_MENSAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_SEGURO_VIDA_MENSAL']; ?>">
 
         </div>
@@ -372,15 +392,15 @@
         <div class="mb-3">
 
             <label>Mensalidade do Condominio</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_CONDOMINIO_MENSAL" id="DESPESA_CONDOMINIO_MENSAL" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_CONDOMINIO_MENSAL" id="DESPESA_CONDOMINIO_MENSAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_CONDOMINIO_MENSAL']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Contribuicao Sindical</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_CONTRIBUICAO_SINDICAL" id="DESPESA_CONTRIBUICAO_SINDICAL" step="0.01"
+            <label>Contribuição Sindical</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_CONTRIBUICAO_SINDICAL" id="DESPESA_CONTRIBUICAO_SINDICAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_CONTRIBUICAO_SINDICAL']; ?>">
 
         </div>
@@ -388,7 +408,7 @@
         <div class="mb-3">
 
             <label>Mensalidade Escolar</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_ESCOLA_MENSAL" id="DESPESA_ESCOLA_MENSAL" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_ESCOLA_MENSAL" id="DESPESA_ESCOLA_MENSAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_ESCOLA_MENSAL']; ?>">
 
         </div>
@@ -396,15 +416,15 @@
         <div class="mb-3">
 
             <label>Mensalidade Universidade</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_UNIVERSIDADE_MENSAL" id="DESPESA_UNIVERSIDADE_MENSAL" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_UNIVERSIDADE_MENSAL" id="DESPESA_UNIVERSIDADE_MENSAL" step="0.01"
                 value="<?php echo $formulario['DESPESA_UNIVERSIDADE_MENSAL']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Mensalidade clube</label>
-            <input type="number" oninput="formatCurrency(this)" name="DESPESA_CLUBE_MENSALIDADE" id="DESPESA_CLUBE_MENSALIDADE" step="0.01"
+            <label>Mensalidade do clube</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_CLUBE_MENSALIDADE" id="DESPESA_CLUBE_MENSALIDADE" step="0.01"
                 value="<?php echo $formulario['DESPESA_CLUBE_MENSALIDADE']; ?>">
 
         </div>
@@ -414,7 +434,7 @@
         <div class="mb-3">
 
             <label>Imoveis Residenciais - Valor de mercado</label>
-            <input type="number" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_IMOVEL" id="BENS_VALOR_MERCADO_IMOVEL" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_IMOVEL" id="BENS_VALOR_MERCADO_IMOVEL" step="0.01"
                 value="<?php echo $formulario['BENS_VALOR_MERCADO_IMOVEL']; ?>">
 
         </div>
@@ -422,15 +442,23 @@
         <div class="mb-3">
 
             <label>Imoveis veraneio - Valor de mercado</label>
-            <input type="number" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_IMOVEL_VERAO" id="BENS_VALOR_MERCADO_IMOVEL_VERAO" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_IMOVEL_VERAO" id="BENS_VALOR_MERCADO_IMOVEL_VERAO" step="0.01"
                 value="<?php echo $formulario['BENS_VALOR_MERCADO_IMOVEL_VERAO']; ?>">
 
         </div>
 
         <div class="mb-3">
 
+        <label>Imnoveis alugados - Valor de mercado</label>
+        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" step="0.01"
+                value="<?php echo $formulario['BENS_VALOR_MERCADO_IMOVEL_ALUGADO']; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
             <label>Veiculos - valor mercado</label>
-            <input type="number" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_VEICULOS" id="BENS_VALOR_MERCADO_VEICULOS" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_VEICULOS" id="BENS_VALOR_MERCADO_VEICULOS" step="0.01"
                 value="<?php echo $formulario['BENS_VALOR_MERCADO_VEICULOS']; ?>">
 
         </div>
@@ -438,15 +466,15 @@
         <div class="mb-3">
 
             <label>Empresas - Valor de mercado</label>
-            <input type="number" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_EMPRESAS" id="BENS_VALOR_MERCADO_EMPRESAS" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_EMPRESAS" id="BENS_VALOR_MERCADO_EMPRESAS" step="0.01"
                 value="<?php echo $formulario['BENS_VALOR_MERCADO_EMPRESAS']; ?>">
 
         </div>
 
         <div class="mb-3">
              <!-- PROTEÇÃO -->
-            <label>Previdencia privada - Mensalidade</label>
-            <input type="number" oninput="formatCurrency(this)" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL"
+            <label>Previdencia privada - Valor da Parcela</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL" id="PROTECAO_PREVIDENCIA_PRIVADA_MENSAL"
                 step="0.01" value="<?php echo $formulario['PROTECAO_PREVIDENCIA_PRIVADA_MENSAL']; ?>">
 
         </div>
@@ -454,7 +482,7 @@
         <div class="mb-3">
 
             <label>Previdencia privada - Saldo Acumulado</label>
-            <input type="number" oninput="formatCurrency(this)" name="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO"
                 id="PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO" step="0.01"
                 value="<?php echo $formulario['PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO']; ?>">
 
@@ -463,7 +491,7 @@
         <div class="mb-3">
 
             <label>Valor do fundo de garantia</label>
-            <input type="number" oninput="formatCurrency(this)" name="PROTECAO_FUNDO_GARANTIA_VALOR" id="PROTECAO_FUNDO_GARANTIA_VALOR" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="PROTECAO_FUNDO_GARANTIA_VALOR" id="PROTECAO_FUNDO_GARANTIA_VALOR" step="0.01"
                 value="<?php echo $formulario['PROTECAO_FUNDO_GARANTIA_VALOR']; ?>">
 
         </div>
@@ -471,8 +499,8 @@
         <!-- OBJETIVOS -->
         <div class="mb-3">
 
-            <label>Renda mensal pretendida</label>
-            <input type="number" oninput="formatCurrency(this)" name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL" step="0.01"
+            <label>Renda mensal pretendida na aposentadoria:</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL" step="0.01"
                 value="<?php echo $formulario['OBJETIVO_RENDA_MENSAL']; ?>">
 
         </div>
@@ -480,23 +508,25 @@
         <div class="mb-3">
 
             <label>Idade pretendida para aposentadoria</label>
-            <input type="number" oninput="formatCurrency(this)" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA" step="0.01"
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA" step="0.01"
                 value="<?php echo $formulario['OBJETIVO_IDADE_PRETENDIDA']; ?>">
 
         </div>
 
         <div class="mb-3">
 
+            <p>Além da aposentadoria, você possui algum outro objetivo/sonho que requer uma meta de acúmulo
+                        financeiro?</p>
             <label>Ano de realização:</label>
-            <input type="number" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO"
+            <input type="text" class="formatCurrency" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO"
                 value="<?php echo $formulario['OBJETIVO_ANO_REALIZACAO']; ?>">
 
         </div>
 
         <div class="mb-3">
 
-            <label>Valor requerido ?</label>
-            <input type="number" oninput="formatCurrency(this)" name="OBJETIVO_VALOR" id="OBJETIVO_VALOR" step="0.01"
+            <label>Valor requerido:</label>
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="OBJETIVO_VALOR" id="OBJETIVO_VALOR" step="0.01"
                 value="<?php echo $formulario['OBJETIVO_VALOR']; ?>">
 
         </div>
@@ -538,6 +568,8 @@
 </body>
 
 <script>
+
+    // switch de divida / despesas 
     const switchInputs = document.querySelectorAll('.switchInput');
     const switchLabels = document.querySelectorAll('.switchLabel');
     const categoriaInputs = document.querySelectorAll('input[name^="CATEGORIA"]');
@@ -555,13 +587,52 @@
             }
         });
     });
-</script>
 
-<script>
-function formatCurrency(input) {
-    let value = input.value.replace(/\D/g, ''); 
-    value = (Number(value) / 100).toFixed(2); 
-    input.value = value;
-}
+
+
+    // formatação -----------------
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Aplica a formatação a todos os campos com a classe "formatCurrency"
+        document.querySelectorAll('.formatCurrency').forEach(function(input) {
+            input.addEventListener('input', function() {
+                formatCurrency(this);
+            });
+        });
+        
+        const updateButton = document.querySelector('button[name="update_button"]');
+
+        updateButton.addEventListener('click', function() {
+            // Remove a formatação dos campos ao clicar no botão de atualização
+            document.querySelectorAll('.formatCurrency').forEach(function(input) {
+                formatCurrencyForSave(input);
+            });
+        });
+    });
+
+        function formatCurrencyForSave(input) {
+        let value = input.value.replace(/\D/g, '');
+        value = (Number(value) / 100).toFixed(2);
+        value = value.replace('.', ',');
+        input.value = value;
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Aplica a formatação a todos os campos com a classe "formatCurrency"
+        document.querySelectorAll('.formatCurrency').forEach(function(input) {
+            formatCurrency(input);
+        });
+    });
+
+    function formatCurrency(input) {
+        let value = input.value.replace(/\D/g, '');
+        value = (Number(value) / 100).toFixed(2);
+        
+        // Inverte a ordem dos substitutos
+        value = value.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        input.value = value;
+    }
 </script>
 

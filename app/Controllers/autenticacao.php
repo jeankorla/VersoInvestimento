@@ -17,7 +17,7 @@ class Autenticacao extends BaseController
     }
     public function login()
     {
-         $username = $this->request->getPost('NAME');
+        $username = $this->request->getPost('NAME');
         $password = $this->request->getPost('PASSWORD');
 
         $model = new UsuarioModel();
@@ -220,14 +220,12 @@ class Autenticacao extends BaseController
         }
     }
 
-    public function excluir($pk = null){
-        
-        if (!$pk) {
-            return redirect()->back()->with('error', 'ID inválido.');
-        }
+   public function excluir($pk = null)
+    {
 
         $clienteFormulario = new ClienteFormularioModel();
         $clienteDespesas = new ClienteDespesaPersonalizadaModel();
+
 
         // VERIFICACAO SE O FORMS EXISTE
         $formulario = $clienteFormulario->find($pk);

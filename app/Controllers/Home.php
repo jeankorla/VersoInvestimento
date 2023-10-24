@@ -82,8 +82,8 @@ class Home extends BaseController
             'PROTECAO_FUNDO_GARANTIA_VALOR'                             => $this->request->getPost('PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN'),
 
             'OBJETIVO_RENDA_MENSAL'                                     => $this->request->getPost('OBJETIVO_RENDA_MENSAL_HIDDEN'),
-            'OBJETIVO_IDADE_PRETENDIDA'                                 => $this->request->getPost('OBJETIVO_IDADE_PRETENDIDA_HIDDEN'),
-            'OBJETIVO_ANO_REALIZACAO'                                   => $this->request->getPost('OBJETIVO_ANO_REALIZACAO_HIDDEN'),
+            'OBJETIVO_IDADE_PRETENDIDA'                                 => $this->request->getPost('OBJETIVO_IDADE_PRETENDIDA'),
+            'OBJETIVO_ANO_REALIZACAO'                                   => $this->request->getPost('OBJETIVO_ANO_REALIZACAO'),
             'OBJETIVO_VALOR'                                            => $this->request->getPost('OBJETIVO_VALOR_HIDDEN'),
 
             'FORMULARIO_DATA_CRIACAO'                                   => $this->request->getPost('FORMULARIO_DATA_CRIACAO_HIDDEN')
