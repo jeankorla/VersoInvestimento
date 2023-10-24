@@ -13,7 +13,7 @@
 
   <!-- css -->
   <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/responsividade.css">
+  <!-- <link rel="stylesheet" href="style/responsividade.css"> -->
 
   <title>Admin</title>
 </head>
