@@ -17,7 +17,7 @@ class Autenticacao extends BaseController
     }
     public function login()
     {
-        $username = $this->request->getPost('NAME');
+         $username = $this->request->getPost('NAME');
         $password = $this->request->getPost('PASSWORD');
 
         $model = new UsuarioModel();
@@ -30,7 +30,7 @@ class Autenticacao extends BaseController
             // Limpa todas as outras variáveis de sessão
             session()->remove(['otherSessionVariable1', 'otherSessionVariable2']);
             // Redireciona para a tela "index"
-            return redirect()->to('autenticacao/admin');
+            return redirect()->to('Autenticacao/admin');
         } else {
             // Caso o login falhe, redireciona de volta para a tela de login
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
@@ -211,7 +211,7 @@ class Autenticacao extends BaseController
                 }
             }
 
-            return redirect()->to('autenticacao/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
+            return redirect()->to('formulario/autenticacao/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
 
         } else {
 
@@ -220,27 +220,126 @@ class Autenticacao extends BaseController
         }
     }
 
-   public function excluir($pk = null)
-    {
+    public function excluir($pk = null){
+    if (!$pk) {
+        // Note que estou mandando um JSON em vez de fazer um redirecionamento,
+        // porque o AJAX não lida bem com redirecionamentos.
+        return $this->response->setJSON(['success' => false, 'error' => 'ID inválido.']);
+    }
 
+    $clienteFormulario = new ClienteFormularioModel();
+    $clienteDespesas = new ClienteDespesaPersonalizadaModel();
+    $formulario = $clienteFormulario->find($pk);
+
+    if (!$formulario) {
+        return $this->response->setJSON(['success' => false, 'error' => 'Formulário não encontrado.']);
+    }
+
+    $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->delete();
+    $isDeleted = $clienteFormulario->delete($pk);
+
+    // Verificando se a exclusão foi bem-sucedida e enviando a resposta adequada.
+    if($isDeleted){
+        return $this->response->setJSON(['success' => true]);
+    } else {
+        return $this->response->setJSON(['success' => false, 'error' => 'Erro ao excluir formulário.']);
+    }
+}
+    
+    public function downloadReceita($pk = null)
+{
+    if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+    
         $clienteFormulario = new ClienteFormularioModel();
         $clienteDespesas = new ClienteDespesaPersonalizadaModel();
-
-
-        // VERIFICACAO SE O FORMS EXISTE
-        $formulario = $clienteFormulario->find($pk);
-
+    
+        $formulario = $clienteFormulario->find($pk); 
+        $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
+    
         if (!$formulario) {
             return redirect()->back()->with('error', 'Formulário não encontrado.');
         }
+    // Busca o caminho do arquivo no banco de dados usando $id
+    $fileInfo = $clienteFormulario->where('pk', $pk)->first();
 
-        // DELETAR DESPESA
-        $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->delete();
+    // Verifica se o arquivo existe
+    if (file_exists($fileInfo['RECEITA_APLICACOES_ARQUIVO'])) {
 
-        // EXCLUIR FORM
-        $clienteFormulario->delete($pk);
+        // Força o download do arquivo
+        return $this->response->download($fileInfo['RECEITA_APLICACOES_ARQUIVO'], null);
 
-        return redirect()->to('autenticacao/admin')->with('success', 'Formulário excluído com sucesso.');
+    } else {
+
+        // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+        // Note que você pode personalizar essa parte conforme necessário
+        return redirect()->to('/erro');
     }
+}
+
+public function downloadApolice($pk = null)
+{
+    if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+    
+        $clienteFormulario = new ClienteFormularioModel();
+        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
+    
+        $formulario = $clienteFormulario->find($pk); 
+        $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
+    
+        if (!$formulario) {
+            return redirect()->back()->with('error', 'Formulário não encontrado.');
+        }
+    // Busca o caminho do arquivo no banco de dados usando $id
+    $fileInfo = $clienteFormulario->where('pk', $pk)->first();
+
+    // Verifica se o arquivo existe
+    if (file_exists($fileInfo['PROTECAO_APOLICE_SEGURO_ARQUIVO'])) {
+
+        // Força o download do arquivo
+        return $this->response->download($fileInfo['PROTECAO_APOLICE_SEGURO_ARQUIVO'], null);
+
+    } else {
+
+        // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+        // Note que você pode personalizar essa parte conforme necessário
+        return redirect()->to('/erro');
+    }
+}
+
+public function downloadPrevidencia($pk = null)
+{
+    if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+    
+        $clienteFormulario = new ClienteFormularioModel();
+        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
+    
+        $formulario = $clienteFormulario->find($pk); 
+        $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
+    
+        if (!$formulario) {
+            return redirect()->back()->with('error', 'Formulário não encontrado.');
+        }
+    // Busca o caminho do arquivo no banco de dados usando $id
+    $fileInfo = $clienteFormulario->where('pk', $pk)->first();
+
+    // Verifica se o arquivo existe
+    if (file_exists($fileInfo['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'])) {
+
+        // Força o download do arquivo
+        return $this->response->download($fileInfo['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'], null);
+
+    } else {
+
+        // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+        // Note que você pode personalizar essa parte conforme necessário
+        return redirect()->to('/erro');
+    }
+}
     
 }
