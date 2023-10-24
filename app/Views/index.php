@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/responsividade.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/responsividade.css">
 
 
 </head>
@@ -44,7 +44,7 @@
             <!-- Logo -->
             <div>
 
-                <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
+                <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="Logo">
                 <a class="navbar-brand">InvestPlanner</a>
 
             </div>
@@ -68,7 +68,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="/autenticacao">Login</a>
+                        <a class="nav-link" href="<?php echo base_url('autenticacao')?>">Login</a>
 
                     </li>
 
