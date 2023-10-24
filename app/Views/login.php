@@ -13,7 +13,7 @@
 
 
   <!--- CSS --->
-  <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
+  <link rel="stylesheet" href="style/responsividade.css">
 
   <title>Document</title>
 </head>

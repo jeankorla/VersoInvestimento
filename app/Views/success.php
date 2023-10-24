@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
 
   <!---- ---->
-  <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
+  <link rel="stylesheet" href="style/responsividade.css">
   
 
   <title>Navbar</title>

@@ -12,8 +12,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- css -->
-  <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
-  <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/responsividade.css">
 
   <title>Admin</title>
 </head>
