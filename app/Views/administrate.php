@@ -119,9 +119,9 @@
                 <td><?= $item->PK ?></td>
                 <td>
                   <div style="display: flex; gap: 10px">
-                    <a href="/autenticacao/gerar/<?= $item->PK ?>" class="btn btn-primary">Relatório</a>
-                    <a href="<?= base_url('autenticacao/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?= base_url("autenticacao/excluir/{$item->PK}") ?>" class="btn btn-danger">Excluir</a>
+                    <a href="<?= base_url('Autenticacao/gerar/' .$item->PK )?>" class="btn btn-primary">Relatório</a>
+                    <a href="<?= base_url('Autenticacao/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?= base_url('Autenticacao/excluir/' .$item->PK) ?>" class="btn btn-danger">Excluir</a>
                   </div>
                 </td>
 

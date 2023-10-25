@@ -63,6 +63,8 @@ writable/debugbar/*
 
 php_errors.log
 
+config.local.php
+
 #-------------------------
 # User Guide Temp Files
 #-------------------------

@@ -68,7 +68,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="/autenticacao">Login</a>
+                        <a class="nav-link" href="/Autenticacao">Login</a>
 
                     </li>
 
@@ -111,7 +111,7 @@
 
     <!-- forms Edição -->
 
-    <form id="signUpForm" method="post" action="<?php echo base_url('autenticacao/update/' . $formulario['PK']); ?>">
+    <form id="signUpForm" method="post" action="<?php echo base_url('Autenticacao/update/' . $formulario['PK']); ?>">
 
         </div>
 
@@ -182,7 +182,16 @@
 
         </div>
 
-        <!--     NECESSARIO FAZER O UPLOADO DOS ARQUIVOS DE MANEIRA CORRETA       ->
+        <!--     NECESSARIO FAZER O UPLOADO DOS ARQUIVOS DE MANEIRA CORRETA       !-->
+        <a href="<?php echo base_url('Autenticacao/downloadReceita/' . $formulario['PK']); ?>" target="_blank">Download Receita</a>
+
+        <a href="<?php echo base_url('Autenticacao/downloadApolice/' . $formulario['PK']); ?>" target="_blank">Download Apólice</a>
+
+        <a href="<?php echo base_url('Autenticacao/downloadPrevidencia/' . $formulario['PK']); ?>" target="_blank">Download Previdência</a>
+
+
+
+
 
         <!-- DESPESAS -->
 
@@ -557,6 +566,72 @@
             <?php endif; ?>
         <?php endforeach; ?>
 
+
+        <div class="mb-3">
+
+        <label>Índice de poupança:</label>
+        <input type="text" name="INDICE_POUPANCA" id="INDICE_POUPANCA" step="0.01"
+            value="<?php echo $resultado['INDICE_POUPANCA']; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+        <label>Índice de liquidez corrente:</label>
+        <input type="text" name="INDICE_LIQUIDEZ_CORRENTE" id="INDICE_LIQUIDEZ_CORRENTE" step="0.01"
+            value="<?php echo $resultado["INDICE_LIQUIDEZ_CORRENTE"]; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+        <label>Índice de endividamento:</label>
+        <input type="text" name="INDICE_ENDIVIDAMENTO" id="INDICE_ENDIVIDAMENTO" step="0.01"
+            value="<?php echo $resultado["INDICE_ENDIVIDAMENTO"]; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+        <label>Índice de cobertura:</label>
+        <input type="text" name="INDICE_COBERTURA" id="INDICE_COBERTURA" step="0.01"
+            value="<?php echo $resultado["INDICE_COBERTURA"]; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+        <label>Patrimonio Líquido:</label>
+        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="PATRIMONIO_LIQUIDO" id="PATRIMONIO_LIQUIDO" step="0.01"
+            value="<?php echo $resultado["PATRIMONIO_LIQUIDO"]; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+        <label>Dividas totais: </label>
+        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DIVIDAS_TOTAIS" id="DIVIDAS_TOTAIS" step="0.01"
+            value="<?php echo $resultado["DIVIDAS_TOTAIS"]; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+        <label>Despesas totais:</label>
+        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_TOTAL" id="DESPESA_TOTAL" step="0.01"
+            value="<?php echo $resultado["DESPESA_TOTAL"]; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+        <label>Patrimonio imbolizado:</label>
+        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="PATRIMONIO_IMOBILIZADO" id="PATRIMONIO_IMOBILIZADO" step="0.01"
+            value="<?php echo $resultado["PATRIMONIO_IMOBILIZADO"]; ?>">
+
+        </div>
+
+
         <button type="submit" name="update_button" class="btn btn-warning" style="margin-top: 30px"
             value="update">Atualizar</button>
 
@@ -611,8 +686,8 @@
     });
 
         function formatCurrencyForSave(input) {
-        let value = input.value.replace(/\D/g, '');
-        value = (Number(value) / 100).toFixed(2);
+        let value = input.value.replace(/[^\d-]/g, '');
+        value = (value.startsWith('-') ? '-' : '') + (Number(value) / 100).toFixed(2);
         value = value.replace('.', ',');
         input.value = value;
     }
@@ -626,8 +701,8 @@
     });
 
     function formatCurrency(input) {
-        let value = input.value.replace(/\D/g, '');
-        value = (Number(value) / 100).toFixed(2);
+        let value = input.value.replace(/[^\d-]/g, '');
+        value = (value.startsWith('-') ? '-' : '') + (Number(value) / 100).toFixed(2);
         
         // Inverte a ordem dos substitutos
         value = value.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');

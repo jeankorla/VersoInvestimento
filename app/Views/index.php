@@ -68,7 +68,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="/autenticacao">Login</a>
+                        <a class="nav-link" href="/Autenticacao">Login</a>
 
                     </li>
 
@@ -120,7 +120,7 @@
 
     </div>
 
-    <form id="signUpForm" method="POST" action="<?= base_url('home/salvar') ?>">
+    <form id="signUpForm" method="POST" enctype="multipart/form-data" action="<?= base_url('home/salvar') ?>">
 
         <!-- start step indicators -->
         <div class="form-header d-flex mb-4">
@@ -278,11 +278,10 @@
                 <label for="RECEITA_APLICACOES_ARQUIVO">Aplicações Financeiras - Anexar extrato das
                     aplicações</label><br>
 
-                <input type="file" id="RECEITA_APLICACOES_ARQUIVO" name="RECEITA_APLICACOES_ARQUIVO" />
-
-                <!-- anexo arruma depois -->
+                <input type="file" id="RECEITA_APLICACOES_ARQUIVO"  name="RECEITA_APLICACOES_ARQUIVO" />                
 
             </div>
+
 
         </div>
 
@@ -1291,6 +1290,7 @@
             input.value = "R$ 0,00";
         }
     }
+
 
     //ADICIONAR OPÇÔES DE GASTOS  -- REPASSAR
 

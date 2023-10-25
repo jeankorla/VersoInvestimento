@@ -30,7 +30,7 @@ class Autenticacao extends BaseController
             // Limpa todas as outras variáveis de sessão
             session()->remove(['otherSessionVariable1', 'otherSessionVariable2']);
             // Redireciona para a tela "index"
-            return redirect()->to('autenticacao/admin');
+            return redirect()->to('Autenticacao/admin');
         } else {
             // Caso o login falhe, redireciona de volta para a tela de login
             return redirect()->back()->with('error', 'Credenciais inválidas.')->withInput();
@@ -101,15 +101,17 @@ class Autenticacao extends BaseController
     
         $clienteFormulario = new ClienteFormularioModel();
         $clienteDespesas = new ClienteDespesaPersonalizadaModel();
+        $clienteResultados = new ClienteResultadoModel();
     
         $formulario = $clienteFormulario->find($pk); 
         $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
+        $resultado = $clienteResultados->where('CLIENTE_FORMULARIO_FK', $pk)->first();
     
         if (!$formulario) {
             return redirect()->back()->with('error', 'Formulário não encontrado.');
         }
     
-        return view('edit.php', ['formulario' => $formulario, 'despesas' => $despesas]);
+        return view('edit.php', ['formulario' => $formulario, 'despesas' => $despesas, 'resultado' =>$resultado]);
     }
     public function update($pk = null)
     {
@@ -177,11 +179,26 @@ class Autenticacao extends BaseController
              
             
         ];
+
+        $resultadoData = [ 
+ 
+            'INDICE_POUPANCA'                                   => $this->request->getPost('INDICE_POUPANCA'),
+            'INDICE_LIQUIDEZ_CORRENTE'                          => $this->request->getPost('INDICE_LIQUIDEZ_CORRENTE'),
+            'INDICE_ENDIVIDAMENTO'                              => $this->request->getPost('INDICE_ENDIVIDAMENTO'),
+            'INDICE_COBERTURA'                                  => $this->request->getPost('INDICE_COBERTURA'),
+            'PATRIMONIO_LIQUIDO'                                => $this->request->getPost('PATRIMONIO_LIQUIDO'),
+            'DIVIDAS_TOTAIS'                                    => $this->request->getPost('DIVIDAS_TOTAIS'),
+            'DESPESA_TOTAL'                                     => $this->request->getPost('DESPESA_TOTAL'),
+            'PATRIMONIO_IMOBILIZADO'                            => $this->request->getPost('PATRIMONIO_IMOBILIZADO'),   
+        
+        ];
     
         $clienteFormulario = new ClienteFormularioModel();
+        $clienteResultado = new ClienteResultadoModel();
     
         // Atualizar os dados do formulário ...
         $clienteFormulario->update($pk, $formData);
+        $clienteResultado->update($pk, $resultadoData);
     
         // Atualizar as despesas      
         $clienteDespesas = new ClienteDespesaPersonalizadaModel();
@@ -207,15 +224,15 @@ class Autenticacao extends BaseController
                     // caso erro
                     $errorMessage = $clienteDespesas->error();
 
-                    return redirect()->to('autenticacao/admin')->with('error', 'Erro ao atualizar despesas: ' . $errorMessage);
+                    return redirect()->to('Autenticacao/admin')->with('error', 'Erro ao atualizar despesas: ' . $errorMessage);
                 }
             }
 
-            return redirect()->to('autenticacao/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
+            return redirect()->to('Autenticacao/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
 
         } else {
 
-            return redirect()->to('autenticacao/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
+            return redirect()->to('Autenticacao/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
             
         }
     }
@@ -240,7 +257,87 @@ class Autenticacao extends BaseController
         // EXCLUIR FORM
         $clienteFormulario->delete($pk);
 
-        return redirect()->to('autenticacao/admin')->with('success', 'Formulário excluído com sucesso.');
+        return redirect()->to('Autenticacao/admin')->with('success', 'Formulário excluído com sucesso.');
+    }
+    
+    public function downloadReceita($pk = null)
+{
+    if (!$pk) {
+        return redirect()->back()->with('error', 'ID inválido.');
+    }
+
+    $clienteFormulario = new ClienteFormularioModel();
+    $formulario = $clienteFormulario->find($pk);
+
+    if (!$formulario) {
+        return redirect()->back()->with('error', 'Formulário não encontrado.');
+    }
+
+    // Construa o caminho absoluto
+    $filePath = WRITEPATH . $formulario['RECEITA_APLICACOES_ARQUIVO'];
+
+    // Verifica se o arquivo existe
+    if (file_exists($filePath)) {
+        // Força o download do arquivo
+        return $this->response->download($filePath, null);
+    } else {
+        // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+        return redirect()->to('/erro');
+    }
+}
+    
+    public function downloadApolice($pk = null)
+    {
+        if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+
+        $clienteFormulario = new ClienteFormularioModel();
+        $formulario = $clienteFormulario->find($pk);
+
+        if (!$formulario) {
+            return redirect()->back()->with('error', 'Formulário não encontrado.');
+        }
+
+        // Construa o caminho absoluto
+        $filePath = WRITEPATH . $formulario['PROTECAO_APOLICE_SEGURO_ARQUIVO'];
+
+        // Verifica se o arquivo existe
+        if (file_exists($filePath)) {
+            // Força o download do arquivo
+            return $this->response->download($filePath, null);
+        } else {
+            // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+            return redirect()->to('/erro');
+        }
+    }
+    
+    public function downloadPrevidencia($pk = null)
+    {
+        if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+    
+        $clienteFormulario = new ClienteFormularioModel();
+        $formulario = $clienteFormulario->find($pk);
+    
+        if (!$formulario) {
+            return redirect()->back()->with('error', 'Formulário não encontrado.');
+        }
+    
+        // Construa o caminho absoluto
+        $filePath = WRITEPATH . $formulario['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'];
+    
+        // Verifica se o arquivo existe
+        if (file_exists($filePath)) {
+            // Força o download do arquivo
+            return $this->response->download($filePath, null);
+        } else {
+            // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+            return redirect()->to('/erro');
+        }
     }
     
 }
+
+

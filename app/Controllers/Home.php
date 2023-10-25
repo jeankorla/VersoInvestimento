@@ -24,7 +24,42 @@ class Home extends BaseController
 
     public function salvar()
     {
+        $arqPath = 'public_html/formulario/uploads/';
 
+        $receitaAplicacoesArquivo = $this->request->getFile('RECEITA_APLICACOES_ARQUIVO');
+        $apoliceSeguroArquivo = $this->request->getFile('PROTECAO_APOLICE_SEGURO_ARQUIVO');
+        $previdenciaExtratoArquivo = $this->request->getFile('PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO');
+    
+        $Registros_ClienteFormularioModel = [];
+    
+        if ($receitaAplicacoesArquivo->isValid() && !$receitaAplicacoesArquivo->hasMoved())
+        {
+            $newName = $receitaAplicacoesArquivo->getRandomName();
+            $receitaAplicacoesArquivo->move(WRITEPATH . 'uploads', $newName);
+    
+            $filePathAplicacoes = $arqPath . $newName;
+            $Registros_ClienteFormularioModel['RECEITA_APLICACOES_ARQUIVO'] = $filePathAplicacoes;
+        }
+    
+        if ($apoliceSeguroArquivo->isValid() && !$apoliceSeguroArquivo->hasMoved())
+        {
+            $newName = $apoliceSeguroArquivo->getRandomName();
+            $apoliceSeguroArquivo->move(WRITEPATH . 'uploads', $newName);
+    
+            $filePathSeguro = $arqPath . $newName;
+            $Registros_ClienteFormularioModel['PROTECAO_APOLICE_SEGURO_ARQUIVO'] = $filePathSeguro;
+        }
+    
+        if ($previdenciaExtratoArquivo->isValid() && !$previdenciaExtratoArquivo->hasMoved())
+        {
+            $newName = $previdenciaExtratoArquivo->getRandomName();
+            $previdenciaExtratoArquivo->move(WRITEPATH . 'uploads', $newName);
+    
+            $filePathPrevidencia = $arqPath . $newName;
+            $Registros_ClienteFormularioModel['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'] = $filePathPrevidencia;
+        }
+
+        
         $Registros_ClienteFormularioModel = [
             'SOBRE_EMAIL'                                               => $this->request->getPost('SOBRE_EMAIL'),
             'SOBRE_NOME'                                                => $this->request->getPost('SOBRE_NOME'),
@@ -37,7 +72,8 @@ class Home extends BaseController
 
             'RECEITA_RENDA_MENSAL_LIQUIDA'                              => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA_HIDDEN'),
             'RECEITA_APLICACOES_VALOR_TOTAL'                            => $this->request->getPost('RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN'),
-            'RECEITA_APLICACOES_ARQUIVO'                                => $this->request->getPost('RECEITA_APLICACOES_ARQUIVO_HIDDEN'),
+            'RECEITA_APLICACOES_ARQUIVO'                                => $filePathAplicacoes,
+
 
             'DESPESA_LUZ_MEDIA_MENSAL'                                  => $this->request->getPost('DESPESA_LUZ_MEDIA_MENSAL_HIDDEN'),
             'DESPESA_AGUA_MEDIA_MENSAL'                                 => $this->request->getPost('DESPESA_AGUA_MEDIA_MENSAL_HIDDEN'),
@@ -75,8 +111,8 @@ class Home extends BaseController
 
             'BEM_FK'                                                    => $this->request->getPost('BEM_FK_HIDDEN'),
 
-            'PROTECAO_APOLICE_SEGURO_ARQUIVO'                           => $this->request->getPost('PROTECAO_APOLICE_SEGURO_ARQUIVO_HIDDEN'),
-            'PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'                      => $this->request->getPost('PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO_HIDDEN'),
+            'PROTECAO_APOLICE_SEGURO_ARQUIVO'                           => $filePathSeguro,
+            'PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'                      => $filePathPrevidencia,
             'PROTECAO_PREVIDENCIA_PRIVADA_MENSAL'                       => $this->request->getPost('PROTECAO_PREVIDENCIA_PRIVADA_MENSAL_HIDDEN'),
             'PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO'              => $this->request->getPost('PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO_HIDDEN'),
             'PROTECAO_FUNDO_GARANTIA_VALOR'                             => $this->request->getPost('PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN'),
@@ -124,6 +160,8 @@ class Home extends BaseController
     public function suc(){
 
         echo view('success.php');
-    }
+    }    
+
+
 
 }
