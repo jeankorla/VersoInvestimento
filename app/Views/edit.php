@@ -16,11 +16,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
 
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url('style/style.css'); ?>">
@@ -539,33 +542,127 @@
                 value="<?php echo $formulario['OBJETIVO_VALOR']; ?>">
 
         </div>
+        <div class="mb-5"></div>
 
+        <div id="titulo-despesas" style="display:none;">
 
+            <hr class="hr hr-blurry" />
+
+            <div class="mb-3">
+
+                <label class="TITULO">Gastos Personalizados</label>
+
+            </div>
+
+        </div>
+
+        <div class="container-despesas">
         <!-- não sei como fazer isso ainda -->
-        <?php foreach ($despesas as $index => $despesa): ?>
+            <?php foreach ($despesas as $index => $despesa): ?>
 
-            <?php if ($despesa['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
+                <?php if ($despesa['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
 
-                <div class="mb-3">
+                    <div class="mb-3">
 
-                    <label><?php echo $despesa['DESCRICAO'] ?></label>
+                        <label><?php echo $despesa['DESCRICAO'] ?></label>
 
-                    <input type="text" name="DESPESA[<?= $despesa['PK']; ?>]" value="<?php echo $despesa['VALOR']; ?>">
+                        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" step="0.01" name="DESPESA[<?= $despesa['PK']; ?>]" value="<?php echo $despesa['VALOR']; ?>">
 
-                    <input type="hidden" name="CATEGORIA[<?= $despesa['PK']; ?>]" class="categoriaInput" value="DESPESA">
+                        <input type="hidden" name="CATEGORIA[<?= $despesa['PK']; ?>]" class="categoriaInput" value="DESPESA">
 
-                    <div class="form-check form-switch isolated-switch">
+                        <div class="form-check form-switch isolated-switch">
 
-                        <input class="form-check-input switchInput" type="checkbox" style="border-radius: 20px; width: 65px; height: 10px;">
+                            <input class="form-check-input switchInput" type="checkbox" style="border-radius: 20px; width: 65px; height: 10px;">
 
-                        <label class="switchLabel" style="margin-top: 7px; margin-left: 10px; text-decoration: underline;">DESPESA</label>
+                            <label class="switchLabel" style="margin-top: 7px; margin-left: 10px; text-decoration: underline;">DESPESA</label>
+
+                        </div>
 
                     </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
 
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
+        <div class="mb-5"></div>
 
+        <div id="titulo-bems" style="display:none;">
+
+            <hr class="hr hr-blurry" />
+
+            <div class="mb-3">
+
+                <label class="TITULO">Bems</label>
+
+            </div>
+
+        </div>
+        <div class="container-bems">
+        <!-- não sei como fazer isso ainda -->
+            <?php foreach ($bems as $index => $bems): ?>
+
+                <?php if ($bems['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
+
+                    <div class="mb-3">
+
+                        <label><?php echo $bems['DESCRICAO'] ?></label>
+
+                        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" step="0.01" name="BEMS[<?= $bems['PK']; ?>]" value="<?php echo $bems['VALOR']; ?>">
+
+                        <input type="hidden" name="CATEGORIA[<?= $bems['PK']; ?>]" class="categoriaInput" value="BEMS">
+
+
+
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="mb-5"></div>
+
+        <div id="titulo-seguros" style="display:none;">
+
+            <hr class="hr hr-blurry" />
+
+            <div class="mb-3">
+
+                <label class="TITULO">Seguros</label>
+
+            </div>
+
+        </div>
+
+        <div class="container-seguros">
+            <!-- não sei como fazer isso ainda -->
+            <?php foreach ($protecao as $index => $protecao): ?>
+
+                <?php if ($protecao['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
+
+                    <div class="mb-3">
+
+                        <label><?php echo $protecao['DESCRICAO'] ?></label>
+
+                        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" step="0.01" name="PROTECAO[<?= $protecao['PK']; ?>]" value="<?php echo $protecao['VALOR']; ?>">
+
+                        <input type="hidden" step="0.01"  name="CATEGORIA[<?= $protecao['PK']; ?>]" class="categoriaInput" value="PROTECAO">
+
+
+
+                    </div>
+                <?php endif; ?>
+
+            <?php endforeach; ?>
+            
+        </div>
+
+        <hr class="hr hr-blurry" />
+
+        <button type="submit" name="update_button" class="btn btn-warning" style="margin-top: 30px"
+            value="update">Atualizar</button>
+    </form>
+    <form id="signUpForm" method="post" action="<?php echo base_url('Autenticacao/updateResultado/' . $formulario['PK']); ?>">
+        <div class="mb-3">
+        <label class="TITULO">Resultados:</label>
+        </div>
 
         <div class="mb-3">
 
@@ -678,7 +775,6 @@
         const updateButton = document.querySelector('button[name="update_button"]');
 
         updateButton.addEventListener('click', function() {
-            // Remove a formatação dos campos ao clicar no botão de atualização
             document.querySelectorAll('.formatCurrency').forEach(function(input) {
                 formatCurrencyForSave(input);
             });
@@ -694,7 +790,7 @@
 
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Aplica a formatação a todos os campos com a classe "formatCurrency"
+
         document.querySelectorAll('.formatCurrency').forEach(function(input) {
             formatCurrency(input);
         });
@@ -704,10 +800,37 @@
         let value = input.value.replace(/[^\d-]/g, '');
         value = (value.startsWith('-') ? '-' : '') + (Number(value) / 100).toFixed(2);
         
-        // Inverte a ordem dos substitutos
+
         value = value.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
         input.value = value;
     }
+
+    $(document).ready(function() {
+        console.log("Documento carregado.");
+
+        // Verifica a seção de despesas
+        if ($('.container-despesas .mb-3').length > 0) {
+            console.log("Despesas detectadas.");
+            $('#titulo-despesas').show();
+        }
+
+        // Verifica a seção de bens
+        if ($('.container-bems .mb-3').length > 0) {
+            console.log("Bens detectados.");
+            $('#titulo-bems').show();
+        }
+
+        // Verifica a seção de seguros
+        if ($('.container-seguros .mb-3').length > 0) {
+            console.log("Seguros detectados.");
+            $('#titulo-seguros').show();
+        }
+    });
+
+
+
+
+
 </script>
 

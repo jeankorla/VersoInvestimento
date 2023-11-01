@@ -121,7 +121,8 @@
                   <div style="display: flex; gap: 10px">
                     <a href="<?= base_url('Autenticacao/gerar/' .$item->PK )?>" class="btn btn-primary">Relatório</a>
                     <a href="<?= base_url('Autenticacao/edit/' . $item->PK) ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?= base_url('Autenticacao/excluir/' .$item->PK) ?>" class="btn btn-danger">Excluir</a>
+                    <a href="<?= base_url('Autenticacao/excluir/' .$item->PK) ?>" class="btn btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este registro?');">Excluir</a>
+
                   </div>
                 </td>
 

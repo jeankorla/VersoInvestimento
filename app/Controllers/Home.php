@@ -2,19 +2,94 @@
 
 namespace App\Controllers;
 
+use App\Models\ClienteBemsPersonalizadaModel;
 use App\Models\ClienteDespesaPersonalizadaModel;
 use App\Models\ClienteFormularioModel;
+use App\Models\ClienteProtecaoPersonalizadaModel;
 use CodeIgniter\Controller;
 
 class Home extends BaseController
 {
     private $ClienteFormularioModel;
     private $ClienteDespesaPersonalizadaModel;
-
+    private $ClienteBemsPersonalizadaModel;
+    private $ClienteProtecaoPersonalizadaModel;
     public function __construct()
     {
         $this->ClienteFormularioModel = new ClienteFormularioModel();
         $this->ClienteDespesaPersonalizadaModel = new ClienteDespesaPersonalizadaModel();
+        $this->ClienteBemsPersonalizadaModel = new ClienteBemsPersonalizadaModel();
+        $this->ClienteProtecaoPersonalizadaModel = new ClienteProtecaoPersonalizadaModel();
+    }
+
+    public function bens($FK){
+         
+        // BEMS PERSONALIZADAS --- INICIO
+        $Registros_ClienteBemsPersonalizadaModel = [];
+        $Quantidade_Bems = intval($this->request->getPost('BEMS_PERSONALIZADA_QUANTIDADE_LINHAS'));
+
+        if ($Quantidade_Bems > 0)
+        {
+            for ($x = 1; $x <= $Quantidade_Bems; $x++)
+            {
+                $Registros_ClienteBemsPersonalizadaModel['CLIENTE_FORMULARIO_FK'] = $FK;
+                
+                $Registros_ClienteBemsPersonalizadaModel['DESCRICAO']             = $this->request->getPost('BEMS_PERSONALIZADA_DESCRICAO_' . $x);
+                $Registros_ClienteBemsPersonalizadaModel['VALOR']                 = $this->request->getPost('BEMS_PERSONALIZADA_VALOR_' . $x);
+                
+                $this->ClienteBemsPersonalizadaModel->insert($Registros_ClienteBemsPersonalizadaModel);
+
+                $Registros_ClienteBemsPersonalizadaModel = [];
+            }
+        }
+        // BEMS PERSONALIZADAS --- FIM
+
+    }
+
+    public function protecao($FK){
+         
+        // PROTECAO PERSONALIZADAS --- INICIO
+        $Registros_ClienteProtecaoPersonalizadaModel = [];
+        $Quantidade_Protecao = intval($this->request->getPost('PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS'));
+
+        if ($Quantidade_Protecao > 0)
+        {
+            for ($x = 1; $x <= $Quantidade_Protecao; $x++)
+            {
+                $Registros_ClienteProtecaoPersonalizadaModel['CLIENTE_FORMULARIO_FK'] = $FK;
+                
+                $Registros_ClienteProtecaoPersonalizadaModel['DESCRICAO']             = $this->request->getPost('PROTECAO_PERSONALIZADA_DESCRICAO_' . $x);
+                $Registros_ClienteProtecaoPersonalizadaModel['VALOR']                 = $this->request->getPost('PROTECAO_PERSONALIZADA_VALOR_' . $x);
+                
+                $this->ClienteProtecaoPersonalizadaModel->insert($Registros_ClienteProtecaoPersonalizadaModel);
+
+                $Registros_ClienteProtecaoPersonalizadaModel = [];
+            }
+        }
+        // PROTECAO PERSONALIZADAS --- FIM
+
+    }
+    
+    public function despesas($FK){
+        // DESPESAS PERSONALIZADAS --- INICIO
+        $Registros_ClienteDespesaPersonalizadaModel = [];
+        $Quantidade_Despesas = intval($this->request->getPost('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS'));
+
+        if ($Quantidade_Despesas > 0)
+        {
+            for ($x = 1; $x <= $Quantidade_Despesas; $x++)
+            {
+                $Registros_ClienteDespesaPersonalizadaModel['CLIENTE_FORMULARIO_FK'] = $FK;
+                
+                $Registros_ClienteDespesaPersonalizadaModel['DESCRICAO']             = $this->request->getPost('DESPESA_PERSONALIZADA_DESCRICAO_' . $x);
+                $Registros_ClienteDespesaPersonalizadaModel['VALOR']                 = $this->request->getPost('DESPESA_PERSONALIZADA_VALOR_' . $x);
+                
+                $this->ClienteDespesaPersonalizadaModel->insert($Registros_ClienteDespesaPersonalizadaModel);
+
+                $Registros_ClienteDespesaPersonalizadaModel = [];
+            }
+        }
+        // DESPESAS PERSONALIZADAS --- FIM
     }
 
     public function index()
@@ -31,8 +106,12 @@ class Home extends BaseController
         $previdenciaExtratoArquivo = $this->request->getFile('PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO');
     
         $Registros_ClienteFormularioModel = [];
+
+        $filePathAplicacoes = null;
+        $filePathPrevidencia = null;
+        $filePathSeguro = null;
     
-        if ($receitaAplicacoesArquivo->isValid() && !$receitaAplicacoesArquivo->hasMoved())
+        if (!empty($receitaAplicacoesArquivo) &&  $receitaAplicacoesArquivo->isValid() && !$receitaAplicacoesArquivo->hasMoved())
         {
             $newName = $receitaAplicacoesArquivo->getRandomName();
             $receitaAplicacoesArquivo->move(WRITEPATH . 'uploads', $newName);
@@ -41,7 +120,7 @@ class Home extends BaseController
             $Registros_ClienteFormularioModel['RECEITA_APLICACOES_ARQUIVO'] = $filePathAplicacoes;
         }
     
-        if ($apoliceSeguroArquivo->isValid() && !$apoliceSeguroArquivo->hasMoved())
+        if (!empty($apoliceSeguroArquivo) && $apoliceSeguroArquivo->isValid() && !$apoliceSeguroArquivo->hasMoved())
         {
             $newName = $apoliceSeguroArquivo->getRandomName();
             $apoliceSeguroArquivo->move(WRITEPATH . 'uploads', $newName);
@@ -50,7 +129,7 @@ class Home extends BaseController
             $Registros_ClienteFormularioModel['PROTECAO_APOLICE_SEGURO_ARQUIVO'] = $filePathSeguro;
         }
     
-        if ($previdenciaExtratoArquivo->isValid() && !$previdenciaExtratoArquivo->hasMoved())
+        if (!empty($previdenciaExtratoArquivo) && $previdenciaExtratoArquivo->isValid() && !$previdenciaExtratoArquivo->hasMoved())
         {
             $newName = $previdenciaExtratoArquivo->getRandomName();
             $previdenciaExtratoArquivo->move(WRITEPATH . 'uploads', $newName);
@@ -126,32 +205,14 @@ class Home extends BaseController
         ];
 
         $this->ClienteFormularioModel->insert($Registros_ClienteFormularioModel);
+        $FK = $this->ClienteFormularioModel->insertID();       
 
-
-        // DESPESAS PERSONALIZADAS --- INICIO
-        $Registros_ClienteDespesaPersonalizadaModel = [];
-        $FK = $this->ClienteFormularioModel->insertID();
-        $Quantidade_Despesas = intval($this->request->getPost('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS'));
-
-        if ($Quantidade_Despesas > 0)
-        {
-            for ($x = 1; $x <= $Quantidade_Despesas; $x++)
-            {
-                $Registros_ClienteDespesaPersonalizadaModel['CLIENTE_FORMULARIO_FK'] = $FK;
-                
-                $Registros_ClienteDespesaPersonalizadaModel['DESCRICAO']             = $this->request->getPost('DESPESA_PERSONALIZADA_DESCRICAO_' . $x);
-                $Registros_ClienteDespesaPersonalizadaModel['VALOR']                 = $this->request->getPost('DESPESA_PERSONALIZADA_VALOR_' . $x);
-                
-                $this->ClienteDespesaPersonalizadaModel->insert($Registros_ClienteDespesaPersonalizadaModel);
-
-                $Registros_ClienteDespesaPersonalizadaModel = [];
-            }
-        }
-        // DESPESAS PERSONALIZADAS --- FIM
-
+        
+        $this->bens($FK);
+        $this->protecao($FK);
+        $this->despesas($FK);
 
         //dd($Registros_ClienteFormularioModel, $Registros_ClienteDespesaPersonalizadaModel);
-
 
         return view('success.php');
 

@@ -72,6 +72,12 @@ h4 {
     color: #bfa96c;
 }
 
+.TITULO{
+    font-size: 25px;
+    text-decoration: underline ;
+    text-decoration-color: #bfa96c;
+}
+
 #signUpForm .form-header .stepIndicator::before {
     content: "";
     position: absolute;
