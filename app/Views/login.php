@@ -13,7 +13,7 @@
 
 
   <!--- CSS --->
-  <link rel="stylesheet" href="style/responsividade.css">
+  <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
 
   <title>Document</title>
 </head>
@@ -47,7 +47,7 @@
             <div class="card-body py-5 px-md-5">
               <h1 class="text-center text-white">Login</h1>
 
-              <form action="<?php echo base_url('autenticacao/login') ?>" method="post">
+              <form action="<?= site_url('Autenticacao/login') ?>" method="post">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <input type="text" id="NAME" name="NAME" class="form-control" />

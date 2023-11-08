@@ -8,9 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
 
-   <!-- CSS -->
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/responsividade.css">
+  <!---- ---->
+  <link rel="stylesheet" href="<?= base_url('style/responsividade.css'); ?>">
   
 
   <title>Navbar</title>
@@ -111,7 +110,7 @@
             
             <li class="nav-item">
                 
-                <a class="nav-link" href="/autenticacao">Login</a>
+                <a class="nav-link" href="/Autenticacao">Login</a>
             
             </li>
             
