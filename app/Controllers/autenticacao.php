@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ClienteBemsPersonalizadaModel;
+use App\Models\ClienteProtecaoPersonalizadaModel;
 use App\Models\UsuarioModel;
 use App\Models\ClienteDespesaPersonalizadaModel;
 use App\Models\ClienteFormularioModel;
@@ -17,7 +19,7 @@ class Autenticacao extends BaseController
     }
     public function login()
     {
-         $username = $this->request->getPost('NAME');
+        $username = $this->request->getPost('NAME');
         $password = $this->request->getPost('PASSWORD');
 
         $model = new UsuarioModel();
@@ -62,7 +64,7 @@ class Autenticacao extends BaseController
         //select da table
         $builder->select('*');
         //join das duas table
-        $builder->join('CLIENTES_RESULTADOS', 'CLIENTES_FORMULARIO.PK = CLIENTES_RESULTADOS.PK');
+        $builder->join('CLIENTES_RESULTADOS', 'CLIENTES_FORMULARIO.PK = CLIENTES_RESULTADOS.CLIENTE_FORMULARIO_FK');
         // qauery recebendo a data'
         $query = $builder->get();
 
@@ -77,7 +79,7 @@ class Autenticacao extends BaseController
             return redirect()->back()->with('error', 'ID inválido.');
         }
 
-        $clienteFormulario = new ClienteFormularioModel();
+        $clienteFormulario  = new ClienteFormularioModel();
         $clienteResultado = new ClienteResultadoModel();
 
         $formulario = $clienteFormulario->where('PK', $pk)->first();
@@ -98,21 +100,103 @@ class Autenticacao extends BaseController
         if (!$pk) {
             return redirect()->back()->with('error', 'ID inválido.');
         }
+
     
-        $clienteFormulario = new ClienteFormularioModel();
-        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
-    
-        $formulario = $clienteFormulario->find($pk); 
-        $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
+        $clienteFormulario      =                   new ClienteFormularioModel();
+        $clienteDespesas        =                   new ClienteDespesaPersonalizadaModel();
+        $clienteResultados      =                   new ClienteResultadoModel();
+        $clienteBems            =                   new ClienteBemsPersonalizadaModel();
+        $clienteProtecao        =                   new ClienteProtecaoPersonalizadaModel();
+
+        $resultado              =                   $clienteResultados->where('PK', $pk)->first();
+        
+       $cliente_pk = $resultado['CLIENTE_FORMULARIO_FK'];
+
+        $formulario             =                   $clienteFormulario->find($cliente_pk); 
+        $despesas               =                   $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
+        $bems                   =                   $clienteBems->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
+        $protecao               =                   $clienteProtecao->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
+        
     
         if (!$formulario) {
             return redirect()->back()->with('error', 'Formulário não encontrado.');
         }
-    
-        return view('edit.php', ['formulario' => $formulario, 'despesas' => $despesas]);
+        
+        
+        return view('edit.php', ['formulario' => $formulario, 'despesas' => $despesas, 'resultado' =>$resultado, 'bems' => $bems,'protecao'=> $protecao]);
+
+        
+        
     }
+
+    public function despesasUpdate() {
+        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
+        $despesasData = $this->request->getVar('DESPESA');
+        
+        if (is_array($despesasData) || is_object($despesasData)) {
+            foreach ($despesasData as $despesaId => $valor) {
+                $data = [
+                    'VALOR' => $valor,
+                    'CATEGORIA' => $this->request->getVar("CATEGORIA[$despesaId]")
+                ]; 
+                $clienteDespesas->update($despesaId, $data);
+            }
+        }
+        return true;
+    }    
+
+    public function bemsUpdate(){
+        // Atualizar as despesas      
+        $clienteBems = new ClienteBemsPersonalizadaModel();
+        $bemsData = $this->request->getVar('BEMS');
+
+        
+        if (is_array($bemsData) || is_object($bemsData)) {
+            foreach ($bemsData as $bemsId => $valor) {
+                $data = ['VALOR' => $valor]; 
+
+                $clienteBems->update($bemsId, $data);
+
+            }
+        }
+        return true;
+    }
+
+    public function protecaoUpdated(){
+        // Atualizar as despesas      
+        $clienteProtecao = new ClienteProtecaoPersonalizadaModel();
+        $protecaoData = $this->request->getVar('PROTECAO');
+
+        
+        if (is_array($protecaoData) || is_object($protecaoData)) {
+            foreach ($protecaoData as $protecaoId => $valor) {
+                $data = ['VALOR' => $valor]; 
+                
+                $clienteProtecao->update($protecaoId, $data);
+
+            }
+        }
+        return true;
+    }
+
+    public function updateAll() {
+        if (!$this->despesasUpdate()) {
+            throw new \Exception('Erro ao atualizar despesas.');
+        }
+    
+        if (!$this->bemsUpdate()) {
+            throw new \Exception('Erro ao atualizar bens.');
+        }
+    
+        if (!$this->protecaoUpdated()) {
+            throw new \Exception('Erro ao atualizar proteção.');
+        }
+    }
+    
+
     public function update($pk = null)
     {
+
         if (!$pk) {
 
             return redirect()->back()->with('error', 'ID inválido.');
@@ -176,170 +260,157 @@ class Autenticacao extends BaseController
             'OBJETIVO_VALOR'                                    => $this->request->getPost('OBJETIVO_VALOR'),
              
             
-        ];
+        ];        
     
         $clienteFormulario = new ClienteFormularioModel();
     
         // Atualizar os dados do formulário ...
-        $clienteFormulario->update($pk, $formData);
+        $clienteFormulario->update($pk, $formData);        
     
-        // Atualizar as despesas      
-        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
-        $despesasData = $this->request->getVar('DESPESA');
-
-        
-        if (is_array($despesasData) || is_object($despesasData)) {
-            foreach ($despesasData as $despesaId => $valor) {
-                $data = ['VALOR' => $valor]; 
-                
-                // Atualize a despesa
-                $updated = $clienteDespesas->update($despesaId, $data);
-                
-                // echo "Nova despesa (ID: $despesaId) atualizada para: $valor<br>";
-
-                $categoria = $this->request->getVar("CATEGORIA[$despesaId]");
-
-                $categoriaData = ['CATEGORIA' => $categoria];
-
-                $clienteDespesas->update($despesaId, $categoriaData);
-
-                if (!$updated) {
-                    // caso erro
-                    $errorMessage = $clienteDespesas->error();
-
-                    return redirect()->to('autenticacao/admin')->with('error', 'Erro ao atualizar despesas: ' . $errorMessage);
-                }
-            }
-
-            return redirect()->to('formulario/autenticacao/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
-
-        } else {
-
-            return redirect()->to('autenticacao/admin')->with('error', 'Nenhum dado de despesa foi enviado.');
-            
+        try {
+            $this->updateAll();
+            return redirect()->to('Autenticacao/admin')->with('success', 'Todos os dados foram atualizados com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->to('Autenticacao/admin')->with('error', 'Ocorreu um erro ao atualizar os dados: ' . $e->getMessage());
         }
     }
 
-    public function excluir($pk = null){
+        
+    
+
+    public function updateResultado($pk = null){
     if (!$pk) {
-        // Note que estou mandando um JSON em vez de fazer um redirecionamento,
-        // porque o AJAX não lida bem com redirecionamentos.
-        return $this->response->setJSON(['success' => false, 'error' => 'ID inválido.']);
+
+        return redirect()->back()->with('error', 'ID inválido.');
     }
 
-    $clienteFormulario = new ClienteFormularioModel();
-    $clienteDespesas = new ClienteDespesaPersonalizadaModel();
-    $formulario = $clienteFormulario->find($pk);
+    $resultadoData = [ 
+ 
+        'INDICE_POUPANCA'                                   => $this->request->getPost('INDICE_POUPANCA'),
+        'INDICE_LIQUIDEZ_CORRENTE'                          => $this->request->getPost('INDICE_LIQUIDEZ_CORRENTE'),
+        'INDICE_ENDIVIDAMENTO'                              => $this->request->getPost('INDICE_ENDIVIDAMENTO'),
+        'INDICE_COBERTURA'                                  => $this->request->getPost('INDICE_COBERTURA'),
+        'PATRIMONIO_LIQUIDO'                                => $this->request->getPost('PATRIMONIO_LIQUIDO'),
+        'DIVIDAS_TOTAIS'                                    => $this->request->getPost('DIVIDAS_TOTAIS'),
+        'DESPESA_TOTAL'                                     => $this->request->getPost('DESPESA_TOTAL'),
+        'PATRIMONIO_IMOBILIZADO'                            => $this->request->getPost('PATRIMONIO_IMOBILIZADO'),   
+    
+    ];
 
-    if (!$formulario) {
-        return $this->response->setJSON(['success' => false, 'error' => 'Formulário não encontrado.']);
+    $clienteResultado = new ClienteResultadoModel();
+    $clienteResultado->update($pk, $resultadoData);
+
+    return redirect()->to('Autenticacao/admin')->with('success', 'Dados de despesas atualizados com sucesso.');
+    
+
     }
 
-    $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->delete();
-    $isDeleted = $clienteFormulario->delete($pk);
+    public function excluir($pk = null)
+    {
+        $db = \Config\Database::connect();
 
-    // Verificando se a exclusão foi bem-sucedida e enviando a resposta adequada.
-    if($isDeleted){
-        return $this->response->setJSON(['success' => true]);
-    } else {
-        return $this->response->setJSON(['success' => false, 'error' => 'Erro ao excluir formulário.']);
-    }
-}
+        $query = $db->table('CLIENTES_RESULTADOS')->select('CLIENTE_FORMULARIO_FK')->where('PK', $pk)->get();
+        $result = $query->getRow();
+
+        if ($result) {
+            $cliente_formulario_fk = $result->CLIENTE_FORMULARIO_FK;
+
+            $db->table('CLIENTES_FORMULARIO')->where('PK', $cliente_formulario_fk)->delete();    
+
+            if ($db->affectedRows() > 0) {
+                echo "<script>
+                        alert('Registro com PK = $cliente_formulario_fk deletado com sucesso!');
+                        window.history.back(); // Isso retorna o usuário para a página anterior.
+                      </script>";
+            } else {
+                echo "<script>
+                        alert('Erro: Não foi possível deletar o registro com PK = $cliente_formulario_fk. Erro detalhado: " . $db->error() . "');
+                        window.history.back(); // Isso retorna o usuário para a página anterior.
+                      </script>";
+            }
+            
+        
+        }
+    }   
     
     public function downloadReceita($pk = null)
 {
     if (!$pk) {
-            return redirect()->back()->with('error', 'ID inválido.');
-        }
-    
-        $clienteFormulario = new ClienteFormularioModel();
-        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
-    
-        $formulario = $clienteFormulario->find($pk); 
-        $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
-    
-        if (!$formulario) {
-            return redirect()->back()->with('error', 'Formulário não encontrado.');
-        }
-    // Busca o caminho do arquivo no banco de dados usando $id
-    $fileInfo = $clienteFormulario->where('pk', $pk)->first();
-
-    // Verifica se o arquivo existe
-    if (file_exists($fileInfo['RECEITA_APLICACOES_ARQUIVO'])) {
-
-        // Força o download do arquivo
-        return $this->response->download($fileInfo['RECEITA_APLICACOES_ARQUIVO'], null);
-
-    } else {
-
-        // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
-        // Note que você pode personalizar essa parte conforme necessário
-        return redirect()->to('/erro');
+        return redirect()->back()->with('error', 'ID inválido.');
     }
-}
 
-public function downloadApolice($pk = null)
-{
-    if (!$pk) {
-            return redirect()->back()->with('error', 'ID inválido.');
-        }
-    
-        $clienteFormulario = new ClienteFormularioModel();
-        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
-    
-        $formulario = $clienteFormulario->find($pk); 
-        $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
-    
-        if (!$formulario) {
-            return redirect()->back()->with('error', 'Formulário não encontrado.');
-        }
-    // Busca o caminho do arquivo no banco de dados usando $id
-    $fileInfo = $clienteFormulario->where('pk', $pk)->first();
+    $clienteFormulario = new ClienteFormularioModel();
+    $formulario = $clienteFormulario->find($pk);
 
-    // Verifica se o arquivo existe
-    if (file_exists($fileInfo['PROTECAO_APOLICE_SEGURO_ARQUIVO'])) {
-
-        // Força o download do arquivo
-        return $this->response->download($fileInfo['PROTECAO_APOLICE_SEGURO_ARQUIVO'], null);
-
-    } else {
-
-        // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
-        // Note que você pode personalizar essa parte conforme necessário
-        return redirect()->to('/erro');
+    if (!$formulario) {
+        return redirect()->back()->with('error', 'Formulário não encontrado.');
     }
-}
 
-public function downloadPrevidencia($pk = null)
-{
-    if (!$pk) {
-            return redirect()->back()->with('error', 'ID inválido.');
-        }
-    
-        $clienteFormulario = new ClienteFormularioModel();
-        $clienteDespesas = new ClienteDespesaPersonalizadaModel();
-    
-        $formulario = $clienteFormulario->find($pk); 
-        $despesas = $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $pk)->findAll();
-    
-        if (!$formulario) {
-            return redirect()->back()->with('error', 'Formulário não encontrado.');
-        }
-    // Busca o caminho do arquivo no banco de dados usando $id
-    $fileInfo = $clienteFormulario->where('pk', $pk)->first();
+    // Construa o caminho absoluto
+    $filePath = WRITEPATH . $formulario['RECEITA_APLICACOES_ARQUIVO'];
 
     // Verifica se o arquivo existe
-    if (file_exists($fileInfo['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'])) {
-
+    if (file_exists($filePath)) {
         // Força o download do arquivo
-        return $this->response->download($fileInfo['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'], null);
-
+        return $this->response->download($filePath, null);
     } else {
-
         // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
-        // Note que você pode personalizar essa parte conforme necessário
         return redirect()->to('/erro');
     }
 }
     
+    public function downloadApolice($pk = null)
+    {
+        if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+
+        $clienteFormulario = new ClienteFormularioModel();
+        $formulario = $clienteFormulario->find($pk);
+
+        if (!$formulario) {
+            return redirect()->back()->with('error', 'Formulário não encontrado.');
+        }
+
+        // Construa o caminho absoluto
+        $filePath = WRITEPATH . $formulario['PROTECAO_APOLICE_SEGURO_ARQUIVO'];
+
+        // Verifica se o arquivo existe
+        if (file_exists($filePath)) {
+            // Força o download do arquivo
+            return $this->response->download($filePath, null);
+        } else {
+            // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+            return redirect()->to('/erro');
+        }
+    }
+    
+    public function downloadPrevidencia($pk = null)
+    {
+        if (!$pk) {
+            return redirect()->back()->with('error', 'ID inválido.');
+        }
+    
+        $clienteFormulario = new ClienteFormularioModel();
+        $formulario = $clienteFormulario->find($pk);
+    
+        if (!$formulario) {
+            return redirect()->back()->with('error', 'Formulário não encontrado.');
+        }
+    
+        // Construa o caminho absoluto
+        $filePath = WRITEPATH . $formulario['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'];
+    
+        // Verifica se o arquivo existe
+        if (file_exists($filePath)) {
+            // Força o download do arquivo
+            return $this->response->download($filePath, null);
+        } else {
+            // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
+            return redirect()->to('/erro');
+        }
+    }
+    
 }
+
+

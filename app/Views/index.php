@@ -25,10 +25,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/responsividade.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/imask"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?= base_url('/style/style.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('/style/responsividade.css'); ?>">
+
+    
 
 </head>
 
@@ -44,7 +48,7 @@
             <!-- Logo -->
             <div>
 
-                <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="Logo">
+                <img class="logo-invest" src="<?= base_url('img/logo.png'); ?>" alt="kkkkk">
                 <a class="navbar-brand">InvestPlanner</a>
 
             </div>
@@ -62,13 +66,13 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link active" href="https://investplanner.org/formulario">Home</a>
+                        <a class="nav-link active" href="/home">Home</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="<?php echo base_url('autenticacao')?>">Login</a>
+                        <a class="nav-link" href="/Autenticacao">Login</a>
 
                     </li>
 
@@ -120,7 +124,7 @@
 
     </div>
 
-    <form id="signUpForm" method="POST" action="<?= base_url('home/salvar') ?>">
+    <form id="signUpForm" method="POST" enctype="multipart/form-data" action="<?= base_url('home/salvar') ?>">
 
         <!-- start step indicators -->
         <div class="form-header d-flex mb-4">
@@ -128,6 +132,7 @@
             <span class="stepIndicator">Sobre</span>
             <span class="stepIndicator">Receitas</span>
             <span class="stepIndicator">Despesas</span>
+            <span class="stepIndicator">Dívidas</span>
             <span class="stepIndicator">Bens</span>
             <span class="stepIndicator">Proteções</span>
             <span class="stepIndicator">Objetivos</span>
@@ -144,8 +149,8 @@
 
                 <label for="SOBRE_EMAIL">E-mail:</label>
 
-                <input type="email" placeholder="Inserir seu E-mail" oninput="''" name="SOBRE_EMAIL" id="SOBRE_EMAIL"
-                    class="required">
+                <input type="email" placeholder="Inserir seu E-mail" oninput="validateEmail(this)" name="SOBRE_EMAIL" id="SOBRE_EMAIL"
+                    class="required" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
 
             </div>
 
@@ -249,41 +254,6 @@
 
             </div>
 
-            <div class="mb-3">
-
-                <label for="RECEITA_APLICACAO_OPCAO">Possui alguma aplicação ?</label>
-
-                <select id="RECEITA_APLICACAO_OPCAO-DIV" class="form-control required">
-                    <option value="NAO">Não</option>
-                    <option value="SIM">Sim</option>
-                </select>
-
-            </div>
-
-            <div class="mb-3" id="RECEITA_APLICACOES_VALOR_TOTAL-DIV">
-
-                <label for="RECEITA_APLICACOES_VALOR_TOTAL">Aplicações Financeiras - Valor TOTAL</label>
-
-                <input type="text" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL"
-                    class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
-
-                <!-- hidden input -->
-                <input type="hidden" name="RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN"
-                    id="RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN" />
-
-            </div>
-
-            <div class="mb-3" id="RECEITA_APLICACOES_ARQUIVO-DIV">
-
-                <label for="RECEITA_APLICACOES_ARQUIVO">Aplicações Financeiras - Anexar extrato das
-                    aplicações</label><br>
-
-                <input type="file" id="RECEITA_APLICACOES_ARQUIVO" name="RECEITA_APLICACOES_ARQUIVO" />
-
-                <!-- anexo arruma depois -->
-
-            </div>
-
         </div>
 
         <!-- step three -->
@@ -384,20 +354,7 @@
 
             </div>
             <!-- DIVIDA -->
-            <div class="mb-3" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV">
 
-                <label for="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">Financiamento Residencial - Saldo
-                    devedor</label>
-
-                <input type="text" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR"
-                    name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
-                    placeholder="R$ 0,00">
-
-                <!-- hidden input -->
-                <input type="hidden" name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN"
-                    id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN">
-
-            </div>
 
             <div class="mb-3" id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA-DIV">
 
@@ -412,20 +369,7 @@
                     id="DESPESA_FINANCIAMENTO_VEICULO_PARCELA_HIDDEN">
 
             </div>
-            <!-- DIVIDA -->
-            <div class="mb-3" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV">
-                <label for="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento veiculo - Saldo
-                    devedor</label>
 
-                <input type="text" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
-                    name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
-                    placeholder="R$ 0,00">
-
-                <!-- input hidden -->
-                <input type="hidden" name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN"
-                    id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN">
-
-            </div>
 
             <!------------------------------------->
 
@@ -477,20 +421,6 @@
                 <input type="hidden" name="DESPESA_EMPRESTIMO_PARCELA_HIDDEN" id="DESPESA_EMPRESTIMO_PARCELA_HIDDEN">
 
             </div>
-            <!-- DIVIDA -->
-            <div class="mb-3" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR-DIV">
-                <label for="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
-
-                <input type="text" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR"
-                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-
-                <!-- input hidden -->
-                <input type="hidden" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN"
-                    id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN">
-
-            </div>
-
-            <!-------------------------------->
 
             <div class="mb-3">
 
@@ -613,20 +543,6 @@
                 <input type="hidden" name="DESPESA_CARTAO_FATURA_HIDDEN" id="DESPESA_CARTAO_FATURA_HIDDEN">
 
             </div>
-
-            <div class="mb-3">
-
-                <label for="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR">Gastos com cartao de crédito - Saldo Devedor</label>
-
-                <input type="text" id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR"
-                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
-
-                <!-- input hidden -->
-                <input type="hidden" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN"
-                    id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN">
-
-            </div>
-
 
             <!--------------------ALUGUEL DOS VEICULOS------------------------->
             <div class="mb-3">
@@ -802,8 +718,69 @@
 
         </div>
 
+        <!--D- -->
+        <div class="step">
 
+            <div class="mb-3">
 
+                <label for="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR">Gastos com cartao de crédito - Saldo Devedor</label>
+
+                <input type="text" id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR"
+                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN"
+                    id="DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN">
+
+            </div>
+
+                <!-- DIVIDA -->
+            <div class="mb-3" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR-DIV">
+                
+                <label for="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR">EMPRESTIMO - Saldo devedor</label>
+
+                <input type="text" id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR"
+                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN"
+                    id="DIVIDA_EMPRESTIMO_SALDO_DEVEDOR_HIDDEN">
+
+            </div>
+
+            <!-------------------------------->
+
+            <!-- DIVIDA -->
+            <div class="mb-3" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR-DIV">
+                <label for="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR">Financiamento veiculo - Saldo
+                    devedor</label>
+
+                <input type="text" id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR"
+                    name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
+                    placeholder="R$ 0,00">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN"
+                    id="DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR_HIDDEN">
+
+            </div>
+
+            <div class="mb-3" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR-DIV">
+
+                <label for="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR">Financiamento Residencial - Saldo
+                    devedor</label>
+
+                <input type="text" id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR"
+                    name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR" oninput="handleCurrencyInput(this)"
+                    placeholder="R$ 0,00">
+
+                <!-- hidden input -->
+                <input type="hidden" name="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN"
+                    id="DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN">
+
+            </div>
+
+        </div>
 
         <!-- BENS -->
         <div class="step">
@@ -888,22 +865,36 @@
 
             </div>
 
-        </div>
+            <div class="mb-3">
 
+            <label for="RECEITA_APLICACAO_OPCAO">Possui alguma aplicação ?</label>
 
+            <select id="RECEITA_APLICACAO_OPCAO-DIV" class="form-control required">
+                <option value="NAO">Não</option>
+                <option value="SIM">Sim</option>
+            </select>
 
-        </div>
+            </div>
 
-        <!-- PROTEÇÃO -->
-        <div class="step">
+            <div class="mb-3" id="RECEITA_APLICACOES_VALOR_TOTAL-DIV">
 
-            <p class="text-center mb-4">Proteção</p>
+            <label for="RECEITA_APLICACOES_VALOR_TOTAL">Aplicações Financeiras - Valor TOTAL</label>
 
-            <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
+            <input type="text" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL"
+                class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
 
-                <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
+            <!-- hidden input -->
+            <input type="hidden" name="RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN"
+                id="RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN" />
 
-                <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
+            </div>
+
+            <div class="mb-3" id="RECEITA_APLICACOES_ARQUIVO-DIV">
+
+            <label for="RECEITA_APLICACOES_ARQUIVO">Aplicações Financeiras - Anexar extrato das
+                aplicações</label><br>
+
+            <input type="file" id="RECEITA_APLICACOES_ARQUIVO"  name="RECEITA_APLICACOES_ARQUIVO" />                
 
             </div>
 
@@ -965,6 +956,55 @@
                 <!-- input hidden -->
                 <input type="hidden" name="PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN"
                     id="PROTECAO_FUNDO_GARANTIA_VALOR_HIDDEN">
+
+            </div>
+
+            <p class="mb-4">Bems Personalizados</p>
+
+            <div class="mb-3">
+
+                <button id="addBems" class="btn btn-light">Adicionar Bem Personalizado</button>
+
+            </div>
+
+            <div id="customBems">
+
+                <!-- Aqui é onde os campos de gastos personalizados serão adicionados dinamicamente -->
+
+            </div>
+
+        </div>
+
+
+
+        </div>
+
+        <!-- PROTEÇÃO -->
+        <div class="step">
+
+            <p class="text-center mb-4">Proteção</p>
+
+            <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
+
+                <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
+
+                <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
+
+            </div>
+
+            
+
+            <p class="mb-4">Outros seguros</p>
+
+            <div class="mb-3">
+
+                <button id="addProtecao" class="btn btn-light">Adicionar Proteção Personalizado</button>
+
+            </div>
+
+            <div id="customProtecao">
+
+                <!-- Aqui é onde os campos de gastos personalizados serão adicionados dinamicamente -->
 
             </div>
 
@@ -1042,6 +1082,11 @@
         <!-- INPUTS CONTADORES -->
         <input type="hidden" id="DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS"
             name="DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS">
+        <input type="hidden" id="BEMS_PERSONALIZADA_QUANTIDADE_LINHAS"
+            name="BEMS_PERSONALIZADA_QUANTIDADE_LINHAS">
+        <input type="hidden" id="PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS"
+        name="PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS">
+    
     </form>
 </body>
 
@@ -1050,6 +1095,18 @@
 
 
 <script>
+
+document.getElementById('nextBtn').addEventListener('click', function(event) {
+    var emailInput = document.getElementById('SOBRE_EMAIL');
+    
+    // Verifica se o campo é válido
+    if (!emailInput.checkValidity()) {
+        event.preventDefault(); // Evita que o usuário avance
+        alert('Por favor, insira um e-mail válido.'); // Mostra uma mensagem de erro
+        return false;
+    }
+});
+
 
     function inputHidden(inText) {
         const inHidden2 = inText + "_HIDDEN";
@@ -1292,43 +1349,161 @@
         }
     }
 
-    //ADICIONAR OPÇÔES DE GASTOS  -- REPASSAR
+    function handleCurrencyPersonalizada(inputField) {
+    // Remove caracteres não numéricos e converte para valor real
+    var numericalValue = inputField.value.replace(/[^0-9]/g, ''); 
+
+    // Atualiza o campo oculto associado com o valor numérico
+    var hiddenField = inputField.nextElementSibling;
+    hiddenField.value = numericalValue;
+
+    // Aqui você pode continuar a lógica de atualizar a máscara no inputField, se necessário.
+    // Por exemplo, convertendo 1000 para R$ 10,00
+    var formattedValue = 'R$ ' + (numericalValue / 100).toFixed(2).replace('.', ',');
+    inputField.value = formattedValue;
+}
+
+
+    
+    //INICIO DA SECAO DAS DESPESAS ADICIONAIS
 
     document.addEventListener("DOMContentLoaded", function () {
-        var customExpensesContainer = document.getElementById("customExpenses");
-        var addExpenseButton = document.getElementById("addExpense");
+    var customExpensesContainer = document.getElementById("customExpenses");
+    var addExpenseButton = document.getElementById("addExpense");
 
-        var expenseIndex = 0;
+    var expenseIndex = 0;
 
-        addExpenseButton.addEventListener("click", function (event) {
-            event.preventDefault(); // pq ??
+    addExpenseButton.addEventListener("click", function (event) {
+        event.preventDefault();
 
-            expenseIndex++;
+        expenseIndex++;
 
-            document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
+        document.getElementById('DESPESA_PERSONALIZADA_QUANTIDADE_LINHAS').value = expenseIndex;
 
-            var expenseDiv = document.createElement("div");
-            expenseDiv.classList.add("mb-3");
+        var expenseDiv = document.createElement("div");
+        expenseDiv.classList.add("mb-3");
+
+        // Nome do Gasto
+        var nameLabel = document.createElement("label");
+        nameLabel.textContent = "Nome do Gasto " + expenseIndex;
+        var nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
+        expenseDiv.appendChild(nameLabel);
+        expenseDiv.appendChild(nameInput);
+
+        // Valor do Gasto com máscara
+        var valueLabel = document.createElement("label");
+        valueLabel.textContent = "Valor do Gasto " + expenseIndex;
+        var valueInput = document.createElement("input");
+        valueInput.type = "text";
+        valueInput.name = "DESPESA_PERSONALIZADA_VALOR_DISPLAY_" + expenseIndex;
+        valueInput.placeholder = "R$ 0,00";
+        valueInput.oninput = function() { handleCurrencyPersonalizada(this); };
+        expenseDiv.appendChild(valueLabel);
+        expenseDiv.appendChild(valueInput);
+
+        // Campo oculto para valor real
+        var hiddenValueInput = document.createElement("input");
+        hiddenValueInput.type = "hidden";
+        hiddenValueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
+        expenseDiv.appendChild(hiddenValueInput);
+
+        customExpensesContainer.appendChild(expenseDiv);
+    });
+});
+
+    //FIM DA SECAO DAS DESPESAS ADICIONAIS
+
+    //INICIO SEÇÃO DOS BENS ADICIONAIS
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var customBemsContainer = document.getElementById("customBems");
+        var addBemsButton = document.getElementById("addBems");
+
+        var bemsIndex = 0;
+
+        addBemsButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            bemsIndex++;
+            document.getElementById('BEMS_PERSONALIZADA_QUANTIDADE_LINHAS').value = bemsIndex;
+
+            var bemsDiv = document.createElement("div");
+            bemsDiv.classList.add("mb-3");
 
             var nameLabel = document.createElement("label");
-            nameLabel.textContent = "Nome do Gasto " + expenseIndex;
+            nameLabel.textContent = "Nome do Bem " + bemsIndex;
             var nameInput = document.createElement("input");
             nameInput.type = "text";
-            nameInput.name = "DESPESA_PERSONALIZADA_DESCRICAO_" + expenseIndex;
-            expenseDiv.appendChild(nameLabel);
-            expenseDiv.appendChild(nameInput);
+            nameInput.name = "BEMS_PERSONALIZADA_DESCRICAO_" + bemsIndex;
+            bemsDiv.appendChild(nameLabel);
+            bemsDiv.appendChild(nameInput);
 
             var valueLabel = document.createElement("label");
-            valueLabel.textContent = "Valor do Gasto " + expenseIndex;
+            valueLabel.textContent = "Valor do Bem " + bemsIndex;
             var valueInput = document.createElement("input");
-            valueInput.type = "number";
-            valueInput.name = "DESPESA_PERSONALIZADA_VALOR_" + expenseIndex;
-            expenseDiv.appendChild(valueLabel);
-            expenseDiv.appendChild(valueInput);
+            valueInput.type = "text";
+            valueInput.placeholder = "R$ 0,00";
+            valueInput.oninput = function() { handleCurrencyPersonalizada(this); };
+            valueInput.name = "BEMS_PERSONALIZADA_VALOR_DISPLAY_" + bemsIndex;
+            bemsDiv.appendChild(valueLabel);
+            bemsDiv.appendChild(valueInput);
 
-            customExpensesContainer.appendChild(expenseDiv);
+            var hiddenValueInput = document.createElement("input");
+            hiddenValueInput.type = "hidden";
+            hiddenValueInput.name = "BEMS_PERSONALIZADA_VALOR_" + bemsIndex;
+            bemsDiv.appendChild(hiddenValueInput);
 
+            customBemsContainer.appendChild(bemsDiv);
+        });
+
+    });
+    // FIM DA SECAO DOS BENS ADICIONAIS
+
+    //INICIO SEÇÃO DOS PROTECAO ADICIONAIS
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var customProtecaoContainer = document.getElementById("customProtecao");
+        var addProtecaoButton = document.getElementById("addProtecao");
+
+        var protecaoIndex = 0;
+
+        addProtecaoButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            protecaoIndex++;
+            document.getElementById('PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS').value = protecaoIndex;
+
+            var protecaoDiv = document.createElement("div");
+            protecaoDiv.classList.add("mb-3");
+
+            var nameLabel = document.createElement("label");
+            nameLabel.textContent = "Nome da Protecao " + protecaoIndex;
+            var nameInput = document.createElement("input");
+            nameInput.type = "text";
+            nameInput.name = "PROTECAO_PERSONALIZADA_DESCRICAO_" + protecaoIndex;
+            protecaoDiv.appendChild(nameLabel);
+            protecaoDiv.appendChild(nameInput);
+
+            var valueLabel = document.createElement("label");
+            valueLabel.textContent = "Valor da Protecao " + protecaoIndex;
+            var valueInput = document.createElement("input");
+            valueInput.type = "text";
+            valueInput.placeholder = "R$ 0,00";
+            valueInput.oninput = function() { handleCurrencyPersonalizada(this); };
+            valueInput.name = "PROTECAO_PERSONALIZADA_VALOR_DISPLAY_" + protecaoIndex;
+            protecaoDiv.appendChild(valueLabel);
+            protecaoDiv.appendChild(valueInput);
+
+            var hiddenValueInput = document.createElement("input");
+            hiddenValueInput.type = "hidden";
+            hiddenValueInput.name = "PROTECAO_PERSONALIZADA_VALOR_" + protecaoIndex;
+            protecaoDiv.appendChild(hiddenValueInput);
+
+            customProtecaoContainer.appendChild(protecaoDiv);
         });
     });
+    // FIM DA SECAO DOS BENS ADICIONAIS
+
+
 
 </script>
