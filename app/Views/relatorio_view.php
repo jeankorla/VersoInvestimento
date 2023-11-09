@@ -894,7 +894,7 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({});
 </script>
 <title></title>
 </head>
-<body>
+<body contenteditable>
 <div id="sidebar">
 <div id="outline">
 </div>
