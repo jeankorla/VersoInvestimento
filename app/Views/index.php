@@ -72,12 +72,6 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="<?php echo base_url('Autenticacao') ?>">Login</a>
-
-                    </li>
-
-                    <li class="nav-item">
-
                         <a class="nav-link" href="https://investplanner.org">Site</a>
 
                     </li>
@@ -986,7 +980,7 @@
 
             <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
 
-                <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
+                <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice do seu seguro de vida</label><br>
 
                 <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
 
