@@ -178,6 +178,54 @@
         </div>
 
         <div class="mb-3">
+
+            <label>Prolabore:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_PROLABORE" id="RECEITA_PROLABORE" step="0.01" 
+                value="<?php echo $formulario['RECEITA_PROLABORE']; ?>">           
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Dividendos:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_DIVIDENDOS" id="RECEITA_DIVIDENDOS" step="0.01" 
+                value="<?php echo $formulario['RECEITA_DIVIDENDOS']; ?>">           
+
+        </div>
+
+            <div class="mb-3">
+
+            <label>Receita - Aluguel:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_ALUGUEL" id="RECEITA_ALUGUEL" step="0.01" 
+                value="<?php echo $formulario['RECEITA_ALUGUEL']; ?>">           
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Receita - Particiapação dos lucros:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_PARTICIPACAO_LUCROS" id="RECEITA_PARTICIPACAO_LUCROS" step="0.01" 
+                value="<?php echo $formulario['RECEITA_PARTICIPACAO_LUCROS']; ?>">           
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Receita - Inss:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_INSS" id="RECEITA_INSS" step="0.01" 
+                value="<?php echo $formulario['RECEITA_INSS']; ?>">           
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Receita - Previdencia privada:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_PREVIDENCIA_PRIVADA" id="RECEITA_PREVIDENCIA_PRIVADA" step="0.01" 
+                value="<?php echo $formulario['RECEITA_PREVIDENCIA_PRIVADA']; ?>">           
+
+        </div>
+
+        <div class="mb-3">
             
             <label>Aplicações Financeiras - Valor TOTAL </label>
             <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="RECEITA_APLICACOES_VALOR_TOTAL" id="RECEITA_APLICACOES_VALOR_TOTAL" step="0.01"
@@ -198,7 +246,7 @@
 
         <!-- DESPESAS -->
 
-        <div class="mb-3">
+        <div class="mb-4">
              
             <label>Conta de luz - Inserir média mensal </label>
             <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_LUZ_MEDIA_MENSAL" id="DESPESA_LUZ_MEDIA_MENSAL" step="0.01"
@@ -227,6 +275,30 @@
             <label>Valor do aluguel</label>
             <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_ALUGUEL" id="DESPESA_ALUGUEL" step="0.01"
                 value="<?php echo $formulario['DESPESA_ALUGUEL']; ?>">
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Academia:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_ACADEMIA" id="DESPESA_ACADEMIA" step="0.01" 
+                value="<?php echo $formulario['DESPESA_ACADEMIA']; ?>">           
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Faxineiro:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_FAXINEIRO" id="DESPESA_FAXINEIRO" step="0.01" 
+                value="<?php echo $formulario['DESPESA_FAXINEIRO']; ?>">           
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Salao / Barbeiro:</label>            
+            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="DESPESA_BELEZA" id="DESPESA_BELEZA" step="0.01" 
+                value="<?php echo $formulario['DESPESA_BELEZA']; ?>">           
 
         </div>
 
@@ -654,6 +726,83 @@
             
         </div>
 
+<<<<<<< HEAD
+=======
+        <div class="mb-5"></div>
+
+        <div id="titulo-dividas" style="display:none;">
+
+            <hr class="hr hr-blurry" />
+
+            <div class="mb-3">
+
+                <label class="TITULO">Dividas</label>
+
+            </div>
+
+        </div>
+
+        <div class="container-dividas">
+            <!-- não sei como fazer isso ainda -->
+            <?php foreach ($divida as $index => $divida): ?>
+
+                <?php if ($divida['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
+
+                    <div class="mb-3">
+
+                        <label><?php echo $divida['DESCRICAO'] ?></label>
+
+                        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" step="0.01" name="DIVIDA[<?= $divida['PK']; ?>]" value="<?php echo $divida['VALOR']; ?>">
+
+                        <input type="hidden" step="0.01"  name="CATEGORIA[<?= $divida['PK']; ?>]" class="categoriaInput" value="DIVIDA">
+
+
+
+                    </div>
+                <?php endif; ?>
+
+            <?php endforeach; ?>
+            
+        </div>
+
+        <div class="mb-5"></div>
+
+        <div id="titulo-receitas" style="display:none;">
+
+            <hr class="hr hr-blurry" />
+
+            <div class="mb-3">
+
+                <label class="TITULO">Receitas</label>
+
+            </div>
+
+        </div>
+
+        <div class="container-receitas">
+            <!-- não sei como fazer isso ainda -->
+            <?php foreach ($receita as $index => $receita): ?>
+
+                <?php if ($receita['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
+
+                    <div class="mb-3">
+
+                        <label><?php echo $receita['DESCRICAO'] ?></label>
+
+                        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" step="0.01" name="RECEITA[<?= $receita['PK']; ?>]" value="<?php echo $receita['VALOR']; ?>">
+
+                        <input type="hidden" step="0.01"  name="CATEGORIA[<?= $receita['PK']; ?>]" class="categoriaInput" value="RECEITA">
+
+
+
+                    </div>
+                <?php endif; ?>
+
+            <?php endforeach; ?>
+            
+        </div>
+
+>>>>>>> rodrigo
         <hr class="hr hr-blurry" />
 
         <button type="submit" name="update_button" class="btn btn-warning" style="margin-top: 30px"
@@ -826,6 +975,20 @@
             console.log("Seguros detectados.");
             $('#titulo-seguros').show();
         }
+<<<<<<< HEAD
+=======
+
+        if ($('.container-dividas .mb-3').length > 0) {
+            console.log("Dividas detectados.");
+            $('#titulo-dividas').show();
+        }
+
+        if ($('.container-receitas .mb-3').length > 0) {
+            console.log("Receitas detectados.");
+            $('#titulo-receitas').show();
+        }
+
+>>>>>>> rodrigo
     });
 
 

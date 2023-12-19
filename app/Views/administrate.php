@@ -116,7 +116,7 @@
           <tbody>
             <?php foreach ($data as $item): ?>
               <tr>
-                <td><?= $item->PK ?></td>
+                <td><?= $item->PK ?></td>                
                 <td>
                   <div style="display: flex; gap: 10px">
                     <a href="<?= base_url('Autenticacao/gerar/' .$item->CLIENTE_FORMULARIO_FK )?>" class="btn btn-primary">Relatório</a>

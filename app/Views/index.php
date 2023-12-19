@@ -40,7 +40,7 @@
     
     <div class="bg"></div>
     <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
+    <div class="bg bg3"></div> 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg fixed-top">
 
@@ -66,7 +66,17 @@
 
                     <li class="nav-item">
 
+<<<<<<< HEAD
                         <a class="nav-link active" href="https://investplanner.org/formulario/index.php">Home</a>
+=======
+                        <a class="nav-link active" href="/home">Home</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/Autenticacao">Login</a>
+>>>>>>> rodrigo
 
                     </li>
 
@@ -248,6 +258,101 @@
 
             </div>
 
+<<<<<<< HEAD
+=======
+            <div class="mb-3">
+
+                <label for="RECEITA_PROLABORE">Pró-labore:</label>
+
+                <input type="text" name="RECEITA_PROLABORE" id="RECEITA_PROLABORE"
+                    class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
+
+                <!-- hidden input -->
+                <input type="hidden" name="RECEITA_PROLABORE_HIDDEN"
+                    id="RECEITA_PROLABORE_HIDDEN" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="RECEITA_DIVIDENDOS">Dividendos:</label>
+
+                <input type="text" name="RECEITA_DIVIDENDOS" id="RECEITA_DIVIDENDOS"
+                    class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
+
+                <!-- hidden input -->
+                <input type="hidden" name="RECEITA_DIVIDENDOS_HIDDEN"
+                    id="RECEITA_DIVIDENDOS_HIDDEN" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="RECEITA_ALUGUEL">Aluguéis recebidos:</label>
+
+                <input type="text" name="RECEITA_ALUGUEL" id="RECEITA_ALUGUEL"
+                    class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
+
+                <!-- hidden input -->
+                <input type="hidden" name="RECEITA_ALUGUEL_HIDDEN"
+                    id="RECEITA_ALUGUEL_HIDDEN" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="RECEITA_PARTICIPACAO_LUCROS">Participação dos lucros:</label>
+
+                <input type="text" name="RECEITA_PARTICIPACAO_LUCROS" id="RECEITA_PARTICIPACAO_LUCROS"
+                    class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
+
+                <!-- hidden input -->
+                <input type="hidden" name="RECEITA_PARTICIPACAO_LUCROS_HIDDEN"
+                    id="RECEITA_PARTICIPACAO_LUCROS_HIDDEN" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="RECEITA_INSS">INSS:</label>
+
+                <input type="text" name="RECEITA_INSS" id="RECEITA_INSS"
+                    class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
+
+                <!-- hidden input -->
+                <input type="hidden" name="RECEITA_INSS_HIDDEN"
+                    id="RECEITA_INSS_HIDDEN" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="RECEITA_PREVIDENCIA_PRIVADA">Participação dos lucros:</label>
+
+                <input type="text" name="RECEITA_PREVIDENCIA_PRIVADA" id="RECEITA_PREVIDENCIA_PRIVADA"
+                    class="currency-input" oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" />
+
+                <!-- hidden input -->
+                <input type="hidden" name="RECEITA_PREVIDENCIA_PRIVADA_HIDDEN"
+                    id="RECEITA_PREVIDENCIA_PRIVADA_HIDDEN" />
+
+            </div>
+
+            <p class="mb-4">Receitas Personalizadas</p>
+
+            <div class="mb-3">
+
+                <button id="addRecipe" class="btn btn-light">Adicionar Receita Personalizado</button>
+
+            </div>
+
+            <div id="customRecipe">
+
+                <!-- Aqui é onde os campos de gastos personalizados serão adicionados dinamicamente -->
+
+            </div>
+
+>>>>>>> rodrigo
         </div>
 
         <!-- step three -->
@@ -668,6 +773,42 @@
 
             </div>
 
+            <div class="mb-3">
+
+                <label for="DESPESA_ACADEMIA">Academia + personal:</label>
+
+                <input type="text" id="DESPESA_ACADEMIA" name="DESPESA_ACADEMIA" oninput="handleCurrencyInput(this)"
+                    placeholder="R$ 0,00">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_ACADEMIA_HIDDEN" id="DESPESA_ACADEMIA_HIDDEN">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="DESPESA_FAXINEIRO">Faxineiro:</label>
+
+                <input type="text" id="DESPESA_FAXINEIRO" name="DESPESA_FAXINEIRO" oninput="handleCurrencyInput(this)"
+                    placeholder="R$ 0,00">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_FAXINEIRO_HIDDEN" id="DESPESA_FAXINEIRO_HIDDEN">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="DESPESA_BELEZA">Salão de beleza/Barbeiro: </label>
+
+                <input type="text" id="DESPESA_BELEZA" name="DESPESA_BELEZA" oninput="handleCurrencyInput(this)"
+                    placeholder="R$ 0,00">
+
+                <!-- input hidden -->
+                <input type="hidden" name="DESPESA_BELEZA_HIDDEN" id="DESPESA_BELEZA_HIDDEN">
+
+            </div>
+
             <!--------------------------------Clube-------------------------------------->
 
             <div class="mb-3">
@@ -774,6 +915,23 @@
 
             </div>
 
+<<<<<<< HEAD
+=======
+            <p class="mb-4">Dividas Personalizadas</p>
+
+            <div class="mb-3">
+
+                <button id="addDebt" class="btn btn-light">Adicionar Divida Personalizado</button>
+
+            </div>
+
+            <div id="customDebt">
+
+                <!-- Aqui é onde os campos de gastos personalizados serão adicionados dinamicamente -->
+
+            </div>
+
+>>>>>>> rodrigo
         </div>
 
         <!-- BENS -->
@@ -894,22 +1052,22 @@
 
             <div class="mb-3">
 
-                <label for="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">Anexar extrato planos da previdência</label><br>
+                <label for="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV">Possui previdência privada ?</label>
 
-                <input type="file" id="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO"
-                    name="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">
-
-            </div>
-
-            <div class="mb-3">
-
-                <label for="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO">Possui previdência privada ?</label>
-
-                <select name="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO" id="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV"
+                <select name="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV" id="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV"
                     class="form-control required">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
+
+            </div>
+
+            <div class="mb-3" id="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">
+
+                <label for="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">Anexar extrato planos da previdência</label><br>
+
+                <input type="file" id="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO"
+                    name="PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO">
 
             </div>
 
@@ -942,7 +1100,7 @@
 
             <div class="mb-3">
 
-                <label for="PROTECAO_FUNDO_GARANTIA_VALOR">Valor do fundo de garantia</label>
+                <label for="PROTECAO_FUNDO_GARANTIA_VALOR">Montante no Fundo de Garantia - FGTS(caso possua)</label>
 
                 <input type="text" name="PROTECAO_FUNDO_GARANTIA_VALOR" id="PROTECAO_FUNDO_GARANTIA_VALOR"
                     oninput="handleCurrencyInput(this)" placeholder="0,00">
@@ -953,7 +1111,11 @@
 
             </div>
 
+<<<<<<< HEAD
             <p class="mb-4">Bems Personalizados</p>
+=======
+            <p class="mb-4">Bens Personalizados</p>
+>>>>>>> rodrigo
 
             <div class="mb-3">
 
@@ -980,7 +1142,11 @@
 
             <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
 
+<<<<<<< HEAD
                 <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice do seu seguro de vida</label><br>
+=======
+                <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
+>>>>>>> rodrigo
 
                 <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
 
@@ -1080,6 +1246,13 @@
             name="BEMS_PERSONALIZADA_QUANTIDADE_LINHAS">
         <input type="hidden" id="PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS"
         name="PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS">
+<<<<<<< HEAD
+=======
+        <input type="hidden" id="RECEITA_PERSONALIZADA_QUANTIDADE_LINHAS"
+            name="RECEITA_PERSONALIZADA_QUANTIDADE_LINHAS">
+        <input type="hidden" id="DIVIDA_PERSONALIZADA_QUANTIDADE_LINHAS"
+            name="DIVIDA_PERSONALIZADA_QUANTIDADE_LINHAS">
+>>>>>>> rodrigo
     
     </form>
 </body>
@@ -1129,6 +1302,12 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
     //INPUT HIDDEN
     inputHidden("RECEITA_RENDA_MENSAL_LIQUIDA");
     inputHidden("RECEITA_APLICACOES_VALOR_TOTAL");
+    inputHidden("RECEITA_PROLABORE");
+    inputHidden("RECEITA_DIVIDENDOS");
+    inputHidden("RECEITA_ALUGUEL");
+    inputHidden("RECEITA_PARTICIPACAO_LUCROS");
+    inputHidden("RECEITA_INSS");
+    inputHidden("RECEITA_PREVIDENCIA_PRIVADA");
     inputHidden("DESPESA_LUZ_MEDIA_MENSAL");
     inputHidden("DESPESA_AGUA_MEDIA_MENSAL");
     inputHidden("DESPESA_GAS_MEDIA_MENSAL");
@@ -1139,6 +1318,9 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
     inputHidden("DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR");
     inputHidden("DESPESA_IPTU");
     inputHidden("DESPESA_IPVA");
+    inputHidden("DESPESA_ACADEMIA");
+    inputHidden("DESPESA_FAXINEIRO");
+    inputHidden("DESPESA_BELEZA");
     inputHidden("DESPESA_EMPRESTIMO_PARCELA");
     inputHidden("DIVIDA_EMPRESTIMO_SALDO_DEVEDOR");
     inputHidden("DESPESA_INTERNET_TELEVISAO");
@@ -1169,6 +1351,7 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
     inputHidden("PROTECAO_FUNDO_GARANTIA_VALOR");
     inputHidden("OBJETIVO_RENDA_MENSAL");
     inputHidden("OBJETIVO_VALOR");
+
 
 
     /////////////
@@ -1217,10 +1400,11 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
         setupLinkedField("#DESPESA_SEGURO_VIDA_OPCAO-DIV", "#PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV", "SIM"); // ARQUIVO
         setupLinkedField("#DESPESA_CONDOMINIO_OPCAO-DIV", "#DESPESA_CONDOMINIO_MENSAL-DIV", "SIM");
         setupLinkedField("#DESPESA_CLUBE_OPCAO-DIV", "#DESPESA_CLUBE_MENSALIDADE-DIV", "SIM");
-        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV", "#BENS_VALOR_MERCADO_IMOVEL_VERAO-DIV", "ALU", "SIM");
-        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV", "#BENS_VALOR_MERCADO_IMOVEL_ALUGADO-DIV", "VERA", "SIM");
+        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV", "#BENS_VALOR_MERCADO_IMOVEL_VERAO-DIV", "VERA", "SIM");
+        setupLinkedField("#BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV", "#BENS_VALOR_MERCADO_IMOVEL_ALUGADO-DIV", "ALU", "SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV", "#PROTECAO_PREVIDENCIA_PRIVADA_MENSAL-DIV", "SIM");
         setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV", "#PROTECAO_PREVIDENCIA_PRIVADA_SALDO_ACUMULADO-DIV", "SIM");
+        setupLinkedField("#PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV", "#PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO", "SIM");
         setupLinkedField('#OBJETIVO_ANO_REALIZACAO_OP', '#OBJETIVO_ANO_REALIZACAO_DIV', 'SIM');
         setupLinkedField('#OBJETIVO_ANO_REALIZACAO_OP', '#OBJETIVO_VALOR_DIV', 'SIM');
 
@@ -1275,6 +1459,13 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
         showTab(currentTab);
     }
 
+    function validateEmail(input) {
+        var email = input.value;
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailRegex.test(email)) {
+            alert("Por favor, insira um endereço de e-mail válido.");
+        }
+    }   
 
     function validateForm() {
         var x, y, i, valid = true;
@@ -1349,7 +1540,11 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
 
     // Atualiza o campo oculto associado com o valor numérico
     var hiddenField = inputField.nextElementSibling;
+<<<<<<< HEAD
     hiddenField.value = numericalValue;
+=======
+    hiddenField.value = numericalValue/100;
+>>>>>>> rodrigo
 
     // Aqui você pode continuar a lógica de atualizar a máscara no inputField, se necessário.
     // Por exemplo, convertendo 1000 para R$ 10,00
@@ -1357,6 +1552,100 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
     inputField.value = formattedValue;
 }
 
+<<<<<<< HEAD
+=======
+document.addEventListener("DOMContentLoaded", function () {
+    var customDebtContainer = document.getElementById("customDebt");
+    var addDebtButton = document.getElementById("addDebt");
+
+    var debtIndex = 0;
+
+    addDebtButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        debtIndex++;
+
+        document.getElementById('DIVIDA_PERSONALIZADA_QUANTIDADE_LINHAS').value = debtIndex;
+
+        var debtDiv = document.createElement("div");
+        debtDiv.classList.add("mb-3");
+
+        // Nome da Receita
+        var nameLabel = document.createElement("label");
+        nameLabel.textContent = "Nome da Divida " + debtIndex;
+        var nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.name = "DIVIDA_PERSONALIZADA_DESCRICAO_" + debtIndex;
+        debtDiv.appendChild(nameLabel);
+        debtDiv.appendChild(nameInput);
+
+        // Valor da Receita com máscara
+        var valueLabel = document.createElement("label");
+        valueLabel.textContent = "Valor da Divida " + debtIndex;
+        var valueInput = document.createElement("input");
+        valueInput.type = "text";
+        valueInput.name = "DIVIDA_PERSONALIZADA_VALOR_DISPLAY_" + debtIndex;
+        valueInput.placeholder = "R$ 0,00";
+        valueInput.oninput = function() { handleCurrencyPersonalizada(this); };
+        debtDiv.appendChild(valueLabel);
+        debtDiv.appendChild(valueInput);
+
+        // Campo oculto para valor real
+        var hiddenValueInput = document.createElement("input");
+        hiddenValueInput.type = "hidden";
+        hiddenValueInput.name = "DIVIDA_PERSONALIZADA_VALOR_" + debtIndex;
+        debtDiv.appendChild(hiddenValueInput);
+
+        customDebtContainer.appendChild(debtDiv);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var customRecipeContainer = document.getElementById("customRecipe");
+    var addRecipeButton = document.getElementById("addRecipe");
+
+    var recipeIndex = 0;
+
+    addRecipeButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        recipeIndex++;
+
+        document.getElementById('RECEITA_PERSONALIZADA_QUANTIDADE_LINHAS').value = recipeIndex;
+
+        var recipeDiv = document.createElement("div");
+        recipeDiv.classList.add("mb-3");
+
+        // Nome da Receita
+        var nameLabel = document.createElement("label");
+        nameLabel.textContent = "Nome da Receita " + recipeIndex;
+        var nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.name = "RECEITA_PERSONALIZADA_DESCRICAO_" + recipeIndex;
+        recipeDiv.appendChild(nameLabel);
+        recipeDiv.appendChild(nameInput);
+
+        // Valor da Receita com máscara
+        var valueLabel = document.createElement("label");
+        valueLabel.textContent = "Valor da Receita " + recipeIndex;
+        var valueInput = document.createElement("input");
+        valueInput.type = "text";
+        valueInput.name = "RECEITA_PERSONALIZADA_VALOR_DISPLAY_" + recipeIndex;
+        valueInput.placeholder = "R$ 0,00";
+        valueInput.oninput = function() { handleCurrencyPersonalizada(this); };
+        recipeDiv.appendChild(valueLabel);
+        recipeDiv.appendChild(valueInput);
+
+        // Campo oculto para valor real
+        var hiddenValueInput = document.createElement("input");
+        hiddenValueInput.type = "hidden";
+        hiddenValueInput.name = "RECEITA_PERSONALIZADA_VALOR_" + recipeIndex;
+        recipeDiv.appendChild(hiddenValueInput);
+
+        customRecipeContainer.appendChild(recipeDiv);
+    });
+});
+>>>>>>> rodrigo
 
     
     //INICIO DA SECAO DAS DESPESAS ADICIONAIS
