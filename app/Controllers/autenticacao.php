@@ -3,11 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\ClienteBemsPersonalizadaModel;
+use App\Models\ClienteDividaPersonalizadaModel;
 use App\Models\ClienteProtecaoPersonalizadaModel;
+use App\Models\ClienteReceitaPersonalizadaModel;
 use App\Models\UsuarioModel;
 use App\Models\ClienteDespesaPersonalizadaModel;
 use App\Models\ClienteFormularioModel;
 use App\Models\ClienteResultadoModel;
+
 
 class Autenticacao extends BaseController
 {   
@@ -89,8 +92,9 @@ class Autenticacao extends BaseController
             return redirect()->back()->with('error', 'Dados não encontrados.');
         }
 
-        $data = array_merge($resultado, $formulario);
+        $data = array_merge($formulario, $resultado);        
         $data['PK'] = $pk;
+        
 
         return view('relatorio_view.php', ['data' => $data]);
     }
@@ -107,6 +111,8 @@ class Autenticacao extends BaseController
         $clienteResultados      =                   new ClienteResultadoModel();
         $clienteBems            =                   new ClienteBemsPersonalizadaModel();
         $clienteProtecao        =                   new ClienteProtecaoPersonalizadaModel();
+        $clienteDivida          =                   new ClienteDividaPersonalizadaModel();
+        $clienteReceita         =                   new ClienteReceitaPersonalizadaModel();
 
         $resultado              =                   $clienteResultados->where('PK', $pk)->first();
         
@@ -116,6 +122,8 @@ class Autenticacao extends BaseController
         $despesas               =                   $clienteDespesas->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
         $bems                   =                   $clienteBems->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
         $protecao               =                   $clienteProtecao->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
+        $divida                 =                   $clienteDivida->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
+        $receita                =                   $clienteReceita->where('CLIENTE_FORMULARIO_FK', $cliente_pk)->findAll();
         
     
         if (!$formulario) {
@@ -123,7 +131,7 @@ class Autenticacao extends BaseController
         }
         
         
-        return view('edit.php', ['formulario' => $formulario, 'despesas' => $despesas, 'resultado' =>$resultado, 'bems' => $bems,'protecao'=> $protecao]);
+        return view('edit.php', ['formulario' => $formulario, 'despesas' => $despesas, 'resultado' =>$resultado, 'bems' => $bems,'protecao'=> $protecao, 'divida' => $divida, 'receita' =>$receita]);
 
         
         
@@ -179,6 +187,35 @@ class Autenticacao extends BaseController
         return true;
     }
 
+    public function dividaUpdated(){
+
+        $clienteDivida = new ClienteDividaPersonalizadaModel();
+        $dividaData = $this->request->getVar('DIVIDA');
+
+        if (is_array($dividaData) || is_object($dividaData)) {
+            foreach($dividaData as $dividaId => $valor){
+                $data = ['VALOR' =>$valor];
+
+                $clienteDivida->update($dividaId, $data);
+            }
+        }
+
+    }
+
+    public function receitaUpdated(){
+        $clienteReceita = new ClienteReceitaPersonalizadaModel();
+        $receitaData = $this->request->getVar('RECEITA');
+
+        if (is_array($receitaData) || is_object($receitaData)){
+            foreach($receitaData as $receitaId => $valor){
+                $data = ['VALOR' => $valor];
+
+                $clienteReceita->update($receitaId, $data);
+            }
+        }
+
+    }
+
     public function updateAll() {
         if (!$this->despesasUpdate()) {
             throw new \Exception('Erro ao atualizar despesas.');
@@ -190,6 +227,14 @@ class Autenticacao extends BaseController
     
         if (!$this->protecaoUpdated()) {
             throw new \Exception('Erro ao atualizar proteção.');
+        }
+
+        if (!$this->dividaUpdated()){
+            throw new \Exception('Erro ao atualizar dividas.');
+        }
+
+        if (!$this->receitaUpdated()){
+            throw new \Exception('Erro ao atualizar as receitas.');
         }
     }
     
@@ -211,6 +256,12 @@ class Autenticacao extends BaseController
 
             'RECEITA_RENDA_MENSAL_LIQUIDA'                      => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA'),
             'RECEITA_APLICACOES_VALOR_TOTAL'                    => $this->request->getPost('RECEITA_APLICACOES_VALOR_TOTAL'),
+            'RECEITA_PROLABORE'                                 => $this->request->getPost('RECEITA_PROLABORE'),
+            'RECEITA_DIVIDENDOS'                                => $this->request->getPost('RECEITA_DIVIDENDOS'),
+            'RECEITA_ALUGUEL'                                   => $this->request->getPost('RECEITA_ALUGUEL'),
+            'RECEITA_PARTICIPACAO_LUCROS'                       => $this->request->getPost('RECEITA_PARTICIPACAO_LUCROS'),
+            'RECEITA_INSS'                                      => $this->request->getPost('RECEITA_INSS'),
+            'RECEITA_PREVIDENCIA_PRIVADA'                       => $this->request->getPost('RECEITA_PREVIDENCIA_PRIVADA'),
 
             'DESPESA_LUZ_MEDIA_MENSAL'                          => $this->request->getPost('DESPESA_LUZ_MEDIA_MENSAL'),
             'DESPESA_AGUA_MEDIA_MENSAL'                         => $this->request->getPost('DESPESA_AGUA_MEDIA_MENSAL'),
@@ -238,6 +289,9 @@ class Autenticacao extends BaseController
             'DESPESA_ESCOLA_MENSAL'                             => $this->request->getPost('DESPESA_ESCOLA_MENSAL'),
             'DESPESA_UNIVERSIDADE_MENSAL'                       => $this->request->getPost('DESPESA_UNIVERSIDADE_MENSAL'),
             'DESPESA_CLUBE_MENSALIDADE'                         => $this->request->getPost('DESPESA_CLUBE_MENSALIDADE'),
+            'DESPESA_ACADEMIA'                                  => $this->request->getPost('DESPESA_ACADEMIA'),
+            'DESPESA_FAXINEIRO'                                 => $this->request->getPost('DESPESA_FAXINEIRO'),
+            'DESPESA_BELEZA'                                    => $this->request->getPost('DESPESA_BELEZA'),
 
             'DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR'    => $this->request->getPost('DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR'),
             'DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR'        => $this->request->getPost('DIVIDA_FINANCIAMENTO_VEICULO_SALDO_DEVEDOR'), 

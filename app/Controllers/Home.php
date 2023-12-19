@@ -6,6 +6,9 @@ use App\Models\ClienteBemsPersonalizadaModel;
 use App\Models\ClienteDespesaPersonalizadaModel;
 use App\Models\ClienteFormularioModel;
 use App\Models\ClienteProtecaoPersonalizadaModel;
+use App\Models\ClienteReceitaPersonalizadaModel;
+use App\Models\ClienteDividaPersonalizadaModel;
+
 use CodeIgniter\Controller;
 
 class Home extends BaseController
@@ -14,12 +17,18 @@ class Home extends BaseController
     private $ClienteDespesaPersonalizadaModel;
     private $ClienteBemsPersonalizadaModel;
     private $ClienteProtecaoPersonalizadaModel;
+    private $ClienteReceitaPersonalizadaModel;
+    private $ClienteDividaPersonalizadaModel;
+
     public function __construct()
     {
         $this->ClienteFormularioModel = new ClienteFormularioModel();
         $this->ClienteDespesaPersonalizadaModel = new ClienteDespesaPersonalizadaModel();
         $this->ClienteBemsPersonalizadaModel = new ClienteBemsPersonalizadaModel();
         $this->ClienteProtecaoPersonalizadaModel = new ClienteProtecaoPersonalizadaModel();
+        $this->ClienteReceitaPersonalizadaModel = new ClienteReceitaPersonalizadaModel();
+        $this->ClienteDividaPersonalizadaModel = new ClienteDividaPersonalizadaModel();
+        
     }
 
     public function bens($FK){
@@ -92,6 +101,51 @@ class Home extends BaseController
         // DESPESAS PERSONALIZADAS --- FIM
     }
 
+    public function divida($FK){
+        // DESPESAS PERSONALIZADAS --- INICIO
+        $Registros_ClienteDividaPersonalizadaModel = [];
+        $Quantidade_Dividas = intval($this->request->getPost('DIVIDA_PERSONALIZADA_QUANTIDADE_LINHAS'));
+
+        if ($Quantidade_Dividas > 0)
+        {
+            for ($x = 1; $x <= $Quantidade_Dividas; $x++)
+            {
+                $Registros_ClienteDividaPersonalizadaModel['CLIENTE_FORMULARIO_FK'] = $FK;
+                
+                $Registros_ClienteDividaPersonalizadaModel['DESCRICAO']             = $this->request->getPost('DIVIDA_PERSONALIZADA_DESCRICAO_' . $x);
+                $Registros_ClienteDividaPersonalizadaModel['VALOR']                 = $this->request->getPost('DIVIDA_PERSONALIZADA_VALOR_' . $x);
+                
+                $this->ClienteDividaPersonalizadaModel->insert($Registros_ClienteDividaPersonalizadaModel);
+
+                $Registros_ClienteDividaPersonalizadaModel = [];
+            }
+        }
+        // DESPESAS PERSONALIZADAS --- FIM
+    }
+
+    public function receitas($FK){
+        //INICIO DAS RECEITAS PERSONALIZAS
+        $Registros_ClienteReceitaPersonalizadaModel = [];
+        $Quantidade_Receitas = intval($this->request->getPost('RECEITA_PERSONALIZADA_QUANTIDADE_LINHAS'));
+
+        if($Quantidade_Receitas > 0)
+        {
+            for($x =1; $x <= $Quantidade_Receitas; $x++)
+            {            
+                $Registros_ClienteReceitaPersonalizadaModel['CLIENTE_FORMULARIO_FK'] = $FK;
+
+                $Registros_ClienteReceitaPersonalizadaModel['DESCRICAO'] = $this->request->getPost('RECEITA_PERSONALIZADA_DESCRICAO_'.$x);
+                $Registros_ClienteReceitaPersonalizadaModel['VALOR'] = $this->request->getPost('RECEITA_PERSONALIZADA_VALOR_'. $x);
+
+                $this->ClienteReceitaPersonalizadaModel->insert($Registros_ClienteReceitaPersonalizadaModel);
+
+                $Registros_ClienteReceitaPersonalizadaModel = [];
+        
+            }
+        }
+        //FIM DAS RECEITAS PERSONALIZADAS
+    }
+
     public function index()
     {
         return view('index.php');
@@ -152,6 +206,12 @@ class Home extends BaseController
             'RECEITA_RENDA_MENSAL_LIQUIDA'                              => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA_HIDDEN'),
             'RECEITA_APLICACOES_VALOR_TOTAL'                            => $this->request->getPost('RECEITA_APLICACOES_VALOR_TOTAL_HIDDEN'),
             'RECEITA_APLICACOES_ARQUIVO'                                => $filePathAplicacoes,
+            'RECEITA_PROLABORE'                                         => $this->request->getPost('RECEITA_PROLABORE_HIDDEN'),
+            'RECEITA_DIVIDENDOS'                                        => $this->request->getPost('RECEITA_DIVIDENDOS_HIDDEN'),
+            'RECEITA_ALUGUEL'                                           => $this->request->getPost('RECEITA_ALUGUEL_HIDDEN'),
+            'RECEITA_PARTICIPACAO_LUCROS'                               => $this->request->getPost('RECEITA_PARTICIPACAO_LUCROS_HIDDEN'),
+            'RECEITA_INSS'                                              => $this->request->getPost('RECEITA_INSS_HIDDEN'),
+            'RECEITA_PREVIDENCIA_PRIVADA'                               => $this->request->getPost('RECEITA_PREVIDENCIA_PRIVADA_HIDDEN'),
 
 
             'DESPESA_LUZ_MEDIA_MENSAL'                                  => $this->request->getPost('DESPESA_LUZ_MEDIA_MENSAL_HIDDEN'),
@@ -181,6 +241,9 @@ class Home extends BaseController
             'DESPESA_ESCOLA_MENSAL'                                     => $this->request->getPost('DESPESA_ESCOLA_MENSAL_HIDDEN'),
             'DESPESA_UNIVERSIDADE_MENSAL'                               => $this->request->getPost('DESPESA_UNIVERSIDADE_MENSAL_HIDDEN'),
             'DESPESA_CLUBE_MENSALIDADE'                                 => $this->request->getPost('DESPESA_CLUBE_MENSALIDADE_HIDDEN'),
+            'DESPESA_ACADEMIA'                                          => $this->request->getPost('DESPESA_ACADEMIA'),
+            'DESPESA_FAXINEIRO'                                         => $this->request->getPost('DESPESA_FAXINEIRO'),
+            'DESPESA_BELEZA'                                            => $this->request->getPost('DESPESA_BELEZA'),
             'DESPESA_PERSONALIZADA_FK'                                  => $this->request->getPost('DESPESA_PERSONALIZADA_FK_HIDDEN'),
 
             'DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR'            => $this->request->getPost('DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN'),
@@ -211,6 +274,8 @@ class Home extends BaseController
         $this->bens($FK);
         $this->protecao($FK);
         $this->despesas($FK);
+        $this->receitas($FK);
+        $this->divida($FK);
 
         //dd($Registros_ClienteFormularioModel, $Registros_ClienteDespesaPersonalizadaModel);
 
