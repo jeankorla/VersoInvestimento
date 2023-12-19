@@ -726,83 +726,6 @@
             
         </div>
 
-<<<<<<< HEAD
-=======
-        <div class="mb-5"></div>
-
-        <div id="titulo-dividas" style="display:none;">
-
-            <hr class="hr hr-blurry" />
-
-            <div class="mb-3">
-
-                <label class="TITULO">Dividas</label>
-
-            </div>
-
-        </div>
-
-        <div class="container-dividas">
-            <!-- não sei como fazer isso ainda -->
-            <?php foreach ($divida as $index => $divida): ?>
-
-                <?php if ($divida['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
-
-                    <div class="mb-3">
-
-                        <label><?php echo $divida['DESCRICAO'] ?></label>
-
-                        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" step="0.01" name="DIVIDA[<?= $divida['PK']; ?>]" value="<?php echo $divida['VALOR']; ?>">
-
-                        <input type="hidden" step="0.01"  name="CATEGORIA[<?= $divida['PK']; ?>]" class="categoriaInput" value="DIVIDA">
-
-
-
-                    </div>
-                <?php endif; ?>
-
-            <?php endforeach; ?>
-            
-        </div>
-
-        <div class="mb-5"></div>
-
-        <div id="titulo-receitas" style="display:none;">
-
-            <hr class="hr hr-blurry" />
-
-            <div class="mb-3">
-
-                <label class="TITULO">Receitas</label>
-
-            </div>
-
-        </div>
-
-        <div class="container-receitas">
-            <!-- não sei como fazer isso ainda -->
-            <?php foreach ($receita as $index => $receita): ?>
-
-                <?php if ($receita['CLIENTE_FORMULARIO_FK'] == $formulario['PK']): ?>
-
-                    <div class="mb-3">
-
-                        <label><?php echo $receita['DESCRICAO'] ?></label>
-
-                        <input type="text" class="formatCurrency" oninput="formatCurrency(this)" step="0.01" name="RECEITA[<?= $receita['PK']; ?>]" value="<?php echo $receita['VALOR']; ?>">
-
-                        <input type="hidden" step="0.01"  name="CATEGORIA[<?= $receita['PK']; ?>]" class="categoriaInput" value="RECEITA">
-
-
-
-                    </div>
-                <?php endif; ?>
-
-            <?php endforeach; ?>
-            
-        </div>
-
->>>>>>> rodrigo
         <hr class="hr hr-blurry" />
 
         <button type="submit" name="update_button" class="btn btn-warning" style="margin-top: 30px"
@@ -975,20 +898,6 @@
             console.log("Seguros detectados.");
             $('#titulo-seguros').show();
         }
-<<<<<<< HEAD
-=======
-
-        if ($('.container-dividas .mb-3').length > 0) {
-            console.log("Dividas detectados.");
-            $('#titulo-dividas').show();
-        }
-
-        if ($('.container-receitas .mb-3').length > 0) {
-            console.log("Receitas detectados.");
-            $('#titulo-receitas').show();
-        }
-
->>>>>>> rodrigo
     });
 
 
