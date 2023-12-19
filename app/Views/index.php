@@ -66,9 +66,6 @@
 
                     <li class="nav-item">
 
-<<<<<<< HEAD
-                        <a class="nav-link active" href="https://investplanner.org/formulario/index.php">Home</a>
-=======
                         <a class="nav-link active" href="/home">Home</a>
 
                     </li>
@@ -76,7 +73,6 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="/Autenticacao">Login</a>
->>>>>>> rodrigo
 
                     </li>
 
@@ -258,8 +254,6 @@
 
             </div>
 
-<<<<<<< HEAD
-=======
             <div class="mb-3">
 
                 <label for="RECEITA_PROLABORE">Pró-labore:</label>
@@ -352,7 +346,6 @@
 
             </div>
 
->>>>>>> rodrigo
         </div>
 
         <!-- step three -->
@@ -915,8 +908,6 @@
 
             </div>
 
-<<<<<<< HEAD
-=======
             <p class="mb-4">Dividas Personalizadas</p>
 
             <div class="mb-3">
@@ -931,7 +922,6 @@
 
             </div>
 
->>>>>>> rodrigo
         </div>
 
         <!-- BENS -->
@@ -1111,11 +1101,7 @@
 
             </div>
 
-<<<<<<< HEAD
-            <p class="mb-4">Bems Personalizados</p>
-=======
             <p class="mb-4">Bens Personalizados</p>
->>>>>>> rodrigo
 
             <div class="mb-3">
 
@@ -1142,11 +1128,7 @@
 
             <div class="mb-3" id="PROTECAO_APOLICE_SEGURO_ARQUIVO-DIV">
 
-<<<<<<< HEAD
-                <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice do seu seguro de vida</label><br>
-=======
                 <label for="PROTECAO_APOLICE_SEGURO_ARQUIVO">Anexar apólice de seguro</label><br>
->>>>>>> rodrigo
 
                 <input type="file" id="PROTECAO_APOLICE_SEGURO_ARQUIVO" name="PROTECAO_APOLICE_SEGURO_ARQUIVO">
 
@@ -1246,13 +1228,10 @@
             name="BEMS_PERSONALIZADA_QUANTIDADE_LINHAS">
         <input type="hidden" id="PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS"
         name="PROTECAO_PERSONALIZADA_QUANTIDADE_LINHAS">
-<<<<<<< HEAD
-=======
         <input type="hidden" id="RECEITA_PERSONALIZADA_QUANTIDADE_LINHAS"
             name="RECEITA_PERSONALIZADA_QUANTIDADE_LINHAS">
         <input type="hidden" id="DIVIDA_PERSONALIZADA_QUANTIDADE_LINHAS"
             name="DIVIDA_PERSONALIZADA_QUANTIDADE_LINHAS">
->>>>>>> rodrigo
     
     </form>
 </body>
@@ -1540,11 +1519,7 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
 
     // Atualiza o campo oculto associado com o valor numérico
     var hiddenField = inputField.nextElementSibling;
-<<<<<<< HEAD
-    hiddenField.value = numericalValue;
-=======
     hiddenField.value = numericalValue/100;
->>>>>>> rodrigo
 
     // Aqui você pode continuar a lógica de atualizar a máscara no inputField, se necessário.
     // Por exemplo, convertendo 1000 para R$ 10,00
@@ -1552,8 +1527,6 @@ document.getElementById('nextBtn').addEventListener('click', function(event) {
     inputField.value = formattedValue;
 }
 
-<<<<<<< HEAD
-=======
 document.addEventListener("DOMContentLoaded", function () {
     var customDebtContainer = document.getElementById("customDebt");
     var addDebtButton = document.getElementById("addDebt");
@@ -1645,7 +1618,6 @@ document.addEventListener("DOMContentLoaded", function () {
         customRecipeContainer.appendChild(recipeDiv);
     });
 });
->>>>>>> rodrigo
 
     
     //INICIO DA SECAO DAS DESPESAS ADICIONAIS
