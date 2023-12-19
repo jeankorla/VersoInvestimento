@@ -401,7 +401,7 @@ class Autenticacao extends BaseController
     }
 
     // Construa o caminho absoluto
-    $filePath = WRITEPATH . $formulario['RECEITA_APLICACOES_ARQUIVO'];
+    $filePath =  $formulario['RECEITA_APLICACOES_ARQUIVO'];
 
     // Verifica se o arquivo existe
     if (file_exists($filePath)) {
@@ -427,7 +427,7 @@ class Autenticacao extends BaseController
         }
 
         // Construa o caminho absoluto
-        $filePath = WRITEPATH . $formulario['PROTECAO_APOLICE_SEGURO_ARQUIVO'];
+        $filePath =  $formulario['PROTECAO_APOLICE_SEGURO_ARQUIVO'];
 
         // Verifica se o arquivo existe
         if (file_exists($filePath)) {
@@ -453,7 +453,7 @@ class Autenticacao extends BaseController
         }
     
         // Construa o caminho absoluto
-        $filePath = WRITEPATH . $formulario['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'];
+        $filePath =  $formulario['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'];
     
         // Verifica se o arquivo existe
         if (file_exists($filePath)) {

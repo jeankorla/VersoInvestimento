@@ -168,7 +168,7 @@ class Home extends BaseController
         if (!empty($receitaAplicacoesArquivo) &&  $receitaAplicacoesArquivo->isValid() && !$receitaAplicacoesArquivo->hasMoved())
         {
             $newName = $receitaAplicacoesArquivo->getRandomName();
-            $receitaAplicacoesArquivo->move(WRITEPATH . 'uploads', $newName);
+            $receitaAplicacoesArquivo->move('../formulario/public_html/formulario/uploads' . 'uploads', $newName);
     
             $filePathAplicacoes = $arqPath . $newName;
             $Registros_ClienteFormularioModel['RECEITA_APLICACOES_ARQUIVO'] = $filePathAplicacoes;
@@ -177,7 +177,7 @@ class Home extends BaseController
         if (!empty($apoliceSeguroArquivo) && $apoliceSeguroArquivo->isValid() && !$apoliceSeguroArquivo->hasMoved())
         {
             $newName = $apoliceSeguroArquivo->getRandomName();
-            $apoliceSeguroArquivo->move(WRITEPATH . 'uploads', $newName);
+            $apoliceSeguroArquivo->move('../formulario/public_html/formulario/uploads' . 'uploads', $newName);
     
             $filePathSeguro = $arqPath . $newName;
             $Registros_ClienteFormularioModel['PROTECAO_APOLICE_SEGURO_ARQUIVO'] = $filePathSeguro;
@@ -186,7 +186,7 @@ class Home extends BaseController
         if (!empty($previdenciaExtratoArquivo) && $previdenciaExtratoArquivo->isValid() && !$previdenciaExtratoArquivo->hasMoved())
         {
             $newName = $previdenciaExtratoArquivo->getRandomName();
-            $previdenciaExtratoArquivo->move(WRITEPATH . 'uploads', $newName);
+            $previdenciaExtratoArquivo->move('../formulario/public_html/formulario/uploads' . 'uploads', $newName);
     
             $filePathPrevidencia = $arqPath . $newName;
             $Registros_ClienteFormularioModel['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'] = $filePathPrevidencia;
