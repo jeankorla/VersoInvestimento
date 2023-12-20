@@ -412,7 +412,6 @@ class Autenticacao extends BaseController
     // Exibe uma mensagem de alerta em JavaScript e depois redireciona
     echo "<script>
             alert('Arquivo não encontrado');
-            window.location.href = '/'; // Redireciona para a página inicial ou outra página de sua escolha
           </script>";
 }
 }
@@ -441,7 +440,6 @@ class Autenticacao extends BaseController
     // Exibe uma mensagem de alerta em JavaScript e depois redireciona
     echo "<script>
             alert('Arquivo não encontrado');
-            window.location.href = '/'; // Redireciona para a página inicial ou outra página de sua escolha
           </script>";
 }
     }
@@ -470,7 +468,6 @@ class Autenticacao extends BaseController
     // Exibe uma mensagem de alerta em JavaScript e depois redireciona
     echo "<script>
             alert('Arquivo não encontrado');
-            window.location.href = '/'; // Redireciona para a página inicial ou outra página de sua escolha
           </script>";
 }
     }
