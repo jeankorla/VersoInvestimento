@@ -408,13 +408,13 @@ class Autenticacao extends BaseController
     if (file_exists($filePath)) {
         // Força o download do arquivo
         return $this->response->download($filePath, null);
-    } else {
-        // Exibe uma mensagem de alerta em JavaScript e depois redireciona
-        echo "<script>
-                alert('Arquivo não encontrado');
-                window.location.href = '/'; // Redireciona para a página inicial ou outra página de sua escolha
-            </script>";
-    }
+   } else {
+    // Exibe uma mensagem de alerta em JavaScript e depois redireciona
+    echo "<script>
+            alert('Arquivo não encontrado');
+            window.location.href = '/'; // Redireciona para a página inicial ou outra página de sua escolha
+          </script>";
+}
 }
     
     public function downloadApolice($pk = null)
@@ -437,10 +437,13 @@ class Autenticacao extends BaseController
         if (file_exists($filePath)) {
             // Força o download do arquivo
             return $this->response->download($filePath, null);
-        } else {
-            // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
-            return redirect()->to('/erro');
-        }
+         } else {
+    // Exibe uma mensagem de alerta em JavaScript e depois redireciona
+    echo "<script>
+            alert('Arquivo não encontrado');
+            window.location.href = '/'; // Redireciona para a página inicial ou outra página de sua escolha
+          </script>";
+}
     }
     
     public function downloadPrevidencia($pk = null)
@@ -464,9 +467,12 @@ class Autenticacao extends BaseController
             // Força o download do arquivo
             return $this->response->download($filePath, null);
         } else {
-            // Exibe uma mensagem de erro ou redireciona se o arquivo não existir
-            return redirect()->to('/erro');
-        }
+    // Exibe uma mensagem de alerta em JavaScript e depois redireciona
+    echo "<script>
+            alert('Arquivo não encontrado');
+            window.location.href = '/'; // Redireciona para a página inicial ou outra página de sua escolha
+          </script>";
+}
     }
     
 }
