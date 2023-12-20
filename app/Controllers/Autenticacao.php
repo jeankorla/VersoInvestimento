@@ -253,6 +253,7 @@ class Autenticacao extends BaseController
             'SOBRE_NOME'                                        => $this->request->getPost('SOBRE_NOME'),
             'SOBRE_NOME_SOBRENOME'                              => $this->request->getPost('SOBRE_NOME_SOBRENOME'),
             'SOBRE_PROFISSAO'                                   => $this->request->getPost('SOBRE_PROFISSAO'),
+            'SOBRE_ESTADO_CIVIL_DETALHE'                        => $this->request->getPost('SOBRE_ESTADO_CIVIL_DETALHE'),
 
             'RECEITA_RENDA_MENSAL_LIQUIDA'                      => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA'),
             'RECEITA_APLICACOES_VALOR_TOTAL'                    => $this->request->getPost('RECEITA_APLICACOES_VALOR_TOTAL'),

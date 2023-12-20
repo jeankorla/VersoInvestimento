@@ -357,7 +357,7 @@
 
                 <label for="DESPESA_LUZ_MEDIA_MENSAL">Conta de luz - Inserir média mensal</label>
 
-                <input type="text" class="required" id="DESPESA_LUZ_MEDIA_MENSAL" name="DESPESA_LUZ_MEDIA_MENSAL"
+                <input type="text" id="DESPESA_LUZ_MEDIA_MENSAL" name="DESPESA_LUZ_MEDIA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- hidden input -->
@@ -369,7 +369,7 @@
 
                 <label for="DESPESA_AGUA_MEDIA_MENSAL">Conta de água - Inserir média mensal</label>
 
-                <input type="text" class="required" id="DESPESA_AGUA_MEDIA_MENSAL" name="DESPESA_AGUA_MEDIA_MENSAL"
+                <input type="text" id="DESPESA_AGUA_MEDIA_MENSAL" name="DESPESA_AGUA_MEDIA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- hidden input -->
@@ -381,7 +381,7 @@
 
                 <label for="DESPESA_GAS_MEDIA_MENSAL">Conta de gás - Inserir média mensal</label>
 
-                <input type="text" class="required" id="DESPESA_GAS_MEDIA_MENSAL" name="DESPESA_GAS_MEDIA_MENSAL"
+                <input type="text" id="DESPESA_GAS_MEDIA_MENSAL" name="DESPESA_GAS_MEDIA_MENSAL"
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- hidden input -->
@@ -495,7 +495,7 @@
 
                 <label for="DESPESA_EMPRESTIMO_OPCAO">Possui contrato de Emprestimo ?</label>
 
-                <select name="DESPESA_EMPRESTIMO_OPCAO" id="DESPESA_EMPRESTIMO_OPCAO-DIV" class="form-control required">
+                <select name="DESPESA_EMPRESTIMO_OPCAO" id="DESPESA_EMPRESTIMO_OPCAO-DIV" class="form-control ">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -519,7 +519,7 @@
                 <label for="DESPESA_INTERNET_TELEVISAO">Valor da conta de internet + televisão</label>
 
                 <input type="text" id="DESPESA_INTERNET_TELEVISAO" name="DESPESA_INTERNET_TELEVISAO"
-                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" class="required">
+                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" >
 
                 <!-- input hidden -->
                 <input type="hidden" name="DESPESA_INTERNET_TELEVISAO_HIDDEN" id="DESPESA_INTERNET_TELEVISAO_HIDDEN">
@@ -543,7 +543,7 @@
                 <label for="DESPESA_MEDIA_MERCADO">Média dos gastos em supermercados</label>
 
                 <input type="text" id="DESPESA_MEDIA_MERCADO" name="DESPESA_MEDIA_MERCADO"
-                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" class="required">
+                    oninput="handleCurrencyInput(this)" placeholder="R$ 0,00" >
 
                 <!-- input hidden -->
                 <input type="hidden" name="DESPESA_MEDIA_MERCADO_HIDDEN" id="DESPESA_MEDIA_MERCADO_HIDDEN">
@@ -567,7 +567,7 @@
 
                 <label for="DESPESA_PLANO_OPCAO">Possui plano de saude ?</label>
 
-                <select name="DESPESA_PLANO_OPCAO" id="DESPESA_PLANO_OPCAO-DIV" class="form-control required">
+                <select name="DESPESA_PLANO_OPCAO" id="DESPESA_PLANO_OPCAO-DIV" class="form-control ">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -605,7 +605,7 @@
                 <label for="DESPESA_LAZER">Gastos com lazer</label>
 
                 <input type="text" id="DESPESA_LAZER" name="DESPESA_LAZER" oninput="handleCurrencyInput(this)"
-                    placeholder="R$ 0,00" class="required">
+                    placeholder="R$ 0,00" class="">
 
                 <!-- input hidden -->
                 <input type="hidden" name="DESPESA_LAZER_HIDDEN" id="DESPESA_LAZER_HIDDEN">
@@ -641,7 +641,7 @@
 
                 <label for="DESPESA_ALUGUEL_CARROS">Usa veículos alugados ?</label>
 
-                <select name="DESPESA_ALUGUEL_CARROS" id="DESPESA_ALUGUEL_CARROS-DIV" class="form-control required">
+                <select name="DESPESA_ALUGUEL_CARROS" id="DESPESA_ALUGUEL_CARROS-DIV" class="form-control ">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -671,7 +671,8 @@
                     oninput="handleCurrencyInput(this)" placeholder="R$ 0,00">
 
                 <!-- input hidden -->
-                <input type="hidden" name="DESPESA_VEICULO_SEGURO_HIDDEN" id="DESPESA_VEICULO_SEGURO_HIDDEN">
+                <input type="hidden" name="DESPESA_VEICULO_SEGURO_HIDDEN"
+                     id="DESPESA_VEICULO_SEGURO_HIDDEN">
 
             </div>
 
@@ -681,7 +682,7 @@
                 <label for="DESPESA_SEGURO_VIDA_OPCAO">Tem seguro de vida ?</label>
 
                 <select name="DESPESA_SEGURO_VIDA_OPCAO" id="DESPESA_SEGURO_VIDA_OPCAO-DIV"
-                    class="form-control required">
+                    class="form-control ">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -708,7 +709,7 @@
 
                 <label for="DESPESA_CONDOMINIO_OPCAO">Mora em Condominio ?</label>
 
-                <select name="DESPESA_CONDOMINIO_OPCAO" id="DESPESA_CONDOMINIO_OPCAO-DIV" class="form-control required">
+                <select name="DESPESA_CONDOMINIO_OPCAO" id="DESPESA_CONDOMINIO_OPCAO-DIV" class="form-control ">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -808,7 +809,7 @@
 
                 <label for="DESPESA_CLUBE_OPCAO">Freequenta algum clube?</label>
 
-                <select name="DESPESA_CLUBE_OPCAO" id="DESPESA_CLUBE_OPCAO-DIV" class="form-control required">
+                <select name="DESPESA_CLUBE_OPCAO" id="DESPESA_CLUBE_OPCAO-DIV" class="form-control ">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -946,7 +947,7 @@
                 <label for="BENS_IMOVEIS_ALUGADOS_VERANEIO">Possui casa de veraneio ou alugadas ?</label>
 
                 <select name="BENS_IMOVEIS_ALUGADOS_VERANEIO" id="BENS_IMOVEIS_ALUGADOS_VERANEIO-DIV"
-                    class="form-control required">
+                    class="form-control ">
                     <option value="Não">Não</option>
                     <option value="VERA">Veraneio</option>
                     <option value="ALU">Alugadas</option>
@@ -1011,7 +1012,7 @@
 
             <label for="RECEITA_APLICACAO_OPCAO">Possui alguma aplicação ?</label>
 
-            <select id="RECEITA_APLICACAO_OPCAO-DIV" class="form-control required">
+            <select id="RECEITA_APLICACAO_OPCAO-DIV" class="form-control ">
                 <option value="NAO">Não</option>
                 <option value="SIM">Sim</option>
             </select>
@@ -1045,7 +1046,7 @@
                 <label for="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV">Possui previdência privada ?</label>
 
                 <select name="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV" id="PROTECAO_PREVIDENCIA_PRIVADA_OPCAO-DIV"
-                    class="form-control required">
+                    class="form-control ">
                     <option value="NAO">Não</option>
                     <option value="SIM">Sim</option>
                 </select>
@@ -1167,7 +1168,7 @@
                     name="OBJETIVO_RENDA_MENSAL" id="OBJETIVO_RENDA_MENSAL">
 
                 <!-- input hidden -->
-                <input type="hidden" name="OJETIVO_RENDA_MENSAL_HIDDEN" id="OBJETIVO_RENDA_MENSAL_HIDDEN">
+                <input type="hidden" name="OBJETIVO_RENDA_MENSAL_HIDDEN" id="OBJETIVO_RENDA_MENSAL_HIDDEN">
 
             </div>
 
@@ -1185,7 +1186,7 @@
                 <p>Além da aposentadoria, você possui algum outro objetivo/sonho que requer uma meta de acúmulo
                     financeiro?</p>
 
-                <select name="OBJETIVO_ANO_REALIZACAO_OP" id="OBJETIVO_ANO_REALIZACAO_OP" class="form-control required">
+                <select name="OBJETIVO_ANO_REALIZACAO_OP" id="OBJETIVO_ANO_REALIZACAO_OP" class="form-control ">
                     <option value="Não">Não</option>
                     <option value="SIM">Sim</option>
                 </select>

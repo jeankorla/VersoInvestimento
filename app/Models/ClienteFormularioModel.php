@@ -62,6 +62,9 @@ class ClienteFormularioModel extends Model
         'DESPESA_UNIVERSIDADE_MENSAL',
         'DESPESA_CLUBE_MENSALIDADE',
         'DESPESA_PERSONALIZADA_FK',
+        'DESPESA_ACADEMIA',
+        'DESPESA_FAXINEIRO',
+        'DESPESA_BELEZA',
         
         'BEM_FK',
 
