@@ -168,7 +168,7 @@ class Home extends BaseController
         if (!empty($receitaAplicacoesArquivo) &&  $receitaAplicacoesArquivo->isValid() && !$receitaAplicacoesArquivo->hasMoved())
         {
             $newName = $receitaAplicacoesArquivo->getRandomName();
-            $receitaAplicacoesArquivo->move(WRITEPATH . 'uploads', $newName);
+            $receitaAplicacoesArquivo->move('../formulario/public_html/formulario/uploads' . 'uploads', $newName);
     
             $filePathAplicacoes = $arqPath . $newName;
             $Registros_ClienteFormularioModel['RECEITA_APLICACOES_ARQUIVO'] = $filePathAplicacoes;
@@ -177,7 +177,7 @@ class Home extends BaseController
         if (!empty($apoliceSeguroArquivo) && $apoliceSeguroArquivo->isValid() && !$apoliceSeguroArquivo->hasMoved())
         {
             $newName = $apoliceSeguroArquivo->getRandomName();
-            $apoliceSeguroArquivo->move(WRITEPATH . 'uploads', $newName);
+            $apoliceSeguroArquivo->move('../formulario/public_html/formulario/uploads' . 'uploads', $newName);
     
             $filePathSeguro = $arqPath . $newName;
             $Registros_ClienteFormularioModel['PROTECAO_APOLICE_SEGURO_ARQUIVO'] = $filePathSeguro;
@@ -186,7 +186,7 @@ class Home extends BaseController
         if (!empty($previdenciaExtratoArquivo) && $previdenciaExtratoArquivo->isValid() && !$previdenciaExtratoArquivo->hasMoved())
         {
             $newName = $previdenciaExtratoArquivo->getRandomName();
-            $previdenciaExtratoArquivo->move(WRITEPATH . 'uploads', $newName);
+            $previdenciaExtratoArquivo->move('../formulario/public_html/formulario/uploads' . 'uploads', $newName);
     
             $filePathPrevidencia = $arqPath . $newName;
             $Registros_ClienteFormularioModel['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'] = $filePathPrevidencia;
@@ -241,9 +241,9 @@ class Home extends BaseController
             'DESPESA_ESCOLA_MENSAL'                                     => $this->request->getPost('DESPESA_ESCOLA_MENSAL_HIDDEN'),
             'DESPESA_UNIVERSIDADE_MENSAL'                               => $this->request->getPost('DESPESA_UNIVERSIDADE_MENSAL_HIDDEN'),
             'DESPESA_CLUBE_MENSALIDADE'                                 => $this->request->getPost('DESPESA_CLUBE_MENSALIDADE_HIDDEN'),
-            'DESPESA_ACADEMIA'                                          => $this->request->getPost('DESPESA_ACADEMIA'),
-            'DESPESA_FAXINEIRO'                                         => $this->request->getPost('DESPESA_FAXINEIRO'),
-            'DESPESA_BELEZA'                                            => $this->request->getPost('DESPESA_BELEZA'),
+            'DESPESA_ACADEMIA'                                          => $this->request->getPost('DESPESA_ACADEMIA_HIDDEN'),
+            'DESPESA_FAXINEIRO'                                         => $this->request->getPost('DESPESA_FAXINEIRO_HIDDEN'),
+            'DESPESA_BELEZA'                                            => $this->request->getPost('DESPESA_BELEZA_HIDDEN'),
             'DESPESA_PERSONALIZADA_FK'                                  => $this->request->getPost('DESPESA_PERSONALIZADA_FK_HIDDEN'),
 
             'DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR'            => $this->request->getPost('DIVIDA_FINANCIAMENTO_RESIDENCIAL_SALDO_DEVEDOR_HIDDEN'),
@@ -252,6 +252,11 @@ class Home extends BaseController
             'DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR'                        => $this->request->getPost('DIVIDA_CARTAO_FATURA_SALDO_DEVEDOR_HIDDEN'),
 
             'BEM_FK'                                                    => $this->request->getPost('BEM_FK_HIDDEN'),
+            'BENS_VALOR_MERCADO_IMOVEL'                                 => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL_HIDDEN'),
+            'BENS_VALOR_MERCADO_IMOVEL_VERAO'                           => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL_VERAO_HIDDEN'),
+            'BENS_VALOR_MERCADO_IMOVEL_ALUGADO'                         => $this->request->getPost('BENS_VALOR_MERCADO_IMOVEL_ALUGADO_HIDDEN'),
+            'BENS_VALOR_MERCADO_VEICULOS'                               => $this->request->getPost('BENS_VALOR_MERCADO_VEICULOS_HIDDEN'),
+            'BENS_VALOR_MERCADO_EMPRESAS'                               => $this->request->getPost('BENS_VALOR_MERCADO_EMPRESAS_HIDDEN'),
 
             'PROTECAO_APOLICE_SEGURO_ARQUIVO'                           => $filePathSeguro,
             'PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'                      => $filePathPrevidencia,

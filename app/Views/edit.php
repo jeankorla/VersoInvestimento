@@ -160,7 +160,7 @@
 
         <div class="mb-3">
 
-            <label>Profissão</label>
+            <label>Estado Civil:</label>
             <input type="text" name="SOBRE_ESTADO_CIVIL_DETALHE" id="SOBRE_ESTADO_CIVIL_DETALHE"
                 value="<?php echo $formulario['SOBRE_ESTADO_CIVIL_DETALHE']?>">
 
@@ -533,7 +533,7 @@
 
         <div class="mb-3">
 
-        <label>Imnoveis alugados - Valor de mercado</label>
+        <label>Imoveis alugados - Valor de mercado</label>
         <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" id="BENS_VALOR_MERCADO_IMOVEL_ALUGADO" step="0.01"
                 value="<?php echo $formulario['BENS_VALOR_MERCADO_IMOVEL_ALUGADO']; ?>">
 
@@ -592,7 +592,7 @@
         <div class="mb-3">
 
             <label>Idade pretendida para aposentadoria</label>
-            <input type="text" class="formatCurrency" oninput="formatCurrency(this)" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA" step="0.01"
+            <input type="text" oninput="formatCurrency(this)" name="OBJETIVO_IDADE_PRETENDIDA" id="OBJETIVO_IDADE_PRETENDIDA" step="0.01"
                 value="<?php echo $formulario['OBJETIVO_IDADE_PRETENDIDA']; ?>">
 
         </div>
@@ -602,7 +602,7 @@
             <p>Além da aposentadoria, você possui algum outro objetivo/sonho que requer uma meta de acúmulo
                         financeiro?</p>
             <label>Ano de realização:</label>
-            <input type="text" class="formatCurrency" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO"
+            <input type="text" name="OBJETIVO_ANO_REALIZACAO" id="OBJETIVO_ANO_REALIZACAO"
                 value="<?php echo $formulario['OBJETIVO_ANO_REALIZACAO']; ?>">
 
         </div>

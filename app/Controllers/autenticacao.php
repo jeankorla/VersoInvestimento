@@ -253,6 +253,7 @@ class Autenticacao extends BaseController
             'SOBRE_NOME'                                        => $this->request->getPost('SOBRE_NOME'),
             'SOBRE_NOME_SOBRENOME'                              => $this->request->getPost('SOBRE_NOME_SOBRENOME'),
             'SOBRE_PROFISSAO'                                   => $this->request->getPost('SOBRE_PROFISSAO'),
+            'SOBRE_ESTADO_CIVIL_DETALHE'                        => $this->request->getPost('SOBRE_ESTADO_CIVIL_DETALHE'),
 
             'RECEITA_RENDA_MENSAL_LIQUIDA'                      => $this->request->getPost('RECEITA_RENDA_MENSAL_LIQUIDA'),
             'RECEITA_APLICACOES_VALOR_TOTAL'                    => $this->request->getPost('RECEITA_APLICACOES_VALOR_TOTAL'),
@@ -401,7 +402,7 @@ class Autenticacao extends BaseController
     }
 
     // Construa o caminho absoluto
-    $filePath = WRITEPATH . $formulario['RECEITA_APLICACOES_ARQUIVO'];
+    $filePath =  $formulario['RECEITA_APLICACOES_ARQUIVO'];
 
     // Verifica se o arquivo existe
     if (file_exists($filePath)) {
@@ -427,7 +428,7 @@ class Autenticacao extends BaseController
         }
 
         // Construa o caminho absoluto
-        $filePath = WRITEPATH . $formulario['PROTECAO_APOLICE_SEGURO_ARQUIVO'];
+        $filePath =  $formulario['PROTECAO_APOLICE_SEGURO_ARQUIVO'];
 
         // Verifica se o arquivo existe
         if (file_exists($filePath)) {
@@ -453,7 +454,7 @@ class Autenticacao extends BaseController
         }
     
         // Construa o caminho absoluto
-        $filePath = WRITEPATH . $formulario['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'];
+        $filePath =  $formulario['PROTECAO_PREVIDENCIA_EXTRATO_ARQUIVO'];
     
         // Verifica se o arquivo existe
         if (file_exists($filePath)) {

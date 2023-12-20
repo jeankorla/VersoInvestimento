@@ -2,16 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\ClienteModel;
-use CodeIgniter\Controller;
-
+use App\Models\ClienteFormularioModel;
 class Home extends BaseController
 {
     private $ClienteModel;
 
     public function __construct()
     {
-        $this->ClienteModel = new ClienteModel();
+        $this->ClienteModel = new ClienteFormularioModel();
     }
 
     public function index()
