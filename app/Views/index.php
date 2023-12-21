@@ -149,7 +149,7 @@
 
                 <label for="SOBRE_EMAIL">E-mail:</label>
 
-                <input type="email" placeholder="Inserir seu E-mail" oninput="validateEmail(this)" name="SOBRE_EMAIL" id="SOBRE_EMAIL"
+                <input type="email" placeholder="Inserir seu E-mail" oninput="" name="SOBRE_EMAIL" id="SOBRE_EMAIL"
                     class="required" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
 
             </div>
