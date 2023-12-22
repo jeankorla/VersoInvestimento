@@ -168,7 +168,7 @@ class Home extends BaseController
         if (!empty($receitaAplicacoesArquivo) &&  $receitaAplicacoesArquivo->isValid() && !$receitaAplicacoesArquivo->hasMoved())
         {
             $newName = $receitaAplicacoesArquivo->getRandomName();
-            $receitaAplicacoesArquivo->move('../formulario/public_html/formulario/uploads' . 'uploads', $newName);
+            $receitaAplicacoesArquivo->move('../formulario/public_html/formulario/uploads', $newName);
     
             $filePathAplicacoes = $arqPath . $newName;
             $Registros_ClienteFormularioModel['RECEITA_APLICACOES_ARQUIVO'] = $filePathAplicacoes;
@@ -234,7 +234,7 @@ class Home extends BaseController
             'DESPESA_COMBUSTIVEL'                                       => $this->request->getPost('DESPESA_COMBUSTIVEL_HIDDEN'),
             'DESPESA_CARTAO_FATURA'                                     => $this->request->getPost('DESPESA_CARTAO_FATURA_HIDDEN'),
             'DESPESA_VEICULO_ALUGADO_MENSALIDADE'                       => $this->request->getPost('DESPESA_VEICULO_ALUGADO_MENSALIDADE_HIDDEN'),
-            'DESPESA_VEICULO_SEGURO'                                    => $this->request->getPost('DESPESA_VEICULO_ALUGADO_SEGURO_HIDDEN'),
+            'DESPESA_VEICULO_SEGURO'                                    => $this->request->getPost('DESPESA_VEICULO_SEGURO_HIDDEN'),
             'DESPESA_SEGURO_VIDA_MENSAL'                                => $this->request->getPost('DESPESA_SEGURO_VIDA_MENSAL_HIDDEN'),
             'DESPESA_CONDOMINIO_MENSAL'                                 => $this->request->getPost('DESPESA_CONDOMINIO_MENSAL_HIDDEN'),
             'DESPESA_CONTRIBUICAO_SINDICAL'                             => $this->request->getPost('DESPESA_CONTRIBUICAO_SINDICAL_HIDDEN'),
