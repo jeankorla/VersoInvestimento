@@ -408,7 +408,7 @@ class Autenticacao extends BaseController
     if (file_exists($filePath)) {
         // Força o download do arquivo
         return $this->response->download($filePath, null);
-   } else {
+    } else {
     // Exibe uma mensagem de alerta em JavaScript e depois redireciona
     echo "<script>
             alert('Arquivo não encontrado');
@@ -436,12 +436,11 @@ class Autenticacao extends BaseController
         if (file_exists($filePath)) {
             // Força o download do arquivo
             return $this->response->download($filePath, null);
-         } else {
-    // Exibe uma mensagem de alerta em JavaScript e depois redireciona
-    echo "<script>
-            alert('Arquivo não encontrado');
-          </script>";
-}
+        } else {
+                echo    "<script>
+                    alert('Arquivo não encontrado');
+                 </script>";
+        }
     }
     
     public function downloadPrevidencia($pk = null)
@@ -465,10 +464,9 @@ class Autenticacao extends BaseController
             // Força o download do arquivo
             return $this->response->download($filePath, null);
         } else {
-    // Exibe uma mensagem de alerta em JavaScript e depois redireciona
-    echo "<script>
-            alert('Arquivo não encontrado');
-          </script>";
+            echo "<script>
+                alert('Arquivo não encontrado');
+            </script>";
 }
     }
     
